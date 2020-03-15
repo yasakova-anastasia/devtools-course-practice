@@ -1,4 +1,4 @@
-# Спецкурс "Инструменты разработки"
+# Спецкурс "Инструменты разработки ПО"
 
 [![Join the chat at https://gitter.im/devtools-course-practice-2020/community](https://badges.gitter.im/devtools-course-practice-2020/community.svg)](https://gitter.im/devtools-course-practice-2020/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![HTML][html-badge]][html]
