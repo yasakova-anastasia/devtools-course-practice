@@ -1,5 +1,7 @@
 # Установка инструментов
+
 ## Windows
+
 ### Visual Studio 2017
 
 1. Скачайте и установите [Visual Studio](https://visualstudio.microsoft.com/ru/).
@@ -23,6 +25,7 @@
     ```
 
 ### Winsows Subsystem for Linux
+
 На Windows 10 есть возможность получить окружение, близкое к Linux.
 1. Включите Windows Subsystem for Linux.
    [Инструкция](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
@@ -32,6 +35,7 @@
 1. Следуйте инструкциям для Ubuntu
 
 ## Ubuntu
+
 1. Запустите терминал и выполните команду
    ```
    sudo apt-get update
@@ -50,6 +54,7 @@
    ```
 
 ## macOS
+
 1. Откройте Terminal.app
 1. Установите инструменты командной строки XCode
    ```
