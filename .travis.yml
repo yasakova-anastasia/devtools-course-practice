@@ -16,7 +16,7 @@ env:
   global:
     - CTEST_EXT_COLOR_OUTPUT=TRUE
     - CTEST_BUILD_FLAGS=-j4
-    - CTEST_WITH_SUBMIT=TRUE
+    - CTEST_WITH_SUBMIT=FALSE
 
 matrix:
   include:
@@ -43,7 +43,7 @@ script:
   - ctest -VV -S devtools_test.cmake
 
 after_success:
-  # Push coverage info on codecov.io
+  # Push coverage info to codecov.io
   - if [ "${CTEST_MODEL}" == "Coverage" ]; then
         $HOME/codecov -p dashboard/build;
     fi
