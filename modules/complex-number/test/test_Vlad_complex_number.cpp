@@ -36,7 +36,7 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Division_complex_number) {
     EXPECT_EQ(z1/z, z2);
 }
 
-TEST(Devlikamov_Vlad_ComplexNumberTest, Multiply_complex_number) {
+TEST(Devlikamov_Vlad_ComplexNumberTest, Multiply_complex_number_and_zero) {
     // Arrange
     double re = 2.0;
     double im = 4.0;
@@ -47,4 +47,17 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Multiply_complex_number) {
 
     // Assert
     EXPECT_EQ(z*z1, z1);
+}
+
+TEST(Devlikamov_Vlad_ComplexNumberTest, Multiply_complex_number_and_one) {
+    // Arrange
+    double re = 2.0;
+    double im = 4.0;
+
+    // Act
+    ComplexNumber z(re, im);
+    ComplexNumber z1(1, 0);
+
+    // Assert
+    EXPECT_EQ(z*z1, z);
 }
