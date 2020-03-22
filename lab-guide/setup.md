@@ -10,8 +10,7 @@
    ![vs1](pics/vs1.png)
    ![vs2](pics/vs2.png)
 1. Скачайте и установите [Git](https://git-scm.com)
-1. После установки в меню Пуск появится пункт Командная строка Native Tools x64
-   для VS 2017.
+1. После установки в меню Пуск появится пункт Командная строка Native Tools x64 для VS 2017.
    ![cmd](pics/cmd.png)
 1. Склонируйте репозиторий и перейдите в него
    ```
@@ -20,13 +19,14 @@
    cd devtools-course-practice
    ```
 1. Запустите тесты
-    ```
-    ctest -VV -S devtools_test.cmake
-    ```
+   ```
+   ctest -VV -S devtools_test.cmake
+   ```
 
-### Winsows Subsystem for Linux
+### Windows Subsystem for Linux
 
 На Windows 10 есть возможность получить окружение, близкое к Linux.
+
 1. Включите Windows Subsystem for Linux.
    [Инструкция](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 1. Перейдите в Windows Store и скачайте приложение Ubuntu

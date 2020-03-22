@@ -209,7 +209,7 @@
 
     ```bash
     # Editing file with tests ...
-    $ git add test_korniakov_kirill_complex_number.cpp
+    $ git add test_YOUR_NAME_complex_number.cpp
     $ git commit -m "Updated tests"
     $ git push origin HEAD
     ```
