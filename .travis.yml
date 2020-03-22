@@ -2,8 +2,6 @@ notifications:
   email: false
 
 language: cpp
-
-sudo: required
 dist: trusty
 
 addons:
@@ -18,7 +16,7 @@ env:
     - CTEST_BUILD_FLAGS=-j4
     - CTEST_WITH_SUBMIT=FALSE
 
-matrix:
+jobs:
   include:
     - os: linux
       compiler: gcc
