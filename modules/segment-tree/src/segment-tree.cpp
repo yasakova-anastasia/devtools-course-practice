@@ -4,13 +4,21 @@
 #include <vector>
 
 SegmentTree::SegmentTree(int size) {
-    tree.resize(4*size);
+    if (size <= 0) {
+        throw "Cannot be negative or zero size";
+    } else {
+        tree.resize(4*size);
+    }
 }
 
 SegmentTree::SegmentTree(const std::vector <int>& input) {
     int size = static_cast<int>(input.size());
-    tree.resize(4*size);
-    build(input, 1, 0, size - 1);
+    if (size <= 0) {
+        throw "Cannot be negative or zero size";
+    } else {
+        tree.resize(4*size);
+        build(input, 1, 0, size - 1);
+    }
 }
 
 void SegmentTree::build(const std::vector <int>& arr, int index,
