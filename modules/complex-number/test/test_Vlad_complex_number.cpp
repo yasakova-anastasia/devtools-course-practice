@@ -61,3 +61,21 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Multiply_complex_number_and_one) {
     // Assert
     EXPECT_EQ(z*z1, z);
 }
+
+TEST(Devlikamov_Vlad_ComplexNumberTest, Associativity_complex_number_) {
+    // Arrange
+    double re = 2.0;
+    double im = 4.0;
+    double re_1 = 1.0;
+    double im_1 = 2.0;
+    double re_2 = 3.0;
+    double im_2 = 4.0;
+
+    // Act
+    ComplexNumber z(re, im);
+    ComplexNumber z1(re_1, im_1);
+    ComplexNumber z2(re_1, im_1);
+
+    // Assert
+    EXPECT_EQ((z * z1)*z2, (z1*z2)*z);
+}
