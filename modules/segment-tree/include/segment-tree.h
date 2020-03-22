@@ -10,6 +10,9 @@ class SegmentTree {
     std::vector <int> tree;
  public:
     explicit SegmentTree(int size = 5);
+    explicit SegmentTree(const std::vector <int>& input);
+    void build(const std::vector <int>& arr, int index, int left, int right);
+    std::vector <int> Get();
 };
 
 #endif  // MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_H_
