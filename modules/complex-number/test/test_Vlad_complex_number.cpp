@@ -38,8 +38,8 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Division_complex_number) {
 
 TEST(Devlikamov_Vlad_ComplexNumberTest, Division_two_complex_number) {
     // Arrange
-    double re = 2.0;
-    double im = 4.0;
+    double re = 1.0;
+    double im = 0.0;
     double re_1 = 2.0;
     double im_1 = 4.0;
 
