@@ -78,6 +78,8 @@
 1. Инсталлируйте приложение CMake.
 1. Инсталлируйте IDE QtCreator, или любую другую по вашему выбору. В принципе, вы можете разрабатываться в IDE Microsoft Visual Studio, любой другой IDE, или в простом текстовом редакторе. CMake допускает все эти варианты.
 
+Подробные инструкции вы можете найти [здесь][setup-guide].
+
 ### Выполнение лабораторной
 
 1. Создайте новую ветку, в которой вы будете работать над лабораторной:
@@ -229,3 +231,4 @@
 [help-pr]:      https://help.github.com/articles/using-pull-requests
 [imworkflow]:   https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows#Integration-Manager-Workflow
 [style-guide]:  https://google.github.io/styleguide/cppguide.html
+[setup-guide]: https://github.com/UNN-ITMM-Software/devtools-course-practice/blob/master/lab-guide/setup.md
