@@ -21,3 +21,17 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Distributivity_complex_number) {
     // Assert
     EXPECT_EQ((z + z1)*z2, z*z2 + z1*z2);
 }
+
+TEST(Devlikamov_Vlad_ComplexNumberTest, Division_complex_number) {
+    // Arrange
+    double re = 2.0;
+    double im = 4.0;
+
+    // Act
+    ComplexNumber z(re, im);
+    ComplexNumber z1(1, 0);
+    ComplexNumber z2(re/(re*re + im*im), -im/(re*re + im*im));
+
+    // Assert
+    EXPECT_EQ(z1/z, z2);
+}
