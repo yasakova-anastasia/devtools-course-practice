@@ -14,7 +14,7 @@ SegmentTree::SegmentTree(int size) {
     }
 }
 
-SegmentTree::SegmentTree(const std::vector <int>& input, 
+SegmentTree::SegmentTree(const std::vector <int>& input,
                          std::string operation) {
     int size = static_cast<int>(input.size());
     if (size <= 0) {
@@ -41,14 +41,11 @@ int SegmentTree::gcd(int x, int y) {
 int SegmentTree::op(int x, int y) {
     if (_operation == "plus") {
         return x + y;
-    }
-    else if (_operation == "max") {
+    } else if (_operation == "max") {
         return std::max(x, y);
-    }
-    else if (_operation == "min") {
+    } else if (_operation == "min") {
         return std::min(x, y);
-    }
-    else {
+    } else {
         return gcd(x, y);
     }
 }
