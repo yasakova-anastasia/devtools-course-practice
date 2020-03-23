@@ -18,18 +18,18 @@ TEST(Baldin_Alexey_ComplexNumberTest, Can_Create_Zero) {
 }
 
 TEST(Baldin_Alexey_ComplexNumberTest, Multiple_By_Zero) {
-	// Arrange
-	double re = 123.0;
-	double im = 456.0;
-	ComplexNumber z(re, im);
-	ComplexNumber zero(0.0, 0.0);
+    // Arrange
+    double re = 123.0;
+    double im = 456.0;
+    ComplexNumber z(re, im);
+    ComplexNumber zero(0.0, 0.0);
 
-	// Act	
-	z = z * zero;
+    // Act	
+    z = z * zero;
 
-	// Assert
-	EXPECT_EQ(z.getRe(), 0.0);
-	EXPECT_EQ(z.getIm(), 0.0);
+    // Assert
+    EXPECT_EQ(z.getRe(), 0.0);
+    EXPECT_EQ(z.getIm(), 0.0);
 }
 
 TEST(Baldin_Alexey_ComplexNumberTest, Negative_Less_Then_Positive) {
@@ -52,7 +52,7 @@ TEST(Baldin_Alexey_ComplexNumberTest, Check_Correct_Math_Operations) {
 	// Arrange
 	double num1 = 10.0;
 	double num2 = 5.0;
-	double num3 = 3.0;
+    double num3 = 3.0;
 	double num4 = 2.0;
 	double check = 0;
 	
