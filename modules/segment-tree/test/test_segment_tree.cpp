@@ -134,3 +134,53 @@ TEST(SegmentTreeTest, Test_Range_Sum_Query_With_2_elements_3) {
     // Arrange
     EXPECT_ANY_THROW(tree.sum(1, 3));
 }
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_7_elements_and_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6, 7};
+    // Act
+    SegmentTree tree(test);
+    tree.update(3, -5);
+    // Arrange
+    EXPECT_EQ(tree.sum(3, 4), 0);
+}
+
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_5_elements_and_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5};
+    // Act
+    SegmentTree tree(test);
+    tree.update(1, 0);
+    // Arrange
+    EXPECT_EQ(tree.sum(0, 2), 4);
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_6_elements_and_2_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6};
+    // Act
+    SegmentTree tree(test);
+    tree.update(1, 0);
+    tree.update(1, -1);
+    // Arrange
+    EXPECT_EQ(tree.sum(0, 2), 3);
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_2_elements_update) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_ANY_THROW(tree.update(-1, 1));
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_3_elements_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_ANY_THROW(tree.update(3, 1));
+}

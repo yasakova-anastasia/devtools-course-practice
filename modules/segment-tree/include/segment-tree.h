@@ -10,11 +10,13 @@ class SegmentTree {
     std::vector <int> tree;
     int _size;
     void build(const std::vector <int>& arr, int index, int left, int right);
+    void update(int index, int l, int r, int change_index, int value);
     int sum(int index, int l, int r, int left, int right);
  public:
     explicit SegmentTree(int size = 5);
     explicit SegmentTree(const std::vector <int>& input);
     int sum(int left, int right);
+    void update(int change_index, int value);
     std::vector <int> Get();
 };
 

@@ -69,3 +69,24 @@ int SegmentTree::sum(int left, int right) {
         return sum(1, 0, _size - 1, 0, right);
     }
 }
+
+void SegmentTree::update(int index, int l, int r, int change_index, int value) {
+    if (l == r) {
+        tree[index] = value;
+        return;
+    }
+    int mid = (l + r)/2;
+    if (change_index <= mid) {
+        update(2*index, l, mid, change_index, value);
+    } else {
+        update(2*index + 1, mid + 1, r, change_index, value);
+    }
+    tree[index] = tree[2*index] + tree[2*index + 1];
+}
+
+void SegmentTree::update(int change_index, int value) {
+    if (change_index < 0 || change_index >= _size) {
+        throw "Index cannot be zero or > size";
+    }
+    update(1, 0, _size, change_index, value);
+}
