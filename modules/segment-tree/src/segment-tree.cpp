@@ -2,6 +2,7 @@
 
 #include <include/segment-tree.h>
 #include <vector>
+#include <algorithm>
 
 SegmentTree::SegmentTree(int size) {
     if (size <= 0) {
@@ -40,11 +41,13 @@ std::vector <int> SegmentTree::Get() {
 }
 
 int SegmentTree::sum(int index, int l, int r, int left, int right) {
-    if (left > right) return 0;
-    else if (left == l && right == r) return tree[index];
-    else {
+    if (left > right) {
+        return 0;
+    } else if (left == l && right == r) {
+        return tree[index];
+    } else {
         int mid = (l + r)/2;
-        return sum(2*index, l, mid, left, std::min(right, mid)) + 
+        return sum(2*index, l, mid, left, std::min(right, mid)) +
             sum(2*index + 1, mid + 1, r, std::max(left, mid + 1), right);
     }
 }
@@ -60,7 +63,8 @@ int SegmentTree::sum(int left, int right) {
         throw "right interval cannot be > that size";
     }
     if (left != 0) {
-        return sum(1, 0, _size - 1, 0, right) - sum(1, 0, _size - 1, 0, left - 1);
+        return sum(1, 0, _size - 1, 0, right) -
+               sum(1, 0, _size - 1, 0, left - 1);
     } else {
         return sum(1, 0, _size - 1, 0, right);
     }

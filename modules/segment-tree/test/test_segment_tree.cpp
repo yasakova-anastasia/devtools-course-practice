@@ -59,9 +59,8 @@ TEST(SegmentTreeTest, Test_Function_Build_With_50_zero_elements) {
     // Act
     SegmentTree tree(test);
     std::vector <int> expected(4*size, 0);
-    std::vector <int> v = tree.Get();
     // Assert
-    EXPECT_EQ(expected, v);
+    EXPECT_EQ(expected, tree.Get());
 }
 
 TEST(SegmentTreeTest, Test_Range_Sum_Query_With_5_elements) {
@@ -135,4 +134,3 @@ TEST(SegmentTreeTest, Test_Range_Sum_Query_With_2_elements_3) {
     // Arrange
     EXPECT_ANY_THROW(tree.sum(1, 3));
 }
-
