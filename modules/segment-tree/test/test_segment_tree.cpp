@@ -54,12 +54,85 @@ TEST(SegmentTreeTest, Test_Function_Build_With_4_elements) {
 
 TEST(SegmentTreeTest, Test_Function_Build_With_50_zero_elements) {
     // Arrange
-    std::vector <int> test(50, 0);
+    int size = 50;
+    std::vector <int> test(size, 0);
     // Act
     SegmentTree tree(test);
-    std::vector <int> expected(200, 0);
+    std::vector <int> expected(4*size, 0);
     std::vector <int> v = tree.Get();
     // Assert
     EXPECT_EQ(expected, v);
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_5_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_EQ(tree.sum(0, 2), 6);
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_4_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_EQ(tree.sum(2, 3), 7);
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_6_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_EQ(tree.sum(1, 4), 14);
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_7_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6, 7};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_EQ(tree.sum(4, 5), 11);
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_2_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_ANY_THROW(tree.sum(-1, 1));
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_2_elements_1) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_ANY_THROW(tree.sum(0, -1));
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_2_elements_2) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_ANY_THROW(tree.sum(1, 0));
+}
+
+TEST(SegmentTreeTest, Test_Range_Sum_Query_With_2_elements_3) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+    // Act
+    SegmentTree tree(test);
+    // Arrange
+    EXPECT_ANY_THROW(tree.sum(1, 3));
 }
 
