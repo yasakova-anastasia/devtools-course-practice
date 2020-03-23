@@ -24,7 +24,7 @@ TEST(Baldin_Alexey_ComplexNumberTest, Multiple_By_Zero) {
     ComplexNumber z(re, im);
     ComplexNumber zero(0.0, 0.0);
 
-    // Act	
+    // Act
     z = z * zero;
 
     // Assert
@@ -33,7 +33,7 @@ TEST(Baldin_Alexey_ComplexNumberTest, Multiple_By_Zero) {
 }
 
 TEST(Baldin_Alexey_ComplexNumberTest, Negative_Number_Less_Then_Positive) {
-	// Arrange
+    // Arrange
     double re1 = 123.0;
     double re2 = -123.0;
     double im1 = 456.0;
