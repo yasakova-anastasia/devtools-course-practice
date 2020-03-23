@@ -4,7 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <climits> 
+#include <climits>
 
 SegmentTree::SegmentTree(int size) {
     if (size <= 0) {
