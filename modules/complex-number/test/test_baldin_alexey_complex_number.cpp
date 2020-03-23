@@ -32,7 +32,7 @@ TEST(Baldin_Alexey_ComplexNumberTest, Multiple_By_Zero) {
     EXPECT_EQ(z.getIm(), 0.0);
 }
 
-TEST(Baldin_Alexey_ComplexNumberTest, Negative_Less_Then_Positive) {
+TEST(Baldin_Alexey_ComplexNumberTest, Negative_Number_Less_Then_Positive) {
 	// Arrange
     double re1 = 123.0;
     double re2 = -123.0;
