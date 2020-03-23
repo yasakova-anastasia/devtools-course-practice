@@ -21,10 +21,10 @@ TEST(Baldin_Alexey_ComplexNumberTest, Multiple_By_Zero) {
 	// Arrange
 	double re = 123.0;
 	double im = 456.0;
-
-	// Act
 	ComplexNumber z(re, im);
 	ComplexNumber zero(0.0, 0.0);
+
+	// Act	
 	z = z * zero;
 
 	// Assert
@@ -54,23 +54,34 @@ TEST(Baldin_Alexey_ComplexNumberTest, Check_Correct_Math_Operations) {
 	double num2 = 5.0;
 	double num3 = 3.0;
 	double num4 = 2.0;
-
 	double check = 0;
-
-	// Act
-
-	check = num1 + num2 / num3 * num4;
-
+	
 	ComplexNumber cNum1(num1, num1);
 	ComplexNumber cNum2(num2, num2);
 	ComplexNumber cNum3(num3, num3);
 	ComplexNumber cNum4(num4, num4);
 	ComplexNumber cCheck(0.0, 0.0);
 
+	// Act
+	check = num1 + num2 / num3 * num4;
 	cCheck = cNum1 + cNum2 / cNum3 * cNum4;
-	std::cout << cCheck.getRe() << std::endl;
 
 	// Assert
 	EXPECT_EQ(check, cCheck.getRe());
 	EXPECT_EQ(check, cCheck.getIm());
+}
+
+TEST(Baldin_Alexey_ComplexNumberTest, Check_Inverse_Element_Property) {
+	// Arrange
+	double re = 123.0;
+	double im = 456.0;
+	ComplexNumber pos(re, im);
+	ComplexNumber neg(-re, -im);
+
+	// Act
+	ComplexNumber check = pos + neg;
+	
+	// Assert
+	EXPECT_EQ(check.getRe(), 0.0);
+	EXPECT_EQ(check.getIm(), 0.0);
 }
