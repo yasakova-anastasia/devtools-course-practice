@@ -63,9 +63,12 @@ TEST_F(FractionTest, Can_Create_Fraction_With_Copy_Constructor) {
 TEST_F(FractionTest, Equals_Fractions_Is_Equals) {
     // Arrange
     Fraction f1(1, 2);
-    Fraction f2(2, 4);
+    Fraction f2;
 
     // Act
+    f2.setNominator(2);
+    f2.setDenominator(4);
+
     // Assert
     EXPECT_EQ(f1, f2);
 }
@@ -308,4 +311,16 @@ TEST_F(FractionTest, Division_Fractions_With_Double_Test) {
     // Assert
     EXPECT_NEAR(n2, 0.01334, FractionTest::epsilon);
     EXPECT_NEAR(n3, 75, FractionTest::epsilon);
+}
+
+TEST(OperatorTest, Double_Cast_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    double n1 = (double)1 / 15;
+
+    // Act
+    double n2 = (double)(f1);
+
+    // Assert
+    EXPECT_DOUBLE_EQ(n1, n2);
 }
