@@ -183,7 +183,7 @@ Fraction& Fraction::operator=(const Fraction & f) {
 }
 
 double Fraction::fractionToDouble() {
-    return (double)nominator / denominator;
+    return static_cast<double>(nominator) / denominator;
 }
 
 int nod(int a, int b) {

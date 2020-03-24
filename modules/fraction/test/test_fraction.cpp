@@ -234,9 +234,9 @@ TEST_F(FractionTest, Division_Fractions_With_Int_Test) {
 TEST_F(FractionTest, Fraction_To_Double_Test) {
     // Arrange
     Fraction f1(1, 15);
-    
-    // Act 
-    double d = (double)1 / 15;
+
+    // Act
+    double d = static_cast<double>(1) / 15;
 
     // Assert
     EXPECT_DOUBLE_EQ(f1.fractionToDouble(), d);
