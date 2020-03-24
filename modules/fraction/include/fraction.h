@@ -35,7 +35,8 @@ class Fraction {
 
     Fraction& operator=(const Fraction& f);
 
-    double fractionToDouble();
+    operator double() const;
+
 };
 
 int nod(int a, int b);

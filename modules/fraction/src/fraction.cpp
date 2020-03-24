@@ -182,7 +182,7 @@ Fraction& Fraction::operator=(const Fraction & f) {
     return *this;
 }
 
-double Fraction::fractionToDouble() {
+Fraction::operator double() const {
     return static_cast<double>(nominator) / denominator;
 }
 

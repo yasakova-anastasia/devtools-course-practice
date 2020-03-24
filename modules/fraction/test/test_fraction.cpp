@@ -5,6 +5,8 @@
 #include "include/fraction.h"
 
 class FractionTest : public ::testing::Test {
+ protected:
+    double epsilon = 0.001;
 };
 
 TEST_F(FractionTest, Can_Create_Fraction_With_Default_constructor) {
@@ -239,5 +241,61 @@ TEST_F(FractionTest, Fraction_To_Double_Test) {
     double d = static_cast<double>(1) / 15;
 
     // Assert
-    EXPECT_DOUBLE_EQ(f1.fractionToDouble(), d);
+    EXPECT_NEAR(static_cast<double>(f1), d, FractionTest::epsilon);
+}
+
+TEST_F(FractionTest, Addition_Fractions_With_Double_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    double n1 = 5.0;
+
+    // Act
+    double n2 = static_cast<double>(f1) + n1;
+    double n3 = n1 + static_cast<double>(f1);
+
+    // Assert
+    EXPECT_NEAR(n2, 5.06667, FractionTest::epsilon);
+    EXPECT_NEAR(n3, 5.06667, FractionTest::epsilon);
+}
+
+TEST_F(FractionTest, Subtraction_Fractions_With_Double_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    double n = 5.0;
+
+    // Act
+    double n2 = static_cast<double>(f1) - n;
+    double n3 = n - static_cast<double>(f1);
+
+    // Assert
+    EXPECT_NEAR(n2, -4.93334, FractionTest::epsilon);
+    EXPECT_NEAR(n3, 4.93334, FractionTest::epsilon);
+}
+
+TEST_F(FractionTest, Multiplication_Fractions_With_Double_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    double n = 5.0;
+
+    // Act
+    double n2 = static_cast<double>(f1) * n;
+    double n3 = n * static_cast<double>(f1);
+
+    // Assert
+    EXPECT_NEAR(n2, 0.33334, FractionTest::epsilon);
+    EXPECT_NEAR(n3, 0.33334, FractionTest::epsilon);
+}
+
+TEST_F(FractionTest, Division_Fractions_With_Double_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    double n = 5.0;
+
+    // Act
+    double n2 = static_cast<double>(f1) / n;
+    double n3 = n / static_cast<double>(f1);
+
+    // Assert
+    EXPECT_NEAR(n2, 0.01334, FractionTest::epsilon);
+    EXPECT_NEAR(n3, 75, FractionTest::epsilon);
 }
