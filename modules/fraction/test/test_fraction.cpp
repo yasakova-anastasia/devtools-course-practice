@@ -313,14 +313,14 @@ TEST_F(FractionTest, Division_Fractions_With_Double_Test) {
     EXPECT_NEAR(n3, 75, FractionTest::epsilon);
 }
 
-TEST(OperatorTest, Double_Cast_Test) {
+TEST_F(FractionTest, Operator_Double_Test) {
     // Arrange
     Fraction f1(1, 15);
-    double n1 = (double)1 / 15;
+    double n1 = static_cast<double>(1) / 15;
 
     // Act
-    double n2 = (double)(f1);
+    double n2 = f1;
 
     // Assert
-    EXPECT_DOUBLE_EQ(n1, n2);
+    EXPECT_NEAR(n1, n2, FractionTest::epsilon);
 }
