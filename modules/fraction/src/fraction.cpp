@@ -8,7 +8,7 @@ Fraction::Fraction(int nom, int den) {
     if (den == 0) {
         denominator = 1;
         throw std::string("Denominator can`t be zero. Use denominator = 1");
-    } else if(den < 0) {
+    } else if (den < 0) {
         nominator = -nom;
         denominator = -den;
     } else {
@@ -54,15 +54,13 @@ bool Fraction::operator==(const Fraction & f) const {
 
     int nod1 = nod(n1, d1);
     int nod2 = nod(n2, d2);
-    
+
     if (nod1 != 1) {
         n1 = n1 / nod1;
-        d1 = d1 / nod1;
     }
 
     if (nod2 != 1) {
         n2 = n2 / nod2;
-        d2 = d2 / nod2;
     }
 
     return n1 == n2;
@@ -78,13 +76,11 @@ bool Fraction::operator!=(const Fraction & f) const {
 
     if (nod1 != 1) {
         n1 = n1 / nod1;
-        d1 = d1 / nod1;
     }
     if (nod2 != 1) {
         n2 = n2 / nod2;
-        d2 = d2 / nod2;
     }
-  
+
     return n1 != n2;
 }
 
