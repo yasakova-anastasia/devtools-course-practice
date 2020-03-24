@@ -10,10 +10,9 @@ class Fraction {
 
  public:
     explicit Fraction(int nom = 1, int den = 1);
-    
     int getNominator() const;
     int getDenominator() const;
-    
+
     void setNominator(int nom);
     void setDenominator(int den);
 
