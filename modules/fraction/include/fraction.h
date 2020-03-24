@@ -28,8 +28,21 @@ class Fraction {
     Fraction operator *(const Fraction& f) const;
     Fraction operator /(const Fraction& f) const;
 
+    Fraction operator +(const int& n) const;
+    Fraction operator -(const int& n) const;
+    Fraction operator *(const int& n) const;
+    Fraction operator /(const int& n) const;
+
     Fraction& operator=(const Fraction& f);
+
+    double fractionToDouble();
 };
 
 int nod(int a, int b);
+
+Fraction operator +(const int& n, const Fraction& f);
+Fraction operator -(const int& n, const Fraction& f);
+Fraction operator *(const int& n, const Fraction& f);
+Fraction operator /(const int& n, const Fraction& f);
+
 #endif  // MODULES_FRACTION_INCLUDE_FRACTION_H_

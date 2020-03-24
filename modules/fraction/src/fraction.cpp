@@ -57,13 +57,15 @@ bool Fraction::operator==(const Fraction & f) const {
 
     if (nod1 != 1) {
         n1 = n1 / nod1;
+        d1 = d1 / nod1;
     }
 
     if (nod2 != 1) {
         n2 = n2 / nod2;
+        d2 = d2 / nod2;
     }
 
-    return n1 == n2;
+    return n1 == n2 && d1 == d2;
 }
 
 bool Fraction::operator!=(const Fraction & f) const {
@@ -76,12 +78,14 @@ bool Fraction::operator!=(const Fraction & f) const {
 
     if (nod1 != 1) {
         n1 = n1 / nod1;
+        d1 = d1 / nod1;
     }
     if (nod2 != 1) {
         n2 = n2 / nod2;
+        d2 = d2 / nod2;
     }
 
-    return n1 != n2;
+    return n1 != n2 || d1 != d2;
 }
 
 void Fraction::fractionReduction() {
@@ -135,11 +139,51 @@ Fraction Fraction::operator/(const Fraction & f) const {
     return div;
 }
 
+Fraction Fraction::operator+(const int & n) const {
+    int nom = this->getNominator() + this->getDenominator() * n;
+
+    Fraction sum(nom, this->getDenominator());
+    sum.fractionReduction();
+
+    return sum;
+}
+
+Fraction Fraction::operator-(const int & n) const {
+    int nom = this->getNominator() - this->getDenominator() * n;
+
+    Fraction dif(nom, this->getDenominator());
+    dif.fractionReduction();
+
+    return dif;
+}
+
+Fraction Fraction::operator*(const int & n) const {
+    int nom = this->getNominator() * n;
+
+    Fraction mult(nom, this->getDenominator());
+    mult.fractionReduction();
+
+    return mult;
+}
+
+Fraction Fraction::operator/(const int & n) const {
+    int den = this->getDenominator() * n;
+
+    Fraction div(this->getNominator(), den);
+    div.fractionReduction();
+
+    return div;
+}
+
 Fraction& Fraction::operator=(const Fraction & f) {
     this->nominator = f.getNominator();
     this->denominator = f.getDenominator();
 
     return *this;
+}
+
+double Fraction::fractionToDouble() {
+    return (double)nominator / denominator;
 }
 
 int nod(int a, int b) {
@@ -163,4 +207,30 @@ int nod(int a, int b) {
     } else {
         return a;
     }
+}
+
+Fraction operator+(const int & n, const Fraction & f) {
+    return f + n;
+}
+
+Fraction operator-(const int & n, const Fraction & f) {
+    int nom = f.getDenominator() * n - f.getNominator();
+
+    Fraction dif(nom, f.getDenominator());
+    dif.fractionReduction();
+
+    return dif;
+}
+
+Fraction operator*(const int & n, const Fraction & f) {
+    return f * n;
+}
+
+Fraction operator/(const int & n, const Fraction & f) {
+    int nom = f.getDenominator() * n;
+
+    Fraction div(nom, f.getNominator());
+    div.fractionReduction();
+
+    return div;
 }

@@ -7,14 +7,24 @@
 class FractionTest : public ::testing::Test {
 };
 
-TEST_F(FractionTest, Can_Create_Fraction) {
+TEST_F(FractionTest, Can_Create_Fraction_With_Default_constructor) {
     // Arrange
     // Act
-    Fraction f(1, 1);
+    Fraction f;
 
     // Assert
     EXPECT_EQ(1, f.getNominator());
     EXPECT_EQ(1, f.getDenominator());
+}
+
+TEST_F(FractionTest, Can_Create_Fraction_With_Parameter_constructor) {
+    // Arrange
+    // Act
+    Fraction f(1, 2);
+
+    // Assert
+    EXPECT_EQ(1, f.getNominator());
+    EXPECT_EQ(2, f.getDenominator());
 }
 
 TEST_F(FractionTest, Denominator_Cant_Be_Zero) {
@@ -52,6 +62,16 @@ TEST_F(FractionTest, Different_Fractions_Is_Different) {
     // Arrange
     Fraction f1(1, 1);
     Fraction f2(2, 1);
+
+    // Act
+    // Assert
+    EXPECT_NE(f1, f2);
+}
+
+TEST_F(FractionTest, Different_Fractions_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    Fraction f2(3, 5);
 
     // Act
     // Assert
@@ -153,4 +173,71 @@ TEST_F(FractionTest, Assignment_Test) {
 
     // Assert
     EXPECT_EQ(f1, f2);
+}
+
+TEST_F(FractionTest, Addition_Fractions_With_Int_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    int n = 5;
+
+    // Act
+    Fraction f2 = f1 + n;
+    Fraction f3 = n + f1;
+
+    // Assert
+    EXPECT_EQ(f2, Fraction(76, 15));
+    EXPECT_EQ(f3, Fraction(76, 15));
+}
+
+TEST_F(FractionTest, Subtraction_Fractions_With_Int_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    int n = 5;
+
+    // Act
+    Fraction f2 = f1 - n;
+    Fraction f3 = n - f1;
+
+    // Assert
+    EXPECT_EQ(f2, Fraction(-74, 15));
+    EXPECT_EQ(f3, Fraction(74, 15));
+}
+
+TEST_F(FractionTest, Multiplication_Fractions_With_Int_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    int n = 5;
+
+    // Act
+    Fraction f2 = f1 * n;
+    Fraction f3 = n * f1;
+
+    // Assert
+    EXPECT_EQ(f2, Fraction(1, 3));
+    EXPECT_EQ(f3, Fraction(1, 3));
+}
+
+TEST_F(FractionTest, Division_Fractions_With_Int_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    int n = 5;
+
+    // Act
+    Fraction f2 = f1 / n;
+    Fraction f3 = n / f1;
+
+    // Assert
+    EXPECT_EQ(f2, Fraction(1, 75));
+    EXPECT_EQ(f3, Fraction(75, 1));
+}
+
+TEST_F(FractionTest, Fraction_To_Double_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    
+    // Act 
+    double d = (double)1 / 15;
+
+    // Assert
+    EXPECT_DOUBLE_EQ(f1.fractionToDouble(), d);
 }
