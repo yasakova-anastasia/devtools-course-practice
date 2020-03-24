@@ -5,11 +5,9 @@
 #include "include/fraction.h"
 
 class FractionTest : public ::testing::Test {
-
 };
 
 TEST_F(FractionTest, Can_Create_Fraction) {
-
     // Arrange
     // Act
     Fraction f(1.0, 1.0);

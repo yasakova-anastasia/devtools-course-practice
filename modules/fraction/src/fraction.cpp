@@ -7,12 +7,10 @@ Fraction::Fraction(double nom, double den) {
     denominator = den;
 }
 
-double Fraction::getNominator()
-{
+double Fraction::getNominator() {
     return nominator;
 }
 
-double Fraction::getDenominator()
-{
+double Fraction::getDenominator() {
     return denominator;
 }
