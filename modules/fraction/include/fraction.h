@@ -10,6 +10,8 @@ class Fraction {
 
  public:
     explicit Fraction(int nom = 1, int den = 1);
+    Fraction(const Fraction& f);
+
     int getNominator() const;
     int getDenominator() const;
 
@@ -18,6 +20,15 @@ class Fraction {
 
     bool operator ==(const Fraction& f) const;
     bool operator !=(const Fraction& f) const;
+
+    void fractionReduction();
+
+    Fraction operator +(const Fraction& f) const;
+    Fraction operator -(const Fraction& f) const;
+    Fraction operator *(const Fraction& f) const;
+    Fraction operator /(const Fraction& f) const;
+
+    Fraction& operator=(const Fraction& f);
 };
 
 int nod(int a, int b);
