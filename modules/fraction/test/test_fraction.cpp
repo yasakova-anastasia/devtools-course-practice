@@ -62,12 +62,12 @@ TEST_F(FractionTest, Can_Create_Fraction_With_Copy_Constructor) {
 
 TEST_F(FractionTest, Equals_Fractions_Is_Equals) {
     // Arrange
-    Fraction f1(1, 2);
+    Fraction f1(7, 14);
     Fraction f2;
 
     // Act
-    f2.setNominator(2);
-    f2.setDenominator(4);
+    f2.setNominator(30);
+    f2.setDenominator(60);
 
     // Assert
     EXPECT_EQ(f1, f2);
@@ -75,10 +75,12 @@ TEST_F(FractionTest, Equals_Fractions_Is_Equals) {
 
 TEST_F(FractionTest, Different_Fractions_Is_Different) {
     // Arrange
-    Fraction f1(1, 1);
-    Fraction f2(2, 1);
+    Fraction f1(45, 36);
+    Fraction f2;
 
     // Act
+    f2 = Fraction(7, 21);
+
     // Assert
     EXPECT_NE(f1, f2);
 }
@@ -95,24 +97,31 @@ TEST_F(FractionTest, Different_Fractions_Test) {
 
 TEST_F(FractionTest, NOD_Test) {
     // Arrange
-    int a = 30;
-    int b = 45;
+    int a = -30;
+    int b = -45;
     int c = 0;
+    int d = 0;
 
     // Act
     c = nod(b, a);
+    d = nod(a, b);
 
     // Assert
     EXPECT_EQ(c, 15);
+    EXPECT_EQ(d, 15);
 }
 
 TEST_F(FractionTest, Denominator_Cant_Be_Negative) {
     // Arrange
-    Fraction f(1, -1);
+    Fraction f1(1, -1);
+    Fraction f2(1);
 
     // Act
+    f2.setDenominator(-1);
+
     // Assert
-    EXPECT_GT(f.getDenominator(), 0);
+    EXPECT_GT(f1.getDenominator(), 0);
+    EXPECT_GT(f2.getDenominator(), 0);
 }
 
 TEST_F(FractionTest, Correct_Fraction_Reduction) {
