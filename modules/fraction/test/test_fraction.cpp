@@ -19,7 +19,17 @@ TEST_F(FractionTest, Can_Create_Fraction_With_Default_constructor) {
     EXPECT_EQ(1, f.getDenominator());
 }
 
-TEST_F(FractionTest, Can_Create_Fraction_With_Parameter_constructor) {
+TEST_F(FractionTest, Can_Create_Fraction_With_One_Parameter_constructor) {
+    // Arrange
+    // Act
+    Fraction f(2);
+
+    // Assert
+    EXPECT_EQ(2, f.getNominator());
+    EXPECT_EQ(1, f.getDenominator());
+}
+
+TEST_F(FractionTest, Can_Create_Fraction_With_Two_Parameter_constructor) {
     // Arrange
     // Act
     Fraction f(1, 2);

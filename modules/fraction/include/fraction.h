@@ -36,7 +36,6 @@ class Fraction {
     Fraction& operator=(const Fraction& f);
 
     operator double() const;
-
 };
 
 int nod(int a, int b);
