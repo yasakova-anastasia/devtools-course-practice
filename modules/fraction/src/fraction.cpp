@@ -57,7 +57,8 @@ bool Fraction::operator==(const Fraction & f) const {
     f1.fractionReduction();
     f2.fractionReduction();
 
-    return f1.getNominator() == f2.getNominator() && f1.getDenominator() == f2.getDenominator();
+    return f1.getNominator() == f2.getNominator() &&
+           f1.getDenominator() == f2.getDenominator();
 }
 
 bool Fraction::operator!=(const Fraction & f) const {
@@ -67,7 +68,8 @@ bool Fraction::operator!=(const Fraction & f) const {
     f1.fractionReduction();
     f2.fractionReduction();
 
-    return f1.getNominator() != f2.getNominator() || f1.getDenominator() != f2.getDenominator();
+    return f1.getNominator() != f2.getNominator() ||
+           f1.getDenominator() != f2.getDenominator();
 }
 
 void Fraction::fractionReduction() {

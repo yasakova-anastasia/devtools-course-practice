@@ -340,8 +340,10 @@ TEST_F(FractionTest, Operator_Greater_Than_Test) {
     Fraction f2(3, 75);
 
     // Act
+    bool b = f1 > f2;
+
     // Assert
-    EXPECT_GT(f1, f2);
+    EXPECT_EQ(b, true);
 }
 
 TEST_F(FractionTest, Operator_Less_Than_Test) {
@@ -350,8 +352,10 @@ TEST_F(FractionTest, Operator_Less_Than_Test) {
     Fraction f2(3, 75);
 
     // Act
+    bool b = f2 < f1;
+
     // Assert
-    EXPECT_LT(f2, f1);
+    EXPECT_EQ(b, true);
 }
 
 TEST_F(FractionTest, Operator_Greater_Than_Or_Equals_Test) {
@@ -361,9 +365,12 @@ TEST_F(FractionTest, Operator_Greater_Than_Or_Equals_Test) {
     Fraction f3(1, 25);
 
     // Act
+    bool b1 = f1 >= f2;
+    bool b2 = f2 >= f3;
+
     // Assert
-    EXPECT_GE(f1, f2);
-    EXPECT_GE(f2, f3);
+    EXPECT_EQ(b1, true);
+    EXPECT_EQ(b2, true);
 }
 
 TEST_F(FractionTest, Operator_Less_Than_Or_Equals_Test) {
@@ -373,7 +380,10 @@ TEST_F(FractionTest, Operator_Less_Than_Or_Equals_Test) {
     Fraction f3(1, 25);
 
     // Act
+    bool b1 = f2 <= f1;
+    bool b2 = f2 <= f3;
+
     // Assert
-    EXPECT_LE(f2, f1);
-    EXPECT_LE(f2, f3);
+    EXPECT_EQ(b1, true);
+    EXPECT_EQ(b2, true);
 }
