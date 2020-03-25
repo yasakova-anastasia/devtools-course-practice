@@ -33,11 +33,11 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Plass_Operator) {
 	double sumRe = re + re2;
 	double sumIm = im + im2;
 
-
 	// Assert
 	EXPECT_EQ(sumRe, rez.getRe());
 	EXPECT_EQ(sumIm, rez.getIm());
 }
+
 TEST(Nikolai_Sokolov_ComplexNumberTest, Minus_Operator) {
 	double re = 2.0;
 	double im = 5.0;
@@ -50,7 +50,6 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Minus_Operator) {
 	ComplexNumber z2(re2, im2);
 
 	ComplexNumber rez = z2 - z;
-
 	double sumRe = re2 - re;
 	double sumIm = im2 - im;
 
@@ -58,6 +57,7 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Minus_Operator) {
 	EXPECT_EQ(sumRe, rez.getRe());
 	EXPECT_EQ(sumIm, rez.getIm());
 }
+
 TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Re) {
 	// Arrange
 	double re = 0.0;
@@ -65,8 +65,8 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Re) {
 
 	// Act
 	ComplexNumber z(re, im);
-
 	z.setRe(5);
+
 	// Assert
 	EXPECT_EQ(5, z.getRe());
 	}
@@ -78,8 +78,8 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Im) {
 
 	// Act
 	ComplexNumber z(re, im);
-
 	z.setIm(5);
+
 	// Assert
 	EXPECT_EQ(5, z.getIm());
 
