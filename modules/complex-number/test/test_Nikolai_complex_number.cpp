@@ -17,7 +17,7 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Can_Create_Zero) {
     EXPECT_EQ(im, z.getIm());
 }
 
-TEST(Nikolai_Sokolov_ComplexNumberTest, Plass_Operator) {
+TEST(Nikolai_Sokolov_ComplexNumberTest, Add_Operator) {
     // Arrange
     double re = 2.0;
     double im = 5.0;
