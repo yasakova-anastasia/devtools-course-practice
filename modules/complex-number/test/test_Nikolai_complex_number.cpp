@@ -69,7 +69,7 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Re) {
 
 	// Assert
 	EXPECT_EQ(5, z.getRe());
-	}
+}
 
 TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Im) {
 	// Arrange
