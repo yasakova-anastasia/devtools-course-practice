@@ -38,7 +38,7 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Add_Operator) {
     EXPECT_EQ(sumIm, rez.getIm());
 }
 
-TEST(Nikolai_Sokolov_ComplexNumberTest, Minus_Operator) {
+TEST(Nikolai_Sokolov_ComplexNumberTest, Difference_Operator) {
     double re = 2.0;
     double im = 5.0;
 
