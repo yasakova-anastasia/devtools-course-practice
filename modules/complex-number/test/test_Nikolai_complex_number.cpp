@@ -82,5 +82,4 @@ TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Im) {
 
     // Assert
     EXPECT_EQ(5, z.getIm());
-
 }
