@@ -48,7 +48,8 @@ TEST(Baldin_Alexey_ComplexNumberTest, Negative_Number_Less_Than_Positive) {
     EXPECT_LT(neg.getIm(), pos.getIm());
 }
 
-TEST(Baldin_Alexey_ComplexNumberTest, Check_Correct_Math_Operations) {
+TEST(Baldin_Alexey_ComplexNumberTest, 
+     Check_Correct_Use_Several_Math_Operations_In_One_String) {
     // Arrange
     double num1 = 10.0;
     double num2 = 5.0;
