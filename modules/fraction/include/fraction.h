@@ -5,11 +5,11 @@
 
 class Fraction {
  private:
-    int nominator;
-    int denominator;
+    int nominator_;
+    int denominator_;
 
  public:
-    explicit Fraction(int nom = 1, int den = 1);
+    explicit Fraction(int nom = 0, int den = 1);
     Fraction(const Fraction& f);
 
     int getNominator() const;
@@ -36,6 +36,11 @@ class Fraction {
     Fraction& operator=(const Fraction& f);
 
     operator double() const;
+
+    bool operator>(const Fraction& f);
+    bool operator>=(const Fraction& f);
+    bool operator<(const Fraction& f);
+    bool operator<=(const Fraction& f);
 };
 
 int nod(int a, int b);

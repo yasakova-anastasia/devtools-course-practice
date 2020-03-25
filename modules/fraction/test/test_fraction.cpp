@@ -15,8 +15,8 @@ TEST_F(FractionTest, Can_Create_Fraction_With_Default_constructor) {
     Fraction f;
 
     // Assert
-    EXPECT_EQ(1, f.getNominator());
-    EXPECT_EQ(1, f.getDenominator());
+    EXPECT_EQ(0, f.getNominator());
+    EXPECT_ANY_THROW(f.getDenominator());
 }
 
 TEST_F(FractionTest, Can_Create_Fraction_With_One_Parameter_constructor) {
@@ -260,7 +260,7 @@ TEST_F(FractionTest, Fraction_To_Double_Test) {
     Fraction f1(1, 15);
 
     // Act
-    double d = static_cast<double>(1) / 15;
+    double d = 1.0 / 15;
 
     // Assert
     EXPECT_NEAR(static_cast<double>(f1), d, FractionTest::epsilon);
@@ -325,11 +325,55 @@ TEST_F(FractionTest, Division_Fractions_With_Double_Test) {
 TEST_F(FractionTest, Operator_Double_Test) {
     // Arrange
     Fraction f1(1, 15);
-    double n1 = static_cast<double>(1) / 15;
+    double n1 = 1.0 / 15;
 
     // Act
     double n2 = f1;
 
     // Assert
     EXPECT_NEAR(n1, n2, FractionTest::epsilon);
+}
+
+TEST_F(FractionTest, Operator_Greater_Than_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    Fraction f2(3, 75);
+
+    // Act
+    // Assert
+    EXPECT_GT(f1, f2);
+}
+
+TEST_F(FractionTest, Operator_Less_Than_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    Fraction f2(3, 75);
+
+    // Act
+    // Assert
+    EXPECT_LT(f2, f1);
+}
+
+TEST_F(FractionTest, Operator_Greater_Than_Or_Equals_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    Fraction f2(3, 75);
+    Fraction f3(1, 25);
+
+    // Act
+    // Assert
+    EXPECT_GE(f1, f2);
+    EXPECT_GE(f2, f3);
+}
+
+TEST_F(FractionTest, Operator_Less_Than_Or_Equals_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+    Fraction f2(3, 75);
+    Fraction f3(1, 25);
+
+    // Act
+    // Assert
+    EXPECT_LE(f2, f1);
+    EXPECT_LE(f2, f3);
 }
