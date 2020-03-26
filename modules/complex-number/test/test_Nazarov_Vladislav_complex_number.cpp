@@ -3,7 +3,6 @@
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
-#include <iostream>
 
 TEST(Nazarov_Vladislav_ComplexNumberTest, Uniform_Initialization) {
     // Arrange
@@ -18,7 +17,6 @@ TEST(Nazarov_Vladislav_ComplexNumberTest, Uniform_Initialization) {
     EXPECT_EQ(im, z.getIm());
 }
 
-
 TEST(Nazarov_Vladislav_ComplexNumberTest, Defalut_Constructor) {
     // Arrange && Act
     ComplexNumber z{};
@@ -26,4 +24,13 @@ TEST(Nazarov_Vladislav_ComplexNumberTest, Defalut_Constructor) {
     // Act && Assert
     EXPECT_EQ(0, z.getRe());
     EXPECT_EQ(0, z.getIm());
+}
+
+TEST(Nazarov_Vladislav_ComplexNumberTest, Float_And_Double_Complex_Numbers_Not_Equal) {
+    // Arrange
+    ComplexNumber z{5.321f, 215244.242f};
+    ComplexNumber b{5.321, 215244.242};
+
+    // Act && Assert
+    EXPECT_TRUE(z != b);
 }
