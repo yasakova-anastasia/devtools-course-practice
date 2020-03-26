@@ -46,14 +46,14 @@ TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Compl_Num_Are_Not_Equal_True) {
     ComplexNumber z1(2.0, 4.0);
     ComplexNumber z2(2.1, 4.0);
 
-    EXPECT_TRUE( z1 != z2);
+    EXPECT_TRUE(z1 != z2);
 }
 
 TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Comp_Numb_Are_Not_Equal_False) {
     ComplexNumber z1(2.0, 4.0);
     ComplexNumber z2(2.0, 4.0);
 
-    EXPECT_FALSE( z1 != z2);
+    EXPECT_FALSE(z1 != z2);
 }
 
 TEST(Dobrohotov_Vitaly_ComplexNumberTest, Can_Assign_Complex_Number) {
