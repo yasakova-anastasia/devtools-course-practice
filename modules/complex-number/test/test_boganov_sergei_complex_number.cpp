@@ -71,3 +71,19 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Re) {
     // Assert
     EXPECT_EQ(re2, z.getRe());
 }
+
+TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Im) {
+    // Arrange
+    double re1 = 1.0;
+    double im1 = 6.0;
+
+    double im2 = 4.0;
+
+    // Act
+    ComplexNumber z(re1, im1);
+
+    z.setIm(im2);
+
+    // Assert
+    EXPECT_EQ(im2, z.getIm());
+}
