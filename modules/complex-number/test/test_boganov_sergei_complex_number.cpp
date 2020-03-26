@@ -167,3 +167,16 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Divide_Complex_Numbers) {
     // Assert
     EXPECT_EQ(z1 / z2, z3);
 }
+
+TEST(Boganov_Sergei_ComplexNumberTest, Prohibited_Division_By_Zero) {
+    // Arrange
+    double re1 = 2.0;
+    double im1 = 1.0;
+
+    // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2;
+
+    // Assert
+    ASSERT_ANY_THROW(z1 / z2);
+}
