@@ -53,3 +53,12 @@ Vector3D Vector3D::operator+(const Vector3D& _v) {
 	Vector3D rez(this->X + _v.X, this->Y + _v.Y, this->Z + _v.Z);
 	return rez;
 }
+
+Vector3D Vector3D::operator-(const Vector3D& _v) {
+	Vector3D rez(this->X - _v.X, this->Y - _v.Y, this->Z - _v.Z);
+	return rez;
+}
+
+double Vector3D::norm() {
+	return sqrt ( X * X + Y * Y + Z * Z);
+}

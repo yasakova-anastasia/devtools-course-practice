@@ -143,7 +143,7 @@ TEST_F(Vector3DTest, Operator_Equality_Vector3D) {
 	ASSERT_EQ(v.getZ(), v2.getZ());
 }
 
-TEST_F(Vector3DTest, Summ_Operator_2_Vector3D) {
+TEST_F(Vector3DTest, Plass_Operator_2_Vector3D) {
 	// Arrange
 	Vector3D v(2, 3, 5);
 	Vector3D v2(2,45,-2);
@@ -153,4 +153,24 @@ TEST_F(Vector3DTest, Summ_Operator_2_Vector3D) {
 	ASSERT_EQ(rez.getX(), 4);
 	ASSERT_EQ(rez.getY(), 48);
 	ASSERT_EQ(rez.getZ(), 3);
+}
+
+TEST_F(Vector3DTest, Minus_Operator_2_Vector3D) {
+	// Arrange
+	Vector3D v(2, 3, 5);
+	Vector3D v2(2, 45, -2);
+	// Act
+	Vector3D rez = v - v2;
+	// Assert
+	ASSERT_EQ(rez.getX(), 0);
+	ASSERT_EQ(rez.getY(), -42);
+	ASSERT_EQ(rez.getZ(), 7);
+}
+
+TEST_F(Vector3DTest, Test_norm_Vector3D) {
+	// Arrange
+	Vector3D v(2, 4, 4);
+	// Act
+	// Assert
+	ASSERT_EQ(v.norm(), 6);
 }
