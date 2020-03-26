@@ -26,7 +26,7 @@ TEST(Nazarov_Vladislav_ComplexNumberTest, Defalut_Constructor) {
     EXPECT_EQ(0, z.getIm());
 }
 
-TEST(Nazarov_Vladislav_ComplexNumberTest, Float_And_Double_Complex_Numbers_Not_Equal) {
+TEST(Nazarov_Vladislav_ComplexNumberTest, Float_And_Double_Complex_Not_Equal) {
     // Arrange
     ComplexNumber z{5.321f, 215244.242f};
     ComplexNumber b{5.321, 215244.242};
