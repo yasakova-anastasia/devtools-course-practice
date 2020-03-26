@@ -211,3 +211,15 @@ TEST_F(Vector3DTest, Scalar_Product_Test_Vector3D) {
 	ASSERT_EQ(rez, 36);
 	ASSERT_EQ(rez2, 10);
 }
+
+TEST_F(Vector3DTest, Vector_Product_Test_Vector3D) {
+	// Arrange
+	Vector3D v(2, 0, 0);
+	Vector3D v2(0, 0, 2);
+	// Act
+	Vector3D rez = VectorProduct(v, v2);
+	// Assert
+	ASSERT_EQ(rez.getX(), 0);
+	ASSERT_EQ(rez.getY(), 4);
+	ASSERT_EQ(rez.getZ(), 0);
+}

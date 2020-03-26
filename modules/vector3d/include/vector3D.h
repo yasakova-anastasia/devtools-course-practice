@@ -30,8 +30,9 @@ private:
 };
 
 Vector3D normalization(const Vector3D& _v);
+
 double ScalarProduct(const Vector3D& _v1, const Vector3D& _v2);
 
-
+Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2);
 
 #endif  // MODULES_VECTOR3D_INCLUDE_VECTOR3D_H_

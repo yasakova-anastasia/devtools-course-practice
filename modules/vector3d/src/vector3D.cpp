@@ -71,11 +71,18 @@ void Vector3D::normalization() {
 }
 
 Vector3D normalization(const Vector3D& _v) {
-	double summ = X + Y + Z;
-	Vector3D normalization(X / summ, Y / summ, Z / summ);
+	double summ = _v.->getX() + _v->getY() + _v->getZ();
+	Vector3D normalization(_v->getX() / summ, _v->getY() / summ, _v->getZ() / summ);
 	return normalization;
 }
 
 double ScalarProduct(const Vector3D& _v1, const Vector3D& _v2) {
-	return _v1.getX() * _v2.getX() + _v1.getY() * _v2.getY() + _v1.getZ() * _v2.getZ();
+	return _v1->getX() * _v2->getX() + _v1->getY() * _v2->getY() + _v1->getZ() * _v2->getZ();
+}
+
+Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2) {
+	Vector3D reVectorProduct(_v1->getY() * _v2->getZ() - _v1->getZ() * _v2->getY(),
+		                     _v1->getZ() * _v2->getX() - _v1->getX() * _v2->getZ(),
+	                         _v1->getX() * _v2->getY() - _v1->getY() * _v2->getX());
+	return  reVectorProduct;
 }
