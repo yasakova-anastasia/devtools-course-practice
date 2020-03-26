@@ -44,7 +44,7 @@ TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Equal_Return_T
     ComplexNumber z2(z1);
 
     // Assert
-    EXPECT_EQ(true, z1==z2);
+    EXPECT_TRUE(z1==z2);
 }
 
 TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Equal_Return_False) {
@@ -53,7 +53,7 @@ TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Equal_Return_F
     ComplexNumber z2(2.1, 4.0);
 
     // Assert
-    EXPECT_EQ(false, z1 == z2);
+    EXPECT_FALSE(z1 == z2);
 }
 
 TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Not_Equal_Return_True) {
@@ -62,7 +62,7 @@ TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Not_Equal_Retu
     ComplexNumber z2(2.1, 4.0);
 
     // Assert
-    EXPECT_EQ(true, z1 != z2);
+    EXPECT_TRUE( z1 != z2);
 }
 
 TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Not_Equal_Return_False) {
@@ -71,7 +71,7 @@ TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Not_Equal_Retu
     ComplexNumber z2(2.0, 4.0);
 
     // Assert
-    EXPECT_EQ(false, z1 != z2);
+    EXPECT_FALSE( z1 != z2);
 }
 
 TEST(Dobrohotov_Vitaly_ComplexNumberTest, Can_Assign_Complex_Number) {
@@ -83,5 +83,5 @@ TEST(Dobrohotov_Vitaly_ComplexNumberTest, Can_Assign_Complex_Number) {
     z2 = z1;
 
     // Assert
-    EXPECT_EQ(true, z1==z2);
+    EXPECT_TRUE(z1==z2);
 }
