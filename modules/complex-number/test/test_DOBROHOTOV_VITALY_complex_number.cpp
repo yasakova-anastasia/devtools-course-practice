@@ -28,28 +28,28 @@ TEST(Dobrohotov_Vitaly_ComplexNumberTest, Check_Copy_Constructor) {
     EXPECT_EQ(z1.getIm(), z2.getIm());
 }
 
-TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Equal_Return_True) {
+TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Comp_Num_Are_Equal_True) {
     ComplexNumber z1(2.0, 4.0);
     ComplexNumber z2(z1);
 
     EXPECT_TRUE(z1 == z2);
 }
 
-TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Equal_Return_False) {
+TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Compl_Num_Are_Equal_False) {
     ComplexNumber z1(2.0, 4.0);
     ComplexNumber z2(2.1, 4.0);
 
     EXPECT_FALSE(z1 == z2);
 }
 
-TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Not_Equal_Return_True) {
+TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Compl_Num_Are_Not_Equal_True) {
     ComplexNumber z1(2.0, 4.0);
     ComplexNumber z2(2.1, 4.0);
 
     EXPECT_TRUE( z1 != z2);
 }
 
-TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Complex_Numbers_Are_Not_Equal_Return_False) {
+TEST(Dobrohotov_Vitaly_ComplexNumberTest, Two_Comp_Numb_Are_Not_Equal_False) {
     ComplexNumber z1(2.0, 4.0);
     ComplexNumber z2(2.0, 4.0);
 
