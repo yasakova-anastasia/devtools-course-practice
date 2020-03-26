@@ -12,3 +12,13 @@ TEST(Ilya_Isaev_Complex_Number_Test, Create_Instance_With_Params) {
     EXPECT_EQ(1.05, a.getRe());
     EXPECT_EQ(2.15, a.getIm());
 }
+
+TEST(Ilya_Isaev_Complex_Number_Test, EQ_Operator_Test) {
+    auto a = ComplexNumber(0, 15);
+    auto b = ComplexNumber();
+
+    b = a;
+
+    EXPECT_EQ(a.getRe(), b.getRe());
+    EXPECT_EQ(a.getIm(), b.getIm());
+}
