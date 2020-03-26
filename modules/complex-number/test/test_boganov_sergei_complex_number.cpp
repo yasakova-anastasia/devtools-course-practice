@@ -28,3 +28,15 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Get_Re) {
     // Assert
     EXPECT_EQ(re, z.getRe());
 }
+
+TEST(Boganov_Sergei_ComplexNumberTest, Can_Get_Im) {
+    // Arrange
+    double re = 2.0;
+    double im = 3.0;
+
+    // Act
+    ComplexNumber z(re, im);
+
+    // Assert
+    EXPECT_EQ(im, z.getIm());
+}
