@@ -196,3 +196,16 @@ TEST(Boganov_Sergei_ComplexNumberTest, Correct_Not_Equal_Operator) {
     // Assert
     EXPECT_NE(z1, z2);
 }
+
+TEST(Boganov_Sergei_ComplexNumberTest, Correct_Сopy_Сonstructor) {
+    // Arrange
+    double re1 = 2.0;
+    double im1 = 1.0;
+
+    // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(z1);
+
+    // Assert
+    EXPECT_EQ(z1, z2);
+}
