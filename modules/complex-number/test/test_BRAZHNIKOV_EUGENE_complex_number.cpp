@@ -13,7 +13,8 @@ TEST(Brazhnikov_Eugene_ComplexNumberTest, Self_Assign) {
     ComplexNumber a(re, im);
 
     // Assert
-    EXPECT_EQ(a, a);
+    EXPECT_EQ(re, a.getRe());
+    EXPECT_EQ(im, a.getIm());
 }
 
 TEST(Brazhnikov_Eugene_ComplexNumberTest, Multiply_6_times_in_a_row) {
