@@ -1,6 +1,5 @@
 // Copyright 2020 Sokolov Nikolai
 
-#include <iostream>
 #include "include/vector3D.h"
 
 Vector3D::Vector3D(const double& _x, const double& _y, const double& _z) : X(_x), Y(_y), Z(_z)
@@ -60,7 +59,7 @@ Vector3D Vector3D::operator-(const Vector3D& _v) {
 }
 
 double Vector3D::norm() {
-    return sqrt ( X * X + Y * Y + Z * Z);
+    return sqrt( X * X + Y * Y + Z * Z);
 }
 
 void Vector3D::normalization() {

@@ -3,6 +3,9 @@
 #ifndef MODULES_VECTOR3D_INCLUDE_VECTOR3D_H_
 #define MODULES_VECTOR3D_INCLUDE_VECTOR3D_H_
 
+#include <iostream>
+#include <cmath>
+
 class Vector3D {
 public:
     explicit Vector3D(const double& _x = 0, const double& _y = 0, const double& _z = 0);
