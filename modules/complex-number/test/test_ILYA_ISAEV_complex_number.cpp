@@ -22,3 +22,10 @@ TEST(Ilya_Isaev_Complex_Number_Test, EQ_Operator_Test) {
     EXPECT_EQ(a.getRe(), b.getRe());
     EXPECT_EQ(a.getIm(), b.getIm());
 }
+
+TEST(Ilya_Isaev_Complex_Number_Test, On_Zero_Division_Test) {
+    auto a = ComplexNumber(15, 10);
+    auto b = ComplexNumber();
+
+    ASSERT_ANY_THROW(a/b);
+}
