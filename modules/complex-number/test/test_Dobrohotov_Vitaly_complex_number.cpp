@@ -1,5 +1,5 @@
 // Copyright 2020 Dobrohotov Vitaly
-
+ 
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
