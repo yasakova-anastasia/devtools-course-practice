@@ -17,3 +17,13 @@ TEST(Nazarov_Vladislav_ComplexNumberTest, Uniform_Initialization) {
     EXPECT_EQ(re, z.getRe());
     EXPECT_EQ(im, z.getIm());
 }
+
+
+TEST(Nazarov_Vladislav_ComplexNumberTest, Defalut_Constructor) {
+    // Arrange && Act
+    ComplexNumber z{};
+
+    // Act && Assert
+    EXPECT_EQ(0, z.getRe());
+    EXPECT_EQ(0, z.getIm());
+}
