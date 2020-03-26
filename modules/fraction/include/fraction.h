@@ -9,7 +9,7 @@ class Fraction {
     int denominator_;
 
  public:
-    explicit Fraction(const int& nom = 0,const int& den = 1);
+    explicit Fraction(const int& nom = 0, const int& den = 1);
     Fraction(const Fraction& f);
 
     int getNominator() const;
