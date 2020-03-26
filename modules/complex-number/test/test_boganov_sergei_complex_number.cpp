@@ -55,3 +55,19 @@ TEST(Boganov_Sergei_ComplexNumberTest, Correct_Assignment_Operator) {
     // Assert
     EXPECT_EQ(z1, z2);
 }
+
+TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Re) {
+    // Arrange
+    double re1 = 2.0;
+    double im1 = 3.0;
+
+    double re2 = -5.0;
+
+    // Act
+    ComplexNumber z(re1, im1);
+
+    z.setRe(re2);
+
+    // Assert
+    EXPECT_EQ(re2, z.getRe());
+}
