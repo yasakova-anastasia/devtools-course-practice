@@ -109,3 +109,14 @@ TEST_F(Vector3DTest, Set_Value_Z_Coordinate) {
 	// Assert
 	ASSERT_EQ(v.getZ(), 11.2);
 }
+
+TEST_F(Vector3DTest, Create_Vector3D_Copy_Constructor) {
+	// Arrange
+	Vector3D v(2, 2, 2);
+	Vector3D v2(v);
+	// Act
+	// Assert
+	ASSERT_NO_THROW(v2.getX());
+	ASSERT_NO_THROW(v2.getY());
+	ASSERT_NO_THROW(v2.getZ());
+}
