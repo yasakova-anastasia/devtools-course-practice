@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-Fraction::Fraction(const int& nom,const int& den) {
+Fraction::Fraction(const int& nom, const int& den) {
     if (den == 0) {
         denominator_ = 1;
         throw std::string("Denominator can`t be zero. Use denominator = 1");
