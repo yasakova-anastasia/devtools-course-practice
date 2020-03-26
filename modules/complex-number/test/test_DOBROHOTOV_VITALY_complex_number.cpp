@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2020 Dobrohotov Vitaly
 
 #include <gtest/gtest.h>
 
