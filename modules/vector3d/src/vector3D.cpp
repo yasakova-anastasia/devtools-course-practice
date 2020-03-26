@@ -37,3 +37,19 @@ void Vector3D::setY(const double& _y) {
 void Vector3D::setZ(const double& _z) {
 	Z = _z;
 }
+
+Vector3D& Vector3D::operator=(const Vector3D & v){
+	if (this != &v)
+	{
+		X = v.X;
+		Y = v.Y;
+		Z = v.Z;
+	}
+	return *this;
+
+}
+
+Vector3D Vector3D::operator+(const Vector3D& _v) {
+	Vector3D rez(this->X + _v.X, this->Y + _v.Y, this->Z + _v.Z);
+	return rez;
+}

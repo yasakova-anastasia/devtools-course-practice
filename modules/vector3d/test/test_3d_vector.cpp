@@ -120,3 +120,37 @@ TEST_F(Vector3DTest, Create_Vector3D_Copy_Constructor) {
 	ASSERT_NO_THROW(v2.getY());
 	ASSERT_NO_THROW(v2.getZ());
 }
+
+TEST_F(Vector3DTest, Get_Value_Vector3D_Copy_Constructor) {
+	// Arrange
+	Vector3D v(2, 3, 5);
+	Vector3D v2(v);
+	// Act
+	// Assert
+	ASSERT_EQ(v2.getX(), 2);
+	ASSERT_EQ(v2.getY(), 3);
+	ASSERT_EQ(v2.getZ(), 5);
+}
+
+TEST_F(Vector3DTest, Operator_Equality_Vector3D) {
+	// Arrange
+	Vector3D v(2, 3, 5);
+	Vector3D v2 = v;
+	// Act
+	// Assert
+	ASSERT_EQ(v.getX(), v2.getX());
+	ASSERT_EQ(v.getY(), v2.getY());
+	ASSERT_EQ(v.getZ(), v2.getZ());
+}
+
+TEST_F(Vector3DTest, Summ_Operator_2_Vector3D) {
+	// Arrange
+	Vector3D v(2, 3, 5);
+	Vector3D v2(2,45,-2);
+	// Act
+	Vector3D rez = v + v2;
+	// Assert
+	ASSERT_EQ(rez.getX(), 4);
+	ASSERT_EQ(rez.getY(), 48);
+	ASSERT_EQ(rez.getZ(), 3);
+}

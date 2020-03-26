@@ -13,6 +13,8 @@ public:
 	void setX(const double& _x);
 	void setY(const double& _y);
 	void setZ(const double& _z);
+	Vector3D& operator=(const Vector3D& f);
+	Vector3D operator+(const Vector3D& _v);
 private:
 	double X;
 	double Y;
