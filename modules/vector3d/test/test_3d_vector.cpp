@@ -177,39 +177,39 @@ TEST_F(Vector3DTest, Test_norm_Vector3D) {
 
 TEST_F(Vector3DTest, Normalization_Class_Function_Test_Vector3D) {
 	// Arrange
-	Vector3D v(2, 3, 5);
+	Vector3D v(4,4,2);
 	// Act
 	v.normalization();
 	// Assert
-	ASSERT_EQ(v.getX(), 0.2);
-	ASSERT_EQ(v.getY(), 0.3);
-	ASSERT_EQ(v.getZ(), 0.5);
-	ASSERT_EQ(v.norm(), 1);
+	ASSERT_NEAR(v.getX(), 4.0/6, epsilon);
+	ASSERT_NEAR(v.getY(), 4.0/6, epsilon);
+	ASSERT_NEAR(v.getZ(), 2.0/6, epsilon);
+	ASSERT_NEAR(v.norm(), 1, epsilon);
 }
 
 TEST_F(Vector3DTest, Normalization_Test_Vector3D) {
 	// Arrange
-	Vector3D v(2, 3, 5);
+	Vector3D v(4, 4, 2);
 	// Act
 	Vector3D v2 = normalization(v);
 	// Assert
-	ASSERT_EQ(v2.getX(), 0.2);
-	ASSERT_EQ(v2.getY(), 0.3);
-	ASSERT_EQ(v2.getZ(), 0.5);
-	ASSERT_EQ(v2.norm(), 1);
+	ASSERT_NEAR(v2.getX(), 4.0 / 6, epsilon);
+	ASSERT_NEAR(v2.getY(), 4.0 / 6, epsilon);
+	ASSERT_NEAR(v2.getZ(), 2.0 / 6, epsilon);
+	ASSERT_NEAR(v2.norm(), 1, epsilon);
 }
 
 TEST_F(Vector3DTest, Scalar_Product_Test_Vector3D) {
 	// Arrange
 	Vector3D v(2, 4, 4);
 	Vector3D v2(2, 4, 4);
-	Vector3D v3(1, 1, 1);
+	Vector3D v3(4, 1, 1);
 	// Act
-	double rez = ScalarProduct(v,v2);
+	double rez = ScalarProduct(v, v2);
 	double rez2 = ScalarProduct(v3, v2);
 	// Assert
-	ASSERT_EQ(rez, 36);
-	ASSERT_EQ(rez2, 10);
+	ASSERT_NEAR(rez, 6, epsilon);
+	ASSERT_NEAR(rez2, 4, epsilon);
 }
 
 TEST_F(Vector3DTest, Vector_Product_Test_Vector3D) {
