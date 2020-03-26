@@ -40,3 +40,18 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Get_Im) {
     // Assert
     EXPECT_EQ(im, z.getIm());
 }
+
+TEST(Boganov_Sergei_ComplexNumberTest, Correct_Assignment_Operator) {
+    // Arrange
+    double re1 = 2.0;
+    double im1 = 3.0;
+
+    // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2;
+
+    z2 = z1;
+
+    // Assert
+    EXPECT_EQ(z1, z2);
+}
