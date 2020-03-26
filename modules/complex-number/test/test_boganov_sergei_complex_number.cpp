@@ -180,3 +180,19 @@ TEST(Boganov_Sergei_ComplexNumberTest, Prohibited_Division_By_Zero) {
     // Assert
     ASSERT_ANY_THROW(z1 / z2);
 }
+
+TEST(Boganov_Sergei_ComplexNumberTest, Correct_Not_Equal_Operator) {
+    // Arrange
+    double re1 = 2.0;
+    double im1 = 1.0;
+
+    double re2 = 5.0;
+    double im2 = 4.0;
+
+    // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+
+    // Assert
+    EXPECT_NE(z1, z2);
+}
