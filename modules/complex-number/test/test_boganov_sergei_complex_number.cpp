@@ -197,7 +197,7 @@ TEST(Boganov_Sergei_ComplexNumberTest, Correct_Not_Equal_Operator) {
     EXPECT_NE(z1, z2);
 }
 
-TEST(Boganov_Sergei_ComplexNumberTest, Correct_Сopy_Сonstructor) {
+TEST(Boganov_Sergei_ComplexNumberTest, Correct_Copy_Constructor) {
     // Arrange
     double re1 = 2.0;
     double im1 = 1.0;
