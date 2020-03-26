@@ -208,8 +208,8 @@ TEST_F(Vector3DTest, Scalar_Product_Test_Vector3D) {
 	double rez = ScalarProduct(v, v2);
 	double rez2 = ScalarProduct(v3, v2);
 	// Assert
-	ASSERT_NEAR(rez, 6, epsilon);
-	ASSERT_NEAR(rez2, 4, epsilon);
+	ASSERT_NEAR(rez, 36, epsilon);
+	ASSERT_NEAR(rez2, 16, epsilon);
 }
 
 TEST_F(Vector3DTest, Vector_Product_Test_Vector3D) {
@@ -220,6 +220,6 @@ TEST_F(Vector3DTest, Vector_Product_Test_Vector3D) {
 	Vector3D rez = VectorProduct(v, v2);
 	// Assert
 	ASSERT_EQ(rez.getX(), 0);
-	ASSERT_EQ(rez.getY(), 4);
+	ASSERT_EQ(rez.getY(), -4);
 	ASSERT_EQ(rez.getZ(), 0);
 }
