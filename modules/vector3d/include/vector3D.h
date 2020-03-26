@@ -21,11 +21,17 @@ public:
 	Vector3D operator-(const Vector3D& _v);
 
 	double norm();
+	void normalization();
 
 private:
 	double X;
 	double Y;
 	double Z;
 };
+
+Vector3D normalization(const Vector3D& _v);
+double ScalarProduct(const Vector3D& _v1, const Vector3D& _v2);
+
+
 
 #endif  // MODULES_VECTOR3D_INCLUDE_VECTOR3D_H_

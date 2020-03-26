@@ -62,3 +62,20 @@ Vector3D Vector3D::operator-(const Vector3D& _v) {
 double Vector3D::norm() {
 	return sqrt ( X * X + Y * Y + Z * Z);
 }
+
+void Vector3D::normalization() {
+	double summ = X + Y + Z;
+	X /= summ; 
+	Y /= summ;
+	Z /= summ;
+}
+
+Vector3D normalization(const Vector3D& _v) {
+	double summ = X + Y + Z;
+	Vector3D normalization(X / summ, Y / summ, Z / summ);
+	return normalization;
+}
+
+double ScalarProduct(const Vector3D& _v1, const Vector3D& _v2) {
+	return _v1.getX() * _v2.getX() + _v1.getY() * _v2.getY() + _v1.getZ() * _v2.getZ();
+}
