@@ -9,14 +9,14 @@ class Fraction {
     int denominator_;
 
  public:
-    explicit Fraction(int nom = 0, int den = 1);
+    explicit Fraction(const int& nom = 0,const int& den = 1);
     Fraction(const Fraction& f);
 
     int getNominator() const;
     int getDenominator() const;
 
-    void setNominator(int nom);
-    void setDenominator(int den);
+    void setNominator(const int& nom);
+    void setDenominator(const int& den);
 
     bool operator ==(const Fraction& f) const;
     bool operator !=(const Fraction& f) const;
@@ -41,6 +41,8 @@ class Fraction {
     bool operator>=(const Fraction& f);
     bool operator<(const Fraction& f);
     bool operator<=(const Fraction& f);
+
+    int changeDenominator(const int& den);
 };
 
 int nod(int a, int b);

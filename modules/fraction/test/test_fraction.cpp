@@ -387,3 +387,34 @@ TEST_F(FractionTest, Operator_Less_Than_Or_Equals_Test) {
     EXPECT_EQ(b1, true);
     EXPECT_EQ(b2, true);
 }
+
+TEST_F(FractionTest, Change_Up_Denominator_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+
+    // Act
+    f1.changeDenominator(30);
+
+    // Assert
+    EXPECT_EQ(f1.getDenominator(), 30);
+}
+
+TEST_F(FractionTest, Change_Down_Denominator_Test) {
+    // Arrange
+    Fraction f1(2, 30);
+
+    // Act
+    f1.changeDenominator(15);
+
+    // Assert
+    EXPECT_EQ(f1.getDenominator(), 15);
+}
+
+TEST_F(FractionTest, Cant_Change_Denominator_Test) {
+    // Arrange
+    Fraction f1(1, 15);
+
+    // Act
+    // Assert
+    EXPECT_ANY_THROW(f1.changeDenominator(20));
+}

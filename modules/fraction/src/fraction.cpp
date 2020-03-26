@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 
-Fraction::Fraction(int nom, int den) {
+Fraction::Fraction(const int& nom,const int& den) {
     if (den == 0) {
         denominator_ = 1;
         throw std::string("Denominator can`t be zero. Use denominator = 1");
@@ -34,11 +34,11 @@ int Fraction::getDenominator() const {
     }
 }
 
-void Fraction::setNominator(int nom) {
+void Fraction::setNominator(const int& nom) {
     nominator_ = nom;
 }
 
-void Fraction::setDenominator(int den) {
+void Fraction::setDenominator(const int& den) {
     if (den == 0) {
         denominator_ = 1;
         throw std::string("Denominator can`t be zero. Use denominator = 1");
@@ -196,6 +196,20 @@ bool Fraction::operator<=(const Fraction & f) {
     double f2 = f;
 
     return f1 <= f2;
+}
+
+int Fraction::changeDenominator(const int & den) {
+    if (denominator_ < den && den % denominator_ == 0) {
+        denominator_ = den;
+        nominator_ *= (den / denominator_);
+    } else if (denominator_ > den && denominator_ % den == 0 &&
+               nominator_ % (denominator_ / den) == 0) {
+        nominator_ /= denominator_ / den;
+        denominator_ = den;
+    } else {
+        throw std::string("Can`t change denominator for this fraction.");
+    }
+    return 0;
 }
 
 int nod(int a, int b) {
