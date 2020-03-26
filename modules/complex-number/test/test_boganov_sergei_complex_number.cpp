@@ -13,8 +13,8 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Create_Zero) {
     ComplexNumber z(re, im);
 
     // Assert
-    EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
+    EXPECT_DOUBLE_EQ(re, z.getRe());
+    EXPECT_DOUBLE_EQ(im, z.getIm());
 }
 
 TEST(Boganov_Sergei_ComplexNumberTest, Can_Get_Re) {
@@ -26,7 +26,7 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Get_Re) {
     ComplexNumber z(re, im);
 
     // Assert
-    EXPECT_EQ(re, z.getRe());
+    EXPECT_DOUBLE_EQ(re, z.getRe());
 }
 
 TEST(Boganov_Sergei_ComplexNumberTest, Can_Get_Im) {
@@ -38,7 +38,7 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Get_Im) {
     ComplexNumber z(re, im);
 
     // Assert
-    EXPECT_EQ(im, z.getIm());
+    EXPECT_DOUBLE_EQ(im, z.getIm());
 }
 
 TEST(Boganov_Sergei_ComplexNumberTest, Correct_Assignment_Operator) {
@@ -69,7 +69,7 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Re) {
     z.setRe(re2);
 
     // Assert
-    EXPECT_EQ(re2, z.getRe());
+    EXPECT_DOUBLE_EQ(re2, z.getRe());
 }
 
 TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Im) {
@@ -85,5 +85,5 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Im) {
     z.setIm(im2);
 
     // Assert
-    EXPECT_EQ(im2, z.getIm());
+    EXPECT_DOUBLE_EQ(im2, z.getIm());
 }
