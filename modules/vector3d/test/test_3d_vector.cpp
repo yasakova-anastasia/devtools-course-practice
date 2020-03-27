@@ -135,7 +135,8 @@ TEST_F(Vector3DTest, Get_Value_Vector3D_Copy_Constructor) {
 TEST_F(Vector3DTest, Operator_Equality_Vector3D) {
     // Arrange
     Vector3D v(2, 3, 5);
-    Vector3D v2 = v;
+	Vector3D v2;
+	v2 = v;
     // Act
     // Assert
     ASSERT_EQ(v.getX(), v2.getX());
