@@ -57,14 +57,14 @@ TEST(Kukushkina_Ksenia_ComplexNumberTest, natural_number_division) {
 
 TEST(Kukushkina_Ksenia_ComplexNumberTest, divisible_numbers_division) {
   // Arrange
-  ComplexNumber a(21, 7);
-  ComplexNumber b(3, 1);
+  ComplexNumber a(-21, 7);
+  ComplexNumber b(3, -1);
 
   // Act
   ComplexNumber c = a / b;
 
   // Assert
-  EXPECT_EQ(c.getRe(), 7);
+  EXPECT_EQ(c.getRe(), static_cast<double>(-7));
   EXPECT_EQ(c.getIm(), 0);
 }
 
