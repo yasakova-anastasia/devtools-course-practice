@@ -41,7 +41,7 @@ TEST_F(Vector3DTest, Create_Vector3D_Constructor_With_One_Parameters) {
 
 TEST_F(Vector3DTest, Create_Vector3D_Constructor_With_Two_Parameters) {
     // Arrange
-    Vector3D v(2,2);
+    Vector3D v(2, 2);
     // Act
     // Assert
     ASSERT_NO_THROW(v.getX());
@@ -51,7 +51,7 @@ TEST_F(Vector3DTest, Create_Vector3D_Constructor_With_Two_Parameters) {
 
 TEST_F(Vector3DTest, Create_Vector3D_Constructor_With_Three_Parameters) {
     // Arrange
-    Vector3D v(2,2,2);
+    Vector3D v(2, 2, 2);
     // Act
     // Assert
     ASSERT_NO_THROW(v.getX());
@@ -61,7 +61,7 @@ TEST_F(Vector3DTest, Create_Vector3D_Constructor_With_Three_Parameters) {
 
 TEST_F(Vector3DTest, Get_Value_X_Coordinate) {
     // Arrange
-    Vector3D v(2,3,4);
+    Vector3D v(2, 3, 4);
     // Act
     // Assert
     ASSERT_EQ(v.getX(), 2);
@@ -69,7 +69,7 @@ TEST_F(Vector3DTest, Get_Value_X_Coordinate) {
 
 TEST_F(Vector3DTest, Get_Value_Y_Coordinate) {
     // Arrange
-    Vector3D v(3,3,4);
+    Vector3D v(3, 3, 4);
     // Act
     // Assert
     ASSERT_EQ(v.getY(), 3);
@@ -77,7 +77,7 @@ TEST_F(Vector3DTest, Get_Value_Y_Coordinate) {
 
 TEST_F(Vector3DTest, Get_Value_Z_Coordinate) {
     // Arrange
-    Vector3D v(3,4,6);
+    Vector3D v(3, 4, 6);
     // Act
     // Assert
     ASSERT_EQ(v.getZ(), 6);
@@ -146,7 +146,7 @@ TEST_F(Vector3DTest, Operator_Equality_Vector3D) {
 TEST_F(Vector3DTest, Plass_Operator_2_Vector3D) {
     // Arrange
     Vector3D v(2, 3, 5);
-    Vector3D v2(2,45,-2);
+    Vector3D v2(2, 45, -2);
     // Act
     Vector3D rez = v + v2;
     // Assert
@@ -177,7 +177,7 @@ TEST_F(Vector3DTest, Test_norm_Vector3D) {
 
 TEST_F(Vector3DTest, Normalization_Class_Function_Test_Vector3D) {
     // Arrange
-    Vector3D v(4,4,2);
+    Vector3D v(4, 4, 2);
     // Act
     v.normalization();
     // Assert
