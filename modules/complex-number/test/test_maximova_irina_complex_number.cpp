@@ -57,8 +57,18 @@ TEST(Maximova_Irina_ComplexNumberTest, Can_Create_Copy) {
   EXPECT_EQ(expected_z, z);
 }
 
+TEST(ComMaximova_Irina_ComplexNumberTestplexNumberTest,
+     Can_Set_Real_and_Imaginary) {
+  // Arrange
+  ComplexNumber z;
+  double re = 5.0;
+  double im = -3.0;
 
+  // Act
+  z.setRe(re);
+  z.setIm(im);
 
-
-
-
+  // Assert
+  ASSERT_EQ(im, z.getIm());
+  ASSERT_EQ(re, z.getRe());
+}
