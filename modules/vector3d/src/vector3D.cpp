@@ -3,11 +3,11 @@
 #include "include/vector3D.h"
 
 Vector3D::Vector3D(const double& _x,
-	               const double& _y,
-	               const double& _z) : X(_x), Y(_y), Z(_z){
+                   const double& _y,
+                   const double& _z) : X(_x), Y(_y), Z(_z) {
 }
 
-Vector3D::Vector3D(const Vector3D& _v){
+Vector3D::Vector3D(const Vector3D& _v) {
     X = _v.X;
     Y = _v.Y;	
     Z = _v.Z;
@@ -37,14 +37,13 @@ void Vector3D::setZ(const double& _z) {
     Z = _z;
 }
 
-Vector3D& Vector3D::operator=(const Vector3D& v){
-    if (this != &v){
+Vector3D& Vector3D::operator=(const Vector3D& v) {
+    if (this != &v) {
         X = v.X;
         Y = v.Y;
         Z = v.Z;
     }
     return *this;
-
 }
 
 Vector3D Vector3D::operator+(const Vector3D& _v) {
@@ -69,7 +68,9 @@ void Vector3D::normalization() {
 }
 
 Vector3D normalization(const Vector3D& _v) {
-    Vector3D normal(_v.getX() / _v.norm(), _v.getY() / _v.norm(), _v.getZ() / _v.norm());
+    Vector3D normal(_v.getX() / _v.norm(),
+                    _v.getY() / _v.norm(),
+                    _v.getZ() / _v.norm());
     return normal;
 }
 
