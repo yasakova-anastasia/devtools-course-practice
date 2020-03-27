@@ -132,3 +132,38 @@ TEST(Maximova_Irina_ComplexNumberTest, Can_Division_Complex_Number) {
   ComplexNumber expected_z(-0.1, -0.7);
   EXPECT_EQ(expected_z, z);
 }
+
+TEST(Maximova_Irina_ComplexNumberTest, Equal_Is_True) {
+  // Arrange
+  ComplexNumber z(1.0, 3.0);
+
+  // Act & Assert
+  EXPECT_TRUE(z == z);
+}
+
+TEST(Maximova_Irina_ComplexNumberTest, Equal_Is_False) {
+  // Arrange
+  ComplexNumber a(1.0, -3.0);
+  ComplexNumber b(1.0, 3.0);
+
+  // Act & Assert
+  EXPECT_FALSE(a == b);
+}
+
+TEST(Maximova_Irina_ComplexNumberTest, Different_Is_True) {
+  // Arrange
+  ComplexNumber a(1.0, -3.0);
+  ComplexNumber b(1.0, 3.0);
+
+  // Act & Assert
+  EXPECT_TRUE(a != b);
+}
+
+TEST(Maximova_Irina_ComplexNumberTest, Different_Is_False) {
+  // Arrange
+  ComplexNumber a(1.0, 3.0);
+  ComplexNumber b(1.0, 3.0);
+
+  // Act & Assert
+  EXPECT_FALSE(a != b);
+}
