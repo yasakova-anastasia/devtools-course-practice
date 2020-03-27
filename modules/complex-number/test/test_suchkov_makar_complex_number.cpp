@@ -76,7 +76,7 @@ TEST(Suchkov_Makar_ComplexNumberTest, Negative_Number_Less_Than_Positive) {
 TEST(Suchkov_Makar_ComplexNumberTest, Can_Add_Complex_Numbers) {
     // Arrange
     double re1 = 1.0;
-    double im1 = 2.0;
+    double im1 = 3.0;
 
     double re2 = 4.0;
     double im2 = -5.0;
