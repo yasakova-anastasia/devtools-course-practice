@@ -3,14 +3,14 @@
 #include "include/vector3D.h"
 
 Vector3D::Vector3D(const double& _x,
-                   const double& _y,
-                   const double& _z) : X(_x), Y(_y), Z(_z) {
+    const double& _y,
+    const double& _z) : X(_x), Y(_y), Z(_z) {
 
 }
 
 Vector3D::Vector3D(const Vector3D& _v) {
     X = _v.X;
-    Y = _v.Y;	
+    Y = _v.Y;
     Z = _v.Z;
 }
 
@@ -70,8 +70,8 @@ void Vector3D::normalization() {
 
 Vector3D normalization(const Vector3D& _v) {
     Vector3D normal(_v.getX() / _v.norm(),
-                    _v.getY() / _v.norm(),
-                    _v.getZ() / _v.norm());
+        _v.getY() / _v.norm(),
+        _v.getZ() / _v.norm());
     return normal;
 }
 
@@ -82,9 +82,9 @@ double ScalarProduct(const Vector3D&_v1, const Vector3D&_v2) {
     return  _tx + _ty + _tz;
 }
 
-Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2)  {
+Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2) {
     Vector3D reVectorProduct(_v1.getY() * _v2.getZ() - _v1.getZ() * _v2.getY(),
-                             _v1.getZ() * _v2.getX() - _v1.getX() * _v2.getZ(),
-                             _v1.getX() * _v2.getY() - _v1.getY() * _v2.getX());
+        _v1.getZ() * _v2.getX() - _v1.getX() * _v2.getZ(),
+        _v1.getX() * _v2.getY() - _v1.getY() * _v2.getX());
     return  reVectorProduct;
 }
