@@ -5,7 +5,6 @@
 Vector3D::Vector3D(const double& _x,
     const double& _y,
     const double& _z) : X(_x), Y(_y), Z(_z) {
-
 }
 
 Vector3D::Vector3D(const Vector3D& _v) {
