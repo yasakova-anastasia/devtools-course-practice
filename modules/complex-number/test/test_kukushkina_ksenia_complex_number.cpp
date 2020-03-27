@@ -55,19 +55,6 @@ TEST(Kukushkina_Ksenia_ComplexNumberTest, natural_number_division) {
   EXPECT_EQ(c.getIm(), -1);
 }
 
-TEST(Kukushkina_Ksenia_ComplexNumberTest, divisible_numbers_division) {
-  // Arrange
-  ComplexNumber a(21, 7);
-  ComplexNumber b(3, 1);
-
-  // Act
-  ComplexNumber c = a / b;
-
-  // Assert
-  EXPECT_EQ(c.getRe(), static_cast<double>(7));
-  EXPECT_EQ(c.getIm(), 0);
-}
-
 TEST(Kukushkina_Ksenia_ComplexNumberTest, complex_numbers_division) {
   // Arrange
   ComplexNumber a(25, 49);
