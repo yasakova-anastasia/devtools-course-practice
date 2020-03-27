@@ -100,25 +100,18 @@ TEST(Suchkov_Makar_ComplexNumberTest, Check_Inverse_Element_Property) {
     EXPECT_EQ(check.getIm(), 0.0);
 }
 
-TEST(Suchkov_Makar_ComplexNumberTest, Check_Correct_Use_Several_Math_Operations_In_One_String) {
+TEST(Suchkov_Makar_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
     // Arrange
-    double num1 = 10.0;
-    double num2 = 5.0;
-    double num3 = 3.0;
-    double num4 = 2.0;
-    double check = 0;
-
-    ComplexNumber z1(num1, num1);
-    ComplexNumber z2(num2, num2);
-    ComplexNumber z3(num3, num3);
-    ComplexNumber z4(num4, num4);
-    ComplexNumber cCheck(0.0, 0.0);
-
-    // Act
-    check = num1 + num2 / num3 * num4;
-    cCheck = z1 + z2 / z3 * z4;
-
+	double re = 15.0;
+    double im = 15.0;
+    
+	// Act
+    ComplexNumber z1(re, im);
+    re = 16.0;
+    im = 16.0;
+    ComplexNumber z2(re, im);
+	
     // Assert
-    EXPECT_EQ(check, cCheck.getRe());
-    EXPECT_EQ(check, cCheck.getIm());
+    EXPECT_EQ(z1.getRe() * z2.getRe() - z1.getIm() * z2.getIm(), (z1 * z2).getRe());
+    EXPECT_EQ(z1.getRe() * z2.getRe() + z1.getIm() * z2.getIm(), (z1 * z2).getIm());
 }
