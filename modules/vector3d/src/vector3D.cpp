@@ -37,7 +37,7 @@ void Vector3D::setZ(const double& _z) {
     Z = _z;
 }
 
-Vector3D& Vector3D::operator=(const Vector3D & v){
+Vector3D& Vector3D::operator=(const Vector3D& v){
     if (this != &v)
     {
         X = v.X;
@@ -74,7 +74,7 @@ Vector3D normalization(Vector3D& _v) {
     return normal;
 }
 
-double ScalarProduct(Vector3D &_v1, Vector3D &_v2) {
+double ScalarProduct(Vector3D&_v1, Vector3D&_v2) {
     double _tx = _v1.getX() * _v2.getX();
     double _ty = _v1.getY() * _v2.getY();
     double _tz = _v1.getZ() * _v2.getZ();
