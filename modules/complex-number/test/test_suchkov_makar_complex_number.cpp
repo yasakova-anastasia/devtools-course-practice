@@ -17,7 +17,7 @@ TEST(Suchkov_Makar_ComplexNumberTest, Can_Create_Zero) {
     EXPECT_DOUBLE_EQ(im, z.getIm());
 }
 
-TEST(Suchkov_Makar_ComplexNumberTest, Can_Get_Re) {
+TEST(Suchkov_Makar_ComplexNumberTest, Get_Re) {
     // Arrange
     double re = 987.0;
     double im = 789.0;
@@ -29,7 +29,33 @@ TEST(Suchkov_Makar_ComplexNumberTest, Can_Get_Re) {
     EXPECT_DOUBLE_EQ(re, z.getRe());
 }
 
-TEST(Suchkov_Makar_ComplexNumberTest, Can_Get_Im) {
+TEST(Suchkov_Makar_ComplexNumberTest, Set_Re) {
+    // Arrange
+    double re = 0.0;
+    double im = 0.0;
+
+    // Act
+    ComplexNumber z(re, im);
+    z.setRe(7);
+
+    // Assert
+    EXPECT_EQ(7, z.getRe());
+}
+
+TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Im) {
+    // Arrange
+    double re = 0.0;
+    double im = 0.0;
+
+    // Act
+    ComplexNumber z(re, im);
+    z.setIm(10);
+
+    // Assert
+    EXPECT_EQ(10, z.getIm());
+}
+
+TEST(Suchkov_Makar_ComplexNumberTest, Get_Im) {
     // Arrange
     double re = 2.0;
     double im = 3.0;
@@ -54,22 +80,6 @@ TEST(Suchkov_Makar_ComplexNumberTest, Multiple_By_Zero) {
     // Assert
     EXPECT_EQ(z.getRe(), 0.0);
     EXPECT_EQ(z.getIm(), 0.0);
-}
-
-TEST(Suchkov_Makar_ComplexNumberTest, Negative_Number_Less_Than_Positive) {
-    // Arrange
-    double re1 = 555.0;
-    double re2 = -555.0;
-    double im1 = 777.0;
-    double im2 = -777.0;
-
-    // Act
-    ComplexNumber pos(re1, im1);
-    ComplexNumber neg(re2, im2);
-
-    // Assert
-    EXPECT_LT(neg.getRe(), pos.getRe());
-    EXPECT_LT(neg.getIm(), pos.getIm());
 }
 
 TEST(Suchkov_Makar_ComplexNumberTest, Correct_Copy_Constructor) {
@@ -98,20 +108,4 @@ TEST(Suchkov_Makar_ComplexNumberTest, Check_Inverse_Element_Property) {
     // Assert
     EXPECT_EQ(check.getRe(), 0.0);
     EXPECT_EQ(check.getIm(), 0.0);
-}
-
-TEST(Suchkov_Makar_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
-    // Arrange
-	double re = 15.0;
-    double im = 15.0;
-    
-	// Act
-    ComplexNumber z1(re, im);
-    re = 16.0;
-    im = 16.0;
-    ComplexNumber z2(re, im);
-	
-    // Assert
-    EXPECT_EQ(z1.getRe() * z2.getRe() - z1.getIm() * z2.getIm(), (z1 * z2).getRe());
-    EXPECT_EQ(z1.getRe() * z2.getRe() + z1.getIm() * z2.getIm(), (z1 * z2).getIm());
 }
