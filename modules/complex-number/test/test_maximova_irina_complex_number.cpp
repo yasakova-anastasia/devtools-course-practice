@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 TEST(Maximova_Irina_ComplexNumberTest, Can_Create_Default_Without_Throw) {
-  // Arrange Act Assert
+  // Arrange & Act & Assert
   ASSERT_NO_THROW(ComplexNumber());
 }
 
@@ -96,4 +96,39 @@ TEST(Maximova_Irina_ComplexNumberTest, Can_Difference_Complex_Number) {
   // Assert
   ComplexNumber expected_z(0.0, -1.9);
   ASSERT_EQ(expected_z, z);
+}
+
+TEST(Maximova_Irina_ComplexNumberTest, Can_Multiplication_Complex_Number) {
+  // Arrange
+  ComplexNumber a(2.0, -1.0);
+  ComplexNumber b(1.0, 3.0);
+
+  // Act
+  ComplexNumber z = a * b;
+
+  // Assert
+  ComplexNumber expected_z(5.0, 5.0);
+  EXPECT_EQ(expected_z, z);
+}
+
+TEST(Maximova_Irina_ComplexNumberTest, Assert_Throw_When_Division_By_Zero) {
+  // Arrange
+  ComplexNumber a(3.0, 1.0);
+  ComplexNumber b;
+
+  // Act & Assert
+  ASSERT_ANY_THROW(a / b);
+}
+
+TEST(Maximova_Irina_ComplexNumberTest, Can_Division_Complex_Number) {
+  // Arrange
+  ComplexNumber a(2.0, -1.0);
+  ComplexNumber b(1.0, 3.0);
+
+  // Act
+  ComplexNumber z = a / b;
+
+  // Assert
+  ComplexNumber expected_z(-0.1, -0.7);
+  EXPECT_EQ(expected_z, z);
 }
