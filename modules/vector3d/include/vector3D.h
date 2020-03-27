@@ -13,9 +13,9 @@ class Vector3D {
                       const double& _z = 0);
     Vector3D(const Vector3D& _v);
 
-    double getX();
-    double getY();
-    double getZ();
+    double getX()const;
+    double getY()const;
+    double getZ()const;
 
     void setX(const double& _x);
     void setY(const double& _y);
@@ -25,7 +25,7 @@ class Vector3D {
     Vector3D operator+(const Vector3D& _v);
     Vector3D operator-(const Vector3D& _v);
 
-    double norm();
+    double norm()const;
     void normalization();
 
  private:
@@ -34,10 +34,10 @@ class Vector3D {
     double Z;
 };
 
-Vector3D normalization(Vector3D& _v);
+Vector3D normalization(const Vector3D& _v);
 
-double ScalarProduct(Vector3D& _v1, Vector3D& _v2);
+double ScalarProduct(const Vector3D& _v1, const Vector3D& _v2);
 
-Vector3D VectorProduct(Vector3D& _v1, Vector3D& _v2);
+Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2);
 
 #endif  // MODULES_VECTOR3D_INCLUDE_VECTOR3D_H_

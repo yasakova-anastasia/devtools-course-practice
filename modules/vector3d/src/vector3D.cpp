@@ -13,15 +13,15 @@ Vector3D::Vector3D(const Vector3D& _v)
     Z = _v.Z;
 }
 
-double Vector3D::getX(){
+double Vector3D::getX()const {
     return X;
 }
 
-double Vector3D::getY(){
+double Vector3D::getY()const {
     return Y;
 }
 
-double Vector3D::getZ(){
+double Vector3D::getZ()const {
     return Z;
 }
 
@@ -58,7 +58,7 @@ Vector3D Vector3D::operator-(const Vector3D& _v) {
     return rez;
 }
 
-double Vector3D::norm() {
+double Vector3D::norm() const{
     return sqrt( X * X + Y * Y + Z * Z);
 }
 
@@ -69,19 +69,19 @@ void Vector3D::normalization() {
     Z /= _nrm;
 }
 
-Vector3D normalization(Vector3D& _v) {
+Vector3D normalization(const Vector3D& _v) {
     Vector3D normal(_v.getX() / _v.norm(), _v.getY() / _v.norm(), _v.getZ() / _v.norm());
     return normal;
 }
 
-double ScalarProduct(Vector3D&_v1, Vector3D&_v2) {
+double ScalarProduct(const Vector3D&_v1, const Vector3D&_v2) {
     double _tx = _v1.getX() * _v2.getX();
     double _ty = _v1.getY() * _v2.getY();
     double _tz = _v1.getZ() * _v2.getZ();
     return  _tx + _ty + _tz;
 }
 
-Vector3D VectorProduct(Vector3D& _v1, Vector3D& _v2) {
+Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2)  {
     Vector3D reVectorProduct(_v1.getY() * _v2.getZ() - _v1.getZ() * _v2.getY(),
                              _v1.getZ() * _v2.getX() - _v1.getX() * _v2.getZ(),
                              _v1.getX() * _v2.getY() - _v1.getY() * _v2.getX());
