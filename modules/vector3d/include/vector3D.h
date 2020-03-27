@@ -7,8 +7,10 @@
 #include <cmath>
 
 class Vector3D {
-public:
-    explicit Vector3D(const double& _x = 0, const double& _y = 0, const double& _z = 0);
+ public:
+    explicit Vector3D(const double& _x = 0,
+                      const double& _y = 0,
+                      const double& _z = 0);
     Vector3D(const Vector3D& _v);
 
     double getX();
@@ -26,7 +28,7 @@ public:
     double norm();
     void normalization();
 
-private:
+ private:
     double X;
     double Y;
     double Z;
