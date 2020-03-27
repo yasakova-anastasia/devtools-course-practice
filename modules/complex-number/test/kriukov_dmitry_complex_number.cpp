@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Kriukov_Dmitry_ComplexNumberTest, Can_Create_Complex_Number_With_Negtive_Params) {
+TEST(Kriukov_Dmitry_ComplexNumberTest, Complex_Number_With_Negtive_Params) {
   ComplexNumber z(-1.0, -2.0);
 
   EXPECT_EQ(-1.0, z.getRe());
