@@ -11,8 +11,8 @@ TEST(Antipin_Alexander_ComplexNumberTest,
 
 TEST(Antipin_Alexander_ComplexNumberTest,
     can_create_complex_number_correct_1) {
-    const double re{};
-    const double im{ 1.0 };
+    const double re(0.0);
+    const double im(1.0);
 
     ComplexNumber nomber(re, im);
 
@@ -21,8 +21,8 @@ TEST(Antipin_Alexander_ComplexNumberTest,
 
 TEST(Antipin_Alexander_ComplexNumberTest,
     can_create_complex_number_correct_2) {
-    const double re{};
-    const double im{ 1.0 };
+    const double re(0.0);
+    const double im(1.0);
 
     ComplexNumber nomber(re, im);
 
@@ -30,8 +30,8 @@ TEST(Antipin_Alexander_ComplexNumberTest,
 }
 
 TEST(Antipin_Alexander_ComplexNumberTest, can_compare_correct_1) {
-    const double re{};
-    const double im{ 1.0 };
+    const double re(0.0);
+    const double im(1.0);
 
     ComplexNumber nomber1(re, im);
     ComplexNumber nomber2(0.0, 1.0);
@@ -40,8 +40,8 @@ TEST(Antipin_Alexander_ComplexNumberTest, can_compare_correct_1) {
 }
 
 TEST(Antipin_Alexander_ComplexNumberTest, can_compare_correct_2) {
-    const double re{};
-    const double im{ 1.0 };
+    const double re(0.0);
+    const double im(1.0);
 
     ComplexNumber nomber1(re, im);
     ComplexNumber nomber2(1.0, 1.0);
