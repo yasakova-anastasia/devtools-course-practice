@@ -5,7 +5,7 @@
 #include "include/vector3D.h"
 
 class Vector3DTest : public ::testing::Test {
-protected:
+ protected:
     double epsilon = 0.001;
 };
 
