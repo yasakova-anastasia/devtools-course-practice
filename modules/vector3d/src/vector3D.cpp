@@ -1,6 +1,7 @@
 // Copyright 2020 Sokolov Nikolai
 
 #include "include/vector3D.h"
+#include <string>
 
 Vector3D::Vector3D(const double& _x,
     const double& _y,
