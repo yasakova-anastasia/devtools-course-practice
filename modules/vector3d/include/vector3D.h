@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <string>
 
 class Vector3D {
  public:
