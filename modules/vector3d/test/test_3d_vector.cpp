@@ -135,13 +135,24 @@ TEST_F(Vector3DTest, Get_Value_Vector3D_Copy_Constructor) {
 TEST_F(Vector3DTest, Operator_Equality_Vector3D) {
     // Arrange
     Vector3D v(2, 3, 5);
-	Vector3D v2;
-	v2 = v;
+    Vector3D v2;
+    v2 = v;
     // Act
     // Assert
     ASSERT_EQ(v.getX(), v2.getX());
     ASSERT_EQ(v.getY(), v2.getY());
     ASSERT_EQ(v.getZ(), v2.getZ());
+}
+
+TEST_F(Vector3DTest, Operator_Equality_Self_Vector3D) {
+    // Arrange
+    Vector3D v(2, 3, 5);
+    v = v;
+    // Act
+    // Assert
+    ASSERT_EQ(v.getX(), 2);
+    ASSERT_EQ(v.getY(), 3);
+    ASSERT_EQ(v.getZ(), 5);
 }
 
 TEST_F(Vector3DTest, Plass_Operator_2_Vector3D) {
