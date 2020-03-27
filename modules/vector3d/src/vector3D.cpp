@@ -46,13 +46,11 @@ Vector3D& Vector3D::operator=(const Vector3D& v) {
 }
 
 Vector3D Vector3D::operator+(const Vector3D& _v) {
-    Vector3D rez(this->X + _v.X, this->Y + _v.Y, this->Z + _v.Z);
-    return rez;
+    return Vector3D(this->X + _v.X, this->Y + _v.Y, this->Z + _v.Z);
 }
 
 Vector3D Vector3D::operator-(const Vector3D& _v) {
-    Vector3D rez(this->X - _v.X, this->Y - _v.Y, this->Z - _v.Z);
-    return rez;
+    return Vector3D(this->X - _v.X, this->Y - _v.Y, this->Z - _v.Z);
 }
 
 double Vector3D::norm()const {
@@ -74,15 +72,13 @@ Vector3D normalization(const Vector3D& _v) {
 }
 
 double ScalarProduct(const Vector3D&_v1, const Vector3D&_v2) {
-    double _tx = _v1.getX() * _v2.getX();
-    double _ty = _v1.getY() * _v2.getY();
-    double _tz = _v1.getZ() * _v2.getZ();
-    return  _tx + _ty + _tz;
+    return  _v1.getX() * _v2.getX() +
+            _v1.getY() * _v2.getY() +
+            _v1.getZ() * _v2.getZ();
 }
 
 Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2) {
-    Vector3D reVectorProduct(_v1.getY() * _v2.getZ() - _v1.getZ() * _v2.getY(),
-        _v1.getZ() * _v2.getX() - _v1.getX() * _v2.getZ(),
-        _v1.getX() * _v2.getY() - _v1.getY() * _v2.getX());
-    return  reVectorProduct;
+    return Vector3D(_v1.getY() * _v2.getZ() - _v1.getZ() * _v2.getY(),
+                    _v1.getZ() * _v2.getX() - _v1.getX() * _v2.getZ(),
+                    _v1.getX() * _v2.getY() - _v1.getY() * _v2.getX());
 }
