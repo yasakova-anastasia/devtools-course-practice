@@ -17,7 +17,6 @@ TEST(Suchkov_Makar_ComplexNumberTest, Can_Create_Zero) {
     EXPECT_DOUBLE_EQ(im, z.getIm());
 }
 
-
 TEST(Suchkov_Makar_ComplexNumberTest, Can_Get_Re) {
     // Arrange
     double re = 987.0;
@@ -73,87 +72,6 @@ TEST(Suchkov_Makar_ComplexNumberTest, Negative_Number_Less_Than_Positive) {
     EXPECT_LT(neg.getIm(), pos.getIm());
 }
 
-TEST(Suchkov_Makar_ComplexNumberTest, Can_Add_Complex_Numbers) {
-    // Arrange
-    double re1 = 1.0;
-    double im1 = 3.0;
-
-    double re2 = 4.0;
-    double im2 = -5.0;
-
-    double re3 = 5.0;
-    double im3 = -2.0;
-
-    // Act
-    ComplexNumber z1(re1, im1);
-    ComplexNumber z2(re2, im2);
-    ComplexNumber z3(re3, im3);
-
-    // Assert
-    EXPECT_EQ(z1 + z2, z3);
-}
-
-TEST(Suchkov_Makar_ComplexNumberTest, Can_Subtract_Complex_Numbers) {
-    // Arrange
-    double re1 = -3.0;
-    double im1 = 6.0;
-
-    double re2 = 2.0;
-    double im2 = 7.0;
-
-    double re3 = -5.0;
-    double im3 = -1.0;
-
-    // Act
-    ComplexNumber z1(re1, im1);
-    ComplexNumber z2(re2, im2);
-    ComplexNumber z3(re3, im3);
-
-    // Assert
-    EXPECT_EQ(z1 - z2, z3);
-}
-
-
-TEST(Suchkov_Makar_ComplexNumberTest, Can_Divide_Complex_Numbers) {
-    // Arrange
-    double re1 = 1.0;
-    double im1 = -1.0;
-
-    double re2 = 1.0;
-    double im2 = 1.0;
-
-    double re3 = 0.0;
-    double im3 = -1.0;
-
-    // Act
-    ComplexNumber z1(re1, im1);
-    ComplexNumber z2(re2, im2);
-    ComplexNumber z3(re3, im3);
-
-    // Assert
-    EXPECT_EQ(z1 / z2, z3);
-}
-
-TEST(Boganov_Sergei_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
-    // Arrange
-    double re1 = 2.0;
-    double im1 = 4.0;
-
-    double re2 = -4.0;
-    double im2 = 5.0;
-
-    double re3 = -28.0;
-    double im3 = -6.0;
-
-    // Act
-    ComplexNumber z1(re1, im1);
-    ComplexNumber z2(re2, im2);
-    ComplexNumber z3(re3, im3);
-
-    // Assert
-    EXPECT_EQ(z1 * z2, z3);
-}
-
 TEST(Suchkov_Makar_ComplexNumberTest, Correct_Copy_Constructor) {
     // Arrange
     double re1 = 2.0;
@@ -165,4 +83,42 @@ TEST(Suchkov_Makar_ComplexNumberTest, Correct_Copy_Constructor) {
 
     // Assert
     EXPECT_EQ(z1, z2);
+}
+
+TEST(Suchkov_Makar_ComplexNumberTest, Check_Inverse_Element_Property) {
+    // Arrange
+    double re = 123.0;
+    double im = 456.0;
+    ComplexNumber pos(re, im);
+    ComplexNumber neg(-re, -im);
+
+    // Act
+    ComplexNumber check = pos + neg;
+
+    // Assert
+    EXPECT_EQ(check.getRe(), 0.0);
+    EXPECT_EQ(check.getIm(), 0.0);
+}
+
+TEST(Suchkov_Makar_ComplexNumberTest, Check_Correct_Use_Several_Math_Operations_In_One_String) {
+    // Arrange
+    double num1 = 10.0;
+    double num2 = 5.0;
+    double num3 = 3.0;
+    double num4 = 2.0;
+    double check = 0;
+
+    ComplexNumber z1(num1, num1);
+    ComplexNumber z2(num2, num2);
+    ComplexNumber z3(num3, num3);
+    ComplexNumber z4(num4, num4);
+    ComplexNumber cCheck(0.0, 0.0);
+
+    // Act
+    check = num1 + num2 / num3 * num4;
+    cCheck = z1 + z2 / z3 * z4;
+
+    // Assert
+    EXPECT_EQ(check, cCheck.getRe());
+    EXPECT_EQ(check, cCheck.getIm());
 }
