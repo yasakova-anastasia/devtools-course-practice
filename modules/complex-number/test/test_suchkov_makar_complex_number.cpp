@@ -82,7 +82,7 @@ TEST(Suchkov_Makar_ComplexNumberTest, Can_Add_Complex_Numbers) {
     double im2 = -5.0;
 
     double re3 = 5.0;
-    double im3 = -7.0;
+    double im3 = -2.0;
 
     // Act
     ComplexNumber z1(re1, im1);
