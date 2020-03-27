@@ -59,36 +59,34 @@ double Vector3D::norm()const {
 
 void Vector3D::normalization() {
     double _nrm = norm();
-	if (_nrm == 0) {
-		throw std::string("can`t be zero. norm = 0. Use 1");
-	}
-	else {
-		X /= _nrm;
-		Y /= _nrm;
-		Z /= _nrm;
-	}
+    if (_nrm == 0) {
+        throw std::string("can`t be zero. norm = 0. Use 1");
+    } else {
+        X /= _nrm;
+        Y /= _nrm;
+        Z /= _nrm;
+    }
 }
 
-	Vector3D normalization(const Vector3D& _v) {
-		if (_v.norm() == 0) {
-			throw std::string("can`t be zero. norm = 0. return null vector");
-			return _v;
-		}
-		else {
-			return Vector3D(_v.getX() / _v.norm(),
-				            _v.getY() / _v.norm(),
-			            	_v.getZ() / _v.norm());
-		}
-	}
+    Vector3D normalization(const Vector3D& _v) {
+        if (_v.norm() == 0) {
+            throw std::string("can`t be zero. norm = 0. return null vector");
+            return _v;
+        } else {
+            return Vector3D(_v.getX() / _v.norm(),
+                            _v.getY() / _v.norm(),
+                            _v.getZ() / _v.norm());
+        }
+    }
 
-	double ScalarProduct(const Vector3D&_v1, const Vector3D&_v2) {
-		return  _v1.getX() * _v2.getX() +
-				_v1.getY() * _v2.getY() +
-				_v1.getZ() * _v2.getZ();
-	}
+    double ScalarProduct(const Vector3D&_v1, const Vector3D&_v2) {
+        return  _v1.getX() * _v2.getX() +
+                _v1.getY() * _v2.getY() +
+                _v1.getZ() * _v2.getZ();
+    }
 
-	Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2) {
-		return Vector3D(_v1.getY() * _v2.getZ() - _v1.getZ() * _v2.getY(),
-						_v1.getZ() * _v2.getX() - _v1.getX() * _v2.getZ(),
-						_v1.getX() * _v2.getY() - _v1.getY() * _v2.getX());
-	}
+    Vector3D VectorProduct(const Vector3D& _v1, const Vector3D& _v2) {
+        return Vector3D(_v1.getY() * _v2.getZ() - _v1.getZ() * _v2.getY(),
+                        _v1.getZ() * _v2.getX() - _v1.getX() * _v2.getZ(),
+                        _v1.getX() * _v2.getY() - _v1.getY() * _v2.getX());
+    }

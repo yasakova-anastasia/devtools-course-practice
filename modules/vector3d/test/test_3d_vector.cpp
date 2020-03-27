@@ -212,19 +212,19 @@ TEST_F(Vector3DTest, Normalization_Test_Vector3D) {
 }
 
 TEST_F(Vector3DTest, Normalization_NULL_Class_Function_Test_Vector3D) {
-	// Arrange
-	Vector3D v;
-	// Act
-	// Assert
-	ASSERT_ANY_THROW(v.normalization());
+    // Arrange
+    Vector3D v;
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(v.normalization());
 }
 
 TEST_F(Vector3DTest, Normalization_NULL_Test_Vector3D) {
-	// Arrange
-	Vector3D v;
-	// Act
-	// Assert
-	ASSERT_ANY_THROW(normalization(v));
+    // Arrange
+    Vector3D v;
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(normalization(v));
 }
 
 TEST_F(Vector3DTest, Scalar_Product_Test_Vector3D) {
