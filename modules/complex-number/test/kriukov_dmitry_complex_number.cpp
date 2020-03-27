@@ -22,10 +22,13 @@ TEST(Kriukov_Dmitry_ComplexNumberTest, Complex_Number_Multiplication_Test) {
   EXPECT_EQ(c.getIm(), res.getIm());
 }
 
-TEST(Kriukov_Dmitry_ComplexNumberTest, Complex_Number_Comparison_Error) {
-  ComplexNumber a;
-  ComplexNumber b;
-  b.setIm(1e-1024);
+TEST(Kriukov_Dmitry_ComplexNumberTest, Complex_Number_Test_Diff) {
+  ComplexNumber a(3, 1);
+  ComplexNumber b(2, -3);
+  ComplexNumber res(1, 4);
 
-  EXPECT_EQ(a.getIm(), b.getIm());
+  ComplexNumber c = a - b;
+
+  EXPECT_EQ(c.getRe(), res.getRe());
+  EXPECT_EQ(c.getIm(), res.getIm());
 }
