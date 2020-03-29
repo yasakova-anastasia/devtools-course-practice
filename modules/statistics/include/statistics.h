@@ -4,6 +4,7 @@
 #define MODULES_STATISTICS_INCLUDE_STATISTICS_H_
 
 #include <vector>
+#include <utility> 
 
 class Statistics {
  public:
