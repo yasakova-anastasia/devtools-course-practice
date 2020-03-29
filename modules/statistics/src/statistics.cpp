@@ -51,6 +51,6 @@ bool Statistics::operator!=(const Statistics& s) const { return !(*this == s); }
 
 double Statistics::expectedValue() const {
   double exp_val = 0.;
-  for (int i = 0; i < probability_.size(); ++i) exp_val += i * probability_[i];
+  for (size_t i = 0; i < probability_.size(); ++i) exp_val += i * probability_[i];
   return exp_val;
 }
