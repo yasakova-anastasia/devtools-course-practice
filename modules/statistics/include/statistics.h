@@ -7,7 +7,7 @@
 
 class Statistics {
  public:
-  Statistics(const std::vector<double> _probability);
+  explicit Statistics(const std::vector<double> _probability);
 
   std::vector<double> getProbability() const;
 
