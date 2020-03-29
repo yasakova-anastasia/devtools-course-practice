@@ -2,10 +2,10 @@
 
 #include "include/statistics.h"
 
+#include <math.h>
 #include <limits>
 #include <string>
 #include <vector>
-#include <math.h>
 
 const double eps = std::numeric_limits<double>::epsilon();
 
