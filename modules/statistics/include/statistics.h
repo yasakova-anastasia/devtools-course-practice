@@ -14,6 +14,8 @@ class Statistics {
   std::vector<double> getProbability() const;
   void setProbability(const std::vector<double> probability);
 
+  Statistics& operator=(const Statistics& s);
+
  private:
   bool checkSumProbability(const std::vector<double> probability) const;
   std::vector<double> probability_;

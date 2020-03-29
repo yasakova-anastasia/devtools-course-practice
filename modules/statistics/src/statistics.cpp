@@ -33,3 +33,8 @@ std::vector<double> Statistics::getProbability() const { return probability_; }
 void Statistics::setProbability(const std::vector<double> probability) {
   probability_ = probability;
 }
+
+Statistics& Statistics::operator=(const Statistics& s) {
+  probability_ = s.getProbability();
+  return *this;
+}

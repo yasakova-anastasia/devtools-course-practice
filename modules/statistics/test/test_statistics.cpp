@@ -39,6 +39,7 @@ TEST(StatisticsTest, Can_Create_Via_Copying) {
 }
 
 TEST(StatisticsTest, Can_Set_Probability) {
+  // Arrange
   std::vector<double> probability = {0.1, 0.3, 0.05, 0.55};
   Statistics s;
 
@@ -47,4 +48,17 @@ TEST(StatisticsTest, Can_Set_Probability) {
 
   // Assert
   ASSERT_EQ(s.getProbability(), probability);
+}
+
+TEST(StatisticsTest, Can_Equate_Object) {
+  // Arrange
+  std::vector<double> probability = {0.1, 0.3, 0.05, 0.55};
+  Statistics s(probability);
+  Statistics equal_s;
+
+  // Act
+  equal_s = s;
+
+  // Assert
+  ASSERT_EQ(s.getProbability(), equal_s.getProbability());
 }
