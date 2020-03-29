@@ -19,6 +19,8 @@ class Statistics {
   bool operator==(const Statistics& s) const;
   bool operator!=(const Statistics& z) const;
 
+  double expectedValue() const;
+
  private:
   int checkProbability(const std::vector<double> probability) const;
   std::vector<double> probability_;

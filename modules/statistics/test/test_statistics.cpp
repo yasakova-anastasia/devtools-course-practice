@@ -2,7 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include <string>
 #include <vector>
 
 #include "include/statistics.h"
@@ -69,6 +68,18 @@ TEST(StatisticsTest, Can_Equate_Object) {
 
   // Assert
   ASSERT_EQ(s.getProbability(), equal_s.getProbability());
+}
+
+TEST(StatisticsTest, Get_Expected_Value) {
+  // Arrange
+  Statistics s({0.1, 0.3, 0.05, 0.55});
+  double exp_val = 2.05;
+
+  // Act
+  double exp_val_s = s.expectedValue();
+
+  // Assert
+  ASSERT_NEAR(exp_val, exp_val_s, 0.001);
 }
 
 TEST(StatisticsTest, Probabilities_Is_Equal_To_Itself) {
