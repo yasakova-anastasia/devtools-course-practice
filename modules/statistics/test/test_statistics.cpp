@@ -7,7 +7,7 @@
 
 #include "include/statistics.h"
 
-TEST(StatisticsTest, Throw_When_The_Sum_Of_The_Probabilities_Is_Not_Equal_1) {
+TEST(StatisticsTest, Throw_When_Sum_Probabilities_Is_Not_Equal_1) {
   // Arrange
   std::vector<double> probability = {0.3, 0.7, 0.1};
 
@@ -71,7 +71,7 @@ TEST(StatisticsTest, Probabilities_Is_Equal_To_Itself) {
   EXPECT_TRUE(s == s);
 }
 
-TEST(StatisticsTest, Equal_Probability_Are_Equal) {
+TEST(StatisticsTest, True_Equal_For_Equal_Probability) {
   // Arrange
   Statistics s1({0.1, 0.9});
   Statistics s2({0.1, 0.9});
@@ -80,11 +80,29 @@ TEST(StatisticsTest, Equal_Probability_Are_Equal) {
   ASSERT_EQ(s1, s2);
 }
 
-TEST(StatisticsTest, Different_Probability_Not_Equal) {
+TEST(StatisticsTest, False_Equal_For_Different_Probability) {
+  // Arrange
+  Statistics s1({0.1, 0.9});
+  Statistics s2({0.9, 0.1});
+
+  // Act & Assert
+  ASSERT_FALSE(s1 == s2);
+}
+
+TEST(StatisticsTest, True_Different_For_Different_Probability) {
   // Arrange
   Statistics s1({0.1, 0.9});
   Statistics s2({0.9, 0.1});
 
   // Act & Assert
   ASSERT_TRUE(s1 != s2);
+}
+
+TEST(StatisticsTest, False_Different_For_Equal_Probability) {
+  // Arrange
+  Statistics s1({0.1, 0.9});
+  Statistics s2({0.1, 0.9});
+
+  // Act & Assert
+  ASSERT_FALSE(s1 != s2);
 }

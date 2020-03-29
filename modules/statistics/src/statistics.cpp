@@ -43,5 +43,4 @@ bool Statistics::operator==(const Statistics& s) const {
   return probability_ == s.getProbability();
 }
 
-
 bool Statistics::operator!=(const Statistics& s) const { return !(*this == s); }
