@@ -20,6 +20,7 @@ class Statistics {
   bool operator!=(const Statistics& z) const;
 
   double expectedValue() const;
+  double moment(int order, double a) const;
 
  private:
   int checkProbability(const std::vector<double> probability) const;

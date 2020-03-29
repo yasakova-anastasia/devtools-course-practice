@@ -82,6 +82,20 @@ TEST(StatisticsTest, Get_Expected_Value) {
   ASSERT_NEAR(exp_val, exp_val_s, 0.001);
 }
 
+TEST(StatisticsTest, Get_Dispersion_Value) {
+  // Arrange
+  Statistics s({0.1, 0.3, 0.05, 0.55});
+  double exp_val = s.expectedValue();
+  double disp_val = 1.2475;
+  int order = 2;
+
+  // Act
+  double disp_val_s = s.moment(order, exp_val);
+
+  // Assert
+  ASSERT_NEAR(disp_val, disp_val_s, 0.001);
+}
+
 TEST(StatisticsTest, Probabilities_Is_Equal_To_Itself) {
   // Arrange
   Statistics s({0.1, 0.3, 0.6});

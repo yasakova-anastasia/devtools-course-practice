@@ -5,6 +5,7 @@
 #include <limits>
 #include <string>
 #include <vector>
+#include <math.h>
 
 const double eps = std::numeric_limits<double>::epsilon();
 
@@ -54,4 +55,11 @@ double Statistics::expectedValue() const {
   for (size_t i = 0; i < probability_.size(); ++i)
     exp_val += i * probability_[i];
   return exp_val;
+}
+
+double Statistics::moment(int order, double a) const {
+  double result = 0.;
+  for (size_t i = 0; i < probability_.size(); ++i)
+    result += powl(i - a, order) * probability_[i];
+  return result;
 }
