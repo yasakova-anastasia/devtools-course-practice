@@ -58,6 +58,9 @@ double Statistics::expectedValue() const {
 }
 
 double Statistics::moment(int order, double a) const {
+  if (order < 0)
+    throw std::string("The order must be positive");
+
   double result = 0.;
   for (size_t i = 0; i < probability_.size(); ++i)
     result += powl(i - a, order) * probability_[i];
