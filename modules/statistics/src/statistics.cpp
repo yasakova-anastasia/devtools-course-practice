@@ -57,9 +57,12 @@ double Statistics::expectedValue() const {
   return exp_val;
 }
 
+double Statistics::dispersion() const {
+  return this->moment(2, this->expectedValue());
+}
+
 double Statistics::moment(int order, double a) const {
-  if (order < 0)
-    throw std::string("The order must be positive");
+  if (order < 0) throw std::string("The order must be positive");
 
   double result = 0.;
   for (size_t i = 0; i < probability_.size(); ++i)
