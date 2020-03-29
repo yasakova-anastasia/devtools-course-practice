@@ -4,6 +4,7 @@
 
 #include <stdbool.h>
 #include <limits>
+#include <string>
 #include <vector>
 
 const double eps = std::numeric_limits<double>::epsilon();
