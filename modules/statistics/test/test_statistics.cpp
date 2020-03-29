@@ -7,9 +7,17 @@
 
 #include "include/statistics.h"
 
-TEST(StatisticsTest, Throw_When_Sum_Probabilities_Is_Not_Equal_1) {
+TEST(StatisticsTest, Throw_When_The_Sum_Probabilities_Not_Equal_Unit) {
   // Arrange
   std::vector<double> probability = {0.3, 0.7, 0.1};
+
+  // Act & Assert
+  ASSERT_ANY_THROW(Statistics s(probability));
+}
+
+TEST(StatisticsTest, Throw_When_Probability_Is_Negative) {
+  // Arrange
+  std::vector<double> probability = {0.3, -0.7, 0.1};
 
   // Act & Assert
   ASSERT_ANY_THROW(Statistics s(probability));

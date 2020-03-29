@@ -20,7 +20,7 @@ class Statistics {
   bool operator!=(const Statistics& z) const;
 
  private:
-  bool checkSumProbability(const std::vector<double> probability) const;
+  int checkProbability(const std::vector<double> probability) const;
   std::vector<double> probability_;
 };
 
