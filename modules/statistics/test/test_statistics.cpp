@@ -62,3 +62,29 @@ TEST(StatisticsTest, Can_Equate_Object) {
   // Assert
   ASSERT_EQ(s.getProbability(), equal_s.getProbability());
 }
+
+TEST(StatisticsTest, Probabilities_Is_Equal_To_Itself) {
+  // Arrange
+  Statistics s({0.1, 0.3, 0.6});
+
+  // Act & Assert
+  EXPECT_TRUE(s == s);
+}
+
+TEST(StatisticsTest, Equal_Probability_Are_Equal) {
+  // Arrange
+  Statistics s1({0.1, 0.9});
+  Statistics s2({0.1, 0.9});
+
+  // Act & Assert
+  ASSERT_EQ(s1, s2);
+}
+
+TEST(StatisticsTest, Different_Probability_Not_Equal) {
+  // Arrange
+  Statistics s1({0.1, 0.9});
+  Statistics s2({0.9, 0.1});
+
+  // Act & Assert
+  ASSERT_TRUE(s1 != s2);
+}
