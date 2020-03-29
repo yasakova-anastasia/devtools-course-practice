@@ -25,3 +25,26 @@ TEST(StatisticsTest, Can_Initialize_Probability) {
   // Assert
   ASSERT_EQ(s.getProbability(), probability);
 }
+
+TEST(StatisticsTest, Can_Create_Via_Copying) {
+  // Arrange
+  std::vector<double> probability = {0.2, 0.3, 0.5};
+  Statistics s(probability);
+
+  // Act
+  Statistics copy_s(s);
+
+  // Assert
+  ASSERT_EQ(s.getProbability(), copy_s.getProbability());
+}
+
+TEST(StatisticsTest, Can_Set_Probability) {
+  std::vector<double> probability = {0.1, 0.3, 0.05, 0.55};
+  Statistics s;
+
+  // Act
+  s.setProbability(probability);
+
+  // Assert
+  ASSERT_EQ(s.getProbability(), probability);
+}

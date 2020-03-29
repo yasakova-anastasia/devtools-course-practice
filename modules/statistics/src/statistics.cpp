@@ -16,11 +16,20 @@ bool Statistics::checkSumProbability(
   return sum < 1 + eps && sum > 1 - eps;
 }
 
-Statistics::Statistics(const std::vector<double> _probability) {
-  if (checkSumProbability(_probability) == false)
+Statistics::Statistics() {}
+
+Statistics::Statistics(const std::vector<double> probability) {
+  if (checkSumProbability(probability) == false)
     throw std::string("The sum of the probabilities must be equal 1");
 
-  probability = _probability;
+  probability_ = probability;
 }
 
-std::vector<double> Statistics::getProbability() const { return probability; }
+Statistics::Statistics(const Statistics& s)
+    : probability_(s.getProbability()) {}
+
+std::vector<double> Statistics::getProbability() const { return probability_; }
+
+void Statistics::setProbability(const std::vector<double> probability) {
+  probability_ = probability;
+}

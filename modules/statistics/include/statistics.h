@@ -7,13 +7,16 @@
 
 class Statistics {
  public:
-  explicit Statistics(const std::vector<double> _probability);
+  Statistics();
+  explicit Statistics(const std::vector<double> probability);
+  Statistics(const Statistics& s);
 
   std::vector<double> getProbability() const;
+  void setProbability(const std::vector<double> probability);
 
  private:
   bool checkSumProbability(const std::vector<double> probability) const;
-  std::vector<double> probability;
+  std::vector<double> probability_;
 };
 
 #endif  // MODULES_STATISTICS_INCLUDE_STATISTICS_H_
