@@ -20,8 +20,8 @@ class Statistics {
   std::vector<double> getProbability() const;
 
   Statistics& operator=(const Statistics& s);
-  bool Statistics::operator==(const Statistics& s) const;
-  bool Statistics::operator!=(const Statistics& s) const;
+  bool operator==(const Statistics& s) const;
+  bool operator!=(const Statistics& s) const;
 
   double expectedValue() const;
   double dispersion() const;
