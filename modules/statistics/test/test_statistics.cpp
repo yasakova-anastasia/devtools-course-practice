@@ -182,6 +182,15 @@ TEST_F(StatisticsTest, Equal_Random_Variable_Are_Equal) {
   EXPECT_EQ(s1, s2);
 }
 
+TEST_F(StatisticsTest, Equal_Random_Variables_With_Different_Position_Values) {
+  // Arrange
+  Statistics s1({{2, 0.9}, {4, 0.1}});
+  Statistics s2({{4, 0.1}, {2, 0.9}});
+
+  // Act & Assert
+  EXPECT_EQ(s1, s2);
+}
+
 TEST_F(StatisticsTest, Different_Random_Variable_Not_Equal) {
   // Arrange
   Statistics s1({{2, 0.9}, {4, 0.1}});
