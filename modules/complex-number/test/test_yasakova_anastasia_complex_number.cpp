@@ -17,6 +17,7 @@ TEST(Yasakova_Anastasia_ComplexNumberTest, Initialization) {
     EXPECT_EQ(im1, z1.getIm());
 }
 
+
 TEST(Yasakova_Anastasia_ComplexNumberTest, Copy_Constructor) {
     // Arrange
     double re1 = 3.6, im1 = 2.5;
@@ -28,6 +29,7 @@ TEST(Yasakova_Anastasia_ComplexNumberTest, Copy_Constructor) {
     // Assert
     EXPECT_EQ(z1, z2);
 }
+
 
 TEST(Yasakova_Anastasia_ComplexNumberTest, Addition) {
     // Arrange
