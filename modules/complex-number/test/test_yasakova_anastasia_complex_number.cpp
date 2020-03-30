@@ -74,7 +74,7 @@ TEST(Yasakova_Anastasia_ComplexNumberTest, Multiplication) {
 }
 
 
-TEST(Yasakova_Anastasia_ComplexNumberTest, Division_On_Zero) {
+TEST(Yasakova_Anastasia_ComplexNumberTest, Division_By_Zero) {
     // Arrange
     double re1 = 1, im1 = 2;
     ComplexNumber z1(re1, im1);
