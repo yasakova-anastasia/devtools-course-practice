@@ -93,8 +93,8 @@ TEST(Yasakova_Anastasia_ComplexNumberTest, Division) {
     ComplexNumber z2(re2, im2);
 
     // Act
-    ComplexNumber res(double(re1 * re2 + im1 * im2) / double(re2 * re2 + im2 * im2),
-    double(im1 * re2 - re1 * im2) / double(re2 * re2 + im2 * im2));
+    ComplexNumber res((re1 * re2 + im1 * im2) / (re2 * re2 + im2 * im2),
+    (im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2));
 
     // Assert
     EXPECT_EQ(res, z1 / z2);
