@@ -3,7 +3,7 @@
 #include "include/statistics.h"
 
 #include <math.h>
-#include <limits>
+#include <stdbool.h>
 #include <string>
 #include <vector>
 
