@@ -173,3 +173,16 @@ TEST(Test_roman_arabic_converter_12, Can_convert_3999)
     //Assert
 	ASSERT_STREQ("MMMCMXCIX", romanNum);
 }
+
+TEST(Test_roman_arabic_converter_12, Can_convert_not_roman)
+{
+    //Arrange
+    int arabicNum;
+    std::string romanNum = "Error";
+    
+    //Act
+    arabicNum.romanToArabic(romanNum);
+    
+    //Assert
+	ASSERT_EQ(-1, arabicNum);
+}
