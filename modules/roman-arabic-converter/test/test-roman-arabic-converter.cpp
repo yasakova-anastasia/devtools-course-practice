@@ -43,3 +43,16 @@ TEST(Test_roman_arabic_converter_3, Can_convert_1)
     //Assert
 	ASSERT_STREQ("I", romanNum);
 }
+
+TEST(Test_roman_arabic_converter_3, Can_convert_2)
+{
+    //Arrange
+    int arabicNum = 2;
+    std::string romanNum;
+    
+    //Act
+    romanNum.arabicToRoman(arabicNum);
+    
+    //Assert
+	ASSERT_STREQ("II", romanNum);
+}
