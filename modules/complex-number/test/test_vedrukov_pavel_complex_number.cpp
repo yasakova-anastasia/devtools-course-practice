@@ -16,3 +16,20 @@ TEST(Vedrukov_Pavel_Complex_Number_Test_1, Can_Create_Zero) {
     EXPECT_EQ(re, z.getRe());
     EXPECT_EQ(im, z.getIm());
 }
+
+TEST(Vedrukov_Pavel_Complex_Number_Test_2, Can_Multiplicate_Any) {
+    // Arrange
+    double re_1 = 2.0;
+    double im_1 = 3.0;
+    double re_2 = -1.0;
+    double im_2 = -2.0;
+
+    // Act
+    ComplexNumber z_1(re_1, im_1);
+    ComplexNumber z_2(re_2, im_2);
+    z_2 = z_1 * z_2;
+
+    // Assert
+    EXPECT_EQ(4.0, z_2.getRe());
+    EXPECT_EQ(-7.0, z_2.getIm());
+}
