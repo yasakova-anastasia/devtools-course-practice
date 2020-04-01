@@ -8,14 +8,14 @@ int romanToArabic(std::string romanNum) {
     int arabicNum = 0;
     
 	//Search not roman
-    std::regex regular1("[^IXLCDM]");
+    std::regex regular1("[.]*[^IXLCDM]*");
 	if (std::regex_match(romanNum.c_str(), regular1))
 	{
 		return -1;
 	}
 	
 	//Search incorrect number
-	std::regex regular2("VX|LC|DM|IIII|VV|XXXX|LL|CCCC|DD|MMMM");
+	std::regex regular2("[.]*VX|LC|DM|IIII|VV|XXXX|LL|CCCC|DD|MMMM*");
 	if (std::regex_match(romanNum.c_str(), regular2))
 	{
 		return -2;
