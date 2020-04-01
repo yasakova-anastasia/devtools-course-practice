@@ -1,0 +1,15 @@
+//Copiright 2020 Vedrukov Pavel
+
+#ifndef MODULES_ROMAN_ARABIC_CONVERTER_INCLUDE_ROMAN_ARABIC_CONVERTER_H_
+#define MODULES_ROMAN_ARABIC_CONVERTER_INCLUDE_ROMAN_ARABIC_CONVERTER_H_
+
+#include <string>
+
+class RomanArabicConverter {
+ public:
+    RomanArabicConverter() = default;
+    short int romanToArabic(std::string romanNum);	
+	std::string arabicToRoman(short int arabicNum);
+}
+
+#endif //MODULES_ROMAN_ARABIC_CONVERTER_INCLUDE_ROMAN_ARABIC_CONVERTER_H_
