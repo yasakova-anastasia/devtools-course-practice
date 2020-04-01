@@ -17,3 +17,16 @@ TEST(Test_roman_arabic_converter_1, Can_convert_zero)
     //Assert
 	ASSERT_STREQ("InputNumOutOfRange", romanNum);
 }
+
+TEST(Test_roman_arabic_converter_2, Can_convert_4000)
+{
+    //Arrange
+    int arabicNum = 4000;
+    std::string romanNum;
+    
+    //Act
+    romanNum.arabicToRoman(arabicNum);
+    
+    //Assert
+	ASSERT_STREQ("InputNumOutOfRange", romanNum);
+}
