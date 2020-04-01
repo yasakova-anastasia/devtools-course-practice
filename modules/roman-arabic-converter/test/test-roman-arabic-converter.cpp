@@ -164,7 +164,7 @@ TEST(Test_roman_arabic_converter_12, Can_convert_2879)
 TEST(Test_roman_arabic_converter_12, Can_convert_3999)
 {
     //Arrange
-    int arabicNum = 2999;
+    int arabicNum = 3999;
     std::string romanNum;
     
     //Act
