@@ -33,3 +33,20 @@ TEST(Vedrukov_Pavel_Complex_Number_Test_2, Can_Multiplicate_Any) {
     EXPECT_EQ(4.0, z_2.getRe());
     EXPECT_EQ(-7.0, z_2.getIm());
 }
+
+TEST(Vedrukov_Pavel_Complex_Number_Test_3, Can_Divide_Any) {
+    // Arrange
+    double re_1 = 4.0;
+    double im_1 = 2.0;
+    double re_2 = -2.0;
+    double im_2 = -1.0;
+
+    // Act
+    ComplexNumber z_1(re_1, im_1);
+    ComplexNumber z_2(re_2, im_2);
+    z_2 = z_1 / z_2;
+
+    // Assert
+    EXPECT_EQ(-2.0, z_2.getRe());
+    EXPECT_EQ(0.0, z_2.getIm());
+}
