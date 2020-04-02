@@ -1,8 +1,9 @@
 // Copyright 2020 Devlikamov Vladislav
 
-#include "include/segment-tree.h"
 #include <gtest/gtest.h>
 #include <vector>
+
+#include "include/segment-tree.h"
 
 TEST(SegmentTreeTest, Can_Create_Segment_Tree) {
     // Arrange & Act & Assert
