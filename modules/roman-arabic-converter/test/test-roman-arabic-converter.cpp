@@ -509,46 +509,46 @@ TEST(Test_roman_arabic_converter_36, Can_convert_DM)
 	ASSERT_EQ(-2, arabicNum);
 }
 
-TEST(Test_roman_arabic_converter_37, Can_convert_IV)
+TEST(Test_roman_arabic_converter_37, Can_convert_IXL)
 {
     //Arrange
     int arabicNum;
-    std::string romanNum = "IV";
+    std::string romanNum = "IXL";
     RomanArabicConverter converter;
     
     //Act
     arabicNum = converter.romanToArabic(romanNum);
     
     //Assert
-	ASSERT_EQ(4, arabicNum);
+	ASSERT_EQ(-2, arabicNum);
 }
 
-TEST(Test_roman_arabic_converter_38, Can_convert_IX)
-{
-    //Arrange
-    short int arabicNum;
-    std::string romanNum = "IX";
-    RomanArabicConverter converter;
-    
-    //Act
-    arabicNum = converter.romanToArabic(romanNum);
-    
-    //Assert
-	ASSERT_EQ(9, arabicNum);
-}
-
-TEST(Test_roman_arabic_converter_39, Can_convert_XL)
+TEST(Test_roman_arabic_converter_38, Can_convert_XCD)
 {
     //Arrange
     int arabicNum;
-    std::string romanNum = "XL";
+    std::string romanNum = "XCD";
     RomanArabicConverter converter;
     
     //Act
     arabicNum = converter.romanToArabic(romanNum);
     
     //Assert
-	ASSERT_EQ(40, arabicNum);
+	ASSERT_EQ(-2, arabicNum);
+}
+
+TEST(Test_roman_arabic_converter_39, Can_convert_XCM)
+{
+    //Arrange
+    int arabicNum;
+    std::string romanNum = "XCM";
+    RomanArabicConverter converter;
+    
+    //Act
+    arabicNum = converter.romanToArabic(romanNum);
+    
+    //Assert
+	ASSERT_EQ(-2, arabicNum);
 }
 
 TEST(Test_roman_arabic_converter_40, Can_convert_IXC)
@@ -562,14 +562,70 @@ TEST(Test_roman_arabic_converter_40, Can_convert_IXC)
     arabicNum = converter.romanToArabic(romanNum);
     
     //Assert
-	ASSERT_EQ(89, arabicNum);
+	ASSERT_EQ(-2, arabicNum);
 }
 
-TEST(Test_roman_arabic_converter_41, Can_convert_IXCD)
+TEST(Test_roman_arabic_converter_41, Can_convert_IV)
 {
     //Arrange
     int arabicNum;
-    std::string romanNum = "IXCD";
+    std::string romanNum = "IV";
+    RomanArabicConverter converter;
+    
+    //Act
+    arabicNum = converter.romanToArabic(romanNum);
+    
+    //Assert
+	ASSERT_EQ(4, arabicNum);
+}
+
+TEST(Test_roman_arabic_converter_42, Can_convert_IX)
+{
+    //Arrange
+    short int arabicNum;
+    std::string romanNum = "IX";
+    RomanArabicConverter converter;
+    
+    //Act
+    arabicNum = converter.romanToArabic(romanNum);
+    
+    //Assert
+	ASSERT_EQ(9, arabicNum);
+}
+
+TEST(Test_roman_arabic_converter_43, Can_convert_XL)
+{
+    //Arrange
+    int arabicNum;
+    std::string romanNum = "XL";
+    RomanArabicConverter converter;
+    
+    //Act
+    arabicNum = converter.romanToArabic(romanNum);
+    
+    //Assert
+	ASSERT_EQ(40, arabicNum);
+}
+
+TEST(Test_roman_arabic_converter_44, Can_convert_LXXXIX)
+{
+    //Arrange
+    int arabicNum;
+    std::string romanNum = "LXXXIX";
+    RomanArabicConverter converter;
+    
+    //Act
+    arabicNum = converter.romanToArabic(romanNum);
+    
+    //Assert
+	ASSERT_EQ(89, arabicNum);
+}
+
+TEST(Test_roman_arabic_converter_45, Can_convert_CCCLXXXIX)
+{
+    //Arrange
+    int arabicNum;
+    std::string romanNum = "CCCLXXXIX";
 	RomanArabicConverter converter;
     
     //Act
@@ -579,11 +635,11 @@ TEST(Test_roman_arabic_converter_41, Can_convert_IXCD)
 	ASSERT_EQ(389, arabicNum);
 }
 
-TEST(Test_roman_arabic_converter_42, Can_convert_IXCM)
+TEST(Test_roman_arabic_converter_46, Can_convert_DCCCLXXXIX)
 {
     //Arrange
     int arabicNum;
-    std::string romanNum = "IXCM";
+    std::string romanNum = "DCCCLXXXIX";
     RomanArabicConverter converter;
     
     //Act
@@ -591,4 +647,18 @@ TEST(Test_roman_arabic_converter_42, Can_convert_IXCM)
     
     //Assert
 	ASSERT_EQ(889, arabicNum);
+}
+
+TEST(Test_roman_arabic_converter_47, Can_convert_MCM)
+{
+    //Arrange
+    int arabicNum;
+    std::string romanNum = "MCM";
+    RomanArabicConverter converter;
+    
+    //Act
+    arabicNum = converter.romanToArabic(romanNum);
+    
+    //Assert
+	ASSERT_EQ(1900, arabicNum);
 }

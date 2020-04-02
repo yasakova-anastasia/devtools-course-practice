@@ -14,9 +14,67 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
 	}
 	
 	//Search incorrect number
-	std::regex regular2("[.]*IIII|VV|XXXX|LL|CCCC|DD|MMMM|IL|IC|ID|IM|VX|VL|VC|VD|VM|XD|XM|LC|LD|LM|DM*");
+	std::regex regular2("[.]*IIII|VV|XXXX|LL|CCCC|DD|MMMM|IL|IC|ID|IM|VX|VL|VC|VD|VM|XD|XM|LC|LD|LM|DM|IXL|IXC|XCD|XCM*");
 	if (std::regex_match(romanNum.c_str(), regular2)) {
 		return -2;
+	}
+	
+	for (unsigned int i = 0; i < romanNum.size(); i++) {
+		switch (romanNum[i]) {
+			case 'M':
+			    arabicNum += 1000;
+				break;
+			case 'D':
+ 			    arabicNum += 500;
+				break;
+			case 'C':
+                if (romanNum[i + 1] == 'D' && i != romanNum.size() - 1) {
+			        i++;
+				    arabicNum += 400;
+					break;
+			    }
+				if (romanNum[i + 1] == 'M' && i != romanNum.size() - 1) {
+			        i++;
+				    arabicNum += 900;
+					break;
+			    }
+				arabicNum += 100;
+				break;	
+            case 'L':
+                arabicNum += 50;
+				break;
+            case 'X':
+                if (romanNum[i + 1] == 'L' && i != romanNum.size() - 1) {
+			        i++;
+				    arabicNum += 40;
+					break;
+			    }
+				if (romanNum[i + 1] == 'C' && i != romanNum.size() - 1) {
+			        i++;
+				    arabicNum += 90;
+					break;
+			    }
+				arabicNum += 10;
+				break;	
+            case 'V':
+                arabicNum += 5;
+				break;
+            case 'I':
+                if (romanNum[i + 1] == 'V' && i != romanNum.size() - 1) {
+			        i++;
+				    arabicNum += 4;
+					break;
+			    }
+                if (romanNum[i + 1] == 'X' && i != romanNum.size() - 1) {
+			        i++;
+				    arabicNum += 9;
+					break;
+				}
+				arabicNum += 1;
+				break;
+            default:
+                break;			
+		}
 	}
 	
 	return arabicNum;
