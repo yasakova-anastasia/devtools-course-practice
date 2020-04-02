@@ -1,6 +1,6 @@
 // Copyright 2020 Devlikamov Vladislav
 
-#include <include/segment-tree.h>
+#include "include/segment-tree.h"
 #include <vector>
 #include <algorithm>
 #include <string>
@@ -40,14 +40,16 @@ int SegmentTree::gcd(int x, int y) {
 }
 
 int SegmentTree::op(int x, int y) {
-    if (_operation == "plus") {
+    if (_operation == "+") {
         return x + y;
     } else if (_operation == "max") {
         return std::max(x, y);
     } else if (_operation == "min") {
         return std::min(x, y);
-    } else {
+    } else if (_operation == "gcd") {
         return gcd(x, y);
+    } else {
+        throw "Cannot be this operation";
     }
 }
 
@@ -56,7 +58,7 @@ void SegmentTree::build(const std::vector <int>& arr, int index,
     if (left == right) {
         tree[index] = arr[left];
     } else {
-        int mid = (left + right)/2;
+        int mid = left + (right - left)/2;
         build(arr, 2*index, left, mid);
         build(arr, 2*index + 1, mid + 1, right);
         tree[index] = op(tree[2*index], tree[2*index + 1]);
@@ -73,7 +75,7 @@ int SegmentTree::query(int index, int l, int r, int left, int right) {
     } else if (left == l && right == r) {
         return tree[index];
     } else {
-        int mid = (l + r)/2;
+        int mid = l + (r - l)/2;
         return op(query(2*index, l, mid, left, std::min(right, mid)),
             query(2*index + 1, mid + 1, r, std::max(left, mid + 1), right));
     }
@@ -97,7 +99,7 @@ void SegmentTree::update(int index, int l, int r, int change_index, int value) {
         tree[index] = value;
         return;
     }
-    int mid = (l + r)/2;
+    int mid = l + (r - l)/2;
     if (change_index <= mid) {
         update(2*index, l, mid, change_index, value);
     } else {
