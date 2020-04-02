@@ -62,7 +62,7 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Multiply_complex_number_and_one) {
     EXPECT_EQ(z * z1, z);
 }
 
-TEST(Devlikamov_Vlad_ComplexNumberTest, Associativity_mult_complex_number_) {
+TEST(Devlikamov_Vlad_ComplexNumberTest, Associativity_mult_complex_number) {
     // Arrange
     double re = 2.0;
     double im = 4.0;
@@ -80,7 +80,7 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Associativity_mult_complex_number_) {
     EXPECT_EQ((z * z1) * z2, (z1 * z2) * z);
 }
 
-TEST(Devlikamov_Vlad_ComplexNumberTest, Associativity_add_complex_number_) {
+TEST(Devlikamov_Vlad_ComplexNumberTest, Associativity_add_complex_number) {
     // Arrange
     double re = 2.0;
     double im = 4.0;
@@ -97,5 +97,5 @@ TEST(Devlikamov_Vlad_ComplexNumberTest, Associativity_add_complex_number_) {
     ComplexNumber z4 = (z1 + z2) + z;
 
     // Assert
-    EXPECT_TRUE(z3 == z4);
+    EXPECT_EQ(z3, z4);
 }
