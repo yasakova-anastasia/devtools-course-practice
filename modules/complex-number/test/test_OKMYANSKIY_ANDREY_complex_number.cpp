@@ -15,8 +15,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Multiply_Complex_And_Zero) {
     testZero = z * complexZero;
 
     // Assert
-    EXPECT_EQ(complexZero.getRe(), testZero.getRe());
-    EXPECT_EQ(complexZero.getIm(), testZero.getIm());
+    EXPECT_EQ(complexZero, testZero);
 }
 
 TEST(Okmyanskiy_Andrey_ComplexNumberTest, Addition_Complex_And_Zero) {
@@ -31,8 +30,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Addition_Complex_And_Zero) {
     testZero = z + complexZero;
 
     // Assert
-    EXPECT_EQ(z.getRe(), testZero.getRe());
-    EXPECT_EQ(z.getIm(), testZero.getIm());
+    EXPECT_EQ(z, testZero);
 }
 
 TEST(Okmyanskiy_Andrey_ComplexNumberTest, Difference_Complex_And_Zero) {
@@ -47,8 +45,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Difference_Complex_And_Zero) {
     testZero = z - complexZero;
 
     // Assert
-    EXPECT_EQ(z.getRe(), testZero.getRe());
-    EXPECT_EQ(z.getIm(), testZero.getIm());
+    EXPECT_EQ(z, testZero);
 }
 
 TEST(Okmyanskiy_Andrey_ComplexNumberTest, Division_Complex_And_Zero) {
@@ -63,8 +60,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Division_Complex_And_Zero) {
     testZero = complexZero / z;
 
     // Assert
-    EXPECT_EQ(complexZero.getRe(), testZero.getRe());
-    EXPECT_EQ(complexZero.getIm(), testZero.getIm());
+    EXPECT_EQ(complexZero, testZero);
 }
 
 TEST(Okmyanskiy_Andrey_ComplexNumberTest, Multiply_Complex_And_One) {
@@ -79,6 +75,5 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Multiply_Complex_And_One) {
     testOne = complexOne * z;
 
     // Assert
-    EXPECT_EQ(z.getRe(), testOne.getRe());
-    EXPECT_EQ(z.getIm(), testOne.getIm());
+    EXPECT_EQ(z, testOne);
 }
