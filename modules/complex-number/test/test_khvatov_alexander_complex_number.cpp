@@ -2,9 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#include "include/complex_number.h"
-
 #include <limits>
+
+#include "include/complex_number.h"
 
 TEST(Khvatov_Alexander_ComplexNumberTest, can_create_complex_number) {
     // Arrange, Act, Assert
