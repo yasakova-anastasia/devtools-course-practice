@@ -36,7 +36,7 @@ TEST(Test_roman_arabic_converter_2, Can_convert_4000)
 TEST(Test_roman_arabic_converter_3, Can_convert_1)
 {
     //Arrange
-    int arabicNum = 4;
+    int arabicNum = 1;
     std::string romanNum;
     RomanArabicConverter converter;
 	
@@ -106,7 +106,7 @@ TEST(Test_roman_arabic_converter_7, Can_convert_9)
 TEST(Test_roman_arabic_converter_8, Can_convert_40)
 {
     //Arrange
-    int arabicNum = 2;
+    int arabicNum = 40;
     std::string romanNum;
     RomanArabicConverter converter;
 	
@@ -156,7 +156,7 @@ TEST(Test_roman_arabic_converter_11, Can_convert_471)
     romanNum = converter.arabicToRoman(arabicNum);
     
     //Assert
-	ASSERT_EQ("LDXXI", romanNum);
+	ASSERT_EQ("CDLXXI", romanNum);
 }
 
 TEST(Test_roman_arabic_converter_12, Can_convert_2879)
