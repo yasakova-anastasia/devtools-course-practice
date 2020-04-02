@@ -1,8 +1,7 @@
 // Copyright 2020 Devlikamov Vladislav
 
-#include <gtest/gtest.h>
-
 #include "include/segment-tree.h"
+#include <gtest/gtest.h>
 #include <vector>
 
 TEST(SegmentTreeTest, Can_Create_Segment_Tree) {
