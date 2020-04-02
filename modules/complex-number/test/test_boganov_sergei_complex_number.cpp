@@ -60,7 +60,6 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Re) {
     // Arrange
     double re1 = 2.0;
     double im1 = 3.0;
-
     double re2 = -5.0;
 
     // Act
@@ -76,7 +75,6 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Set_Im) {
     // Arrange
     double re1 = 1.0;
     double im1 = 6.0;
-
     double im2 = 4.0;
 
     // Act
@@ -92,10 +90,8 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Add_Complex_Numbers) {
     // Arrange
     double re1 = 1.0;
     double im1 = 3.0;
-
     double re2 = 4.0;
     double im2 = -5.0;
-
     double re3 = 5.0;
     double im3 = -2.0;
 
@@ -112,10 +108,8 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Subtract_Complex_Numbers) {
     // Arrange
     double re1 = -3.0;
     double im1 = 6.0;
-
     double re2 = 2.0;
     double im2 = 7.0;
-
     double re3 = -5.0;
     double im3 = -1.0;
 
@@ -132,10 +126,8 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
     // Arrange
     double re1 = 2.0;
     double im1 = 4.0;
-
     double re2 = -4.0;
     double im2 = 5.0;
-
     double re3 = -28.0;
     double im3 = -6.0;
 
@@ -152,10 +144,8 @@ TEST(Boganov_Sergei_ComplexNumberTest, Can_Divide_Complex_Numbers) {
     // Arrange
     double re1 = 1.0;
     double im1 = -1.0;
-
     double re2 = 1.0;
     double im2 = 1.0;
-
     double re3 = 0.0;
     double im3 = -1.0;
 
@@ -185,7 +175,6 @@ TEST(Boganov_Sergei_ComplexNumberTest, Correct_Not_Equal_Operator) {
     // Arrange
     double re1 = 2.0;
     double im1 = 1.0;
-
     double re2 = 5.0;
     double im2 = 4.0;
 
