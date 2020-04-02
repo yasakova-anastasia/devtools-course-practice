@@ -58,11 +58,9 @@ TEST(Khvatov_Alexander_ComplexNumberTest, complex_number_not_equal) {
     // Arrange
     double re = std::numeric_limits<double>::infinity();
     double im = std::numeric_limits<double>::infinity();
-
-    // Act
     ComplexNumber z1(re, im), z2;
 
-    // Assert
+    // Act, Assert
     EXPECT_NE(z1, z2);
 }
 
