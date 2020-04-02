@@ -41,14 +41,13 @@ TEST(Pauzin_Leonid_ComplexNumberTest, Can_Use_Operator_Sum) {
     double im1 = 3.0;
     double re2 = 1.0;
     double im2 = 2.0;
-    
+
     // Act
     ComplexNumber z1(re1, im1);
     ComplexNumber z2(re2, im2);
     ComplexNumber result(2.0, 5.0);
-    
     ComplexNumber z3 = z1 + z2;
-    
+
     // Assert
     EXPECT_EQ(result.getRe(), z3.getRe());
     EXPECT_EQ(result.getIm(), z3.getIm());
