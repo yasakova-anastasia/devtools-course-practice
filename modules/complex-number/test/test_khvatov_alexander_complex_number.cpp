@@ -1,10 +1,10 @@
 // Copyright 2020 Khvatov Alexander
 
-#include <limits>
-
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
+
+#include <limits>
 
 TEST(Khvatov_Alexander_ComplexNumberTest, can_create_complex_number) {
     // Arrange, Act, Assert
@@ -45,7 +45,7 @@ TEST(Khvatov_Alexander_ComplexNumberTest, getters_correct) {
     EXPECT_EQ(im, z1.getIm());
 }
 
-TEST(Khvatov_Alexander_ComplexNumberTest, DISABLED_cant_create_complex_number_with_NaN) {
+TEST(Khvatov_Alexander_ComplexNumberTest, DISABLED_cant_create_with_NaN) {
     // Arrange
     double re = std::numeric_limits<double>::quiet_NaN();
     double im = std::numeric_limits<double>::quiet_NaN();
@@ -54,7 +54,7 @@ TEST(Khvatov_Alexander_ComplexNumberTest, DISABLED_cant_create_complex_number_wi
     EXPECT_ANY_THROW(ComplexNumber z(re, im));
 }
 
-TEST(Khvatov_Alexander_ComplexNumberTest, complex_number_with_inf_not_equal_complex_number) {
+TEST(Khvatov_Alexander_ComplexNumberTest, complex_number_not_equal) {
     // Arrange
     double re = std::numeric_limits<double>::infinity();
     double im = std::numeric_limits<double>::infinity();
