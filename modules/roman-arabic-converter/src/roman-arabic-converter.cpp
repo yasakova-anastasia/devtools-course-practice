@@ -4,17 +4,17 @@
 #include <regex>
 #include "include/roman-arabic-converter.h"
 
-int romanToArabic(std::string romanNum) {
+int RomanArabicConverter::romanToArabic(std::string romanNum) {
     int arabicNum = 0;
     
 	//Search not roman
-    std::regex regular1("[.]*[^IXLCDM]*");
+    std::regex regular1("[.]*[^IVXLCDM]*");
 	if (std::regex_match(romanNum.c_str(), regular1)) {
 		return -1;
 	}
 	
 	//Search incorrect number
-	std::regex regular2("[.]*VX|LC|DM|IIII|VV|XXXX|LL|CCCC|DD|MMMM*");
+	std::regex regular2("[.]*IIII|VV|XXXX|LL|CCCC|DD|MMMM|IL|IC|ID|IM|VX|VL|VC|VD|VM|XD|XM|LC|LD|LM|DM*");
 	if (std::regex_match(romanNum.c_str(), regular2)) {
 		return -2;
 	}
@@ -22,7 +22,7 @@ int romanToArabic(std::string romanNum) {
 	return arabicNum;
 }
 
-std::string arabicToRoman(int arabicNum) {
+std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
     std::string romanNum = "I";
     
 	if (arabicNum < 1 || arabicNum > 3999) {
