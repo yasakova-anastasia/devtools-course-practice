@@ -25,12 +25,12 @@ TEST(Pauzin_Leonid_ComplexNumberTest, Can_Use_Default_Ctor) {
 TEST(Pauzin_Leonid_ComplexNumberTest, Can_Use_Copy_Ctor) {
     // Arrange
     double re = 1.0;
-    double im = 3.1;	
-	
-	// Act
-	ComplexNumber z1(re, im);
-	ComplexNumber z2(z1);
-	
-	// Assert
+    double im = 3.1;
+
+    // Act
+    ComplexNumber z1(re, im);
+    ComplexNumber z2(z1);
+
+    // Assert
     EXPECT_EQ(z1, z2);
 }
