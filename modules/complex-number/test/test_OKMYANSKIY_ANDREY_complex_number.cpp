@@ -10,7 +10,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Multiply_Complex_And_Zero) {
     ComplexNumber z(re, im);
     ComplexNumber complexZero(0.0, 0.0);
     ComplexNumber testZero;
-    
+
     // Act
     testZero = z * complexZero;
 
@@ -25,7 +25,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Addition_Complex_And_Zero) {
     ComplexNumber z(re, im);
     ComplexNumber complexZero(0.0, 0.0);
     ComplexNumber testZero;
-    
+
     // Act
     testZero = z + complexZero;
 
@@ -40,7 +40,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Difference_Complex_And_Zero) {
     ComplexNumber z(re, im);
     ComplexNumber complexZero(0.0, 0.0);
     ComplexNumber testZero;
-    
+
     // Act
     testZero = z - complexZero;
 
@@ -55,7 +55,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Division_Complex_And_Zero) {
     ComplexNumber z(re, im);
     ComplexNumber complexZero(0.0, 0.0);
     ComplexNumber testZero;
-    
+
     // Act
     testZero = complexZero / z;
 
@@ -70,7 +70,7 @@ TEST(Okmyanskiy_Andrey_ComplexNumberTest, Multiply_Complex_And_One) {
     ComplexNumber z(re, im);
     ComplexNumber complexOne(1.0, 0.0);
     ComplexNumber testOne;
-    
+
     // Act
     testOne = complexOne * z;
 
