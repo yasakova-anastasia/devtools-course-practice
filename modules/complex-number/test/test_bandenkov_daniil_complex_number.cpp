@@ -36,7 +36,6 @@ TEST(Bandenkov_Daniil_ComplexNumberTest, Equality_Of_Complex_Numbers) {
 
   ComplexNumber z0(re_0, im_0);
   ComplexNumber z1(re_1, im_1);
-  ComplexNumber res(re_0 - re_1, im_0 - im_1);
 
   EXPECT_EQ(z0 == z1, true);
 }
