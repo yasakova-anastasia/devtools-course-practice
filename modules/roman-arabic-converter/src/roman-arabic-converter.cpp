@@ -1,4 +1,4 @@
-//Copyright 2020 Vedrukov Pavel
+// Copyright 2020 Vedrukov Pavel
 
 #include <string>
 #include "include/roman-arabic-converter.h"
@@ -6,7 +6,7 @@
 int RomanArabicConverter::romanToArabic(std::string romanNum) {
     int arabicNum = 0;
     
-	//Search not roman
+	// Search not roman
     for (unsigned int i = 0; i < romanNum.size(); i++) {
 		if (romanNum[i] != 'I' && romanNum[i] != 'V' && romanNum[i] != 'X' &&
 		    romanNum[i] != 'L' && romanNum[i] != 'C' && romanNum[i] != 'D' &&
@@ -15,7 +15,7 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
 			}
 	}
 	
-	//Search incorrect number
+	// Search incorrect number
 	for (unsigned int i = 0; i < romanNum.size(); i++) {
 		if (romanNum[i] == 'I') {
 			if (i < romanNum.size() - 3 && romanNum[i + 1] == 'I' && 
@@ -87,7 +87,7 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
 		}
 	}
 	
-	//Convert roman to arabic
+	// Convert roman to arabic
 	for (unsigned int i = 0; i < romanNum.size(); i++) {
 		switch (romanNum[i]) {
 			case 'M':
