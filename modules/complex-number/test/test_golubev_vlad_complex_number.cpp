@@ -18,25 +18,25 @@ TEST(Golubev_Vlad_ComplexNumberTest, multiplication_by_default_complex_number_is
   //Arrange
   double re = 12.342;
   double im = -3.534;
-  ComplexNumber default;
+  ComplexNumber def;
   ComplexNumber z(re, im);
 
   //Act
-  ComplexNumber res = default * z;
+  ComplexNumber res = def * z;
 
   //Assert
-  EXPECT_EQ(res, default);
+  EXPECT_EQ(res, def);
 }
 
 TEST(Golubev_Vlad_ComplexNumberTest, addition_number_with_default_complex_number_is_the_same_number) {
   //Arrange
   double re = 12.342;
   double im = -3.534;
-  ComplexNumber default;
+  ComplexNumber def;
   ComplexNumber z(re, im);
 
   //Act
-  ComplexNumber res = default + z;
+  ComplexNumber res = def + z;
 
   //Assert
   EXPECT_EQ(res, z);
