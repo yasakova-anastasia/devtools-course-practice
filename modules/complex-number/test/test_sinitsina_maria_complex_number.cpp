@@ -44,7 +44,7 @@ TEST(Sinitsina_Maria_ComplexNumberTest, Inequality_Of_Complex_Numbers) {
   double re_0 = 1.0;
   double im_0 = 9.0;
   double re_1 = 5.0;
-  double im_1 = 8.0;
+  double im_1 = 7.0;
 
   ComplexNumber z0(re_0, im_0);
   ComplexNumber z1(re_1, im_1);
