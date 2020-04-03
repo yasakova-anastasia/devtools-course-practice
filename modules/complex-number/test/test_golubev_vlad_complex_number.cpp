@@ -28,7 +28,7 @@ TEST(Golubev_Vlad_ComplexNumberTest, mult_by_default_complex_number_is_zero) {
   EXPECT_EQ(res, def);
 }
 
-TEST(Golubev_Vlad_ComplexNumberTest, add_with_default_complex_number_is_the_same_number) {
+TEST(Golubev_Vlad_ComplexNumberTest, add_with_default_number_is_the_same_number) {
   // Arrange
   double re = 12.342;
   double im = -3.534;
