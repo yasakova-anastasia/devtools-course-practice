@@ -20,12 +20,12 @@ TEST(Bandenkov_Daniil_ComplexNumberTest, Division_Of_Complex_Numbers) {
   double im_0 = 7.0;
   double im_1 = 15.0;
 
-  ComplexNumber x(re_0, im_0);
-  ComplexNumber y(re_1, im_1);
+  ComplexNumber z0(re_0, im_0);
+  ComplexNumber z1(re_1, im_1);
   ComplexNumber res((re_0 * re_1 + im_0 * im_1) / (re_1 * re_1 + im_1 * im_1),
     (im_0 * re_1 - re_0 * im_1) / (re_1 * re_1 + im_1 * im_1));
 
-  EXPECT_EQ(res, x / y);
+  EXPECT_EQ(res, z0 / z1);
 }
 
 TEST(Bandenkov_Daniil_ComplexNumberTest, Equality_Of_Complex_Numbers) {
@@ -34,11 +34,11 @@ TEST(Bandenkov_Daniil_ComplexNumberTest, Equality_Of_Complex_Numbers) {
   double im_0 = 7.0;
   double im_1 = 7.0;
 
-  ComplexNumber x(re_0, im_0);
-  ComplexNumber y(re_1, im_1);
+  ComplexNumber z0(re_0, im_0);
+  ComplexNumber z1(re_1, im_1);
   ComplexNumber res(re_0 - re_1, im_0 - im_1);
 
-  EXPECT_EQ(x == y, true);
+  EXPECT_EQ(z0 == z1, true);
 }
 
 TEST(Bandenkov_Daniil_ComplexNumberTest, Subtraction_Of_Complex_Numbers) {
@@ -47,9 +47,9 @@ TEST(Bandenkov_Daniil_ComplexNumberTest, Subtraction_Of_Complex_Numbers) {
   double im_0 = 21.5;
   double im_1 = 1.3;
 
-  ComplexNumber x(re_0, im_0);
-  ComplexNumber y(re_1, im_1);
+  ComplexNumber z0(re_0, im_0);
+  ComplexNumber z1(re_1, im_1);
   ComplexNumber res(re_0 - re_1, im_0 - im_1);
 
-  EXPECT_EQ(res, x - y);
+  EXPECT_EQ(res, z0 - z1);
 }
