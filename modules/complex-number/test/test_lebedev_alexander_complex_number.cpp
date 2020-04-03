@@ -50,8 +50,9 @@ TEST_F(CustomComplexNumberTest, create_by_copy_constructor) {
 
 TEST_F(CustomComplexNumberTest, math_operation_div) {
     // Arrange
-
-    ComplexNumber divident(4, 6), divider(1, 9), expecetd(0.7073, -0.3658);
+    ComplexNumber divident(4, 6);
+    ComplexNumber divider(1, 9);
+    ComplexNumber expecetd(0.7073, -0.3658);
 
     // Act
     auto result = divident / divider;
@@ -67,7 +68,6 @@ TEST_F(CustomComplexNumberTest, math_operation_div) {
 
 TEST_F(CustomComplexNumberTest, math_operation_mul) {
     // Arrange
-
     ComplexNumber multiplier1(4.4, 6.3);
     ComplexNumber multiplier2(1.34, 9.98);
     ComplexNumber expecetd(-56.978, 52.354);
@@ -86,7 +86,6 @@ TEST_F(CustomComplexNumberTest, math_operation_mul) {
 
 TEST_F(CustomComplexNumberTest, math_operation_add) {
     // Arrange
-
     ComplexNumber param1(4.4, 6.3);
     ComplexNumber param2(1.34, 9.98);
     ComplexNumber expecetd(5.74, 16.28);
@@ -105,7 +104,6 @@ TEST_F(CustomComplexNumberTest, math_operation_add) {
 
 TEST_F(CustomComplexNumberTest, math_operation_diff) {
     // Arrange
-
     ComplexNumber param1(4.4, 6.3);
     ComplexNumber param2(1.34, 9.98);
     ComplexNumber expecetd(3.06, -3.68);
