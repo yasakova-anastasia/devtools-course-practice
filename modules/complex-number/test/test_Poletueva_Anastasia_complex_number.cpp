@@ -25,7 +25,7 @@ TEST(Poletueva_Anastasia_ComplexNumberTest, Can_Composition_By_Zero) {
   // Act
   ComplexNumber p = z*k;
 
-  // Act & Assert
+  // Assert
   EXPECT_EQ(0, p.getRe());
   EXPECT_EQ(0, p.getIm());
 }
@@ -37,4 +37,30 @@ TEST(Poletueva_Anastasia_ComplexNumberTest, Can_Division_By_Zero) {
 
   // Act & Assert
   ASSERT_ANY_THROW(z / k);
+}
+
+TEST(Poletueva_Anastasia_ComplexNumberTest, Can_Composition) {
+  // Arrange
+  ComplexNumber a(7.3, 3.1);
+  ComplexNumber b(9.2, 3.7);
+
+  // Act
+  ComplexNumber p = a*b;
+
+  // Assert
+  EXPECT_EQ(55.69, p.getRe());
+  EXPECT_EQ(55.53, p.getIm());
+}
+
+TEST(Poletueva_Anastasia_ComplexNumberTest, Can_Division) {
+  // Arrange
+  ComplexNumber a(13, 1);
+  ComplexNumber b(7, -6);
+
+  // Act
+  ComplexNumber p = a/b;
+
+  // Assert
+  EXPECT_DOUBLE_EQ(1, p.getRe());
+  EXPECT_DOUBLE_EQ(1, p.getIm());
 }
