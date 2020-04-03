@@ -39,13 +39,13 @@ TEST_F(CustomComplexNumberTest, create_in_place) {
 
 TEST_F(CustomComplexNumberTest, create_by_copy_constructor) {
     // Arrange
-    ComplexNumber z(67.2, 85.3);
+    ComplexNumber expected(67.2, 85.3);
 
     // Act
-    ComplexNumber expected(z);
+    ComplexNumber z(expected);
 
     // Assert
-    EXPECT_EQ(z, expected);
+    EXPECT_EQ(expected, z);
 }
 
 TEST_F(CustomComplexNumberTest, math_operation_div) {
@@ -129,6 +129,6 @@ TEST_F(CustomComplexNumberTest, stress_create_min_max_value) {
     ComplexNumber z(re, im);
 
     // Assert
-    EXPECT_EQ(z.getIm(), im);
-    EXPECT_EQ(z.getRe(), re);
+    EXPECT_EQ(re, z.getRe());
+    EXPECT_EQ(im, z.getIm());
 }
