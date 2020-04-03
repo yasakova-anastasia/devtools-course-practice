@@ -62,9 +62,3 @@ TEST(Golubeva_Anna_ComplexNumberTest, Division_By_Zero) {
   // Act & Assert
   ASSERT_ANY_THROW(num1 / num2);
 }
-
-
-
-
-
-
