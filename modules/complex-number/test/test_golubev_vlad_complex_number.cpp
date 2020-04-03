@@ -26,7 +26,7 @@ TEST(Golubev_Vlad_ComplexNumberTest, multiplication_by_default_complex_number_is
 
   // Assert
   EXPECT_EQ(res, def);
-}
+} 
 
 TEST(Golubev_Vlad_ComplexNumberTest, addition_number_with_default_complex_number_is_the_same_number) {
   // Arrange
