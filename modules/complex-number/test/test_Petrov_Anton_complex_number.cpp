@@ -32,3 +32,20 @@ TEST(Petrov_Anton_ComplexNumberTest, Can_Division) {
 	EXPECT_EQ(res, z.getRe() / z1.getIm());
 	EXPECT_EQ(res, z.getIm() / z1.getIm());
 }
+
+TEST(Petrov_Anton_ComplexNumberTest, Can_Summarize) {
+	// Arrange
+	double re = 10;
+	double im = 15;
+	double re1 = 10;
+	double im1 = 15;
+	double sumRe = 20;
+	double sumIm = 30;
+	// Act
+	ComplexNumber z1(re, im);
+	ComplexNumber z2(re1, im1);
+
+	// Assert
+	EXPECT_EQ(sumIm, z1.getIm() + z2.getIm());
+	EXPECT_EQ(sumRe, z1.getRe() + z2.getRe());
+}
