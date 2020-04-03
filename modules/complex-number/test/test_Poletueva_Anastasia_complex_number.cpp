@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Poletueva_Anastasia_ComplexNumberTest, Can_Create_With_Negative_Re_And_Im) {
+TEST(Poletueva_Anastasia_ComplexNumberTest, Create_With_Negative_Re_And_Im) {
     // Arrange
     double re = -1.2;
     double im = -5.3;
