@@ -1,3 +1,5 @@
+// Copyright 2020 Lebedev Alexander
+
 #include <gtest/gtest.h>
 
 #include <string>
