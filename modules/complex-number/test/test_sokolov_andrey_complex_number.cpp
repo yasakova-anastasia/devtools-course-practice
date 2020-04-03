@@ -24,7 +24,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, can_initialization_constructor) {
 TEST(Sokolov_Andrey_ComplexNumberTest, can_copy_constructor) {
   // Arrange
   ComplexNumber z1{1, -1};
-  ComplexNumber z{z1};
+  ComplexNumber z2{z1};
 
   // Assert
   EXPECT_EQ(z2.getRe(), z1.getRe());
