@@ -22,5 +22,20 @@ TEST(Andreev_Sergey_ComplexNumberTest, Comprasion_Equals_Sum) {
 	EXPECT_EQ(z2, z3);
 }
 
+TEST(Andreev_Sergey_ComplexNumberTest, Comprasion_Not_Equals) {
+	// Arrange
+	double re1 = 5.0;
+	double im1 = 5.0;
+
+	double re = re1 * im1;
+	double im = re;
+
+	// Act
+	ComplexNumber z1(re1, im1);
+	ComplexNumber z(re, im);
+
+	// Assert
+	EXPECT_NE(z1, z);
+}
 
 
