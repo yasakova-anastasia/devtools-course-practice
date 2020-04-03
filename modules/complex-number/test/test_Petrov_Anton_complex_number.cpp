@@ -18,3 +18,17 @@ TEST(Petrov_Anton_ComplexNumberTest, Can_Be_Float ) {
 	ASSERT_FLOAT_EQ(im, z.getIm());
 }
 
+TEST(Petrov_Anton_ComplexNumberTest, Can_Division) {
+	// Arrange
+	float re = 10;
+	float im = 10;
+	float re1 = 5;
+	float im1 = 5;
+	float res = 2;
+	// Act
+	ComplexNumber z(re, im);
+	ComplexNumber z1(re1, im1);
+	// Assert
+	EXPECT_EQ(res, z.getRe() / z1.getIm());
+	EXPECT_EQ(res, z.getIm() / z1.getIm());
+}
