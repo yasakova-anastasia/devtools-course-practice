@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
 
-TEST(Sokolov_Andrey_ComplexNumberTest, default_constructor) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_default_constructor) {
   // Arrange
   ComplexNumber z{};
 
@@ -12,7 +12,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, default_constructor) {
   EXPECT_EQ(z.getIm(), 0);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, initialization_constructor) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_initialization_constructor) {
   // Arrange
   ComplexNumber z{1, -1};
 
@@ -21,7 +21,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, initialization_constructor) {
   EXPECT_EQ(z.getIm(), -1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, copy_constructor) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_copy_constructor) {
   // Arrange
   ComplexNumber z1{1, -1};
   ComplexNumber z{z1};
@@ -31,7 +31,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, copy_constructor) {
   EXPECT_EQ(z2.getIm(), z1.getIm());
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, get_real_part) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_get_real_part) {
   // Arrange
   ComplexNumber z{1, -1};
 
@@ -42,7 +42,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, get_real_part) {
   EXPECT_EQ(a, 1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, get_imaginary_part) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_get_imaginary_part) {
   // Arrange
   ComplexNumber z{1, -1};
 
@@ -53,7 +53,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, get_imaginary_part) {
   EXPECT_EQ(a, -1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, set_real_part) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_set_real_part) {
   // Arrange
   ComplexNumber z{};
 
@@ -64,7 +64,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, set_real_part) {
   EXPECT_EQ(z.getRe(), 1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, set_imaginary_part) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_set_imaginary_part) {
   // Arrange
   ComplexNumber z{};
 
@@ -75,7 +75,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, set_imaginary_part) {
   EXPECT_EQ(z.getIm(), 1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, addition_operator) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_addition_operator) {
   // Arrange
   ComplexNumber z1{1, 0};
   ComplexNumber z2{0, 1};
@@ -89,7 +89,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, addition_operator) {
   EXPECT_EQ(z3.getIm(), 1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, subtraction_operator) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_subtraction_operator) {
   // Arrange
   ComplexNumber z1{2, 2};
   ComplexNumber z2{1, 1};
@@ -103,7 +103,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, subtraction_operator) {
   EXPECT_EQ(z3.getIm(), 1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, multiplication_operator) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_multiplication_operator) {
   // Arrange
   ComplexNumber z1{2, 3};
   ComplexNumber z2{-1, 1};
@@ -117,7 +117,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, multiplication_operator) {
   EXPECT_EQ(z3.getIm(), -1);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, division_operator) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_division_operator) {
   // Arrange
   ComplexNumber z1{-2, 1};
   ComplexNumber z2{1, -1};
@@ -131,7 +131,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, division_operator) {
   EXPECT_EQ(z3.getIm(), -0.5);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, equal_operator_false) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_equal_operator_false) {
   // Arrange
   ComplexNumber z1{2, 3};
   ComplexNumber z2{-1, 1};
@@ -144,7 +144,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, equal_operator_false) {
   EXPECT_EQ(result, false);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, equal_operator_true) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_equal_operator_true) {
   // Arrange
   ComplexNumber z1{2, 2};
   ComplexNumber z2{2, 2};
@@ -157,7 +157,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, equal_operator_true) {
   EXPECT_EQ(result, true);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, not_equal_operator_true) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_not_equal_operator_true) {
   // Arrange
   ComplexNumber z1{2, 2};
   ComplexNumber z2{2, 1};
@@ -170,7 +170,7 @@ TEST(Sokolov_Andrey_ComplexNumberTest, not_equal_operator_true) {
   EXPECT_EQ(result, true);
 }
 
-TEST(Sokolov_Andrey_ComplexNumberTest, not_equal_operator_false) {
+TEST(Sokolov_Andrey_ComplexNumberTest, can_not_equal_operator_false) {
   // Arrange
   ComplexNumber z1{2, 2};
   ComplexNumber z2{2, 2};
