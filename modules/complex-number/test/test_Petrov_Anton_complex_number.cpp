@@ -49,3 +49,15 @@ TEST(Petrov_Anton_ComplexNumberTest, Can_Summarize) {
 	EXPECT_EQ(sumIm, z1.getIm() + z2.getIm());
 	EXPECT_EQ(sumRe, z1.getRe() + z2.getRe());
 }
+
+TEST(Petrov_Anton_ComplexNumberTest, Can_Throw_Exception_Division_By_Null) {
+	// Arrange
+	double re = 10;
+	double im = 10;
+	// Act
+	ComplexNumber z1(re, im);
+	ComplexNumber z2(0,0);
+	// Assert
+	ASSERT_ANY_THROW(z1 / z2);
+
+}
