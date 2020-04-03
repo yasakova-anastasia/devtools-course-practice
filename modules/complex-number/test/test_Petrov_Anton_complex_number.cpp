@@ -56,10 +56,9 @@ double re = 10;
 double im = 10;
 // Act
 ComplexNumber z1(re, im);
-ComplexNumber z2(0,0);
+ComplexNumber z2(0, 0);
 // Assert
 ASSERT_ANY_THROW(z1 / z2);
-
 }
 
 TEST(Petrov_Anton_ComplexNumberTest, More_Comparison) {
