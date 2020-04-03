@@ -27,3 +27,16 @@ TEST(Bandenkov_Daniil_ComplexNumberTest, Division_Of_Complex_Numbers) {
 
   EXPECT_EQ(res, x / y);
 }
+
+TEST(Bandenkov_Daniil_ComplexNumberTest, Equality_Of_Complex_Numbers) {
+  double re_0 = 3.0;
+  double re_1 = 3.0;
+  double im_0 = 7.0;
+  double im_1 = 7.0;
+
+  ComplexNumber x(re_0, im_0);
+  ComplexNumber y(re_1, im_1);
+  ComplexNumber res(re_0 - re_1, im_0 - im_1);
+
+  EXPECT_EQ(x == y, true);
+}
