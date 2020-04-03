@@ -1,7 +1,6 @@
 //Copyright 2020 Vedrukov Pavel
 
 #include <string>
-#include <regex>
 #include "include/roman-arabic-converter.h"
 
 int RomanArabicConverter::romanToArabic(std::string romanNum) {
@@ -17,11 +16,78 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
 	}
 	
 	//Search incorrect number
-	std::regex regular2("[.]*IIII|VV|XXXX|LL|CCCC|DD|MMMM|IL|IC|ID|IM|VX|VL|VC|VD|VM|XD|XM|LC|LD|LM|DM|IXL|IXC|XCD|XCM*");
-	if (std::regex_match(romanNum.c_str(), regular2)) {
-		throw "Incorrect input of the roman number";
+	for (unsigned int i = 0; i < romanNum.size(); i++) {
+		if (romanNum[i] == 'I') {
+			if (i < romanNum.size() - 3 && romanNum[i + 1] == 'I' && 
+			    romanNum[i + 2] == 'I' && romanNum[i + 3] == 'I') {
+				throw "Incorrect input of the roman number";			
+			}
+			if (i < romanNum.size() - 2) {
+				if ((romanNum[i + 1] == 'X' && romanNum[i + 2] == 'L') ||
+				    (romanNum[i + 1] == 'X' && romanNum[i + 2] == 'C')) {
+					throw "Incorrect input of the roman number";
+				}
+			}
+			if (i < romanNum.size() - 1) {
+				if (romanNum[i + 1] == 'L' || romanNum[i + 1] == 'C' ||
+				    romanNum[i + 1] == 'D' || romanNum[i + 1] == 'M') {
+					throw "Incorrect input of the roman number";
+				}
+			}
+		}
+		if (romanNum[i] == 'V') {
+			if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'V' ||
+			    romanNum[i + 1] == 'X' || romanNum[i + 1] == 'L' ||
+				romanNum[i + 1] == 'C' || romanNum[i + 1] == 'D' ||
+				romanNum[i + 1] == 'M')) {
+				throw "Incorrect input of the roman number";			
+			}
+		}
+		if (romanNum[i] == 'X') {
+			if (i < romanNum.size() - 3 && romanNum[i + 1] == 'X' && 
+			    romanNum[i + 2] == 'X' && romanNum[i + 3] == 'X') {
+				throw "Incorrect input of the roman number";			
+			}
+			if (i < romanNum.size() - 2) {
+				if ((romanNum[i + 1] == 'C' && romanNum[i + 2] == 'D') ||
+				    (romanNum[i + 1] == 'C' && romanNum[i + 2] == 'M')) {
+					throw "Incorrect input of the roman number";
+				}
+			}
+			if (i < romanNum.size() - 1) {
+				if (romanNum[i + 1] == 'D' || romanNum[i + 1] == 'M') {
+					throw "Incorrect input of the roman number";
+				}
+			}
+		}
+		if (romanNum[i] == 'L') {
+			if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'L' ||
+			    romanNum[i + 1] == 'C' || romanNum[i + 1] == 'D' ||
+				romanNum[i + 1] == 'M')) {
+				throw "Incorrect input of the roman number";			
+			}
+		}
+		if (romanNum[i] == 'C') {
+			if (i < romanNum.size() - 3 && romanNum[i + 1] == 'C' && 
+			    romanNum[i + 2] == 'C' && romanNum[i + 3] == 'C') {
+				throw "Incorrect input of the roman number";			
+			}
+		}
+		if (romanNum[i] == 'D') {
+			if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'D' ||
+				romanNum[i + 1] == 'M')) {
+				throw "Incorrect input of the roman number";			
+			}
+		}
+		if (romanNum[i] == 'M') {
+			if (i < romanNum.size() - 3 && romanNum[i + 1] == 'M' && 
+			    romanNum[i + 2] == 'M' && romanNum[i + 3] == 'M') {
+				throw "Incorrect input of the roman number";			
+			}
+		}
 	}
 	
+	//Convert roman to arabic
 	for (unsigned int i = 0; i < romanNum.size(); i++) {
 		switch (romanNum[i]) {
 			case 'M':

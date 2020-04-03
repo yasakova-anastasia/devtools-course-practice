@@ -6,8 +6,8 @@
 #include <string>
 
 class RomanArabicConverter {
- public:   
-	int romanToArabic(std::string romanNum);	
+ public:
+    int romanToArabic(std::string romanNum);
     std::string arabicToRoman(int arabicNum);
 };
 
