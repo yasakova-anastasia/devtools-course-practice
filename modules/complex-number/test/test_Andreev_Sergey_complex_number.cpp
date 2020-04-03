@@ -38,4 +38,23 @@ TEST(Andreev_Sergey_ComplexNumberTest, Comprasion_Not_Equals) {
 	EXPECT_NE(z1, z);
 }
 
+TEST(Andreev_Sergey_ComplexNumberTest, Comprasion_Not_Equals_Minus) {
+
+	// Arrange
+	double re1 = 1.0;
+	double im1 = 1.0;
+	double re2 = -2.0;
+	double im2 = -2.0;
+
+	double re = re1 + re2;
+	double im = im1 + im2;
+
+	// Act
+	ComplexNumber z1(re1, im1);
+	ComplexNumber z(re, im);
+
+	// Assert
+	EXPECT_NE(z.getRe(), z1.getRe());
+	EXPECT_NE(z.getRe(), z1.getIm());
+}
 
