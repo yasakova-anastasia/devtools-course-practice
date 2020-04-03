@@ -1,0 +1,43 @@
+// Copyright 2020 Golubev Vladislav
+
+#include <gtest/gtest.h>
+#include "include/complex_number.h"
+
+TEST(Golubev_Vlad_ComplexNumberTest, can_create_default_complex_number) {
+  //Arrange
+  ComplexNumber expected_z(0, 0);
+
+  //Act
+  ComplexNumber z;
+
+  //Assert
+  EXPECT_EQ(z, expected_z);
+}
+
+TEST(Golubev_Vlad_ComplexNumberTest, multiplication_by_default_complex_number_is_zero) {
+  //Arrange
+  double re = 12.342;
+  double im = -3.534;
+  ComplexNumber default;
+  ComplexNumber z(re, im);
+
+  //Act
+  ComplexNumber res = default * z;
+
+  //Assert
+  EXPECT_EQ(res, default);
+}
+
+TEST(Golubev_Vlad_ComplexNumberTest, addition_number_with_default_complex_number_is_the_same_number) {
+  //Arrange
+  double re = 12.342;
+  double im = -3.534;
+  ComplexNumber default;
+  ComplexNumber z(re, im);
+
+  //Act
+  ComplexNumber res = default + z;
+
+  //Assert
+  EXPECT_EQ(res, z);
+}
