@@ -8,7 +8,7 @@
 #include "include/complex_number.h"
 
 class CustomComplexNumberTest : public ::testing::Test {
-protected:
+ protected:
     double epsilon = 0.001;
 };
 
@@ -57,47 +57,69 @@ TEST_F(CustomComplexNumberTest, math_operation_div) {
     auto result = divident / divider;
 
     // Assert
-    EXPECT_NEAR(expecetd.getRe(), result.getRe(), CustomComplexNumberTest::epsilon);
-    EXPECT_NEAR(expecetd.getIm(), result.getIm(), CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getRe(),
+                result.getRe(),
+                CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getIm(),
+                result.getIm(),
+                CustomComplexNumberTest::epsilon);
 }
 
 TEST_F(CustomComplexNumberTest, math_operation_mul) {
     // Arrange
 
-    ComplexNumber multiplier1(4.4, 6.3), multiplier2(1.34, 9.98), expecetd(-56.978, 52.354);
+    ComplexNumber multiplier1(4.4, 6.3);
+    ComplexNumber multiplier2(1.34, 9.98);
+    ComplexNumber expecetd(-56.978, 52.354);
 
     // Act
     auto result = multiplier1 * multiplier2;
 
     // Assert
-    EXPECT_NEAR(expecetd.getRe(), result.getRe(), CustomComplexNumberTest::epsilon);
-    EXPECT_NEAR(expecetd.getIm(), result.getIm(), CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getRe(),
+                result.getRe(),
+                CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getIm(),
+                result.getIm(),
+                CustomComplexNumberTest::epsilon);
 }
 
 TEST_F(CustomComplexNumberTest, math_operation_add) {
     // Arrange
 
-    ComplexNumber param1(4.4, 6.3), param2(1.34, 9.98), expecetd(5.74, 16.28);
+    ComplexNumber param1(4.4, 6.3);
+    ComplexNumber param2(1.34, 9.98);
+    ComplexNumber expecetd(5.74, 16.28);
 
     // Act
     auto result = param1 + param2;
 
     // Assert
-    EXPECT_NEAR(expecetd.getRe(), result.getRe(), CustomComplexNumberTest::epsilon);
-    EXPECT_NEAR(expecetd.getIm(), result.getIm(), CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getRe(),
+                result.getRe(),
+                CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getIm(),
+                result.getIm(),
+                CustomComplexNumberTest::epsilon);
 }
 
 TEST_F(CustomComplexNumberTest, math_operation_diff) {
     // Arrange
 
-    ComplexNumber param1(4.4, 6.3), param2(1.34, 9.98), expecetd(3.06, -3.68);
+    ComplexNumber param1(4.4, 6.3);
+    ComplexNumber param2(1.34, 9.98);
+    ComplexNumber expecetd(3.06, -3.68);
 
     // Act
     auto result = param1 - param2;
 
     // Assert
-    EXPECT_NEAR(expecetd.getRe(), result.getRe(), CustomComplexNumberTest::epsilon);
-    EXPECT_NEAR(expecetd.getIm(), result.getIm(), CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getRe(),
+                result.getRe(),
+                CustomComplexNumberTest::epsilon);
+    EXPECT_NEAR(expecetd.getIm(),
+                result.getIm(),
+                CustomComplexNumberTest::epsilon);
 }
 
 TEST_F(CustomComplexNumberTest, stress_create_min_max_value) {
