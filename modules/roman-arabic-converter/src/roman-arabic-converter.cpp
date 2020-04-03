@@ -8,15 +8,18 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
     int arabicNum = 0;
     
 	//Search not roman
-    std::regex regular1("[.]*[^IVXLCDM]*");
-	if (std::regex_match(romanNum.c_str(), regular1)) {
-		return -1;
+    for (unsigned int i = 0; i < romanNum.size(); i++) {
+		if (romanNum[i] != 'I' && romanNum[i] != 'V' && romanNum[i] != 'X' &&
+		    romanNum[i] != 'L' && romanNum[i] != 'C' && romanNum[i] != 'D' &&
+			romanNum[i] != 'M') {
+			throw "It is not roman number";
+			}
 	}
 	
 	//Search incorrect number
 	std::regex regular2("[.]*IIII|VV|XXXX|LL|CCCC|DD|MMMM|IL|IC|ID|IM|VX|VL|VC|VD|VM|XD|XM|LC|LD|LM|DM|IXL|IXC|XCD|XCM*");
 	if (std::regex_match(romanNum.c_str(), regular2)) {
-		return -2;
+		throw "Incorrect input of the roman number";
 	}
 	
 	for (unsigned int i = 0; i < romanNum.size(); i++) {
@@ -84,7 +87,7 @@ std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
     std::string romanNum = "";
     
 	if (arabicNum < 1 || arabicNum > 3999) {
-		return "InputNumOutOfRange";
+		throw "OutOfRange";
 	}
 	
 	int digitArabicNum[4] = {arabicNum / 1000, arabicNum % 1000 / 100, arabicNum % 100 / 10, arabicNum % 10};
