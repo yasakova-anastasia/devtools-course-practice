@@ -47,7 +47,7 @@ TEST(Tanskii_Yurii_ComplexNumberTest, Could_except_divide_by_zero) {
     // Arrange
     double re1 = -4.0;
     double im1 = 16.0;
-    
+
     // Act
     ComplexNumber z1(re1, im1);
     ComplexNumber z2;
