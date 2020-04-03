@@ -14,7 +14,7 @@ TEST(Golubev_Vlad_ComplexNumberTest, can_create_default_complex_number) {
   EXPECT_EQ(z, expected_z);
 }
 
-TEST(Golubev_Vlad_ComplexNumberTest, multiplication_by_default_complex_number_is_zero) {
+TEST(Golubev_Vlad_ComplexNumberTest, mult_by_default_complex_number_is_zero) {
   // Arrange
   double re = 12.342;
   double im = -3.534;
@@ -26,9 +26,9 @@ TEST(Golubev_Vlad_ComplexNumberTest, multiplication_by_default_complex_number_is
 
   // Assert
   EXPECT_EQ(res, def);
-} 
+}
 
-TEST(Golubev_Vlad_ComplexNumberTest, addition_number_with_default_complex_number_is_the_same_number) {
+TEST(Golubev_Vlad_ComplexNumberTest, add_with_default_complex_number_is_the_same_number) {
   // Arrange
   double re = 12.342;
   double im = -3.534;
