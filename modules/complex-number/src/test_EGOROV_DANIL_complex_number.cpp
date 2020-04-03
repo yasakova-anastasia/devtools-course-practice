@@ -31,3 +31,19 @@ TEST(Egorov_Danil_ComplexNumberTest, Can_Compare_Not_Equal) {
     // Assert
     EXPECT_NE(z1, z2);
 }
+
+TEST(Egorov_Danil_ComplexNumberTest, Can_Multiplication) {
+    // Arrange
+    double re1 = 1.5;
+    double im1 = 1.5;
+    double re2 = 5.5;
+    double im2 = 3.5;
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+
+    // Act
+    ComplexNumber z3(re1 * re2 - im1 * im2, re1 * im2 + re2 * im1);
+
+    // Assert
+    EXPECT_EQ(z3, z1 * z2);
+}
