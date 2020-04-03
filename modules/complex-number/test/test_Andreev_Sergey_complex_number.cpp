@@ -39,7 +39,6 @@ EXPECT_NE(z1, z);
 }
 
 TEST(Andreev_Sergey_ComplexNumberTest, Comprasion_Not_Equals_Minus) {
-	
 // Arrange
 double re1 = 1.0;
 double im1 = 1.0;
@@ -59,9 +58,8 @@ EXPECT_NE(z.getRe(), z1.getIm());
 }
 
 TEST(Andreev_Sergey_ComplexNumberTest, Comprasion_Less) {
-
 // Arrange
-double re1 = 5.0;	
+double re1 = 5.0;
 double im1 = 5.0;
 double re2 = 5.0;
 double im2 = 5.0;
