@@ -1,7 +1,6 @@
 // Copyright 2020 Tanskii Yurii
 
 #include <gtest/gtest.h>
-
 #include "include/complex_number.h"
 
 TEST(Tanskii_Yurii_ComplexNumberTest, Can_Multi) {
