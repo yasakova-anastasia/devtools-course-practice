@@ -136,7 +136,7 @@ TEST(Kornev_Nikita_ComplexNumberTest, op_eq1) {
 
 TEST(Kornev_Nikita_ComplexNumberTest, op_eq2) {
   // Arrange
-  ComplexNumber z1(2, 2), z2(2 ,2);
+  ComplexNumber z1(2, 2), z2(2, 2);
   bool res;
 
   // Act
