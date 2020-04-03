@@ -51,7 +51,7 @@ TEST(Tanskii_Yurii_ComplexNumberTest, Could_except_divide_by_zero) {
     // Act
     ComplexNumber z1(re1, im1);
     ComplexNumber z2;
- 
+
     // Assert
     ASSERT_ANY_THROW(z1 / z2);
 }
