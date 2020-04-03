@@ -16,3 +16,18 @@ TEST(Egorov_Danil_ComplexNumberTest, Can_Compare_Equal) {
     // Assert
     EXPECT_EQ(z1, z2);
 }
+
+TEST(Egorov_Danil_ComplexNumberTest, Can_Compare_Not_Equal) {
+    // Arrange
+    double re1 = 1.5;
+    double im1 = 1.5;
+    double re2 = 5.5;
+    double im2 = 3.5;
+
+    // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+
+    // Assert
+    EXPECT_NE(z1, z2);
+}
