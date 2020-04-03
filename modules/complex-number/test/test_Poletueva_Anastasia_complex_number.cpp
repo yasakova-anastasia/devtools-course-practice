@@ -17,7 +17,7 @@ TEST(Poletueva_Anastasia_ComplexNumberTest, Create_With_Negative_Re_And_Im) {
     EXPECT_EQ(im, z.getIm());
 }
 
-TEST(Poletueva_Anastasia_ComplexNumberTest, Can_Ñomposition_By_Zero) {
+TEST(Poletueva_Anastasia_ComplexNumberTest, Can_Composition_By_Zero) {
   // Arrange
   ComplexNumber z(8.2, 4.5);
   ComplexNumber k(0, 0);
