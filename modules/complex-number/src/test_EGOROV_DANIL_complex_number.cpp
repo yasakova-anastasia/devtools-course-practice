@@ -47,3 +47,20 @@ TEST(Egorov_Danil_ComplexNumberTest, Can_Multiplication) {
     // Assert
     EXPECT_EQ(z3, z1 * z2);
 }
+
+TEST(Egorov_Danil_ComplexNumberTest, Can_Division) {
+    // Arrange
+    double re1 = 1.5;
+    double im1 = 1.5;
+    double re2 = 5.5;
+    double im2 = 3.5;
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+
+    // Act
+    ComplexNumber z3((re1 * re2 + im1 * im2) / (re2 * re2 + im2 * im2),
+        (im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2));
+
+    // Assert
+    EXPECT_EQ(z3, z1 / z2);
+}
