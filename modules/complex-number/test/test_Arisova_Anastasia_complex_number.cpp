@@ -54,3 +54,31 @@ TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Swap_Summand) {
     ComplexNumber answer = z2 + z1;
     EXPECT_EQ(answer, z);
 }
+
+TEST(Arisova_Anastasiia_ComplexNumberTest, Check_Associativity) {
+    // Arrange
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(2.0, 3.0);
+    ComplexNumber z3(3.0, 4.0);
+
+    // Act
+    ComplexNumber answer1 = (z1 + z2) + z3;
+    ComplexNumber answer2 = z1 + (z2 + z3);
+
+    // Assert
+    EXPECT_EQ(answer1, answer2);
+}
+
+TEST(Arisova_Anastasiia_ComplexNumberTest, Check_Distributivity) {
+    // Arrange
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(2.0, 3.0);
+    ComplexNumber z3(3.0, 4.0);
+
+    // Act
+    ComplexNumber answer1 = (z1 + z2) * z3;
+    ComplexNumber answer2 = z1 * z3 + z2 * z3;
+
+    // Assert
+    EXPECT_EQ(answer1, answer2);
+}
