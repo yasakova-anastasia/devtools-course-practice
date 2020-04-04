@@ -11,7 +11,7 @@ TEST(Tihomirova_Maria_ComplexNumberTest, Can_GetRe) {
   z.setRe(77);
 
   // Assert
-  EXPECT_EQ(77, num.getRe());
+  EXPECT_EQ(77, z.getRe());
 }
 
 TEST(Tihomirova_Maria_ComplexNumberTest, Multiplication_By_Zero) {
