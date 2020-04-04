@@ -41,3 +41,16 @@ TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplication_By_Itself) {
     ComplexNumber answer(-3.0, 4.0);
     EXPECT_EQ(answer, z);
 }
+
+TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Swap_Summand) {
+    // Arrange
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(0.4, 3.0);
+
+    // Act
+    ComplexNumber z = z1 + z2;
+
+    // Assert
+    ComplexNumber answer = z2 + z1;
+    EXPECT_EQ(answer, z);
+}
