@@ -104,3 +104,12 @@ TEST(Golovanova_Elena_ComplexNumberTest, Different_is_true) {
   // Act & Assert
   EXPECT_TRUE(z1 != z2);
 }
+
+TEST(Golovanova_Elena_ComplexNumberTest, Different_is_false) {
+  // Arrange
+  ComplexNumber z1(1.0, 7.9);
+  ComplexNumber z2(1.0, 7.9);
+
+  // Act & Assert
+  EXPECT_FALSE(z1 != z2);
+}
