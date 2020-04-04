@@ -23,7 +23,7 @@ TEST(Golovanova_Elena_ComplexNumberTest, Can_Create_Addition) {
   ComplexNumber z2(3.0, 2.1);
 
   // Act
-  ComplexNumber z3=z1+z2;
+  ComplexNumber z3 = z1 + z2;
 
   // Assert
   EXPECT_EQ(4.5, z3.getRe());
