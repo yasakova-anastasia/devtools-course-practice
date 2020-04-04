@@ -77,3 +77,12 @@ TEST(Golovanova_Elena_ComplexNumberTest, Can_Not_Create_Division) {
   // Act & Assert
   ASSERT_ANY_THROW(z1/z2);
 }
+
+TEST(Golovanova_Elena_ComplexNumberTest, Equal_is_true) {
+  // Arrange
+  ComplexNumber z1(15.0, 17.4);
+  ComplexNumber z2(15.0, 17.4);
+
+  // Act & Assert
+  EXPECT_TRUE(z1 == z2);
+}
