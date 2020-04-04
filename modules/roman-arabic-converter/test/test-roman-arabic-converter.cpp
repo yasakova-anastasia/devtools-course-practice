@@ -10,9 +10,7 @@ TEST(Test_roman_arabic_converter_1, Cannot_convert_zero) {
     int arabicNum = 0;
     RomanArabicConverter converter;
 
-    // Act
-
-    // Assert
+    // Assert & Act
     ASSERT_ANY_THROW(converter.arabicToRoman(arabicNum));
 }
 
@@ -21,9 +19,7 @@ TEST(Test_roman_arabic_converter_2, Cannot_convert_4000) {
     int arabicNum = 4000;
     RomanArabicConverter converter;
 
-    // Act
-
-    // Assert
+    // Assert & Act
     ASSERT_ANY_THROW(converter.arabicToRoman(arabicNum));
 }
 
