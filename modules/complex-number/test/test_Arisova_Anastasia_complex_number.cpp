@@ -17,7 +17,7 @@ TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Create_Zero) {
     EXPECT_EQ(im, z.getIm());
 }
 
-TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplication_Zero) {
+TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplicate_Zero) {
     // Arrange
     double re1 = 2.0, im1 = 5.4;
     double re2 = 0.0, im2 = 0.0;
@@ -33,7 +33,7 @@ TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplication_Zero) {
     EXPECT_EQ(answer, z);
 }
 
-TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplication_By_Itself) {
+TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplicate_By_Itself) {
     // Arrange
     double re1 = 1.0, im1 = 2.0;
     double re2 = -3.0, im2 = 4.0;
@@ -48,7 +48,7 @@ TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplication_By_Itself) {
     EXPECT_EQ(answer, z);
 }
 
-TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Swap_Summand) {
+TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Swap_Summands) {
     // Arrange
     double re1 = 1.0, im1 = 2.0;
     double re2 = 0.4, im2 = 3.0;
