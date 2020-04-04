@@ -11,7 +11,7 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
         if (romanNum[i] != 'I' && romanNum[i] != 'V' && romanNum[i] != 'X' &&
             romanNum[i] != 'L' && romanNum[i] != 'C' && romanNum[i] != 'D' &&
             romanNum[i] != 'M') {
-            throw "It is not roman number";
+            throw(std::string)"It is not roman number";
         }
     }
     // Search incorrect number
@@ -19,18 +19,18 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
         if (romanNum[i] == 'I') {
             if (i < romanNum.size() - 3 && romanNum[i + 1] == 'I' &&
                 romanNum[i + 2] == 'I' && romanNum[i + 3] == 'I') {
-                throw "Incorrect input of the roman number";
+                throw(std::string)"Incorrect input of the roman number";
             }
             if (i < romanNum.size() - 2) {
                 if ((romanNum[i + 1] == 'X' && romanNum[i + 2] == 'L') ||
                     (romanNum[i + 1] == 'X' && romanNum[i + 2] == 'C')) {
-                    throw "Incorrect input of the roman number";
+                    throw(std::string)"Incorrect input of the roman number";
                 }
             }
             if (i < romanNum.size() - 1) {
                 if (romanNum[i + 1] == 'L' || romanNum[i + 1] == 'C' ||
                     romanNum[i + 1] == 'D' || romanNum[i + 1] == 'M') {
-                    throw "Incorrect input of the roman number";
+                    throw(std::string)"Incorrect input of the roman number";
                 }
             }
         }
@@ -39,23 +39,23 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
                 romanNum[i + 1] == 'X' || romanNum[i + 1] == 'L' ||
                 romanNum[i + 1] == 'C' || romanNum[i + 1] == 'D' ||
                 romanNum[i + 1] == 'M')) {
-                throw "Incorrect input of the roman number";
+                throw(std::string)"Incorrect input of the roman number";
             }
         }
         if (romanNum[i] == 'X') {
             if (i < romanNum.size() - 3 && romanNum[i + 1] == 'X' &&
                 romanNum[i + 2] == 'X' && romanNum[i + 3] == 'X') {
-                throw "Incorrect input of the roman number";
+                throw(std::string)"Incorrect input of the roman number";
             }
             if (i < romanNum.size() - 2) {
                 if ((romanNum[i + 1] == 'C' && romanNum[i + 2] == 'D') ||
                     (romanNum[i + 1] == 'C' && romanNum[i + 2] == 'M')) {
-                    throw "Incorrect input of the roman number";
+                    throw(std::string)"Incorrect input of the roman number";
                 }
             }
             if (i < romanNum.size() - 1) {
                 if (romanNum[i + 1] == 'D' || romanNum[i + 1] == 'M') {
-                    throw "Incorrect input of the roman number";
+                    throw(std::string)"Incorrect input of the roman number";
                 }
             }
         }
@@ -63,25 +63,25 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
             if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'L' ||
                 romanNum[i + 1] == 'C' || romanNum[i + 1] == 'D' ||
                 romanNum[i + 1] == 'M')) {
-                throw "Incorrect input of the roman number";
+                throw(std::string)"Incorrect input of the roman number";
             }
         }
         if (romanNum[i] == 'C') {
             if (i < romanNum.size() - 3 && romanNum[i + 1] == 'C' &&
                 romanNum[i + 2] == 'C' && romanNum[i + 3] == 'C') {
-                throw "Incorrect input of the roman number";
+                throw(std::string)"Incorrect input of the roman number";
             }
         }
         if (romanNum[i] == 'D') {
             if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'D' ||
                 romanNum[i + 1] == 'M')) {
-                throw "Incorrect input of the roman number";
+                throw(std::string)"Incorrect input of the roman number";
             }
         }
         if (romanNum[i] == 'M') {
             if (i < romanNum.size() - 3 && romanNum[i + 1] == 'M' &&
                 romanNum[i + 2] == 'M' && romanNum[i + 3] == 'M') {
-                throw "Incorrect input of the roman number";
+                throw(std::string)"Incorrect input of the roman number";
             }
         }
     }
@@ -152,7 +152,7 @@ std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
 
     // Search input error
     if (arabicNum < 1 || arabicNum > 3999) {
-        throw "OutOfRange";
+        throw(std::string)"OutOfRange";
     }
 
     int digitArabicNum[4] = {arabicNum / 1000, arabicNum % 1000 / 100,
