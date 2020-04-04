@@ -19,49 +19,62 @@ TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Create_Zero) {
 
 TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplication_Zero) {
     // Arrange
-    ComplexNumber z1(2.0, 5.4);
-    ComplexNumber z2(0.0, 0.0);
+    double re1 = 2.0, im1 = 5.4;
+    double re2 = 0.0, im2 = 0.0;
 
     // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    ComplexNumber answer(re2, im2);
+
     ComplexNumber z = z1 * z2;
 
     // Assert
-    ComplexNumber answer(0.0, 0.0);
     EXPECT_EQ(answer, z);
 }
 
 TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Multiplication_By_Itself) {
     // Arrange
-    ComplexNumber z1(1.0, 2.0);
+    double re1 = 1.0, im1 = 2.0;
+    double re2 = -3.0, im2 = 4.0;
 
     // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber answer(re2, im2);
+
     ComplexNumber z = z1 * z1;
 
     // Assert
-    ComplexNumber answer(-3.0, 4.0);
     EXPECT_EQ(answer, z);
 }
 
 TEST(Arisova_Anastasiia_ComplexNumberTest, Can_Swap_Summand) {
     // Arrange
-    ComplexNumber z1(1.0, 2.0);
-    ComplexNumber z2(0.4, 3.0);
+    double re1 = 1.0, im1 = 2.0;
+    double re2 = 0.4, im2 = 3.0;
 
     // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+
     ComplexNumber z = z1 + z2;
+    ComplexNumber answer = z2 + z1;
 
     // Assert
-    ComplexNumber answer = z2 + z1;
     EXPECT_EQ(answer, z);
 }
 
 TEST(Arisova_Anastasiia_ComplexNumberTest, Check_Associativity) {
     // Arrange
-    ComplexNumber z1(1.0, 2.0);
-    ComplexNumber z2(2.0, 3.0);
-    ComplexNumber z3(3.0, 4.0);
+    double re1 = 1.0, im1 = 2.0;
+    double re2 = 2.0, im2 = 3.0;
+    double re3 = 3.0, im3 = 4.0;
 
     // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    ComplexNumber z3(re3, im3);
+
     ComplexNumber answer1 = (z1 + z2) + z3;
     ComplexNumber answer2 = z1 + (z2 + z3);
 
@@ -71,11 +84,15 @@ TEST(Arisova_Anastasiia_ComplexNumberTest, Check_Associativity) {
 
 TEST(Arisova_Anastasiia_ComplexNumberTest, Check_Distributivity) {
     // Arrange
-    ComplexNumber z1(1.0, 2.0);
-    ComplexNumber z2(2.0, 3.0);
-    ComplexNumber z3(3.0, 4.0);
+    double re1 = 1.0, im1 = 2.0;
+    double re2 = 2.0, im2 = 3.0;
+    double re3 = 3.0, im3 = 4.0;
 
     // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    ComplexNumber z3(re3, im3);
+
     ComplexNumber answer1 = (z1 + z2) * z3;
     ComplexNumber answer2 = z1 * z3 + z2 * z3;
 
