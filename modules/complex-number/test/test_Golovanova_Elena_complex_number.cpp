@@ -95,3 +95,12 @@ TEST(Golovanova_Elena_ComplexNumberTest, Equal_is_not_true) {
   // Act & Assert
   EXPECT_FALSE(z1 == z2);
 }
+
+TEST(Golovanova_Elena_ComplexNumberTest, Different_is_true) {
+  // Arrange
+  ComplexNumber z1(10.0, 7.4);
+  ComplexNumber z2(20.0, 1.4);
+
+  // Act & Assert
+  EXPECT_TRUE(z1 != z2);
+}
