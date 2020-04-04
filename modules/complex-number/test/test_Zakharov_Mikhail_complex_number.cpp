@@ -25,3 +25,12 @@ TEST(Zakharov_Mikhail_ComplexNumberTest, Test_To_Compare_The) {
 
     ASSERT_GT(re, num.getIm());
 }
+
+TEST(Zakharov_Mikhail_ComplexNumberTest, Test_For_Inequality) {
+    const double re = 88.88;
+    const double im = 22.88;
+
+    ComplexNumber num(re, im);
+
+    ASSERT_NE(re, num.getIm());
+}
