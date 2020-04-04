@@ -42,3 +42,16 @@ TEST(Golovanova_Elena_ComplexNumberTest, Can_Create_Subtraction) {
   EXPECT_EQ(3.0, z3.getRe());
   EXPECT_EQ(3.0, z3.getIm());
 }
+
+TEST(Golovanova_Elena_ComplexNumberTest, Can_Create_Multiplication) {
+  // Arrange
+  ComplexNumber z1(2.0, 4.0);
+  ComplexNumber z2(3.0, 1.0);
+
+  // Act
+  ComplexNumber z3 = z1 * z2;
+
+  // Assert
+  EXPECT_EQ(2.0, z3.getRe());
+  EXPECT_EQ(14.0, z3.getIm());
+}
