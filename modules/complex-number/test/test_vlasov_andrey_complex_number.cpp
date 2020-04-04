@@ -29,7 +29,7 @@ TEST(Vlasov_Andrey_ComplexNumberTest, Can_Divide_By_Zero) {
   EXPECT_ANY_THROW(z2 / z1);
 }
 
-TEST(Vlasov_Andrey_ComplexNumberTest, Can_Difference_Complex_And_GetRe_And_GetIm) {
+TEST(Vlasov_Andrey_ComplexNumberTest, Difference_And_GetRe_GetIm) {
   // Arrange
   ComplexNumber z1(3.0, 7.0);
   ComplexNumber z2(5.0, 5.0);
