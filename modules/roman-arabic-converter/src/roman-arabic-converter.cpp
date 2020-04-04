@@ -140,8 +140,6 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
                 }
                 arabicNum += 1;
                 break;
-            default:
-                break;
         }
     }
 
@@ -188,8 +186,6 @@ std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
         case 9:
             romanNum.insert(0, "IX");
             break;
-        default:
-            break;
     }
 
     switch (digitArabicNum[2]) {
@@ -219,8 +215,6 @@ std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
             break;
         case 9:
             romanNum.insert(0, "XC");
-            break;
-        default:
             break;
     }
 
@@ -252,8 +246,6 @@ std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
         case 9:
             romanNum.insert(0, "CM");
             break;
-        default:
-            break;
     }
 
     switch (digitArabicNum[0]) {
@@ -265,8 +257,6 @@ std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
             break;
         case 3:
             romanNum.insert(0, "MMM");
-            break;
-        default:
             break;
     }
 
