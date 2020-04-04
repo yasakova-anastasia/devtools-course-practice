@@ -17,15 +17,16 @@ TEST(Golovanova_Elena_ComplexNumberTest, Can_Create_Complex) {
   EXPECT_EQ(im, z.getIm());
 }
 
-//TEST(Golovanova_Elena_ComplexNumberTest, Can_Create_Zero) {
-//  // Arrange
-//  double re = 3.4;
-//  double im = 9.0;
-//
-//  // Act
-//  ComplexNumber z(re, im);
-//
-//  // Assert
-//  EXPECT_EQ(re, z.getRe());
-//  EXPECT_EQ(im, z.getIm());
-//}
+TEST(Golovanova_Elena_ComplexNumberTest, Can_Create_Addition) {
+  // Arrange
+  ComplexNumber z1(1.5, 6.4);
+  ComplexNumber z2(3.0, 2.1);
+
+  // Act
+  ComplexNumber z3=z1+z2;
+
+  // Assert
+  EXPECT_EQ(4.5, z3.getRe());
+  EXPECT_EQ(8.5, z3.getIm());
+}
+
