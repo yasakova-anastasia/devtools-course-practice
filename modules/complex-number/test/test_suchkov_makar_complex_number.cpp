@@ -42,7 +42,7 @@ TEST(Suchkov_Makar_ComplexNumberTest, Set_Re) {
     EXPECT_EQ(7, z.getRe());
 }
 
-TEST(Nikolai_Sokolov_ComplexNumberTest, Set_Im) {
+TEST(Suchkov_Makar_ComplexNumberTest, Set_Im) {
     // Arrange
     double re = 0.0;
     double im = 0.0;
