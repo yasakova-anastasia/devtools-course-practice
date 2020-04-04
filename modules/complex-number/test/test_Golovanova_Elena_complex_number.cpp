@@ -68,3 +68,12 @@ TEST(Golovanova_Elena_ComplexNumberTest, Can_Create_Division) {
   EXPECT_EQ(3.0, z3.getRe());
   EXPECT_EQ(-1.0, z3.getIm());
 }
+
+TEST(Golovanova_Elena_ComplexNumberTest, Can_Not_Create_Division) {
+  // Arrange
+  ComplexNumber z1(4.0, 2.0);
+  ComplexNumber z2(0.0, 0.0);
+
+  // Act & Assert
+  ASSERT_ANY_THROW(z1/z2);
+}
