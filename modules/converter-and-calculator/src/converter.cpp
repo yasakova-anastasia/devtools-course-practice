@@ -24,9 +24,15 @@ vector<bool> converter::convert_dec_to_bin(const int& value)
     res.push_back(remainder);
     temp_stack.pop();
   }
-  /*while (res.back() == false) {
-    res.pop_back();
-  }*/
+  return res;
+}
+
+int converter::convert_bin_to_dec(const vector<bool>& value) {
+  int res = 0;
+
+  for (auto i = 0; i < value.size(); i++) {
+    res += value[i] * static_cast<int>(pow(2, value.size() - i - 1));
+  }
 
   return res;
 }

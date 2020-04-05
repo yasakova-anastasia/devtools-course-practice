@@ -11,6 +11,7 @@ using std::stack;
 class converter {
 public:
   vector<bool> convert_dec_to_bin(const int& value);
+  int convert_bin_to_dec(const vector<bool>& value);
 };
 
 #endif  // MODULES_CONVERTER_AND_CALCULATOR_INCLUDE_CONVERTER_H_
