@@ -79,3 +79,33 @@ vector<char> converter::convert_dec_to_hex(const int& value)
   }
   return res;
 }
+
+int converter::convert_hex_to_dec(const vector<char>& value)
+{
+  int res = 0;
+  int temp;
+
+  for (auto i = 0; i < value.size(); i++) {
+    if (isdigit(value[i])) {
+      temp = atoi(string({ (char)value[i] }).c_str());
+    }
+    else {
+      if (value[i] == 'A')
+        temp = 10;
+      if (value[i] == 'B')
+        temp = 11;
+      if (value[i] == 'C')
+        temp = 12;
+      if (value[i] == 'D')
+        temp = 13;
+      if (value[i] == 'E')
+        temp = 14;
+      if (value[i] == 'F')
+        temp = 15;
+    }
+
+    res += temp * static_cast<int>(pow(16, value.size() - i - 1));
+  }
+
+  return res;
+}
