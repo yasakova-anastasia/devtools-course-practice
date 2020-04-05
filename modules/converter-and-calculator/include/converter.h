@@ -10,8 +10,8 @@ using std::stack;
 
 class converter {
 public:
-  vector<bool> convert_dec_to_bin(const int& value);
-  int convert_bin_to_dec(const vector<bool>& value);
+  vector<int> convert_dec_to_smaller(const int& value, const int& system);
+  int convert_smaller_to_dec(const vector<int>& value, const int& system);
 
   vector<int> convert_dec_to_oct(const int& value);
 };

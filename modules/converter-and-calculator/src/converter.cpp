@@ -4,17 +4,17 @@
 #include <iostream>
 using namespace std;
 
-vector<bool> converter::convert_dec_to_bin(const int& value)
+vector<int> converter::convert_dec_to_smaller(const int& value, const int& system)
 {
   int temp_value = value;
-  stack<bool> temp_stack;
-  vector<bool> res;
-  bool remainder;
+  stack<int> temp_stack;
+  vector<int> res;
+  int remainder;
 
   while (temp_value > 0) {
-    remainder = temp_value % 2;
+    remainder = temp_value % system;
     temp_stack.push(remainder);
-    temp_value /= 2;
+    temp_value /= system;
   }
 
   auto stack_size = temp_stack.size();
@@ -27,11 +27,11 @@ vector<bool> converter::convert_dec_to_bin(const int& value)
   return res;
 }
 
-int converter::convert_bin_to_dec(const vector<bool>& value) {
+int converter::convert_smaller_to_dec(const vector<int>& value, const int& system) {
   int res = 0;
 
   for (auto i = 0; i < value.size(); i++) {
-    res += value[i] * static_cast<int>(pow(2, value.size() - i - 1));
+    res += value[i] * static_cast<int>(pow(system, value.size() - i - 1));
   }
 
   return res;
