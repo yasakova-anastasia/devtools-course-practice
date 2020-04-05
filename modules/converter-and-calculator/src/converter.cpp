@@ -36,3 +36,46 @@ int converter::convert_smaller_to_dec(const vector<int>& value, const int& this_
 
   return res;
 }
+
+vector<char> converter::convert_dec_to_hex(const int& value)
+{
+  int temp_value = value;
+  stack<char> temp_stack;
+  vector<char> res;
+  int remainder;
+  char element;
+
+  while (temp_value > 0) {
+    remainder = temp_value % 16;
+
+    if (remainder > 9) {
+      if (remainder == 10)
+        element = 'A';
+      if (remainder == 11)
+        element = 'B';
+      if (remainder == 12)
+        element = 'C';
+      if (remainder == 13)
+        element = 'D';
+      if (remainder == 14)
+        element = 'E';
+      if (remainder == 15)
+        element = 'F';
+    }
+    else {
+      element = remainder + '0';
+    }
+
+    temp_stack.push(element);
+    temp_value /= 16;
+  }
+
+  auto stack_size = temp_stack.size();
+
+  for (auto i = 0; i < stack_size; i++) {
+    element = temp_stack.top();
+    res.push_back(element);
+    temp_stack.pop();
+  }
+  return res;
+}

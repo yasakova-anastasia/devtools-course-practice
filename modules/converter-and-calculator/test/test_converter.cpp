@@ -175,3 +175,44 @@ TEST(ConverterTest, Can_Convert_Big_Octal_To_Decimal) {
   // Assert
   ASSERT_EQ(res, exp_res);
 }
+
+// Decimal to hexadecimal
+
+TEST(ConverterTest, Can_Convert_Decimal_To_Hexadecimal) {
+  // Arrange
+  converter conv;
+  int value = 158;
+  vector<char> res, exp_res = { '9', 'E' };
+
+  // Act
+  res = conv.convert_dec_to_hex(value);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Decimal_Power_Of_Sixteen_To_Hexadecimal) {
+  // Arrange
+  converter conv;
+  int value = 4096;
+  vector<char> res, exp_res = { '1', '0', '0', '0' };
+
+  // Act
+  res = conv.convert_dec_to_hex(value);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Big_Decimal_To_Hex) {
+  // Arrange
+  converter conv;
+  int value = 23534565;
+  vector<char> res, exp_res = { '1', '6', '7', '1', 'B', 'E', '5' };
+
+  // Act
+  res = conv.convert_dec_to_hex(value);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
