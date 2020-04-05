@@ -94,84 +94,84 @@ TEST(ConverterTest, Can_Convert_Big_Binary_To_Decimal) {
   ASSERT_EQ(res, exp_res);
 }
 
-//// Decimal to octal
-//
-//TEST(ConverterTest, Can_Convert_Decimal_To_Octal) {
-//  // Arrange
-//  converter conv;
-//  int value = 47;
-//  vector<int> res, exp_res = { 5, 7 };
-//
-//  // Act
-//  res = conv.convert_dec_to_oct(value);
-//
-//  // Assert
-//  ASSERT_EQ(res, exp_res);
-//}
-//
-//TEST(ConverterTest, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
-//  // Arrange
-//  converter conv;
-//  int value = 512;
-//  vector<int> res, exp_res = { 1, 0, 0, 0 };
-//
-//  // Act
-//  res = conv.convert_dec_to_oct(value);
-//
-//  // Assert
-//  ASSERT_EQ(res, exp_res);
-//}
-//
-//TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
-//  // Arrange
-//  converter conv;
-//  int value = 65670567;
-//  vector<int> res, exp_res = { 3, 7, 2, 4, 0, 6, 6, 4, 7 };
-//
-//  // Act
-//  res = conv.convert_dec_to_oct(value);
-//
-//  // Assert
-//  ASSERT_EQ(res, exp_res);
-//}
+// Decimal to octal
+
+TEST(ConverterTest, Can_Convert_Decimal_To_Octal) {
+  // Arrange
+  converter conv;
+  int value = 47;
+  vector<int> res, exp_res = { 5, 7 };
+
+  // Act
+  res = conv.convert_dec_to_smaller(value, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
+  // Arrange
+  converter conv;
+  int value = 512;
+  vector<int> res, exp_res = { 1, 0, 0, 0 };
+
+  // Act
+  res = conv.convert_dec_to_smaller(value, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
+  // Arrange
+  converter conv;
+  int value = 65670567;
+  vector<int> res, exp_res = { 3, 7, 2, 4, 0, 6, 6, 4, 7 };
+
+  // Act
+  res = conv.convert_dec_to_smaller(value, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
 
 // Octal to decimal
 
-//TEST(ConverterTest, Can_Convert_Octal_To_Decimal) {
-//  // Arrange
-//  converter conv;
-//  vector<int> value = { 3, 1 };
-//  vector<int> res, exp_res = { 5, 7 };
-//
-//  // Act
-//  res = conv.convert_dec_to_oct(value);
-//
-//  // Assert
-//  ASSERT_EQ(res, exp_res);
-//}
+TEST(Convertertest, Can_Convert_Octal_To_Decimal) {
+  // arrange
+  converter conv;
+  vector<int> value = { 1, 4, 5 };
+  int res, exp_res = 101;
 
-//TEST(ConverterTest, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
-//  // Arrange
-//  converter conv;
-//  int value = 512;
-//  vector<int> res, exp_res = { 1, 0, 0, 0 };
-//
-//  // Act
-//  res = conv.convert_dec_to_oct(value);
-//
-//  // Assert
-//  ASSERT_EQ(res, exp_res);
-//}
-//
-//TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
-//  // Arrange
-//  converter conv;
-//  int value = 65670567;
-//  vector<int> res, exp_res = { 3, 7, 2, 4, 0, 6, 6, 4, 7 };
-//
-//  // Act
-//  res = conv.convert_dec_to_oct(value);
-//
-//  // Assert
-//  ASSERT_EQ(res, exp_res);
-//}
+  // act
+  res = conv.convert_smaller_to_dec(value, 8);
+
+  // assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Octal_Power_of_Eight_To_Decimal) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 1, 0, 0 };
+  int res, exp_res = 64;
+
+  // Act
+  res = conv.convert_smaller_to_dec(value, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Big_Octal_To_Decimal) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 };
+  int res, exp_res = 65670567;
+
+  // Act
+  res = conv.convert_smaller_to_dec(value, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
