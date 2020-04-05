@@ -12,6 +12,8 @@ class converter {
 public:
   vector<bool> convert_dec_to_bin(const int& value);
   int convert_bin_to_dec(const vector<bool>& value);
+
+  vector<int> convert_dec_to_oct(const int& value);
 };
 
 #endif  // MODULES_CONVERTER_AND_CALCULATOR_INCLUDE_CONVERTER_H_
