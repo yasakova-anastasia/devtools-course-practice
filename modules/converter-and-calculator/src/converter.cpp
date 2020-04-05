@@ -83,7 +83,7 @@ vector<char> converter::convert_dec_to_hex(const int& value)
 int converter::convert_hex_to_dec(const vector<char>& value)
 {
   int res = 0;
-  int temp;
+  int temp = 0;
 
   for (auto i = 0; i < value.size(); i++) {
     if (isdigit(value[i])) {

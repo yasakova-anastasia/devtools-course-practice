@@ -138,15 +138,15 @@ TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
 // Octal to decimal
 
 TEST(ConverterTest, Can_Convert_Octal_To_Decimal) {
-  // arrange
+  // Arrange
   converter conv;
   vector<int> value = { 1, 4, 5 };
   int res, exp_res = 101;
 
-  // act
+  // Act
   res = conv.convert_smaller_to_dec(value, 8);
 
-  // assert
+  // Assert
   ASSERT_EQ(res, exp_res);
 }
 
@@ -220,40 +220,40 @@ TEST(ConverterTest, Can_Convert_Big_Decimal_To_Hex) {
 // Hexadecimal to decimal
 
 TEST(ConverterTest, Can_Convert_Hexadecimal_To_Decimal) {
-  // arrange
+  // Arrange
   converter conv;
   vector<char> value = { '3', 'A', 'B' };
   int res, exp_res = 939;
 
-  // act
+  // Act
   res = conv.convert_hex_to_dec(value);
 
-  // assert
+  // Assert
   ASSERT_EQ(res, exp_res);
 }
 
 TEST(ConverterTest, Can_Convert_Hexadecimal_Power_Of_Sixteen_To_Decimal) {
-  // arrange
+  // Arrange
   converter conv;
   vector<char> value = { '1', '0', '0', '0', '0' };
   int res, exp_res = 65536;
 
-  // act
+  // Act
   res = conv.convert_hex_to_dec(value);
 
-  // assert
+  // Assert
   ASSERT_EQ(res, exp_res);
 }
 
 TEST(ConverterTest, Can_Convert_Big_Hexadecimal_To_Decimal) {
-  // arrange
+  // Arrange
   converter conv;
   vector<char> value = { '5', 'C', 'B', 'D', '8','B', 'C' };
   int res, exp_res = 97245372;
 
-  // act
+  // Act
   res = conv.convert_hex_to_dec(value);
 
-  // assert
+  // Assert
   ASSERT_EQ(res, exp_res);
 }
