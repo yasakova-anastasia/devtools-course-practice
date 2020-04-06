@@ -1,8 +1,9 @@
 // Copyright 2020 Kuzhelev Anton
 
+#include <utility>
 #include <gtest/gtest.h>
 #include "include/TPrime_Nums.h"
-#include <utility>
+
 TEST(TPrime_Nums, can_create_default_class) {
     ASSERT_NO_THROW(TPrime_Nums p());
 }
