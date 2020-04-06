@@ -1,7 +1,7 @@
 // Copyright 2020 Kornev Nikita
 
-#include "include/converter.h"
 #include <iostream>
+#include "include/converter.h"
 using namespace std;
 
 vector<int> converter::convert_dec_to_smaller(const int& value, const int& target_system)
@@ -110,12 +110,9 @@ int converter::convert_hex_to_dec(const vector<char>& value)
   return res;
 }
 
-int converter::convert(const vector<int>& value, const int& this_system, const int& target_system)
+vector<int> converter::convert(const vector<int>& value, const int& this_system, const int& target_system)
 {
-  int temp;
-  if (this_system < 10) {
-    temp = this->convert_smaller_to_dec(value, this_system);
-  }
-  temp = this->convert_dec_to_smaller(temp, target_system);
-  return 64;
+  int temp = convert_smaller_to_dec(value, this_system);
+  vector<int> res = convert_dec_to_smaller(temp, target_system);
+  return res;
 }

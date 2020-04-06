@@ -263,8 +263,8 @@ TEST(ConverterTest, Can_Convert_Big_Hexadecimal_To_Decimal) {
 TEST(ConverterTest, Can_Convert_Binary_To_Octal_1) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 1, 0, 1, 0, 0 };
-  int res, exp_res = 64;
+  vector<int> value = { 1, 1, 0, 1, 0, 0 }, exp_res = { 6, 4 }, res;
+
 
   // Act
   res = conv.convert(value, 2, 8);
@@ -276,8 +276,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Octal_1) {
 TEST(ConverterTest, Can_Convert_Binary_To_Octal_2) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 0, 1, 0, 0, 1, 1 };
-  int res, exp_res = 123;
+  vector<int> value = { 1, 0, 1, 0, 0, 1, 1 }, exp_res = { 1, 2, 3 }, res;
 
   // Act
   res = conv.convert(value, 2, 8);
