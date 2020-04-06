@@ -19,10 +19,6 @@ std::pair<int, int> TPrime_Nums::GetInterval() {
 std::vector<int> TPrime_Nums::Get_Prime_Nums() {
     std::vector<int> result;
 
-    if (left_edge < 2) {
-        left_edge = 2;
-    }
-
     for (int i = left_edge; i <= right_edge; ++i) {
         int j;
         for (j = 2; j < i; ++j) {

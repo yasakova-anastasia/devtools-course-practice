@@ -60,6 +60,12 @@ TEST(TPrime_Nums, check_that_no_primes_on_0_to_1) {
     EXPECT_EQ(0, primes.size());
 }
 
+TEST(TPrime_Nums, check_interval_7_7) {
+    TPrime_Nums p(7, 7);
+    std::vector<int> result = p.Get_Prime_Nums();
+    EXPECT_EQ(7, result[0]);
+}
+
 TEST(TPrime_Nums, check_prime_nums_from_0_to_10) {
     TPrime_Nums p(0, 10);
     std::vector<int> res = p.Get_Prime_Nums();
