@@ -31,8 +31,8 @@ std::vector<int> TPrime_Nums::Get_Prime_Nums() {
 
     for (int i = _left; i <= _right; ++i) {
         flag = false;
-        for(int j = 2; j < i; ++j) {
-            if(i % j == 0) {
+        for (int j = 2; j < i; ++j) {
+            if (i % j == 0) {
                 flag = true;
                 break;
             }
