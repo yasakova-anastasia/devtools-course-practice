@@ -5,12 +5,14 @@
 
 #pragma once
 
+#include <vector>
 #include <utility>
 
 class TPrime_Nums {
  public:
     TPrime_Nums(int left, int right);
     std::pair<int, int> GetPiece();
+    std::vector<int> Get_Prime_Nums();
  private:
     int _left, _right;
 };
