@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include <utility>
+#include <vector>
 #include "include/TPrime_Nums.h"
 
 bool compare_vec(std::vector<int> v1, std::vector<int> v2) {
@@ -10,8 +11,8 @@ bool compare_vec(std::vector<int> v1, std::vector<int> v2) {
         return false;
     }
 
-    for(int i = 0; i < v1.size(); ++i) {
-        if(v1[i] != v2[i]){
+    for (size_t i = 0; i < v1.size(); ++i) {
+        if (v1[i] != v2[i]) {
             return false;
         }
     }
