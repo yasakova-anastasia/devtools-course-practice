@@ -1,6 +1,14 @@
+// Copyright 2020 Kuzhelev Anton
+
+#ifndef MODULES_COMPLEX_NUMBER_INCLUDE_COMPLEX_CALCULATOR_H_
+#define MODULES_COMPLEX_NUMBER_INCLUDE_COMPLEX_CALCULATOR_H_
+
 #pragma once
 
 class TPrime_Nums {
-    public:
+ public:
     TPrime_Nums();
+
 };
+
+#endif  // MODULES_COMPLEX_NUMBER_INCLUDE_COMPLEX_CALCULATOR_H_
