@@ -4,11 +4,11 @@
 
 Matrix::Matrix() : rows(0), cols(0), data() {}
 
-Matrix::Matrix(const size_t   _rows,
-               const size_t   _cols) : rows(_rows), cols(_cols), data(_rows, std::vector<double>(_cols, 0.0)) {}
+Matrix::Matrix(const int _rows,
+               const int _cols) : rows(_rows), cols(_cols), data(_rows, std::vector<double>(_cols, 0.0)) {}
 
-Matrix::Matrix(const size_t                           _rows,
-               const size_t                           _cols, 
+Matrix::Matrix(const int                              _rows,
+               const int                              _cols,
                const std::vector<std::vector<double>> _data) : rows(_rows),
                                                                cols(_cols),
                                                                data(_data) {}
@@ -25,11 +25,11 @@ Matrix& Matrix::operator=(const Matrix& _matrix) {
     return *this;
 }
 
-size_t Matrix::getRows() const {
+int Matrix::getRows() const {
     return rows;
 }
 
-size_t Matrix::getCols() const {
+int Matrix::getCols() const {
     return cols;
 }
 
@@ -37,12 +37,12 @@ std::vector<std::vector<double>> Matrix::getData() const {
     return data;
 }
 
-void Matrix::setRows(const size_t _rows) {
+void Matrix::setRows(const int _rows) {
     rows = _rows;
     data.resize(rows);
 }
 
-void Matrix::setCols(const size_t _cols) {
+void Matrix::setCols(const int _cols) {
     cols = _cols;
     for (size_t idx{0U}; idx < rows; ++idx) {
         data[idx].resize(cols);
@@ -164,7 +164,7 @@ Matrix Matrix::takeInverseMatrix() {
         throw "Determinant are equal zero";
     }
 
-    size_t size{rows};
+    int size{rows};
     constexpr double threshold{0.001};
 
     Matrix A(rows, cols, data);

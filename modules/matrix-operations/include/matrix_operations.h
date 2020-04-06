@@ -8,18 +8,18 @@
 class Matrix {
 public:
     Matrix();
-    Matrix(const size_t _rows, const size_t _cols);
-    Matrix(const size_t _rows, const size_t _cols, std::vector<std::vector<double>> _data);
+    Matrix(const int _rows, const int _cols);
+    Matrix(const int _rows, const int _cols, std::vector<std::vector<double>> _data);
     Matrix(const Matrix& matrix);
 
     Matrix& operator=(const Matrix& z);
 
-    size_t  getRows() const;
-    size_t  getCols() const;
+    int getRows() const;
+    int getCols() const;
     std::vector<std::vector<double>> getData() const;
 
-    void setRows(const size_t _rows);
-    void setCols(const size_t _cols);
+    void setRows(const int _rows);
+    void setCols(const int _cols);
     void setData(std::vector<std::vector<double>> _data);
 
     Matrix operator+ (const Matrix& z) const;
@@ -35,8 +35,8 @@ public:
     Matrix takeInverseMatrix();
 
 private:
-    size_t  rows;
-    size_t  cols;
+    int rows;
+    int cols;
     std::vector<std::vector<double>> data;
 };
 
