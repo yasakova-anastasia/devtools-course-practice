@@ -5,9 +5,14 @@
 
 #pragma once
 
+#include <utility>
+
 class TPrime_Nums {
  public:
-    TPrime_Nums();
+    TPrime_Nums(int left, int right);
+    std::pair<int,int> GetPiece();
+ private:
+    int _left, _right;
 };
 
 #endif  // MODULES_PRIME_NUMBERS_INCLUDE_TPRIME_NUMS_H_
