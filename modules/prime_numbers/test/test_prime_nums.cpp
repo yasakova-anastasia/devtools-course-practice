@@ -1,7 +1,7 @@
 // Copyright 2020 Kuzhelev Anton
 
-#include <utility>
 #include <gtest/gtest.h>
+#include <utility>
 #include "include/TPrime_Nums.h"
 
 TEST(TPrime_Nums, can_create_default_class) {
