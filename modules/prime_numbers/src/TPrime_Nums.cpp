@@ -27,17 +27,15 @@ std::vector<int> TPrime_Nums::Get_Prime_Nums() {
         _left = 2;
     }
 
-    bool flag;
 
     for (int i = _left; i <= _right; ++i) {
-        flag = false;
-        for (int j = 2; j < i; ++j) {
+        int j;
+        for (j = 2; j < i; ++j) {
             if (i % j == 0) {
-                flag = true;
                 break;
             }
         }
-        if (!flag) {
+        if (j == i) {
             result.push_back(i);
         }
     }
