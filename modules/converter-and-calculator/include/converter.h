@@ -17,6 +17,7 @@ public:
 
   vector<char> convert_dec_to_hex(const int& value);
   int convert_hex_to_dec(const vector<char>& value);
+  int convert(const vector<int>& value, const int& this_system, const int& target_system);
 };
 
 #endif  // MODULES_CONVERTER_AND_CALCULATOR_INCLUDE_CONVERTER_H_

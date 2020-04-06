@@ -257,3 +257,31 @@ TEST(ConverterTest, Can_Convert_Big_Hexadecimal_To_Decimal) {
   // Assert
   ASSERT_EQ(res, exp_res);
 }
+
+// Binary to octal
+
+TEST(ConverterTest, Can_Convert_Binary_To_Octal_1) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 1, 1, 0, 1, 0, 0 };
+  int res, exp_res = 64;
+
+  // Act
+  res = conv.convert(value, 2, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Binary_To_Octal_2) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 1, 0, 1, 0, 0, 1, 1 };
+  int res, exp_res = 123;
+
+  // Act
+  res = conv.convert(value, 2, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}

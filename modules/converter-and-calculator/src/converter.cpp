@@ -109,3 +109,13 @@ int converter::convert_hex_to_dec(const vector<char>& value)
 
   return res;
 }
+
+int converter::convert(const vector<int>& value, const int& this_system, const int& target_system)
+{
+  int temp;
+  if (this_system < 10) {
+    temp = this->convert_smaller_to_dec(value, this_system);
+  }
+  temp = this->convert_dec_to_smaller(temp, target_system);
+  return 64;
+}
