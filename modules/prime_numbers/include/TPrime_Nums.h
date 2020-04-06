@@ -8,7 +8,6 @@
 class TPrime_Nums {
  public:
     TPrime_Nums();
-
 };
 
 #endif  // MODULES_PRIME_NUMBERS_INCLUDE_TPRIME_NUMS_H_
