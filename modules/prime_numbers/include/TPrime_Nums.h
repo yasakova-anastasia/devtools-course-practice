@@ -11,10 +11,10 @@
 class TPrime_Nums {
  public:
     TPrime_Nums(int left, int right);
-    std::pair<int, int> GetPiece();
+    std::pair<int, int> GetInterval();
     std::vector<int> Get_Prime_Nums();
  private:
-    int _left, _right;
+    int left_edge, right_edge;
 };
 
 #endif  // MODULES_PRIME_NUMBERS_INCLUDE_TPRIME_NUMS_H_

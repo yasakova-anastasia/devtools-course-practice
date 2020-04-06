@@ -41,10 +41,16 @@ TEST(TPrime_Nums, cannot_create_class_if_left_is_bigger_than_right) {
 
 TEST(TPrime_Nums, check_that_values_on_correct_position) {
     TPrime_Nums p(3, 5);
-    std::pair<int, int> val = p.GetPiece();
+    std::pair<int, int> val = p.GetInterval();
 
     EXPECT_EQ(3, val.first);
     EXPECT_EQ(5, val.second);
+}
+
+TEST(TPrime_Nums, check_that_do_not_change_left_edge) {
+    TPrime_Nums p(0, 3);
+    p.Get_Prime_Nums();
+    EXPECT_EQ(0, (p.GetInterval()).first);
 }
 
 TEST(TPrime_Nums, check_that_no_primes_on_0_to_1) {
