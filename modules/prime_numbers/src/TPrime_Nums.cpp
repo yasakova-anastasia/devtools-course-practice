@@ -13,6 +13,6 @@ TPrime_Nums::TPrime_Nums(int left = 0, int right = 0) {
     }
 }
 
-std::pair<int,int> TPrime_Nums::GetPiece() {
-    return std::make_pair(_left,_right);
+std::pair<int, int> TPrime_Nums::GetPiece() {
+    return std::make_pair(_left, _right);
 }

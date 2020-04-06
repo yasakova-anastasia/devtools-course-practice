@@ -10,7 +10,7 @@
 class TPrime_Nums {
  public:
     TPrime_Nums(int left, int right);
-    std::pair<int,int> GetPiece();
+    std::pair<int, int> GetPiece();
  private:
     int _left, _right;
 };
