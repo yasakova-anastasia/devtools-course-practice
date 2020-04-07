@@ -1,11 +1,14 @@
 // Copyright 2020 Kornev Nikita
 
 #include <iostream>
+#include <vector>
+#include <stack>
+#include <string>
 #include "include/converter.h"
-using namespace std;
+using std::vector;
 
-vector<int> converter::convert_dec_to_smaller(const vector<int>& value, const int& target_system)
-{
+vector<int> converter::convert_dec_to_smaller(const vector<int>& value,
+  const int& target_system) {
   int int_value;
   stack<int> temp_stack;
   vector<int> res;
@@ -30,7 +33,8 @@ vector<int> converter::convert_dec_to_smaller(const vector<int>& value, const in
   return res;
 }
 
-vector<int> converter::convert_smaller_to_dec(const vector<int>& value, const int& this_system) {
+vector<int> converter::convert_smaller_to_dec(const vector<int>& value,
+  const int& this_system) {
   int temp = 0;
 
   for (size_t i = 0; i < value.size(); i++) {
@@ -42,8 +46,7 @@ vector<int> converter::convert_smaller_to_dec(const vector<int>& value, const in
   return res;
 }
 
-vector<char> converter::convert_dec_to_hex(const int& value)
-{
+vector<char> converter::convert_dec_to_hex(const int& value) {
   int temp_value = value;
   stack<char> temp_stack;
   vector<char> res;
@@ -66,8 +69,7 @@ vector<char> converter::convert_dec_to_hex(const int& value)
         element = 'E';
       if (remainder == 15)
         element = 'F';
-    }
-    else {
+    } else {
       element = remainder + '0';
     }
 
@@ -85,16 +87,14 @@ vector<char> converter::convert_dec_to_hex(const int& value)
   return res;
 }
 
-int converter::convert_hex_to_dec(const vector<char>& value)
-{
+int converter::convert_hex_to_dec(const vector<char>& value) {
   int res = 0;
   int temp = 0;
 
   for (size_t i = 0; i < value.size(); i++) {
     if (isdigit(value[i])) {
-      temp = atoi(string({ (char)value[i] }).c_str());
-    }
-    else {
+      temp = atoi(string({ static_cast<char>(value[i]) }).c_str());
+    } else {
       if (value[i] == 'A')
         temp = 10;
       if (value[i] == 'B')
@@ -115,8 +115,8 @@ int converter::convert_hex_to_dec(const vector<char>& value)
   return res;
 }
 
-vector<int> converter::convert(const vector<int>& value, const int& this_system, const int& target_system)
-{
+vector<int> converter::convert(const vector<int>& value,
+  const int& this_system, const int& target_system) {
   auto res = value;
 
   if (this_system != 10)
@@ -140,7 +140,7 @@ int converter::parse(const vector<int>& value)
 
 vector<int> converter::parse(const int& value)
 {
-  string temp = to_string(value);
+  string temp = std::to_string(value);
   vector<int> res;
 
   for (size_t i = 0; i < temp.size(); i++)
