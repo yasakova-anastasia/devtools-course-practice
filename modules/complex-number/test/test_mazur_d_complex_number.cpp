@@ -1,7 +1,6 @@
-// Copyright 2020 Mazur Danil
+// Copyright 2020 Mazur Daniil
 
 #include <gtest/gtest.h>
-
 #include "include/complex_number.h"
 
 TEST(Mazur_Daniil_ComplexNumberTest, Can_Default_Constructor) {
@@ -104,7 +103,7 @@ TEST(Mazur_Daniil_ComplexNumberTest, Can_Subtraction_Operator) {
   EXPECT_EQ(z3.getIm(), 3);
 }
 
-TEST(Mazur_Danil_ComplexNumberTest, Can_Compare_Equal) {
+TEST(Mazur_Daniil_ComplexNumberTest, Can_Compare_Equal) {
   // Arrange
   double re = 2.3;
   double im = 4.5;
@@ -117,7 +116,7 @@ TEST(Mazur_Danil_ComplexNumberTest, Can_Compare_Equal) {
   EXPECT_EQ(z1, z2);
 }
 
-TEST(Mazur_Danil_ComplexNumberTest, Can_Compare_Not_Equal) {
+TEST(Mazur_Daniil_ComplexNumberTest, Can_Compare_Not_Equal) {
     // Arrange
   double re1 = 3.4;
   double im1 = 2.6;
@@ -132,7 +131,7 @@ TEST(Mazur_Danil_ComplexNumberTest, Can_Compare_Not_Equal) {
   EXPECT_NE(z1, z2);
 }
 
-TEST(Mazur_Danil_ComplexNumberTest, Can_Multiplication) {
+TEST(Mazur_Daniil_ComplexNumberTest, Can_Multiplication) {
   // Arrange
   double re1 = 1.6;
   double im1 = 1.2;
@@ -143,22 +142,22 @@ TEST(Mazur_Danil_ComplexNumberTest, Can_Multiplication) {
 
   // Act
   ComplexNumber z3(re1 * re2 - im1 * im2, re1 * im2 + re2 * im1);
-   // Assert
+  // Assert
   EXPECT_EQ(z3, z1 * z2);
 }
 
-TEST(Mazur_Danil_ComplexNumberTest, Can_Division) {
-    // Arrange
-  double re1 = 2;
-  double im1 = 3;
-  double re2 = 4;
+TEST(Mazur_Daniil_ComplexNumberTest, Can_Division) {
+  // Arrange
+  double re1 = 1;
+  double im1 = 1;
+  double re2 = 1;
   double im2 = 1;
   ComplexNumber z1(re1, im1);
   ComplexNumber z2(re2, im2);
 
-    // Act
+  // Act
   ComplexNumber z3((re1 * re2 + im1 * im2) / (re2 * re2 + im2 * im2), 
-    (im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2));
+  (im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2));
 
   // Assert
   EXPECT_EQ(z3, z1 / z2);
