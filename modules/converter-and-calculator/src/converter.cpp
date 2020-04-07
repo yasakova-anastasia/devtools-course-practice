@@ -147,7 +147,6 @@ vector<int> converter::parse(const int& value) {
 
 vector<char> converter::convert_to_16(const vector<int>& value,
   const int& this_system, const int& target_system) {
-
   vector<int> temp = convert_smaller_to_dec(value, this_system);
   int temp_int = parse(temp);
 
