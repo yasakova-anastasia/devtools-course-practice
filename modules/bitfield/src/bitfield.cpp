@@ -24,21 +24,21 @@ void Bitfield::set(unsigned int position) {
     if (position > bitfield_size - 1) {
         throw "Out of bounds setting"; 
     } else {
-        bitfield[position / 8] &= (1 << (8 - position % 8));
+        bitfield[position / 8] &= (1 << (7 - position % 8));
     }
 }
 
 void Bitfield::unset(unsigned int position)
 {
     if (position > bitfield_size - 1) {
-        throw "Out of bounds setting"; 
+        throw "Out of bounds unsetting"; 
     } else {
-        bitfield[position / 8] &= (~(1 << (8 - position % 8)));
+        bitfield[position / 8] &= (~(1 << (7 - position % 8)));
     }
 }
 
 int Bitfield::get(unsigned int position) {
-    return 1;
+    return bitfield[position / 8] << (7 - position % 8);
 }
  
 
