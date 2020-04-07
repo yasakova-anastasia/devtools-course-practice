@@ -72,7 +72,6 @@ TEST(TPrime_Nums, check_that_change_interval_by_setter) {
     TPrime_Nums p(0, 1);
     p.SetInterval(std::make_pair(5, 10));
     std::pair<int, int> interval = p.GetInterval();
-    
     EXPECT_EQ(5, interval.first);
     EXPECT_EQ(10, interval.second);
 }
