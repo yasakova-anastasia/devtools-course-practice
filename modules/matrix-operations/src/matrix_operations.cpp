@@ -1,27 +1,30 @@
-// Copyright 2017 Korniakov Kirill
-
+// Copyright 2020 Sokolov Andrey
+#include <vector>
+#include <algorithm>
 #include "include/matrix_operations.h"
 
-Matrix::Matrix() : rows(0), cols(0), data() {}
 
 Matrix::Matrix(const int _rows,
-               const int _cols) : rows(_rows), cols(_cols), data(_rows, std::vector<double>(_cols, 0.0)) {}
+               const int _cols) : rows(_rows),
+                                  cols(_cols),
+                                  data(_rows,
+                                       std::vector<double>(_cols, 0.0)) {}
 
 Matrix::Matrix(const int                              _rows,
                const int                              _cols,
                const std::vector<std::vector<double>> _data) : rows(_rows),
                                                                cols(_cols),
                                                                data(_data) {}
- 
+
 Matrix::Matrix(const Matrix& _matrix) : rows(_matrix.rows),
                                         cols(_matrix.cols),
                                         data(_matrix.data) {}
+
 
 Matrix& Matrix::operator=(const Matrix& _matrix) {
     rows = _matrix.getRows();
     cols = _matrix.getCols();
     data = _matrix.getData();
-
     return *this;
 }
 
@@ -44,7 +47,7 @@ void Matrix::setRows(const int _rows) {
 
 void Matrix::setCols(const int _cols) {
     cols = _cols;
-    for (size_t idx{0U}; idx < rows; ++idx) {
+    for (int idx{0}; idx < rows; ++idx) {
         data[idx].resize(cols);
     }
 }
@@ -58,8 +61,8 @@ void Matrix::setData(std::vector<std::vector<double>> _data) {
 Matrix Matrix::operator+(const Matrix& _matrix) const {
     Matrix result(rows, cols);
 
-    for (size_t idx{0U}; idx < getRows(); ++idx) {
-        for (size_t jdx{0U}; jdx < getCols(); ++jdx) {
+    for (int idx{0}; idx < getRows(); ++idx) {
+        for (int jdx{0}; jdx < getCols(); ++jdx) {
             result.data[idx][jdx] = data[idx][jdx] + _matrix.data[idx][jdx];
         }
     }
@@ -69,8 +72,8 @@ Matrix Matrix::operator+(const Matrix& _matrix) const {
 Matrix Matrix::operator-(const Matrix& _matrix) const {
     Matrix result(rows, cols);
 
-    for (size_t idx{0U}; idx < getRows(); ++idx) {
-        for (size_t jdx{0U}; jdx < getCols(); ++jdx) {
+    for (int idx{0}; idx < getRows(); ++idx) {
+        for (int jdx{0}; jdx < getCols(); ++jdx) {
             result.data[idx][jdx] = data[idx][jdx] - _matrix.data[idx][jdx];
         }
     }
@@ -80,8 +83,8 @@ Matrix Matrix::operator-(const Matrix& _matrix) const {
 Matrix Matrix::operator*(const double& _scalar) const {
     Matrix result(rows, cols, data);
 
-    for (size_t idx{ 0U }; idx < rows; ++idx) {
-        for (size_t jdx{ 0U }; jdx < cols; ++jdx) {
+    for (int idx{0}; idx < rows; ++idx) {
+        for (int jdx{0}; jdx < cols; ++jdx) {
             result.data[idx][jdx] *= _scalar;
         }
     }
@@ -89,29 +92,26 @@ Matrix Matrix::operator*(const double& _scalar) const {
 }
 
 Matrix Matrix::operator*(const Matrix& _matrix) const {
-    Matrix result(rows, cols);
+    Matrix res(rows, _matrix.cols);
 
-    for (size_t idx{ 0U }; idx < getRows(); ++idx) {
-        for (size_t jdx{ 0U }; jdx < _matrix.getCols(); ++jdx) {
-            result.data[idx][jdx] = 0;
-            for (size_t kdx{ 0U }; kdx < getCols(); ++kdx) {
-                result.data[idx][jdx] += data[idx][kdx] * _matrix.data[kdx][jdx];
+    for (int idx{0}; idx < rows; ++idx) {
+        for (int jdx{0}; jdx < _matrix.cols; ++jdx) {
+            for (int kdx{0}; kdx < cols; ++kdx) {
+                res.data[idx][jdx] += data[idx][kdx] * _matrix.data[kdx][jdx];
             }
         }
     }
-    return result;
+    return res;
 }
 
 bool Matrix::operator== (const Matrix& _matrix) const {
-    if (rows != _matrix.rows) {
-        return false;
-    } else if (cols != _matrix.cols) {
-        return false;
-    } else if (data.size() != _matrix.data.size() || data[0U].size() != _matrix.data[0U].size()){
+    if (rows != _matrix.rows ||
+        cols != _matrix.cols) {
         return false;
     }
-    for (size_t idx{ 0U }; idx < getRows(); ++idx) {
-        for (size_t jdx{ 0U }; jdx < getCols(); ++jdx) {
+
+    for (int idx{0}; idx < getRows(); ++idx) {
+        for (int jdx{0}; jdx < getCols(); ++jdx) {
             if (data[idx][jdx] != _matrix.data[idx][jdx]) {
                 return false;
             }
@@ -125,29 +125,29 @@ bool Matrix::operator!= (const Matrix& _matrix) const {
 }
 
 double Matrix::determinant() {
-    double result{0U};
-    int l;
-    double sum11{1.0}, sum12{0.0}, sum21{1.0}, sum22{0.0};
-
-    for (int i = 0; i < rows; i++) {
-        sum11 = 1.0; l = 2 * rows - 1 - i; sum21 = 1.0;
-        for (int j = 0; j < rows; j++) {
-            sum21 *= data[j][l % rows];
-            l--;
-            sum11 *= data[j][(j + i) % (rows)];
+    double sum12;
+    double sum22;
+    sum12 = 0.0;
+    sum22 = 0.0;
+    for (int idx{0}; idx < rows; idx++) {
+        double sum11 = 1.0;
+        double sum21 = 1.0;
+        int l = 2 * rows - 1 - idx;
+        for (int jdx{0}; jdx < rows; jdx++) {
+            sum21 *= data[jdx][l-- % rows];
+            sum11 *= data[jdx][(jdx + idx) % (rows)];
         }
         sum22 += sum21;
         sum12 += sum11;
     }
-    result = sum12 - sum22;
-    return result;
+    return sum12 - sum22;
 }
 
 Matrix Matrix::transpose() {
     Matrix result(rows, cols, data);
 
-    for (size_t idx{0U}; idx < getRows()-1; ++idx) {
-        for (size_t jdx{idx + 1}; jdx < getCols(); ++jdx) {
+    for (int idx{0}; idx < getRows()-1; ++idx) {
+        for (int jdx{idx + 1}; jdx < getCols(); ++jdx) {
             std::swap(result.data[jdx][idx], result.data[idx][jdx]);
         }
     }
@@ -155,29 +155,29 @@ Matrix Matrix::transpose() {
 }
 
 Matrix Matrix::takeInverseMatrix() {
-
-    if (rows != cols) {
-        throw "Rows are not equal cols";
-    }
-
     if (this->determinant() == 0) {
         throw "Determinant are equal zero";
     }
 
     int size{rows};
-    constexpr double threshold{0.001};
 
-    Matrix A(rows, cols, data);
-    Matrix A0(rows, cols, data);
+    Matrix A(size, size, data);
+    Matrix A0(size, size, data);
     Matrix E2(size, size);
-    for (int idx{ 0 }; idx < size; idx++) {
+    for (int idx{0}; idx < size; idx++) {
         E2.data[idx][idx] = 2;
     }
 
-    double N1 = 0, Ninf = 0;
-    for (size_t row = 0; row < size; row++) {
-        double colsum = 0, rowsum = 0;
-        for (size_t col = 0; col < size; col++) {
+    double N1;
+    double Ninf;
+    N1   = 0.0;
+    Ninf = 0.0;
+    for (int row{0}; row < size; ++row) {
+        double colsum;
+        double rowsum;
+        colsum = 0.0;
+        rowsum = 0.0;
+        for (int col{0}; col < size; ++col) {
             rowsum += fabs(A0.data[row][col]);
             colsum += fabs(A0.data[col][row]);
         }
@@ -189,8 +189,7 @@ Matrix Matrix::takeInverseMatrix() {
     A0 = A0 * (1 / (N1 * Ninf));
 
     Matrix inv{A0};
-    while (fabs((A * inv).determinant() - 1) >= threshold)
-    {
+    while (fabs((A * inv).determinant() - 1) >= 0.001) {
         Matrix prev{inv};
         inv = A * prev;
         inv = inv * -1;
@@ -199,4 +198,4 @@ Matrix Matrix::takeInverseMatrix() {
     }
 
     return inv;
-} 
+}
