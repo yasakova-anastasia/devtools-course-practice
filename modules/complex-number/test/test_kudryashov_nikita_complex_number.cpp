@@ -34,7 +34,8 @@ TEST(Kudryashov_Nikita_ComplexNumberTest, Subtracting_Zero_Change_Nothing) {
     EXPECT_EQ(ans_im, temp.getIm());
 }
 
-TEST(Kudryashov_Nikita_ComplexNumberTest, Division_With_Divider_Having_Zero_Im) {
+TEST(Kudryashov_Nikita_ComplexNumberTest,
+        Division_With_Divider_Having_Zero_Im) {
     // Arrange
     ComplexNumber z_1(8.0, 1.0);
     ComplexNumber z_2(2.0, 0.0);
@@ -50,7 +51,8 @@ TEST(Kudryashov_Nikita_ComplexNumberTest, Division_With_Divider_Having_Zero_Im) 
     EXPECT_EQ(ans_im, ans.getIm());
 }
 
-TEST(Kudryashov_Nikita_ComplexNumberTest, Division_With_Divider_Having_Zero_Real) {
+TEST(Kudryashov_Nikita_ComplexNumberTest,
+        Division_With_Divider_Having_Zero_Real) {
     // Arrange
     ComplexNumber z_1(8.0, 1.0);
     ComplexNumber z_2(0.0, 2.0);
