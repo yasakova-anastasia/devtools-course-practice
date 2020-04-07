@@ -1,11 +1,10 @@
-﻿// Copyright 2020 Kornev Nikita
+﻿  // Copyright 2020 Kornev Nikita
 
 #include "include/converter.h"
 
-#include <vector>
-
 #include <gtest/gtest.h>
 
+#include <vector>
 
 TEST(ConverterTest, Can_Create_Converter) {
   // Arrange & Act
