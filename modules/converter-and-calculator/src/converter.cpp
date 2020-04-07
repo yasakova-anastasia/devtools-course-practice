@@ -146,7 +146,7 @@ vector<int> converter::parse(const int& value) {
   return res;
 }
 
-vector<char> converter::convert_to_16(const vector<int>& value, 
+vector<char> converter::convert_to_16(const vector<int>& value,
   const int& this_system, const int& target_system) {
   auto temp = value;
 
@@ -157,7 +157,7 @@ vector<char> converter::convert_to_16(const vector<int>& value,
   return res;
 }
 
-vector<int> converter::convert_16_to(const vector<char>& value, 
+vector<int> converter::convert_16_to(const vector<char>& value,
   const int& this_system, const int& target_system) {
   auto temp = convert_hex_to_dec(value);
 

@@ -1,5 +1,7 @@
 ﻿// Copyright 2020 Kornev Nikita
 
+#include <vector>
+
 #include <gtest/gtest.h>
 
 #include "include/converter.h"
@@ -45,7 +47,7 @@ TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Big_Decimal_To_Binary) {
   // Arrange
   converter conv;
   vector<int> value = { 2, 4, 8, 5, 9, 7, 0, 8 };
-  vector<int> res, exp_res = 
+  vector<int> res, exp_res =
   { 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 
     1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
 
@@ -86,7 +88,7 @@ TEST(ConverterTest_Binary_To_Decimal,
 TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Big_Binary_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> res, 
+  vector<int> res,
     value = { 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1,
     0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 },
     exp_res = { 2, 4, 0, 4, 5, 0, 4, 5 };
@@ -170,7 +172,8 @@ TEST(ConverterTest_Octal_To_Decimal,
 TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Big_Octal_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 }, res, exp_res = { 6, 5, 6, 7, 0, 5, 6, 7 };
+  vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 }, res, 
+    exp_res = { 6, 5, 6, 7, 0, 5, 6, 7 };
 
   // Act
   res = conv.convert(value, 8, 10);
@@ -256,7 +259,7 @@ TEST(ConverterTest_Hexadecimal_To_Decimal,
   Can_Convert_Big_Hexadecimal_To_Decimal) {
   // Arrange
   converter conv;
-  vector<char> value = { '5', 'C', 'B', 'D', '8','B', 'C' };
+  vector<char> value = { '5', 'C', 'B', 'D', '8', 'B', 'C' };
   vector<int> res, exp_res = { 9, 7, 2, 4, 5, 3, 7, 2 };
 
   // Act
@@ -331,7 +334,7 @@ TEST(ConverterTest_Binary_To_Hexadecimal,
 
 
   // Act
-   auto res = conv.convert_to_16(value, 2, 16);
+  auto res = conv.convert_to_16(value, 2, 16);
 
   // Assert
   ASSERT_EQ(res, exp_res);
