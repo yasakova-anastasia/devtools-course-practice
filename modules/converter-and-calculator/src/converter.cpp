@@ -47,13 +47,13 @@ vector<int> converter::convert_smaller_to_dec(const vector<int>& value,
 }
 
 vector<char> converter::convert_dec_to_hex(const int& value) {
-  int temp_value = value, remainder;
+  int temp_value = value;
   stack<char> temp_stack;
   vector<char> res;
   char element;
 
   while (temp_value > 0) {
-    remainder = temp_value % 16;
+    auto remainder = temp_value % 16;
 
     if (remainder > 9) {
       if (remainder == 10)
