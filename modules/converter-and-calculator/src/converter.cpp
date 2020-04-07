@@ -6,17 +6,17 @@ using namespace std;
 
 vector<int> converter::convert_dec_to_smaller(const vector<int>& value, const int& target_system)
 {
-  int temp_value;
+  int int_value;
   stack<int> temp_stack;
   vector<int> res;
   int remainder;
 
-  parse(value, temp_value);
+  parse(value, int_value);
 
-  while (temp_value > 0) {
-    remainder = temp_value % target_system;
+  while (int_value > 0) {
+    remainder = int_value % target_system;
     temp_stack.push(remainder);
-    temp_value /= target_system;
+    int_value /= target_system;
   }
 
   auto stack_size = temp_stack.size();
@@ -118,10 +118,14 @@ int converter::convert_hex_to_dec(const vector<char>& value)
 
 vector<int> converter::convert(const vector<int>& value, const int& this_system, const int& target_system)
 {
-  auto temp = value;
+  auto res = value;
+
   if (this_system != 10)
-      temp = convert_smaller_to_dec(value, this_system);
-  auto res = convert_dec_to_smaller(temp, target_system);
+      res = convert_smaller_to_dec(value, this_system);
+
+  if (target_system != 10)
+      res = convert_dec_to_smaller(res, target_system);
+
   return res;
 }
 
@@ -129,16 +133,14 @@ void converter::parse(const vector<int>& value, int& res)
 {
   string temp = "";
   for (auto i = 0; i < value.size(); i++)
-    temp += value[i];
+    temp += value[i] + '0';
   res = atoi(temp.c_str());
 }
 
 void converter::parse(const int& value, vector<int>& res)
 {
-  string temp = "";
-
-  temp += value;
+  string temp = to_string(value);
   for (auto i = 0; i < temp.size(); i++)
-    res.push_back(temp[i]);
+    res.push_back(temp[i] - 48);
 }
 
