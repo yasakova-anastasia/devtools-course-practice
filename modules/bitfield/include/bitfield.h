@@ -7,7 +7,7 @@
 class Bitfield
 {
     private:
-        std::vector<char> bitfield; // Holds the set of bits counted from 0 to (size - 1) from left to right.
+        std::vector<unsigned char> bitfield; // Holds the set of bits counted from 0 to (size - 1) from left to right.
         unsigned int bitfield_size;
     public:
         Bitfield(unsigned int size = 0); 
