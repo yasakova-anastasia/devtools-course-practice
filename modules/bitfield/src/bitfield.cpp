@@ -9,9 +9,14 @@ Bitfield::Bitfield(unsigned int size) {
     unsigned int remainder = size % 8;
     
     if (remainder == 0) {
-        bitfield.resize(quotient);
+        bitfield.reserve(quotient);
     } else {
-        bitfield.resize(quotient + 1);
+        bitfield.reserve(quotient + 1);
+    }
+    
+    // Bitfield object creates empty (having 0 at all positions).
+    for (int i = 0; i < bitfield.capacity(); i++) {
+        bitfield[i] = 0;
     }
 }
 
@@ -21,6 +26,19 @@ void Bitfield::set(unsigned int position) {
     } else {
         bitfield[position / 8] &= (1 << (8 - position % 8));
     }
+}
+
+void Bitfield::unset(unsigned int position)
+{
+    if (position > bitfield_size - 1) {
+        throw "Out of bounds setting"; 
+    } else {
+        bitfield[position / 8] &= (~(1 << (8 - position % 8)));
+    }
+}
+
+int Bitfield::get(unsigned int position) {
+    return 1;
 }
  
 
