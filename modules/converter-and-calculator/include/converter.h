@@ -20,8 +20,8 @@ class converter {
   vector<char> convert_dec_to_hex(const int& value);  // 10 to 16
   int convert_hex_to_dec(const vector<char>& value);  // 16 to 10
 
-  void parse(const vector<int>& value, int& res);
-  void parse(const int& value, vector<int>& res);
+  int parse(const vector<int>& value);
+  vector<int> parse(const int& value);
 
  public:
   // convert umeet konvertirovat' 10 v lubuyu sistemu i naoborot.

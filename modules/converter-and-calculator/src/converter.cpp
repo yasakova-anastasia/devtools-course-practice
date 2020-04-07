@@ -11,7 +11,7 @@ vector<int> converter::convert_dec_to_smaller(const vector<int>& value, const in
   vector<int> res;
   int remainder;
 
-  parse(value, int_value);
+  int_value = parse(value);
 
   while (int_value > 0) {
     remainder = int_value % target_system;
@@ -37,8 +37,7 @@ vector<int> converter::convert_smaller_to_dec(const vector<int>& value, const in
     temp += value[i] * static_cast<int>(pow(this_system, value.size() - i - 1));
   }
 
-  vector<int> res;
-  parse(temp, res);
+  vector<int> res = parse(temp);
 
   return res;
 }
@@ -129,27 +128,32 @@ vector<int> converter::convert(const vector<int>& value, const int& this_system,
   return res;
 }
 
-void converter::parse(const vector<int>& value, int& res)
+int converter::parse(const vector<int>& value)
 {
   string temp = "";
+  int res;
   for (size_t i = 0; i < value.size(); i++)
     temp += value[i] + '0';
   res = atoi(temp.c_str());
+  return res;
 }
 
-void converter::parse(const int& value, vector<int>& res)
+vector<int> converter::parse(const int& value)
 {
   string temp = to_string(value);
+  vector<int> res;
+
   for (size_t i = 0; i < temp.size(); i++)
     res.push_back(temp[i] - 48);
+  return res;
 }
 
 vector<char> converter::convert_to_16(const vector<int>& value, const int& this_system, const int& target_system) {
   auto temp = value;
 
   temp = convert_smaller_to_dec(value, this_system);
-  int temp_int;
-  parse(temp, temp_int);
+  int temp_int = parse(temp);
+
   auto res = convert_dec_to_hex(temp_int);
   return res;
 }
@@ -158,8 +162,7 @@ vector<int> converter::convert_16_to(const vector<char>& value, const int& this_
 {
   auto temp = convert_hex_to_dec(value);
 
-  vector<int> temp_vector;
-  parse(temp, temp_vector);
+  vector<int> temp_vector = parse(temp);
 
   if (target_system != 10)
       temp_vector = convert_dec_to_smaller(temp_vector, target_system);
