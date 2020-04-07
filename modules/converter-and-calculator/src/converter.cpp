@@ -21,7 +21,7 @@ vector<int> converter::convert_dec_to_smaller(const vector<int>& value, const in
 
   auto stack_size = temp_stack.size();
 
-  for (auto i = 0; i < stack_size; i++) {
+  for (size_t i = 0; i < stack_size; i++) {
     remainder = temp_stack.top();
     res.push_back(remainder);
     temp_stack.pop();
@@ -33,7 +33,7 @@ vector<int> converter::convert_dec_to_smaller(const vector<int>& value, const in
 vector<int> converter::convert_smaller_to_dec(const vector<int>& value, const int& this_system) {
   int temp = 0;
 
-  for (auto i = 0; i < value.size(); i++) {
+  for (size_t i = 0; i < value.size(); i++) {
     temp += value[i] * static_cast<int>(pow(this_system, value.size() - i - 1));
   }
 
@@ -78,7 +78,7 @@ vector<char> converter::convert_dec_to_hex(const int& value)
 
   auto stack_size = temp_stack.size();
 
-  for (auto i = 0; i < stack_size; i++) {
+  for (size_t i = 0; i < stack_size; i++) {
     element = temp_stack.top();
     res.push_back(element);
     temp_stack.pop();
@@ -91,7 +91,7 @@ int converter::convert_hex_to_dec(const vector<char>& value)
   int res = 0;
   int temp = 0;
 
-  for (auto i = 0; i < value.size(); i++) {
+  for (size_t i = 0; i < value.size(); i++) {
     if (isdigit(value[i])) {
       temp = atoi(string({ (char)value[i] }).c_str());
     }
@@ -132,7 +132,7 @@ vector<int> converter::convert(const vector<int>& value, const int& this_system,
 void converter::parse(const vector<int>& value, int& res)
 {
   string temp = "";
-  for (auto i = 0; i < value.size(); i++)
+  for (size_t i = 0; i < value.size(); i++)
     temp += value[i] + '0';
   res = atoi(temp.c_str());
 }
@@ -140,7 +140,7 @@ void converter::parse(const vector<int>& value, int& res)
 void converter::parse(const int& value, vector<int>& res)
 {
   string temp = to_string(value);
-  for (auto i = 0; i < temp.size(); i++)
+  for (size_t i = 0; i < temp.size(); i++)
     res.push_back(temp[i] - 48);
 }
 
