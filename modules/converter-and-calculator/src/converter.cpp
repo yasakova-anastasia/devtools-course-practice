@@ -47,10 +47,9 @@ vector<int> converter::convert_smaller_to_dec(const vector<int>& value,
 }
 
 vector<char> converter::convert_dec_to_hex(const int& value) {
-  int temp_value = value;
+  int temp_value = value, remainder;
   stack<char> temp_stack;
   vector<char> res;
-  int remainder;
   char element;
 
   while (temp_value > 0) {
@@ -148,9 +147,8 @@ vector<int> converter::parse(const int& value) {
 
 vector<char> converter::convert_to_16(const vector<int>& value,
   const int& this_system, const int& target_system) {
-  auto temp = value;
 
-  temp = convert_smaller_to_dec(value, this_system);
+  vector<int> temp = convert_smaller_to_dec(value, this_system);
   int temp_int = parse(temp);
 
   auto res = convert_dec_to_hex(temp_int);
