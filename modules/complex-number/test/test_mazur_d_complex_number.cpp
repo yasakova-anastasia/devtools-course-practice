@@ -65,7 +65,7 @@ TEST(Mazur_Daniil_ComplexNumberTest, Can_Set_Real_Part) {
   EXPECT_EQ(z.getRe(), 5);
 }
 
-TEST(Mazur_Daniil_ComplexNumberTest, can_set_imaginary_part) {
+TEST(Mazur_Daniil_ComplexNumberTest, Can_Set_Imaginary_Part) {
   // Arrange
   ComplexNumber z{};
 
@@ -86,8 +86,8 @@ TEST(Mazur_Daniil_ComplexNumberTest, Can_Addition_Operator) {
   z3 = z1 + z2;
 
   // Assert
-  EXPECT_EQ(z3.getRe(), 2);
-  EXPECT_EQ(z3.getIm(), 7);
+  EXPECT_EQ(z3.getRe(), 4);
+  EXPECT_EQ(z3.getIm(), 5);
 }
 
 TEST(Mazur_Daniil_ComplexNumberTest, Can_Subtraction_Operator) {
@@ -100,7 +100,7 @@ TEST(Mazur_Daniil_ComplexNumberTest, Can_Subtraction_Operator) {
   z3 = z1 - z2;
 
   // Assert
-  EXPECT_EQ(z3.getRe(), 1);
+  EXPECT_EQ(z3.getRe(), 2);
   EXPECT_EQ(z3.getIm(), 3);
 }
 
@@ -119,9 +119,9 @@ TEST(Mazur_Danil_ComplexNumberTest, Can_Compare_Equal) {
 
 TEST(Mazur_Danil_ComplexNumberTest, Can_Compare_Not_Equal) {
     // Arrange
-  double re1 = 1.4;
+  double re1 = 3.4;
   double im1 = 2.6;
-  double re2 = 1.4;
+  double re2 = 2.4;
   double im2 = 2.6;
 
   // Act
@@ -149,15 +149,16 @@ TEST(Mazur_Danil_ComplexNumberTest, Can_Multiplication) {
 
 TEST(Mazur_Danil_ComplexNumberTest, Can_Division) {
     // Arrange
-  double re1 = 2.6;
-  double im1 = 6.3;
-  double re2 = 3.2;
-  double im2 = 2.3;
+  double re1 = 2;
+  double im1 = 3;
+  double re2 = 4;
+  double im2 = 0;
   ComplexNumber z1(re1, im1);
   ComplexNumber z2(re2, im2);
 
     // Act
-  ComplexNumber z3((re1 * re2 + im1 * im2) / (re2 * re2 + im2 * im2), (im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2));
+  ComplexNumber z3((re1 * re2 + im1 * im2) / (re2 * re2 + im2 * im2), 
+    (im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2));
 
   // Assert
   EXPECT_EQ(z3, z1 / z2);
