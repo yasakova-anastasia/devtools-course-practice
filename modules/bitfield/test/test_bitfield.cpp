@@ -1,5 +1,7 @@
 // Copyright 2020 Kudryashov Nikita 
 
+// TODO: add extreme set / unset cases (0,7)
+
 #include "include/bitfield.h"
 
 #include <gtest/gtest.h>
@@ -18,6 +20,15 @@ TEST(Kudryashov_Nikita_BitfieldTest, Can_Create_Bitfield_With_Arguments) {
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Set_Position) {
+    // Arrange
+    unsigned int size = 10;
+    Bitfield a(size);
+    
+    // Act & Assert
+    EXPECT_NO_THROW(a.set(0));
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Can_Set_ToPosition) {
     // Arrange
     unsigned int size = 10;
     Bitfield a(size);
@@ -62,6 +73,17 @@ TEST(Kudryashov_Nikita_BitfieldTest, Can_Get_Position_Value) {
     
     // Act & Assert
     EXPECT_NO_THROW(a.get(0));
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Get_Returns_Right_Value) {
+    // Arrange
+    unsigned int size = 10;
+    int expected_value = 1;
+    Bitfield a(size);
+    a.set(5);
+    
+    // Act & Assert
+    EXPECT_EQ(expected_value, a.get(5));
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, DISABLED_Bitfield_Creates_Empty) {
