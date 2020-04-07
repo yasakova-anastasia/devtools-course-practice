@@ -1,5 +1,8 @@
 // Copyright 2020 Kudryashov Nikita
 
+// TODO: potentially remove 7,8 const and replace them with (char_size - 1), char_size to make
+//          code more readable and easier to understand.
+
 #include "include/bitfield.h"
 
 Bitfield::Bitfield(unsigned int size) {
@@ -24,7 +27,7 @@ void Bitfield::set(unsigned int position) {
     if (position > bitfield_size - 1) {
         throw "Out of bounds setting"; 
     } else {
-        bitfield[position / 8] &= (1 << (7 - position % 8));
+        bitfield[position / 8] |= (1 << (7 - position % 8));
     }
 }
 
@@ -38,7 +41,7 @@ void Bitfield::unset(unsigned int position)
 }
 
 int Bitfield::get(unsigned int position) {
-    return bitfield[position / 8] << (7 - position % 8);
+    return ((bitfield[position / 8] << (position % 8)) >> 7);
 }
  
 
