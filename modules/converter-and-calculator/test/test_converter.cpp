@@ -284,3 +284,30 @@ TEST(ConverterTest, Can_Convert_Binary_To_Octal_2) {
   // Assert
   ASSERT_EQ(res, exp_res);
 }
+
+// Octal to Binary
+
+TEST(ConverterTest, Can_Convert_Octal_To_Binary_1) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 6, 5, 4 }, exp_res = { 1, 1, 0, 1, 0, 1, 1, 0, 0 }, res;
+
+
+  // Act
+  res = conv.convert(value, 8, 2);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Octal_To_Binary_2) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 7, 4, 3 }, exp_res = { 1, 1, 1, 1, 0, 0, 0, 1, 1 }, res;
+
+  // Act
+  res = conv.convert(value, 8, 2);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
