@@ -152,7 +152,7 @@ TEST(Mazur_Danil_ComplexNumberTest, Can_Division) {
   double re1 = 2;
   double im1 = 3;
   double re2 = 4;
-  double im2 = 0;
+  double im2 = 1;
   ComplexNumber z1(re1, im1);
   ComplexNumber z2(re2, im2);
 
