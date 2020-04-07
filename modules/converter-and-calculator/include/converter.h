@@ -12,9 +12,9 @@ using std::stack;
 using std::string;
 
 class converter {
-  vector<int> convert_dec_to_smaller(const vector<int>& value, 
+  vector<int> convert_dec_to_smaller(const vector<int>& value,
     const int& target_system);  // 10 v lubuyu < 10
-  vector<int> convert_smaller_to_dec(const vector<int>& value, 
+  vector<int> convert_smaller_to_dec(const vector<int>& value,
     const int& this_system);   // lubuyu < 10 v 10
 
   vector<char> convert_dec_to_hex(const int& value);  // 10 to 16
@@ -24,13 +24,14 @@ class converter {
   void parse(const int& value, vector<int>& res);
 
  public:
-  // convert umeet konvertirovat' 10 v lubuyu sistemu i naoborot. 
+  // convert umeet konvertirovat' 10 v lubuyu sistemu i naoborot.
   // Vse chisla predstavleni v vide vector<int>, t.e. 666 = { 6, 6, 6 }
-  vector<int> convert(const vector<int>& value, const int& this_system, const int& target_system); 
+  vector<int> convert(const vector<int>& value, const int& this_system,
+    const int& target_system);
 
-  vector<char> convert_to_16(const vector<int>& value, const int& this_system, 
+  vector<char> convert_to_16(const vector<int>& value, const int& this_system,
     const int& target_system);  // lubuyu v 16
-  vector<int> convert_16_to(const vector<char>& value, const int& this_system, 
+  vector<int> convert_16_to(const vector<char>& value, const int& this_system,
     const int& target_system);  // 16 v lubuyu
 };
 
