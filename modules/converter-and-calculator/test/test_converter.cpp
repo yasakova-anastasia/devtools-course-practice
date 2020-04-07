@@ -14,7 +14,7 @@ TEST(ConverterTest, Can_Create_Converter) {
 
 // Decimal to binary
 
-TEST(ConverterTest, Can_Convert_Decimal_To_Binary) {
+TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Decimal_To_Binary) {
   // Arrange
   converter conv;
   vector<int> value = { 7, 7 };
@@ -27,7 +27,7 @@ TEST(ConverterTest, Can_Convert_Decimal_To_Binary) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Decimal_Power_of_Two_To_Binary) {
+TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Decimal_Power_of_Two_To_Binary) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 2, 8 };
@@ -40,7 +40,7 @@ TEST(ConverterTest, Can_Convert_Decimal_Power_of_Two_To_Binary) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Big_Decimal_To_Binary) {
+TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Big_Decimal_To_Binary) {
   // Arrange
   converter conv;
   vector<int> value = { 2, 4, 8, 5, 9, 7, 0, 8 };
@@ -55,7 +55,7 @@ TEST(ConverterTest, Can_Convert_Big_Decimal_To_Binary) {
 
 // Binary to decimal
 
-TEST(ConverterTest, Can_Convert_Binary_To_Decimal) {
+TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Binary_To_Decimal) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 1, 0, 1, 0, 0 }, res, exp_res = { 5, 2 };
@@ -67,7 +67,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Decimal) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Binary_Power_of_Two_To_Decimal) {
+TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Binary_Power_of_Two_To_Decimal) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 0, 0, 0, 0, 0, 0, 0, 0 }, res, exp_res = { 2, 5, 6 };
@@ -79,7 +79,7 @@ TEST(ConverterTest, Can_Convert_Binary_Power_of_Two_To_Decimal) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Big_Binary_To_Decimal) {
+TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Big_Binary_To_Decimal) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 }, res, 
@@ -94,7 +94,7 @@ TEST(ConverterTest, Can_Convert_Big_Binary_To_Decimal) {
 
 // Decimal to octal
 
-TEST(ConverterTest, Can_Convert_Decimal_To_Octal) {
+TEST(ConverterTest_Decimal_To_Octal, Can_Convert_Decimal_To_Octal) {
   // Arrange
   converter conv;
   vector<int> value = { 4, 7 };
@@ -107,7 +107,7 @@ TEST(ConverterTest, Can_Convert_Decimal_To_Octal) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
+TEST(ConverterTest_Decimal_To_Octal, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
   // Arrange
   converter conv;
   vector<int> value = { 5, 1, 2 };
@@ -120,7 +120,7 @@ TEST(ConverterTest, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
+TEST(ConverterTest_Decimal_To_Octal, Can_Convert_Big_Decimal_To_Octal) {
   // Arrange
   converter conv;
   vector<int> value = { 6, 5, 6, 7, 0, 5, 6, 7 };
@@ -135,7 +135,7 @@ TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
 
 // Octal to decimal
 
-TEST(ConverterTest, Can_Convert_Octal_To_Decimal) {
+TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Octal_To_Decimal) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 4, 5 }, res, exp_res = { 1, 0, 1 };
@@ -147,7 +147,7 @@ TEST(ConverterTest, Can_Convert_Octal_To_Decimal) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Octal_Power_of_Eight_To_Decimal) {
+TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Octal_Power_of_Eight_To_Decimal) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 0, 0 }, res, exp_res = { 6, 4 };
@@ -159,7 +159,7 @@ TEST(ConverterTest, Can_Convert_Octal_Power_of_Eight_To_Decimal) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Big_Octal_To_Decimal) {
+TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Big_Octal_To_Decimal) {
   // Arrange
   converter conv;
   vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 }, res, exp_res = { 6, 5, 6, 7, 0, 5, 6, 7 };
@@ -173,40 +173,40 @@ TEST(ConverterTest, Can_Convert_Big_Octal_To_Decimal) {
 
 // Decimal to hexadecimal
 
-TEST(ConverterTest, Can_Convert_Decimal_To_Hexadecimal) {
+TEST(ConverterTest_Decimal_To_Hexadecimal, Can_Convert_Decimal_To_Hexadecimal) {
   // Arrange
   converter conv;
-  int value = 158;
+  vector<int> value = { 1, 5, 8 };
   vector<char> res, exp_res = { '9', 'E' };
 
   // Act
-  res = conv.convert_dec_to_hex(value);
+  res = conv.convert_to_16(value, 10, 16);
 
   // Assert
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Decimal_Power_Of_Sixteen_To_Hexadecimal) {
+TEST(ConverterTest_Decimal_To_Hexadecimal, Can_Convert_Decimal_Power_Of_Sixteen_To_Hexadecimal) {
   // Arrange
   converter conv;
-  int value = 4096;
+  vector<int> value = { 4, 0, 9, 6 };
   vector<char> res, exp_res = { '1', '0', '0', '0' };
 
   // Act
-  res = conv.convert_dec_to_hex(value);
+  res = conv.convert_to_16(value, 10, 16);
 
   // Assert
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Big_Decimal_To_Hex) {
+TEST(ConverterTest_Decimal_To_Hexadecimal, Can_Convert_Big_Decimal_To_Hex) {
   // Arrange
   converter conv;
-  int value = 23534565;
+  vector<int> value = { 2, 3, 5, 3, 4, 5, 6, 5 };
   vector<char> res, exp_res = { '1', '6', '7', '1', 'B', 'E', '5' };
 
   // Act
-  res = conv.convert_dec_to_hex(value);
+  res = conv.convert_to_16(value, 10, 16);
 
   // Assert
   ASSERT_EQ(res, exp_res);
@@ -214,40 +214,40 @@ TEST(ConverterTest, Can_Convert_Big_Decimal_To_Hex) {
 
 // Hexadecimal to decimal
 
-TEST(ConverterTest, Can_Convert_Hexadecimal_To_Decimal) {
+TEST(ConverterTest_Hexadecimal_To_Decimal, Can_Convert_Hexadecimal_To_Decimal) {
   // Arrange
   converter conv;
   vector<char> value = { '3', 'A', 'B' };
-  int res, exp_res = 939;
+  vector<int> res, exp_res = { 9, 3, 9 };
 
   // Act
-  res = conv.convert_hex_to_dec(value);
+  res = conv.convert_16_to(value, 16, 10);
 
   // Assert
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Hexadecimal_Power_Of_Sixteen_To_Decimal) {
+TEST(ConverterTest_Hexadecimal_To_Decimal, Can_Convert_Hexadecimal_Power_Of_Sixteen_To_Decimal) {
   // Arrange
   converter conv;
   vector<char> value = { '1', '0', '0', '0', '0' };
-  int res, exp_res = 65536;
+  vector<int> res, exp_res = { 6, 5, 5, 3, 6 };
 
   // Act
-  res = conv.convert_hex_to_dec(value);
+  res = conv.convert_16_to(value, 16, 10);
 
   // Assert
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Big_Hexadecimal_To_Decimal) {
+TEST(ConverterTest_Hexadecimal_To_Decimal, Can_Convert_Big_Hexadecimal_To_Decimal) {
   // Arrange
   converter conv;
   vector<char> value = { '5', 'C', 'B', 'D', '8','B', 'C' };
-  int res, exp_res = 97245372;
+  vector<int> res, exp_res = { 9, 7, 2, 4, 5, 3, 7, 2 };
 
   // Act
-  res = conv.convert_hex_to_dec(value);
+  res = conv.convert_16_to(value, 16, 10);
 
   // Assert
   ASSERT_EQ(res, exp_res);
@@ -255,7 +255,7 @@ TEST(ConverterTest, Can_Convert_Big_Hexadecimal_To_Decimal) {
 
 // Binary to octal
 
-TEST(ConverterTest, Can_Convert_Binary_To_Octal_1) {
+TEST(ConverterTest_Binary_To_Octal, Can_Convert_Binary_To_Octal_1) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 1, 0, 1, 0, 0 }, exp_res = { 6, 4 }, res;
@@ -268,7 +268,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Octal_1) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Binary_To_Octal_2) {
+TEST(ConverterTest_Binary_To_Octal, Can_Convert_Binary_To_Octal_2) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 0, 1, 0, 0, 1, 1 }, exp_res = { 1, 2, 3 }, res;
@@ -282,7 +282,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Octal_2) {
 
 // Octal to Binary
 
-TEST(ConverterTest, Can_Convert_Octal_To_Binary_1) {
+TEST(ConverterTest_Octal_To_Binary, Can_Convert_Octal_To_Binary_1) {
   // Arrange
   converter conv;
   vector<int> value = { 6, 5, 4 }, exp_res = { 1, 1, 0, 1, 0, 1, 1, 0, 0 }, res;
@@ -295,7 +295,7 @@ TEST(ConverterTest, Can_Convert_Octal_To_Binary_1) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Octal_To_Binary_2) {
+TEST(ConverterTest_Octal_To_Binary, Can_Convert_Octal_To_Binary_2) {
   // Arrange
   converter conv;
   vector<int> value = { 7, 4, 3 }, exp_res = { 1, 1, 1, 1, 0, 0, 0, 1, 1 }, res;
@@ -309,7 +309,7 @@ TEST(ConverterTest, Can_Convert_Octal_To_Binary_2) {
 
 // Binary to hexadecimal
 
-TEST(ConverterTest, Can_Convert_Binary_To_Hex_1) {
+TEST(ConverterTest_Binary_To_Hexadecimal, Can_Convert_Binary_To_Hexadecimal_1) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 0, 1, 0, 1, 1, 1, 0 };
@@ -323,7 +323,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Hex_1) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Binary_To_Hex_2) {
+TEST(ConverterTest_Binary_To_Hexadecimal, Can_Convert_Binary_To_Hexadecimal_2) {
   // Arrange
   converter conv;
   vector<int> value = { 1, 1, 0, 1, 1, 0 };
@@ -339,7 +339,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Hex_2) {
 
 // Hexadecimal to binary
 
-TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_1) {
+TEST(ConverterTest_Hexadecimal_To_Binary, Can_Convert_Hexadecimal_To_Binary_1) {
   // Arrange
   converter conv;
   vector<char> value = { '3', 'A', 'B' };
@@ -352,7 +352,7 @@ TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_1) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_2) {
+TEST(ConverterTest_Hexadecimal_To_Binary, Can_Convert_Hexadecimal_To_Binary_2) {
   // Arrange
   converter conv;
   vector<char> value = { '5', '5', 'F' };
@@ -367,7 +367,7 @@ TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_2) {
 
 // Octal to hexadecimal
 
-TEST(ConverterTest, Can_Convert_Octal_To_Hex_1) {
+TEST(ConverterTest_Octal_To_Hexadecimal, Can_Convert_Octal_To_Hexadecimal_1) {
   // Arrange
   converter conv;
   vector<int> value = { 5, 7, 4 };
@@ -380,7 +380,7 @@ TEST(ConverterTest, Can_Convert_Octal_To_Hex_1) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Octal_To_Hex_2) {
+TEST(ConverterTest_Octal_To_Hexadecimal, Can_Convert_Octal_To_Hexadecimal_2) {
   // Arrange
   converter conv;
   vector<int> value = { 6, 6, 6, 6 };
@@ -395,7 +395,7 @@ TEST(ConverterTest, Can_Convert_Octal_To_Hex_2) {
 
 // Hexadecimal to octal
 
-TEST(ConverterTest, Can_Convert_Hexadecimal_To_Octal_1) {
+TEST(ConverterTest_Hexadecimal_To_Octal, Can_Convert_Hexadecimal_To_Octal_1) {
   // Arrange
   converter conv;
   vector<char> value = { 'A', 'A', '5' };
@@ -408,7 +408,7 @@ TEST(ConverterTest, Can_Convert_Hexadecimal_To_Octal_1) {
   ASSERT_EQ(res, exp_res);
 }
 
-TEST(ConverterTest, Can_Convert_Hexadecimal_To_Octal_2) {
+TEST(ConverterTest_Hexadecimal_To_Octal, Can_Convert_Hexadecimal_To_Octal_2) {
   // Arrange
   converter conv;
   vector<char> value = { 'A', 'B', 'C' };

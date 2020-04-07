@@ -157,8 +157,12 @@ vector<char> converter::convert_to_16(const vector<int>& value, const int& this_
 vector<int> converter::convert_16_to(const vector<char>& value, const int& this_system, const int& target_system)
 {
   auto temp = convert_hex_to_dec(value);
+
   vector<int> temp_vector;
   parse(temp, temp_vector);
-  auto res = convert_dec_to_smaller(temp_vector, target_system);
-  return res;
+
+  if (target_system != 10)
+      temp_vector = convert_dec_to_smaller(temp_vector, target_system);
+
+  return temp_vector;
 }
