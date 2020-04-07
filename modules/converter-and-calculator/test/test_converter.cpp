@@ -317,7 +317,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Hex_1) {
 
 
   // Act
-   auto res = conv.convert_2_to_16(value, 2, 16);
+   auto res = conv.convert_to_16(value, 2, 16);
 
   // Assert
   ASSERT_EQ(res, exp_res);
@@ -331,7 +331,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Hex_2) {
 
 
   // Act
-  auto res = conv.convert_2_to_16(value, 2, 16);
+  auto res = conv.convert_to_16(value, 2, 16);
 
   // Assert
   ASSERT_EQ(res, exp_res);
@@ -346,7 +346,7 @@ TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_1) {
   vector<int> res, exp_res = { 1, 1, 1, 0, 1, 0, 1, 0, 1, 1 };
 
   // Act
-  res = conv.convert_16_to_2(value, 16, 2);
+  res = conv.convert_16_to(value, 16, 2);
 
   // Assert
   ASSERT_EQ(res, exp_res);
@@ -359,7 +359,63 @@ TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_2) {
   vector<int> res, exp_res = { 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1 };
 
   // Act
-  res = conv.convert_16_to_2(value, 16, 2);
+  res = conv.convert_16_to(value, 16, 2);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+// Octal to hexadecimal
+
+TEST(ConverterTest, Can_Convert_Octal_To_Hex_1) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 5, 7, 4 };
+  vector<char> exp_res = { '1', '7', 'C' };
+
+  // Act
+  auto res = conv.convert_to_16(value, 8, 16);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Octal_To_Hex_2) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 6, 6, 6, 6 };
+  vector<char> exp_res = { 'D', 'B', '6' };
+
+  // Act
+  auto res = conv.convert_to_16(value, 8, 16);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+// Hexadecimal to octal
+
+TEST(ConverterTest, Can_Convert_Hexadecimal_To_Octal_1) {
+  // Arrange
+  converter conv;
+  vector<char> value = { 'A', 'A', '5' };
+  vector<int> res, exp_res = { 5, 2, 4, 5 };
+
+  // Act
+  res = conv.convert_16_to(value, 16, 8);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Hexadecimal_To_Octal_2) {
+  // Arrange
+  converter conv;
+  vector<char> value = { 'A', 'B', 'C' };
+  vector<int> res, exp_res = { 5, 2, 7, 4 };
+
+  // Act
+  res = conv.convert_16_to(value, 16, 8);
 
   // Assert
   ASSERT_EQ(res, exp_res);

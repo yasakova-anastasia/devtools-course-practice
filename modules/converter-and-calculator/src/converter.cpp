@@ -144,7 +144,7 @@ void converter::parse(const int& value, vector<int>& res)
     res.push_back(temp[i] - 48);
 }
 
-vector<char> converter::convert_2_to_16(const vector<int>& value, const int& this_system, const int& target_system) {
+vector<char> converter::convert_to_16(const vector<int>& value, const int& this_system, const int& target_system) {
   auto temp = value;
 
   temp = convert_smaller_to_dec(value, this_system);
@@ -154,11 +154,11 @@ vector<char> converter::convert_2_to_16(const vector<int>& value, const int& thi
   return res;
 }
 
-vector<int> converter::convert_16_to_2(const vector<char>& value, const int& this_system, const int& target_system)
+vector<int> converter::convert_16_to(const vector<char>& value, const int& this_system, const int& target_system)
 {
   auto temp = convert_hex_to_dec(value);
   vector<int> temp_vector;
   parse(temp, temp_vector);
-  auto res = convert_dec_to_smaller(temp_vector, 2);
+  auto res = convert_dec_to_smaller(temp_vector, target_system);
   return res;
 }
