@@ -13,7 +13,7 @@ TPrime_Nums::TPrime_Nums(int left = 0, int right = 0) {
 }
 
 void TPrime_Nums::SetInterval(std::pair<int, int> interval) {
-    if(interval.first < 0 || interval.second < 0 || interval.first > interval.second) {
+    if (interval.first < 0 || interval.second < 0 || interval.first > interval.second) {
         throw -1;
     }
     left_edge = interval.first;
