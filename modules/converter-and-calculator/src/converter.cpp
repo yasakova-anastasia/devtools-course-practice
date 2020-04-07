@@ -4,12 +4,14 @@
 #include "include/converter.h"
 using namespace std;
 
-vector<int> converter::convert_dec_to_smaller(const int& value, const int& target_system)
+vector<int> converter::convert_dec_to_smaller(const vector<int>& value, const int& target_system)
 {
-  int temp_value = value;
+  int temp_value;
   stack<int> temp_stack;
   vector<int> res;
   int remainder;
+
+  parse(value, temp_value);
 
   while (temp_value > 0) {
     remainder = temp_value % target_system;
@@ -24,15 +26,19 @@ vector<int> converter::convert_dec_to_smaller(const int& value, const int& targe
     res.push_back(remainder);
     temp_stack.pop();
   }
+
   return res;
 }
 
-int converter::convert_smaller_to_dec(const vector<int>& value, const int& this_system) {
-  int res = 0;
+vector<int> converter::convert_smaller_to_dec(const vector<int>& value, const int& this_system) {
+  int temp = 0;
 
   for (auto i = 0; i < value.size(); i++) {
-    res += value[i] * static_cast<int>(pow(this_system, value.size() - i - 1));
+    temp += value[i] * static_cast<int>(pow(this_system, value.size() - i - 1));
   }
+
+  vector<int> res;
+  parse(temp, res);
 
   return res;
 }
@@ -112,7 +118,27 @@ int converter::convert_hex_to_dec(const vector<char>& value)
 
 vector<int> converter::convert(const vector<int>& value, const int& this_system, const int& target_system)
 {
-  int temp = convert_smaller_to_dec(value, this_system);
-  vector<int> res = convert_dec_to_smaller(temp, target_system);
+  auto temp = value;
+  if (this_system != 10)
+      temp = convert_smaller_to_dec(value, this_system);
+  auto res = convert_dec_to_smaller(temp, target_system);
   return res;
 }
+
+void converter::parse(const vector<int>& value, int& res)
+{
+  string temp = "";
+  for (auto i = 0; i < value.size(); i++)
+    temp += value[i];
+  res = atoi(temp.c_str());
+}
+
+void converter::parse(const int& value, vector<int>& res)
+{
+  string temp = "";
+
+  temp += value;
+  for (auto i = 0; i < temp.size(); i++)
+    res.push_back(temp[i]);
+}
+

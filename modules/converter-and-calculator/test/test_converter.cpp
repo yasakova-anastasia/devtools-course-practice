@@ -17,11 +17,11 @@ TEST(ConverterTest, Can_Create_Converter) {
 TEST(ConverterTest, Can_Convert_Decimal_To_Binary) {
   // Arrange
   converter conv;
-  int value = 77;
+  vector<int> value = { 7, 7 };
   vector<int> res, exp_res = { 1, 0, 0, 1, 1, 0, 1 };
 
   // Act
-  res = conv.convert_dec_to_smaller(value, 2);
+  res = conv.convert(value, 10, 2);
 
   // Assert
   ASSERT_EQ(res, exp_res);
@@ -30,7 +30,7 @@ TEST(ConverterTest, Can_Convert_Decimal_To_Binary) {
 TEST(ConverterTest, Can_Convert_Decimal_Power_of_Two_To_Binary) {
   // Arrange
   converter conv;
-  int value = 128;
+  vector<int> value = { 1, 2, 8 };
   vector<int> res, exp_res = { 1, 0, 0, 0, 0, 0, 0, 0 };
 
   // Act
@@ -43,7 +43,7 @@ TEST(ConverterTest, Can_Convert_Decimal_Power_of_Two_To_Binary) {
 TEST(ConverterTest, Can_Convert_Big_Decimal_To_Binary) {
   // Arrange
   converter conv;
-  int value = 24859708;
+  vector<int> value = { 2, 4, 8, 5, 9, 7, 0, 8 };
   vector<int> res, exp_res = { 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
 
   // Act
@@ -58,8 +58,7 @@ TEST(ConverterTest, Can_Convert_Big_Decimal_To_Binary) {
 TEST(ConverterTest, Can_Convert_Binary_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 1, 0, 1, 0, 0 };
-  int res, exp_res = 52;
+  vector<int> value = { 1, 1, 0, 1, 0, 0 }, res, exp_res = { 5, 2 };
 
   // Act
   res = conv.convert_smaller_to_dec(value, 2);
@@ -71,8 +70,7 @@ TEST(ConverterTest, Can_Convert_Binary_To_Decimal) {
 TEST(ConverterTest, Can_Convert_Binary_Power_of_Two_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 0, 0, 0, 0, 0, 0, 0, 0 };
-  int res, exp_res = 256;
+  vector<int> value = { 1, 0, 0, 0, 0, 0, 0, 0, 0 }, res, exp_res = { 2, 5, 6 };
 
   // Act
   res = conv.convert_smaller_to_dec(value, 2);
@@ -84,8 +82,8 @@ TEST(ConverterTest, Can_Convert_Binary_Power_of_Two_To_Decimal) {
 TEST(ConverterTest, Can_Convert_Big_Binary_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 };
-  int res, exp_res = 24045045;
+  vector<int> value = { 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 }, res, 
+    exp_res = { 2, 4, 0, 4, 5, 0, 4, 5 };
 
   // Act
   res = conv.convert_smaller_to_dec(value, 2);
@@ -99,7 +97,7 @@ TEST(ConverterTest, Can_Convert_Big_Binary_To_Decimal) {
 TEST(ConverterTest, Can_Convert_Decimal_To_Octal) {
   // Arrange
   converter conv;
-  int value = 47;
+  vector<int> value = { 4, 7 };
   vector<int> res, exp_res = { 5, 7 };
 
   // Act
@@ -112,7 +110,7 @@ TEST(ConverterTest, Can_Convert_Decimal_To_Octal) {
 TEST(ConverterTest, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
   // Arrange
   converter conv;
-  int value = 512;
+  vector<int> value = { 5, 1, 2 };
   vector<int> res, exp_res = { 1, 0, 0, 0 };
 
   // Act
@@ -125,7 +123,7 @@ TEST(ConverterTest, Can_Convert_Decimal_Power_of_Eight_To_Octal) {
 TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
   // Arrange
   converter conv;
-  int value = 65670567;
+  vector<int> value = { 6, 5, 6, 7, 0, 5, 6, 7 };
   vector<int> res, exp_res = { 3, 7, 2, 4, 0, 6, 6, 4, 7 };
 
   // Act
@@ -140,8 +138,7 @@ TEST(ConverterTest, Can_Convert_Big_Decimal_To_Octal) {
 TEST(ConverterTest, Can_Convert_Octal_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 4, 5 };
-  int res, exp_res = 101;
+  vector<int> value = { 1, 4, 5 }, res, exp_res = { 1, 0, 1 };
 
   // Act
   res = conv.convert_smaller_to_dec(value, 8);
@@ -153,8 +150,7 @@ TEST(ConverterTest, Can_Convert_Octal_To_Decimal) {
 TEST(ConverterTest, Can_Convert_Octal_Power_of_Eight_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 0, 0 };
-  int res, exp_res = 64;
+  vector<int> value = { 1, 0, 0 }, res, exp_res = { 6, 4 };
 
   // Act
   res = conv.convert_smaller_to_dec(value, 8);
@@ -166,8 +162,7 @@ TEST(ConverterTest, Can_Convert_Octal_Power_of_Eight_To_Decimal) {
 TEST(ConverterTest, Can_Convert_Big_Octal_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 };
-  int res, exp_res = 65670567;
+  vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 }, res, exp_res = { 6, 5, 6, 7, 0, 5, 6, 7 };
 
   // Act
   res = conv.convert_smaller_to_dec(value, 8);
@@ -311,3 +306,4 @@ TEST(ConverterTest, Can_Convert_Octal_To_Binary_2) {
   // Assert
   ASSERT_EQ(res, exp_res);
 }
+
