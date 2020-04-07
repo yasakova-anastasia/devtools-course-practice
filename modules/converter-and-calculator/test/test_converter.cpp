@@ -307,3 +307,60 @@ TEST(ConverterTest, Can_Convert_Octal_To_Binary_2) {
   ASSERT_EQ(res, exp_res);
 }
 
+// Binary to hexadecimal
+
+TEST(ConverterTest, Can_Convert_Binary_To_Hex_1) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 1, 0, 1, 0, 1, 1, 1, 0 };
+  vector<char> exp_res = { 'A', 'E' };
+
+
+  // Act
+   auto res = conv.convert_2_to_16(value, 2, 16);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Binary_To_Hex_2) {
+  // Arrange
+  converter conv;
+  vector<int> value = { 1, 1, 0, 1, 1, 0 };
+  vector<char> exp_res = { '3', '6' };
+
+
+  // Act
+  auto res = conv.convert_2_to_16(value, 2, 16);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+// Hexadecimal to binary
+
+TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_1) {
+  // Arrange
+  converter conv;
+  vector<char> value = { '3', 'A', 'B' };
+  vector<int> res, exp_res = { 1, 1, 1, 0, 1, 0, 1, 0, 1, 1 };
+
+  // Act
+  res = conv.convert_16_to_2(value, 16, 2);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
+
+TEST(ConverterTest, Can_Convert_Hexadecimal_To_Binary_2) {
+  // Arrange
+  converter conv;
+  vector<char> value = { '5', '5', 'F' };
+  vector<int> res, exp_res = { 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1 };
+
+  // Act
+  res = conv.convert_16_to_2(value, 16, 2);
+
+  // Assert
+  ASSERT_EQ(res, exp_res);
+}
