@@ -53,6 +53,31 @@ TEST(TPrime_Nums, check_that_do_not_change_left_edge) {
     EXPECT_EQ(0, (p.GetInterval()).first);
 }
 
+TEST(TPrime_Nums, check_that_can_set_interval_by_setter) {
+    TPrime_Nums p(0, 1);
+    ASSERT_NO_THROW(p.SetInterval(std::make_pair(0, 10)));
+}
+
+TEST(TPrime_Nums, check_that_cannot_set_negative_interval) {
+    TPrime_Nums p(0, 1);
+    ASSERT_ANY_THROW(p.SetInterval(std::make_pair(-5, -3)));
+}
+
+TEST(TPrime_Nums, check_that_cannpt_set_left_edge_bigger_than_right) {
+    TPrime_Nums p(0, 1);
+    ASSERT_ANY_THROW(p.SetInterval(std::make_pair(5, 3)));
+}
+
+TEST(TPrime_Nums, check_that_change_interval_by_setter) {
+    TPrime_Nums p(0, 1);
+    
+    p.SetInterval(std::make_pair(5, 10));
+    std::pair<int, int> interval = p.GetInterval();
+
+    EXPECT_EQ(5, interval.first);
+    EXPECT_EQ(10, interval.second);
+}
+
 TEST(TPrime_Nums, check_that_no_primes_on_0_to_1) {
     TPrime_Nums p(0, 1);
     std::vector<int> primes = p.Get_Prime_Nums();

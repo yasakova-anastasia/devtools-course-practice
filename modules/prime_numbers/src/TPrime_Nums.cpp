@@ -12,6 +12,14 @@ TPrime_Nums::TPrime_Nums(int left = 0, int right = 0) {
     }
 }
 
+void TPrime_Nums::SetInterval(std::pair<int, int> interval) {
+    if(interval.first < 0 || interval.second < 0 || interval.first > interval.second) {
+        throw -1;
+    }
+    left_edge = interval.first;
+    right_edge = interval.second;
+}
+
 std::pair<int, int> TPrime_Nums::GetInterval() {
     return std::make_pair(left_edge, right_edge);
 }

@@ -13,6 +13,7 @@ class TPrime_Nums {
     TPrime_Nums(int left, int right);
     std::pair<int, int> GetInterval();
     std::vector<int> Get_Prime_Nums();
+    void SetInterval(std::pair<int, int> interval);
  private:
     int left_edge, right_edge;
 };
