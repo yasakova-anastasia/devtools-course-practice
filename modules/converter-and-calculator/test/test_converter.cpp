@@ -1,10 +1,11 @@
 ﻿// Copyright 2020 Kornev Nikita
 
+#include "include/converter.h"
+
 #include <vector>
 
 #include <gtest/gtest.h>
 
-#include "include/converter.h"
 
 TEST(ConverterTest, Can_Create_Converter) {
   // Arrange & Act
@@ -48,7 +49,7 @@ TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Big_Decimal_To_Binary) {
   converter conv;
   vector<int> value = { 2, 4, 8, 5, 9, 7, 0, 8 };
   vector<int> res, exp_res =
-  { 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 
+  { 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0,
     1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
 
   // Act
@@ -172,7 +173,7 @@ TEST(ConverterTest_Octal_To_Decimal,
 TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Big_Octal_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 }, res, 
+  vector<int> value = { 3, 7, 2, 4, 0, 6, 6, 4, 7 }, res,
     exp_res = { 6, 5, 6, 7, 0, 5, 6, 7 };
 
   // Act
