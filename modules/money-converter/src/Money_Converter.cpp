@@ -1,6 +1,6 @@
 // Copyright 2020 Brazhnikov Eugene
 
-#include "include/Money_Converter.h";
+#include "include/Money_Converter.h"
 
 double MoneyConverter::rubdollar(const double& curr, int  WhichOne) {
     if (curr >= 0 && WhichOne == 0) {  // RUB to EUR
