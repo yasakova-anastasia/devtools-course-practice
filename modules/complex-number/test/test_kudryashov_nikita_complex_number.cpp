@@ -67,6 +67,3 @@ TEST(Kudryashov_Nikita_ComplexNumberTest,
     EXPECT_EQ(ans_re, ans.getRe());
     EXPECT_EQ(ans_im, ans.getIm());
 }
-
-
-
