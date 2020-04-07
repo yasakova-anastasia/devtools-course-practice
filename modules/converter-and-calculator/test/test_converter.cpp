@@ -45,7 +45,9 @@ TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Big_Decimal_To_Binary) {
   // Arrange
   converter conv;
   vector<int> value = { 2, 4, 8, 5, 9, 7, 0, 8 };
-  vector<int> res, exp_res = { 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
+  vector<int> res, exp_res = 
+  { 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 
+    1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 };
 
   // Act
   res = conv.convert(value, 10, 2);
@@ -84,7 +86,9 @@ TEST(ConverterTest_Binary_To_Decimal,
 TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Big_Binary_To_Decimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 }, res, 
+  vector<int> res, 
+    value = { 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1,
+    0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1 },
     exp_res = { 2, 4, 0, 4, 5, 0, 4, 5 };
 
   // Act

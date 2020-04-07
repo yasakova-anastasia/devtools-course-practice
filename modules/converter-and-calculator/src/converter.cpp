@@ -128,8 +128,7 @@ vector<int> converter::convert(const vector<int>& value,
   return res;
 }
 
-int converter::parse(const vector<int>& value)
-{
+int converter::parse(const vector<int>& value) {
   string temp = "";
   int res;
   for (size_t i = 0; i < value.size(); i++)
@@ -138,8 +137,7 @@ int converter::parse(const vector<int>& value)
   return res;
 }
 
-vector<int> converter::parse(const int& value)
-{
+vector<int> converter::parse(const int& value) {
   string temp = std::to_string(value);
   vector<int> res;
 
@@ -148,7 +146,8 @@ vector<int> converter::parse(const int& value)
   return res;
 }
 
-vector<char> converter::convert_to_16(const vector<int>& value, const int& this_system, const int& target_system) {
+vector<char> converter::convert_to_16(const vector<int>& value, 
+  const int& this_system, const int& target_system) {
   auto temp = value;
 
   temp = convert_smaller_to_dec(value, this_system);
@@ -158,8 +157,8 @@ vector<char> converter::convert_to_16(const vector<int>& value, const int& this_
   return res;
 }
 
-vector<int> converter::convert_16_to(const vector<char>& value, const int& this_system, const int& target_system)
-{
+vector<int> converter::convert_16_to(const vector<char>& value, 
+  const int& this_system, const int& target_system) {
   auto temp = convert_hex_to_dec(value);
 
   vector<int> temp_vector = parse(temp);
