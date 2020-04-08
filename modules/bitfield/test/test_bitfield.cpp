@@ -28,15 +28,6 @@ TEST(Kudryashov_Nikita_BitfieldTest, Can_Set_Position) {
     EXPECT_NO_THROW(a.set(0));
 }
 
-TEST(Kudryashov_Nikita_BitfieldTest, Can_Set_ToPosition) {
-    // Arrange
-    unsigned int size = 10;
-    Bitfield a(size);
-    
-    // Act & Assert
-    EXPECT_NO_THROW(a.set(0));
-}
-
 TEST(Kudryashov_Nikita_BitfieldTest, Throw_Set_Out_of_Bounds) {
     // Arrange
     unsigned int size = 10;
@@ -66,6 +57,16 @@ TEST(Kudryashov_Nikita_BitfieldTest, Throw_Unset_Out_of_Bounds) {
     EXPECT_ANY_THROW(a.unset(12));
 }
 
+TEST(Kudryashov_Nikita_BitfieldTest, Can_Get_Size) {
+    // Arrange
+    unsigned int size = 10;
+    unsigned int expected_value = 10;
+    Bitfield a(size);
+    
+    // Act & Assert
+    EXPECT_EQ(expected_value, a.get_size());
+}
+
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Get_Position_Value) {
     // Arrange
     unsigned int size = 10;
@@ -86,11 +87,79 @@ TEST(Kudryashov_Nikita_BitfieldTest, Get_Returns_Right_Value) {
     EXPECT_EQ(expected_value, a.get(5));
 }
 
-TEST(Kudryashov_Nikita_BitfieldTest, DISABLED_Bitfield_Creates_Empty) {
+TEST(Kudryashov_Nikita_BitfieldTest, Get_Returns_Only_One_Or_Zero) {
     // Arrange
-    unsigned int size = 10;
+    bool check = true;
+    unsigned int size = 16;
+    Bitfield a(size);
+    a.set(1);
+    a.set(5);
+    a.set(7);
     
-    // Act & Assert
-    EXPECT_NO_THROW(Bitfield a(size));
+    // Act
+    for (int i = 0; i < a.get_size(); i++) {
+        if (a.get(i) != 1 && a.get(i) != 0) {
+            check = false;
+            break;
+        }
+    }
+    
+    // Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Bitfield_Creates_Empty) {
+    // Arrange
+    bool check = true;
+    unsigned int size = 50;
+    Bitfield a(size);
+    
+    // Act
+    for (int i = 0; i < a.get_size(); i++) {
+        if (a.get(i) != 0) {
+            check = false;
+            break;
+        }
+    }
+    
+    // Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Fill_Test) {
+    // Arrange
+    bool check = true;
+    unsigned int size = 50;
+    Bitfield a(size);
+    
+    // Act
+    a.fill();
+    
+    for (int i = 0; i < a.get_size(); i++) {
+        if (a.get(i) != 1) {
+            check = false;
+            break;
+        }
+    }
+    
+    // Assert
+    EXPECT_EQ(check, true);
+}
+
+// mb implement test after clear (?)
+TEST(Kudryashov_Nikita_BitfieldTest, DISABLED_Get_Returns_All_Zeroes_In_Empty_Bitfield) {
+    // Arrange
+    bool check = true;
+    unsigned int size = 3;
+    int expected_value = 0;
+    Bitfield a(size);
+    
+    // Act
+    for (int i = 0; i < a.get_size(); i++) {
+        if (a.get(i) != 0) {
+            check = false;
+        }
+    }
+    EXPECT_EQ(check, true);
 }
 
