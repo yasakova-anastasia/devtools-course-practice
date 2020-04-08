@@ -1,6 +1,6 @@
 // Copyright 2020 Kudryashov Nikita
 
-// TODO: overload operator[]
+// TODO: overload operator[], add set/unset with array argument
 
 #include <vector>
 
@@ -16,4 +16,5 @@ class Bitfield
         int get(unsigned int position); // Return the value of specified position in Bitfield object.
         unsigned int get_size(); // Return the size of Bitfield object.
         void fill(); // Set value to 1 in all positions of Bitfield object.
+        void clear();
 };

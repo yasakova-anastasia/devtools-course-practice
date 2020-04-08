@@ -13,9 +13,9 @@ Bitfield::Bitfield(unsigned int size) {
     
     // Bitfield object creates empty (having 0 at all positions).
     if (remainder == 0) {
-        bitfield.resize(quotient, 0);
+        bitfield.resize(quotient, 0); // Resize vector to specified size and fill with elements.
     } else {
-        bitfield.resize(quotient + 1, 0);
+        bitfield.resize(quotient + 1, 0); // Resize vector to specified size and fill with elements.
     }
 }
 
@@ -49,8 +49,14 @@ int Bitfield::get(unsigned int position) {
 }
 
 void Bitfield::fill() {
-    for(int i = 0; i < bitfield.capacity(); i++) {
+    for(int i = 0; i < bitfield.size(); i++) {
         bitfield[i] = 255;
+    }
+}
+
+void Bitfield::clear() {
+    for(int i = 0; i < bitfield.size(); i++) {
+        bitfield[i] = 0;
     }
 }
  

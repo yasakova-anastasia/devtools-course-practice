@@ -35,7 +35,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Throw_Set_Out_of_Bounds) {
     Bitfield a(size);
     
     // Act & Assert
-    EXPECT_ANY_THROW(a.set(11));
+    EXPECT_ANY_THROW(a.set(out_of_bounds));
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Unset_Position) {
@@ -54,7 +54,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Throw_Unset_Out_of_Bounds) {
     Bitfield a(size);
     
     // Act & Assert
-    EXPECT_ANY_THROW(a.unset(12));
+    EXPECT_ANY_THROW(a.unset(out_of_bounds));
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Get_Size) {
@@ -146,20 +146,25 @@ TEST(Kudryashov_Nikita_BitfieldTest, Fill_Test) {
     EXPECT_EQ(check, true);
 }
 
-// mb implement test after clear (?)
-TEST(Kudryashov_Nikita_BitfieldTest, DISABLED_Get_Returns_All_Zeroes_In_Empty_Bitfield) {
+TEST(Kudryashov_Nikita_BitfieldTest, Clear_Test) {
     // Arrange
     bool check = true;
-    unsigned int size = 3;
-    int expected_value = 0;
+    unsigned int size = 50;
     Bitfield a(size);
+    a.set(45);
+    a.set(32);
+    a.set(9);
     
     // Act
+    a.clear();
+    
     for (int i = 0; i < a.get_size(); i++) {
         if (a.get(i) != 0) {
             check = false;
+            break;
         }
     }
+    
+    // Assert
     EXPECT_EQ(check, true);
 }
-
