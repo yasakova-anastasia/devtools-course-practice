@@ -1,6 +1,6 @@
 // Copyright 2020 Kudryashov Nikita 
 
-// TODO: add extreme set / unset cases (0,7)
+// TODO: add extreme set / unset cases (0,7); mb move for(**) bool check to assert.
 
 #include "include/bitfield.h"
 
@@ -38,6 +38,47 @@ TEST(Kudryashov_Nikita_BitfieldTest, Throw_Set_Out_of_Bounds) {
     EXPECT_ANY_THROW(a.set(out_of_bounds));
 }
 
+TEST(Kudryashov_Nikita_BitfieldTest, Set_Test) {
+    // Arrange
+    unsigned int size = 100;
+    bool check = true;
+    Bitfield a(size);
+    
+    // Act
+    a.set(91);
+    a.set(11);
+    a.set(0);
+    
+    if (a.get(91) != 1) {
+        check = false;
+    }
+    
+    if (a.get(11) != 1) {
+        check = false;
+    }
+    
+    if (a.get(0) != 1) {
+        check = false;
+    }
+    
+    // Act & Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Set_Stay_One_At_Its_Place) {
+    // Arrange
+    unsigned int size = 10;
+    unsigned int expected_value = 1;
+    Bitfield a(size);
+    a.set(1);
+    
+    // Act
+    a.set(1);
+    
+    // Act & Assert
+    EXPECT_EQ(expected_value, a.get(1));
+}
+
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Unset_Position) {
     // Arrange
     unsigned int size = 10;
@@ -55,6 +96,50 @@ TEST(Kudryashov_Nikita_BitfieldTest, Throw_Unset_Out_of_Bounds) {
     
     // Act & Assert
     EXPECT_ANY_THROW(a.unset(out_of_bounds));
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Unset_Test) {
+    // Arrange
+    unsigned int size = 100;
+    bool check = true;
+    Bitfield a(size);
+    a.set(0);
+    a.set(1);
+    a.set(2);
+    
+    // Act
+    a.unset(1);
+    a.unset(2);
+    
+    if (a.get(0) != 1) {
+        check = false;
+    }
+    
+    if (a.get(1) != 0) {
+        check = false;
+    }
+    
+    if (a.get(2) != 0) {
+        check = false;
+    }
+    
+    // Act & Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Unset_Stay_Zero_At_Its_Place) {
+    // Arrange
+    unsigned int size = 10;
+    unsigned int expected_value = 0;
+    Bitfield a(size);
+    a.set(1);
+    a.unset(1);
+    
+    // Act
+    a.unset(1);
+    
+    // Act & Assert
+    EXPECT_EQ(expected_value, a.get(1));
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Get_Size) {
@@ -135,7 +220,8 @@ TEST(Kudryashov_Nikita_BitfieldTest, Fill_Test) {
     // Act
     a.fill();
     
-    for (int i = 0; i < a.get_size(); i++) {
+    // Like this (**)
+    for (int i = 0; i < a.get_size(); i++) { 
         if (a.get(i) != 1) {
             check = false;
             break;
