@@ -2,11 +2,12 @@
 #ifndef MODULES_CONVERTER_AND_CALCULATOR_INCLUDE_CALCULATOR_H_
 #define MODULES_CONVERTER_AND_CALCULATOR_INCLUDE_CALCULATOR_H_
 
-#include "include/converter.h"
 #include <vector>
 
+#include "include/converter.h"
+
 class calculator : public converter {
-public:
+ public:
   // resultat vsegda v 10
 
   // sum
