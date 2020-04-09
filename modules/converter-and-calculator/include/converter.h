@@ -20,9 +20,6 @@ class converter {
   vector<char> convert_dec_to_hex(const int& value);  // 10 to 16
   int convert_hex_to_dec(const vector<char>& value);  // 16 to 10
 
-  int parse(const vector<int>& value);
-  vector<int> parse(const int& value);
-
  public:
   // convert umeet konvertirovat' 10 v lubuyu sistemu i naoborot.
   // Vse chisla predstavleni v vide vector<int>, t.e. 666 = { 6, 6, 6 }
@@ -33,6 +30,9 @@ class converter {
     const int& target_system);  // lubuyu v 16
   vector<int> convert_16_to(const vector<char>& value, const int& this_system,
     const int& target_system);  // 16 v lubuyu
+
+  int parse(const vector<int>& value);
+  vector<int> parse(const int& value);
 };
 
 #endif  // MODULES_CONVERTER_AND_CALCULATOR_INCLUDE_CONVERTER_H_
