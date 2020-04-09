@@ -1,9 +1,11 @@
 // Copyright 2020 Kornev Nikita
 
+#include <vector>
+
 #include "include/converter.h"
 #include "include/calculator.h"
 
-// sum 
+// sum
 
 int calculator::sum(const int& a, const int& a_system,
   const int& b, const int& b_system) {
@@ -124,7 +126,7 @@ int calculator::mult(const vector<char>& a, const vector<char>& b) {
   return res;
 }
 
-double calculator::div(const int& a, const int& a_system, 
+double calculator::div(const int& a, const int& a_system,
   const int& b, const int& b_system) {
   double res;
   vector<int> temp_a, temp_b;
@@ -146,7 +148,8 @@ double calculator::div(const int& a, const int& a_system,
   temp_a = this->convert(parse(a), a_system, 10);
   temp_b = this->convert_16_to(b, 16, 10);
 
-  res = static_cast<double>(this->parse(temp_a)) / static_cast<double>(this->parse(temp_b));
+  res = static_cast<double>(this->parse(temp_a)) /
+    static_cast<double>(this->parse(temp_b));
 
   return res;
 }
@@ -165,8 +168,7 @@ double calculator::div(const vector<char>& a,
   return res;
 }
 
-double calculator::div(const vector<char>& a, const vector<char>& b)
-{
+double calculator::div(const vector<char>& a, const vector<char>& b) {
   double res;
   vector<int> temp_a, temp_b;
 
