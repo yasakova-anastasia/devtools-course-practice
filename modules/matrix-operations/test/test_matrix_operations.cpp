@@ -21,10 +21,10 @@ for (int idx{0}; idx < matrixA.getRows(); ++idx) { \
 
 TEST(MatrixOperationsTest, Can_Create_Empty_Matrix) {
     // Act
-    Matrix matrix(26, 12);
+    Matrix matrix(3, 4);
     std::vector<std::vector<double>> goldData{{0.0, 0.0, 0.0, 0.0},
                                               {0.0, 0.0, 0.0, 0.0},
-                                              {0.0, 0.0, 0.0, 0.0} };
+                                              {0.0, 0.0, 0.0, 0.0}};
     
     // Assert
     EXPECT_EQ(26, matrix.getRows());
