@@ -22,8 +22,7 @@ Matrix::Matrix(const Matrix& _matrix) : rows(_matrix.rows),
 
 
 Matrix& Matrix::operator=(const Matrix& _matrix) {
-    if (this != &_matrix)
-    {
+    if (this != &_matrix) {
         rows = _matrix.getRows();
         cols = _matrix.getCols();
         data = _matrix.getData();
