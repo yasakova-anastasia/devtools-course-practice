@@ -364,7 +364,7 @@ TEST(CalculatorTest_Div, Can_Div_Hexadecimal_And_Hexadecimal) {
 TEST(CalculatorTest_Div, Can_Div_Binary_And_Octal) {
   // Arrange
   calculator calc;
-  double a = 10101, b = 77, cc = 0;
+  double a = 10101, b = 77;
   double exp_res = 21. / 63.;
   // Act
   auto c = calc.div(a, 2, b, 8);
