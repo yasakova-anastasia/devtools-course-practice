@@ -27,8 +27,8 @@ TEST(MatrixOperationsTest, Can_Create_Empty_Matrix) {
                                               {0.0, 0.0, 0.0, 0.0}};
     
     // Assert
-    EXPECT_EQ(26, matrix.getRows());
-    EXPECT_EQ(12, matrix.getCols());
+    EXPECT_EQ(3, matrix.getRows());
+    EXPECT_EQ(4, matrix.getCols());
     EXPECT_EQ(matrix.getData(), goldData);
 }
 
