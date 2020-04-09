@@ -22,11 +22,14 @@ for (int idx{0}; idx < matrixA.getRows(); ++idx) { \
 TEST(MatrixOperationsTest, Can_Create_Empty_Matrix) {
     // Act
     Matrix matrix(26, 12);
-
+    std::vector<std::vector<double>> goldData{{0.0, 0.0, 0.0, 0.0},
+                                              {0.0, 0.0, 0.0, 0.0},
+                                              {0.0, 0.0, 0.0, 0.0} };
+    
     // Assert
     EXPECT_EQ(26, matrix.getRows());
     EXPECT_EQ(12, matrix.getCols());
-    EXPECT_NEAR(0.0, matrix.getData()[2U][3U], 0.001);
+    EXPECT_EQ(matrix.getData(), goldData);
 }
 
 TEST(MatrixOperationsTest, Can_Create_Matrix) {

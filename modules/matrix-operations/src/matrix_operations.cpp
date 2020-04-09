@@ -22,9 +22,12 @@ Matrix::Matrix(const Matrix& _matrix) : rows(_matrix.rows),
 
 
 Matrix& Matrix::operator=(const Matrix& _matrix) {
-    rows = _matrix.getRows();
-    cols = _matrix.getCols();
-    data = _matrix.getData();
+    if (this != &_matrix)
+    {
+        rows = _matrix.getRows();
+        cols = _matrix.getCols();
+        data = _matrix.getData();
+    }
     return *this;
 }
 
@@ -58,7 +61,7 @@ void Matrix::setData(std::vector<std::vector<double>> _data) {
     cols = data[0U].size();
 }
 
-Matrix Matrix::operator+(const Matrix& _matrix) const {
+Matrix Matrix::operator+ (const Matrix& _matrix) const {
     Matrix result(rows, cols);
 
     for (int idx{0}; idx < getRows(); ++idx) {
@@ -69,7 +72,7 @@ Matrix Matrix::operator+(const Matrix& _matrix) const {
     return result;
 }
 
-Matrix Matrix::operator-(const Matrix& _matrix) const {
+Matrix Matrix::operator- (const Matrix& _matrix) const {
     Matrix result(rows, cols);
 
     for (int idx{0}; idx < getRows(); ++idx) {
@@ -80,7 +83,7 @@ Matrix Matrix::operator-(const Matrix& _matrix) const {
     return result;
 }
 
-Matrix Matrix::operator*(const double& _scalar) const {
+Matrix Matrix::operator* (const double& _scalar) const {
     Matrix result(rows, cols, data);
 
     for (int idx{0}; idx < rows; ++idx) {
