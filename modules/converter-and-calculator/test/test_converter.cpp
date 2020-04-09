@@ -259,8 +259,8 @@ TEST(ConverterTest_Hexadecimal_To_Decimal,
   Can_Convert_Big_Hexadecimal_To_Decimal) {
   // Arrange
   converter conv;
-  vector<char> value = { '5', 'C', 'B', 'D', '8', 'B', 'C' };
-  vector<int> res, exp_res = { 9, 7, 2, 4, 5, 3, 7, 2 };
+  vector<char> value = { '5', 'C', 'B', 'D', '8', 'F', 'C' };
+  vector<int> res, exp_res = { 9, 7, 2, 4, 5, 4, 3, 6 };
 
   // Act
   res = conv.convert_16_to(value, 16, 10);
