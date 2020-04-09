@@ -8,7 +8,7 @@
 
 class calculator : public converter {
  public:
-  // resultat vsegda v 10
+  // resultat vsegda v desytichnoy sisteme
 
   // sum
 

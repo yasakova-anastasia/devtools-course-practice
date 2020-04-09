@@ -85,7 +85,15 @@ int calculator::diff(const vector<char>& a, const int& b,
 }
 
 int calculator::diff(const vector<char>& a, const vector<char>& b) {
-  return -1249;
+  int res;
+  vector<int> temp_a, temp_b;
+
+  temp_a = this->convert_16_to(a, 16, 10);
+  temp_b = this->convert_16_to(b, 16, 10);
+
+  res = this->parse(temp_a) - this->parse(temp_b);
+
+  return res;
 }
 
 int calculator::mult(const int& a, const int& a_system,
