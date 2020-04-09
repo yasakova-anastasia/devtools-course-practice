@@ -1,5 +1,7 @@
 // Copyright 2020 Kornev Nikita
 
+#include <vector>
+
 #include <gtest/gtest.h>
 
 #include "include/calculator.h"
