@@ -25,7 +25,7 @@ TEST(MatrixOperationsTest, Can_Create_Empty_Matrix) {
     std::vector<std::vector<double>> goldData{{0.0, 0.0, 0.0, 0.0},
                                               {0.0, 0.0, 0.0, 0.0},
                                               {0.0, 0.0, 0.0, 0.0}};
-    
+
     // Assert
     EXPECT_EQ(3, matrix.getRows());
     EXPECT_EQ(4, matrix.getCols());
