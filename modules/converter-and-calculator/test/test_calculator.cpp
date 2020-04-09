@@ -1,8 +1,8 @@
 // Copyright 2020 Kornev Nikita
 
-#include <vector>
-
 #include <gtest/gtest.h>
+
+#include <vector>
 
 #include "include/calculator.h"
 
