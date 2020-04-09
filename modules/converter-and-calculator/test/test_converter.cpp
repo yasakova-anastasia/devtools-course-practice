@@ -188,8 +188,8 @@ TEST(ConverterTest_Decimal_To_Hexadecimal,
   Can_Convert_Decimal_To_Hexadecimal) {
   // Arrange
   converter conv;
-  vector<int> value = { 1, 5, 8 };
-  vector<char> res, exp_res = { '9', 'E' };
+  vector<int> value = { 2, 5, 4, 3 };
+  vector<char> res, exp_res = { '9', 'E', 'F' };
 
   // Act
   res = conv.convert_to_16(value, 10, 16);
