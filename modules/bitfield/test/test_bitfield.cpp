@@ -269,7 +269,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Set_Vector_Arguments) {
     // Arrange
     bool check = true;
     unsigned int size = 50;
-    std::vector<unsigned int> temp = {4, 0 , 1};
+    std::vector<unsigned int> temp = {4, 0, 1};
     Bitfield a(size);
 
     // Act
@@ -315,7 +315,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_Vector_Arguments) {
     // Arrange
     bool check = true;
     unsigned int size = 50;
-    std::vector<unsigned int> temp = {4, 0 , 1};
+    std::vector<unsigned int> temp = {4, 0, 1};
     Bitfield a(size);
     a.fill();
 

@@ -69,22 +69,22 @@ void Bitfield::clear() {
     }
 }
 
-void Bitfield::set(std::vector<unsigned int> arr_of_positions) {
+void Bitfield::set(const std::vector<unsigned int>& arr_of_positions) {
     for (unsigned int i = 0; i < arr_of_positions.size(); i++) {
         if (arr_of_positions[i] > bitfield_size - 1) {
             throw(std::string)"Out of bounds setting";
         } else {
-            this->set(arr_of_positions[i]);
+            set(arr_of_positions[i]);
         }
     }
 }
 
-void Bitfield::unset(std::vector<unsigned int> arr_of_positions) {
+void Bitfield::unset(const std::vector<unsigned int> arr_of_positions) {
     for (unsigned int i = 0; i < arr_of_positions.size(); i++) {
         if (arr_of_positions[i] > bitfield_size - 1) {
             throw(std::string)"Out of bounds unsetting";
         } else {
-            this->unset(arr_of_positions[i]);
+            unset(arr_of_positions[i]);
         }
     }
 }
@@ -107,7 +107,7 @@ bool Bitfield::operator ==(const Bitfield& rhs) const {
         return false;
     } else {
         for (unsigned int i = 0; i < rhs.get_size(); i++) {
-            if (this->get(i) != rhs.get(i)) {
+            if (get(i) != rhs.get(i)) {
                 return false;
             }
         }

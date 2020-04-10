@@ -19,13 +19,13 @@ class Bitfield {
   void set(unsigned int position);
 
   // Set specified positions from arr_of_positions in Bitfield object to 1.
-  void set(std::vector<unsigned int> arr_of_positions);
+  void set(const std::vector<unsigned int>& arr_of_positions);
 
   // Unset specified position in Bitfield object to 0.
   void unset(unsigned int position);
 
   // Unset specified positions from arr_of_positions in Bitfield object to 0.
-  void unset(std::vector<unsigned int> arr_of_positions);
+  void unset(const std::vector<unsigned int>& arr_of_positions);
 
   // Return the value of specified position in Bitfield object.
   int get(unsigned int position) const;
