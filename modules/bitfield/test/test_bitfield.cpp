@@ -142,6 +142,16 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_Stay_Zero_At_Its_Place) {
     EXPECT_EQ(expected_value, a.get(1));
 }
 
+TEST(Kudryashov_Nikita_BitfieldTest, Throw_Get_Out_of_Bounds) {
+    // Arrange
+    unsigned int size = 10;
+    unsigned int out_of_bounds = 12;
+    Bitfield a(size);
+
+    // Act & Assert
+    EXPECT_ANY_THROW(a.get(out_of_bounds));
+}
+
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Get_Size) {
     // Arrange
     unsigned int size = 10;
@@ -291,6 +301,16 @@ TEST(Kudryashov_Nikita_BitfieldTest, Set_With_Empty_Vector) {
     EXPECT_NO_THROW(a.set(temp));
 }
 
+TEST(Kudryashov_Nikita_BitfieldTest, Vector_Set_Throw_Out_Of_Bounds) {
+    // Arrange
+    unsigned int size = 50;
+    Bitfield a(size);
+    std::vector<unsigned int> temp = {0, 51};
+
+    // Act & Assert
+    EXPECT_ANY_THROW(a.set(temp));
+}
+
 TEST(Kudryashov_Nikita_BitfieldTest, Unset_Vector_Arguments) {
     // Arrange
     bool check = true;
@@ -327,6 +347,17 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_With_Empty_Vector) {
 
     // Act & Assert
     EXPECT_NO_THROW(a.unset(temp));
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Vector_Unset_Throw_Out_Of_Bounds) {
+    // Arrange
+    unsigned int size = 50;
+    Bitfield a(size);
+    a.set(0);
+    std::vector<unsigned int> temp = {0, 51};
+
+    // Act & Assert
+    EXPECT_ANY_THROW(a.unset(temp));
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Copy_Bitfield) {
@@ -435,17 +466,4 @@ TEST(Kudryashov_Nikita_BitfieldTest, Index_Value_Operator_Throw_Out_Of_Bounds) {
 
     // Act & Assert
     EXPECT_ANY_THROW(a[pos]);
-}
-
-TEST(Kudryashov_Nikita_BitfieldTest, Index_Value_Operator_Test_1) {
-    // Arrange
-    unsigned int size = 50;
-    int expected_value = 1;
-    Bitfield a(size);
-
-    // Act
-    a.set(0);
-
-    // Assert
-    EXPECT_EQ(expected_value, a[0]);
 }
