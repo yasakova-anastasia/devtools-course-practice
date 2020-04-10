@@ -4,6 +4,7 @@
 //          code more readable and easier to understand. THROUGH DEFINE
 
 #include "include/bitfield.h"
+#include <string>
 
 Bitfield::Bitfield(unsigned int size) {
     bitfield_size = size;
@@ -21,7 +22,7 @@ Bitfield::Bitfield(unsigned int size) {
 
 void Bitfield::set(unsigned int position) {
     if (position > bitfield_size - 1) {
-        throw "Out of bounds setting"; 
+        throw (std::string)"Out of bounds setting"; 
     } else {
         bitfield[position / 8] |= (1 << (7 - position % 8));
     }
@@ -34,15 +35,19 @@ unsigned int Bitfield::get_size() {
 void Bitfield::unset(unsigned int position)
 {
     if (position > bitfield_size - 1) {
-        throw "Out of bounds unsetting"; 
+        throw (std::string)"Out of bounds unsetting"; 
     } else {
         bitfield[position / 8] &= (~(1 << (7 - position % 8)));
     }
 }
 
 int Bitfield::get(unsigned int position) {
-    unsigned char temp = (bitfield[position / 8] << (position % 8));
-    return temp >> 7;
+    if (position > bitfield_size - 1) {
+        throw (std::string)"Out of bounds unsetting"; 
+    } else {
+        unsigned char temp = (bitfield[position / 8] << (position % 8));
+        return temp >> 7;
+    }
     
     // return ((bitfield[position / 8] << (position % 8)) >> 7); 
     // This doesn't work for some reason. Mb priorioty problems? Ask later.
@@ -57,6 +62,26 @@ void Bitfield::fill() {
 void Bitfield::clear() {
     for(int i = 0; i < bitfield.size(); i++) {
         bitfield[i] = 0;
+    }
+}
+
+void Bitfield::set(std::vector<unsigned int> arr_of_positions) {
+    for (int i = 0; i < arr_of_positions.size(); i++) {
+        if(arr_of_positions[i] > bitfield_size - 1) {
+            throw (std::string)"Out of bounds setting";
+        } else {
+            this->set(arr_of_positions[i]);
+        }
+    }
+}
+
+void Bitfield::unset(std::vector<unsigned int> arr_of_positions) {
+    for (int i = 0; i < arr_of_positions.size(); i++) {
+        if(arr_of_positions[i] > bitfield_size - 1) {
+            throw (std::string)"Out of bounds unsetting";
+        } else {
+            this->unset(arr_of_positions[i]);
+        }
     }
 }
  

@@ -1,6 +1,6 @@
 // Copyright 2020 Kudryashov Nikita 
 
-// TODO: add extreme set / unset cases (0,7); mb move for(**) bool check to assert.
+// TODO: mb move for(**) bool check to assert.
 
 #include "include/bitfield.h"
 
@@ -61,7 +61,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Set_Test) {
         check = false;
     }
     
-    // Act & Assert
+    // Assert
     EXPECT_EQ(check, true);
 }
 
@@ -75,7 +75,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Set_Stay_One_At_Its_Place) {
     // Act
     a.set(1);
     
-    // Act & Assert
+    // Assert
     EXPECT_EQ(expected_value, a.get(1));
 }
 
@@ -123,7 +123,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_Test) {
         check = false;
     }
     
-    // Act & Assert
+    // Assert
     EXPECT_EQ(check, true);
 }
 
@@ -138,7 +138,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_Stay_Zero_At_Its_Place) {
     // Act
     a.unset(1);
     
-    // Act & Assert
+    // Assert
     EXPECT_EQ(expected_value, a.get(1));
 }
 
@@ -250,6 +250,59 @@ TEST(Kudryashov_Nikita_BitfieldTest, Clear_Test) {
             break;
         }
     }
+    
+    // Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Set_Vector_Arguments) {
+    // Arrange
+    bool check = true;
+    unsigned int size = 50;
+    std::vector<unsigned int> temp = {4, 0 ,1};
+    Bitfield a(size);
+    
+    // Act
+    a.set(temp);
+    
+   if (a.get(0) != 1) {
+       check = false;
+   }
+   
+   if (a.get(1) != 1) {
+       check = false;
+   }
+   
+   if (a.get(4) != 1) {
+       check = false;
+   }
+    
+    // Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Unset_Vector_Arguments) {
+    // Arrange
+    bool check = true;
+    unsigned int size = 50;
+    std::vector<unsigned int> temp = {4, 0 ,1};
+    Bitfield a(size);
+    a.fill();
+    
+    // Act
+    a.unset(temp);
+    
+   if (a.get(0) != 0) {
+       check = false;
+   }
+   
+   if (a.get(1) != 0) {
+       check = false;
+   }
+   
+   if (a.get(4) != 0) {
+       check = false;
+   }
     
     // Assert
     EXPECT_EQ(check, true);
