@@ -8,7 +8,7 @@
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Create_Bitfield_Without_Arguments) {
     // Arrange & Act & Assert
-    EXPECT_NO_THROW(Bitfield a());
+    EXPECT_NO_THROW(Bitfield a);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Create_Bitfield_With_Arguments) {
@@ -182,7 +182,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Get_Returns_Only_One_Or_Zero) {
     a.set(7);
 
     // Act
-    for (int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); i++) {
         if (a.get(i) != 1 && a.get(i) != 0) {
             check = false;
             break;
@@ -200,7 +200,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Bitfield_Creates_Empty) {
     Bitfield a(size);
 
     // Act
-    for (int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); i++) {
         if (a.get(i) != 0) {
             check = false;
             break;
@@ -221,7 +221,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Fill_Test) {
     a.fill();
 
     // Like this (**)
-    for (int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); i++) {
         if (a.get(i) != 1) {
             check = false;
             break;
@@ -244,7 +244,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Clear_Test) {
     // Act
     a.clear();
 
-    for (int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); i++) {
         if (a.get(i) != 0) {
             check = false;
             break;
@@ -329,7 +329,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Can_Copy_Object_Itself) {
     // Act
     a = a;
 
-    for (int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); i++) {
         if (b.get(i) != a.get(i)) {
             check = false;
         }
@@ -350,7 +350,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Copy_Constructor_Test) {
     // Act
     b = a;
 
-    for (int i = 0; i < b.get_size(); i++) {
+    for (unsigned int i = 0; i < b.get_size(); i++) {
         if (b.get(i) != a.get(i)) {
             check = false;
         }
@@ -419,7 +419,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Index_Value_Operator_Throw_Out_Of_Bounds) {
 TEST(Kudryashov_Nikita_BitfieldTest, Index_Value_Operator_Test) {
     // Arrange
     unsigned int size = 50;
-    int temp, expected_value = 1;
+    int expected_value = 1;
     Bitfield a(size);
 
     // Act
