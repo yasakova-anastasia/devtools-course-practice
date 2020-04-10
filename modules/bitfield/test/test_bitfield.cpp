@@ -307,3 +307,125 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_Vector_Arguments) {
     // Assert
     EXPECT_EQ(check, true);
 }
+
+TEST(Kudryashov_Nikita_BitfieldTest, Can_Copy_Bitfield) {
+    // Arrange
+    unsigned int size = 12;
+    Bitfield a(size);
+    Bitfield b;
+    
+    // Act & Assert
+    EXPECT_NO_THROW(b = a);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Can_Copy_Object_Itself) {
+    // Arrange
+    bool check = true;
+    unsigned int size = 12;
+    Bitfield a(size);
+    Bitfield b;
+    b = a;
+    
+    // Act
+    a = a;
+
+    for (int i = 0; i < a.get_size(); i++) {
+        if(b.get(i) != a.get(i)) {
+            check = false;
+        }
+    }
+    
+    //Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Copy_Constructor_Test) {
+    // Arrange
+    bool check = true;
+    unsigned int size = 50;
+    Bitfield a(size);
+    Bitfield b;
+    a.fill();
+    
+    // Act
+    b = a;
+    
+   for (int i = 0; i < b.get_size(); i++) {
+       if (b.get(i) != a.get(i)) {
+           check = false;
+       }
+   }
+    
+    // Assert
+    EXPECT_EQ(check, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Equality_Operator_Test) {
+    // Arrange
+    unsigned int size = 50;
+    Bitfield a(size);
+    Bitfield b(size);
+    a.fill();
+    b.fill();
+    
+    // Act & Assert
+    EXPECT_EQ(a == b, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Unequality_Operator_Test) {
+    // Arrange
+    unsigned int size = 50;
+    Bitfield a(size);
+    Bitfield b(size);
+    a.fill();
+    b.clear();
+    
+    // Act & Assert
+    EXPECT_EQ(a != b, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Bitfields_Of_Unequal_Size_Are_Unequal) {
+    // Arrange
+    unsigned int size = 50;
+    Bitfield a(size);
+    Bitfield b(size - 1);
+    a.fill();
+    b.fill();
+    
+    // Act & Assert
+    EXPECT_EQ(a != b, true);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Can_Use_Index_Value_Operator_Test) {
+    // Arrange
+    unsigned int size = 50;
+    unsigned int pos = 0;
+    Bitfield a(size);
+    
+    // Act & Assert
+    EXPECT_NO_THROW(a[pos]);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Index_Value_Operator_Throw_Out_Of_Bounds) {
+    // Arrange
+    unsigned int size = 50;
+    unsigned int pos = 50;
+    Bitfield a(size);
+    
+    // Act & Assert
+    EXPECT_ANY_THROW(a[pos]);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Index_Value_Operator_Test) {
+    // Arrange
+    unsigned int size = 50;
+    int temp, expected_value = 1;
+    Bitfield a(size);
+    
+    // Act
+    a.set(0);
+    
+    // Assert
+    EXPECT_EQ(expected_value, a[0]);
+}
+

@@ -28,7 +28,7 @@ void Bitfield::set(unsigned int position) {
     }
 }
 
-unsigned int Bitfield::get_size() {
+unsigned int Bitfield::get_size() const{
     return bitfield_size;
 }
 
@@ -41,7 +41,7 @@ void Bitfield::unset(unsigned int position)
     }
 }
 
-int Bitfield::get(unsigned int position) {
+int Bitfield::get(unsigned int position) const{
     if (position > bitfield_size - 1) {
         throw (std::string)"Out of bounds unsetting"; 
     } else {
@@ -84,6 +84,45 @@ void Bitfield::unset(std::vector<unsigned int> arr_of_positions) {
         }
     }
 }
+
+Bitfield& Bitfield::operator =(const Bitfield& arg) {
+    if(this != &arg) {
+        if(bitfield_size != arg.bitfield_size) {
+            bitfield.resize(arg.bitfield_size);
+        }
+        for (int i = 0; i < arg.bitfield_size; i++) {
+            bitfield[i] = arg.bitfield[i];
+        }
+    } 
+
+    return *this;
+}
+
+bool Bitfield::operator ==(const Bitfield& rhs) const {
+    if (bitfield_size != rhs.bitfield_size) {
+        return false;
+    } else {
+        for(int i = 0; i < rhs.get_size(); i++) {
+            if(this->get(i) != rhs.get(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+bool Bitfield::operator !=(const Bitfield& rhs) const{
+    return  !(*this == rhs);
+}
+
+int Bitfield::operator [](unsigned int position) const {
+    if(position > bitfield_size - 1) {
+        throw (std::string)"Out of bounds getting.";
+    } else {
+        return get(position);
+    }
+}
+ 
  
 
 
