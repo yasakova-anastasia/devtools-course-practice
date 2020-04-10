@@ -109,3 +109,14 @@ TEST(Suchkov_Makar_ComplexNumberTest, Check_Inverse_Element_Property) {
     EXPECT_EQ(check.getRe(), 0.0);
     EXPECT_EQ(check.getIm(), 0.0);
 }
+
+TEST(Suchkov_Makar_ComplexNumberTest, Math_Operators_Correct) {
+    // Arrange
+    ComplexNumber z1(7.0, 2.0), z2(5.0, 3.0), z3(-1.0, 2.0), z4(1.0, 1.0);
+
+    // Act
+    ComplexNumber result = z1 * z2 + z3 / z4 - z4;
+
+    // Assert
+    EXPECT_EQ(ComplexNumber(28.5, 31.5), result);
+}
