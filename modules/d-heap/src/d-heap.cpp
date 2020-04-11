@@ -14,9 +14,17 @@ d_heap::d_heap(const uint8_t d, const size_t size) : d(d), size(size),
         new(keys + i) size_t(-1);
 }
 
-d_heap::d_heap(const d_heap& copy) {}
+d_heap::d_heap(const d_heap& copy) : d(copy.d), size(copy.size),
+    keys(reinterpret_cast<size_t*>(operator new(sizeof(size_t) * size))) {
+    for (size_t i = 0; i < size; ++i)
+        new(keys + i) size_t(*(copy.keys + i));
+}
 
-d_heap::d_heap(d_heap&& copy) noexcept {}
+d_heap::d_heap(d_heap&& copy) noexcept : d(copy.d), size(copy.size),
+    keys(copy.keys) {
+    copy.keys = nullptr;
+    std::cout << "hello" << std::endl;
+}
 
 d_heap::~d_heap() {
     for (size_t i = 0; i < size; ++i)

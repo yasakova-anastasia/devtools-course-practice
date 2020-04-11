@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 #include <new>
+#include <iostream>
 
 class d_heap {
  protected:
