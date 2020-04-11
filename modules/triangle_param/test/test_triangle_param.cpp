@@ -85,9 +85,9 @@ TEST(TriangleParamTest, AssignOverloaded) {
   std::pair<double, double> expextedB(2, 4);
   std::pair<double, double> expextedC(10, 3);
   Triangle triag(expextedA, expextedB, expextedC);
-
+  Triangle triag2{};
   // Act
-  Triangle triag2 = triag;
+  triag2 = triag;
   // Assert
   ASSERT_EQ(triag.getTopA(), triag2.getTopA());
   ASSERT_EQ(triag.getTopB(), triag2.getTopB());
