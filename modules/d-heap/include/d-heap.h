@@ -15,6 +15,8 @@ class d_heap {
     d_heap(const uint8_t d, const size_t size);
     d_heap(const d_heap& copy);
     d_heap(d_heap&& copy) noexcept;
+    ~d_heap();
+    uint8_t getD() const;
     size_t& operator[](const size_t iter);
 };
 
