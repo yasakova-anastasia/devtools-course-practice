@@ -22,7 +22,7 @@ TEST(TriangleParamTest, EmptyRest) {
 TEST(TriangleParamTest, DefaultComstructor) {
   // Arrange
   Triangle triag{};
-  std::pair<double, double> expexted (0, 0);
+  std::pair<double, double> expexted(0, 0);
   // Act
 
   // Assert
@@ -36,7 +36,7 @@ TEST(TriangleParamTest, ComstructorByArgs) {
   std::pair<double, double> expextedA(0, 0);
   std::pair<double, double> expextedB(2, 4);
   std::pair<double, double> expextedC(10, 3);
-  Triangle triag( expextedA, expextedB, expextedC);
+  Triangle triag(expextedA, expextedB, expextedC);
 
   // Act
 
@@ -133,4 +133,17 @@ TEST(TriangleParamTest, Perimetr) {
   double AC = triag.side(triag.getTopA(), triag.getTopC());
   // Assert
   ASSERT_EQ(triag.perimetr(), AB + BC + AC);
+}
+
+TEST(TriangleParamTest, Squere) {
+  // Arrange
+  std::pair<double, double> expextedA(0, 0);
+  std::pair<double, double> expextedB(4, 0);
+  std::pair<double, double> expextedC(4, 3);
+  Triangle triag(expextedA, expextedB, expextedC);
+
+  // Act
+
+  // Assert
+  ASSERT_EQ(triag.square(), 6);
 }

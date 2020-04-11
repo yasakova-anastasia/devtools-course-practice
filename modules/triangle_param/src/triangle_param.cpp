@@ -90,6 +90,6 @@ double Triangle::perimetr() {
 
 double Triangle::square() {
     double temp = perimetr() / 2;
-    return (temp * (temp - side(a, b)) *
+    return sqrt(temp * (temp - side(a, b)) *
            (temp - side(b, c)) * (temp - side(a, c)));
 }
