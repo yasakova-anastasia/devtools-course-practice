@@ -117,7 +117,7 @@ TEST(TriangleParamTest, NoEqOverloaded) {
   // Act
   Triangle triag2{};
   // Assert
-  ASSERT_FALSE(triag == triag2);
+  ASSERT_TRUE(triag != triag2);
 }
 
 TEST(TriangleParamTest, Perimetr) {
