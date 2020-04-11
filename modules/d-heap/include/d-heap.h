@@ -4,6 +4,7 @@
 #define MODULES_D_HEAP_INCLUDE_D_HEAP_H_
 
 #include <stdint.h>
+#include <new>
 
 class d_heap {
  protected:

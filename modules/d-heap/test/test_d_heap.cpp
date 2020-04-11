@@ -12,6 +12,12 @@ TEST(Dheap, is_creating_default_d_heap_correct) {
     EXPECT_EQ(a.getD(), 2);
 }
 
+TEST(Dheap, is_creating_default_d_heap_return_correct_values) {
+    d_heap a;
+    size_t i = -1;
+    EXPECT_EQ(a[0], i);
+}
+
 TEST(Dheap, can_create_d_heap_with_two_parameters) {
     ASSERT_NO_THROW(d_heap(2, 10));
 }
@@ -20,6 +26,13 @@ TEST(Dheap, is_creating_d_heap_with_two_parameters_correct) {
     d_heap a(3, 10);
     EXPECT_EQ(a.getD(), 3);
 }
+
+TEST(Dheap, is_creating_d_heap_with_two_parameters_return_correct_values) {
+    d_heap a(3, 10);
+    size_t i = -1;
+    EXPECT_EQ(a[0], i);
+}
+
 
 TEST(Dheap, can_create_d_heap_from_copy) {
     d_heap copy(2, 10);
