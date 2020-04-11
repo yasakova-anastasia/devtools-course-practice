@@ -10,18 +10,18 @@
 class Triangle {
  public:
     Triangle();
-    Triangle(const std::pair<double, double> _a,
-             const std::pair<double, double> _b,
-             const std::pair<double, double> _c);
+    Triangle(const std::pair<double, double>& _a,
+             const std::pair<double, double>& _b,
+             const std::pair<double, double>& _c);
     Triangle(const Triangle& _triangle);
 
     std::pair<double, double> getTopA() const;
     std::pair<double, double> getTopB() const;
     std::pair<double, double> getTopC() const;
 
-    void setTopA(const std::pair<double, double> _top);
-    void setTopB(const std::pair<double, double> _top);
-    void setTopC(const std::pair<double, double> _top);
+    void setTopA(const std::pair<double, double>& _top);
+    void setTopB(const std::pair<double, double>& _top);
+    void setTopC(const std::pair<double, double>& _top);
 
     Triangle& operator= (const Triangle& _triangle);
 

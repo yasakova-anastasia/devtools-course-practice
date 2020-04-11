@@ -147,3 +147,17 @@ TEST(TriangleParamTest, Squere) {
   // Assert
   ASSERT_EQ(triag.square(), 6);
 }
+
+TEST(TriangleParamTest, Corners) {
+  // Arrange
+  std::pair<double, double> expextedA(0, 0);
+  std::pair<double, double> expextedB(4, 0);
+  std::pair<double, double> expextedC(4, 3);
+  Triangle triag(expextedA, expextedB, expextedC);
+  const double PI = 3.141592653589793238463;
+
+  // Act
+
+  // Assert
+  ASSERT_EQ(triag.cornA() + triag.cornB() + triag.cornC(), PI);
+}

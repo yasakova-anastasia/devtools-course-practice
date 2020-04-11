@@ -8,9 +8,9 @@
 Triangle::Triangle():
   a(0, 0), b(0, 0), c(0, 0) {}
 
-Triangle::Triangle(const std::pair<double, double> _a,
-                   const std::pair<double, double> _b,
-                   const std::pair<double, double> _c):
+Triangle::Triangle(const std::pair<double, double>& _a,
+                   const std::pair<double, double>& _b,
+                   const std::pair<double, double>& _c):
   a(_a), b(_b), c(_c) {}
 
 Triangle::Triangle(const Triangle& _triangle):
@@ -28,15 +28,15 @@ std::pair<double, double> Triangle::getTopC() const {
     return c;
 }
 
-void Triangle::setTopA(const std::pair<double, double> _top) {
+void Triangle::setTopA(const std::pair<double, double>& _top) {
     a = _top;
 }
 
-void Triangle::setTopB(const std::pair<double, double> _top) {
+void Triangle::setTopB(const std::pair<double, double>& _top) {
     b = _top;
 }
 
-void Triangle::setTopC(const std::pair<double, double> _top) {
+void Triangle::setTopC(const std::pair<double, double>& _top) {
     c = _top;
 }
 
