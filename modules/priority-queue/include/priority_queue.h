@@ -6,8 +6,7 @@
 #include <iostream>
 #include <list>
 
-class node
-{
+class node {
 public:
     node();
     node(int _key = 0, int _data = 0);
@@ -15,11 +14,11 @@ public:
     int data;
 };
 
-class priority_queue
-{
+class priority_queue {
     std::list<node> queue;
     std::list<node>::iterator get_min_it();
     std::list<node>::iterator get_max_it();
+
 public:
     void insert(node _node);
     node* extract_minimum();
