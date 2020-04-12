@@ -7,7 +7,7 @@
 #include <list>
 
 class node {
-public: 
+ public:
     node();
     explicit node(int _key = 0, int _data = 0);
     int key;
@@ -15,12 +15,12 @@ public:
 };
 
 class priority_queue {
-private: 
+ private:
     std::list<node> queue;
     std::list<node>::iterator get_min_it();
     std::list<node>::iterator get_max_it();
 
-public: 
+ public:
     void insert(node _node);
     node* extract_minimum();
     node* extract_maximum();
