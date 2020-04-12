@@ -1,6 +1,7 @@
 // Copyright 2020 Egorov Danil
 
 #include "include/priority_queue.h"
+#include <list>
 
 node::node() : key(0), data(0) {}
 
