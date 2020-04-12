@@ -6,6 +6,15 @@
 
 class PriorityQueueTest : public ::testing::Test {};
 
+TEST_F(PriorityQueueTest, CanCreateDefaultNode) {
+    // Act
+    node n;
+
+    // Assert
+    EXPECT_EQ(n.key, 0);
+    EXPECT_EQ(n.data, 0);
+}
+
 TEST_F(PriorityQueueTest, CanInsertNode) {
     // Arrange
     priority_queue pq;
@@ -65,8 +74,8 @@ TEST_F(PriorityQueueTest, CanExtractMinimum) {
 TEST_F(PriorityQueueTest, CanExtractMaximum) {
     // Arrange
     priority_queue pq;
-    node n1(4, 4);
-    node n2(1, 1);
+    node n1(2, 2);
+    node n2(4, 4);
     node n3(3, 3);
     node* p_n;
 
@@ -77,7 +86,7 @@ TEST_F(PriorityQueueTest, CanExtractMaximum) {
     p_n = pq.extract_maximum();
 
     // Assert
-    EXPECT_EQ(p_n->key, n1.key);
+    EXPECT_EQ(p_n->key, n2.key);
 }
 
 TEST_F(PriorityQueueTest, CanDeleteMinimum) {

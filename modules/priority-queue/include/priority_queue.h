@@ -9,7 +9,7 @@
 class node {
  public:
     node();
-    explicit node(int _key = 0, int _data = 0);
+    explicit node(int _key, int _data);
     int key;
     int data;
 };
