@@ -1,29 +1,14 @@
 // Copyright 2020 Mazur Daniil
 
 #include <gtest/gtest.h>
-
 #include <utility>
-
 #include <numeric>
-
 #include "../include/triangle_param.h"
-
-
-
-TEST(TriangleParamTest, EmptyRest) {
-  // Arrange
-
-  // Act
-
-  // Assert
-  ASSERT_EQ(0, 0);
-}
 
 TEST(TriangleParamTest, DefaultComstructor) {
   // Arrange
   Triangle triag{};
   std::pair<double, double> expexted(0, 0);
-  // Act
 
   // Assert
   ASSERT_EQ(expexted, triag.getTopA());
@@ -38,8 +23,6 @@ TEST(TriangleParamTest, ComstructorByArgs) {
   std::pair<double, double> expextedC(10, 3);
   Triangle triag(expextedA, expextedB, expextedC);
 
-  // Act
-
   // Assert
   ASSERT_EQ(expextedA, triag.getTopA());
   ASSERT_EQ(expextedB, triag.getTopB());
@@ -53,8 +36,6 @@ TEST(TriangleParamTest, ComstructorByCopy) {
   std::pair<double, double> expextedC(10, 3);
   Triangle triag(expextedA, expextedB, expextedC);
   Triangle triag2(triag);
-
-  // Act
 
   // Assert
   ASSERT_EQ(triag.getTopA(), triag2.getTopA());
@@ -135,14 +116,12 @@ TEST(TriangleParamTest, Perimetr) {
   ASSERT_EQ(triag.perimetr(), AB + BC + AC);
 }
 
-TEST(TriangleParamTest, Squere) {
+TEST(TriangleParamTest, Square) {
   // Arrange
   std::pair<double, double> expextedA(0, 0);
   std::pair<double, double> expextedB(4, 0);
   std::pair<double, double> expextedC(4, 3);
   Triangle triag(expextedA, expextedB, expextedC);
-
-  // Act
 
   // Assert
   ASSERT_EQ(triag.square(), 6);
@@ -155,8 +134,6 @@ TEST(TriangleParamTest, Corners) {
   std::pair<double, double> expextedC(4, 3);
   Triangle triag(expextedA, expextedB, expextedC);
   const double PI = 3.141592653589793238463;
-
-  // Act
 
   // Assert
   ASSERT_EQ(triag.cornA() + triag.cornB() + triag.cornC(), PI);
