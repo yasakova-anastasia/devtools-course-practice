@@ -95,39 +95,33 @@ TEST(ConvertTest, Convert_wo_throw_Fahrenheit) {
 // Arrange
 Convert conv;
 double num = 100;
-double output;
 
 // Act
-output = conv.convert_to_Fahrenheit(num);
 
 // Assert
-ASSERT_NO_THROW(output);
+ASSERT_NO_THROW(conv.convert_to_Fahrenheit(num));
 }
 
 TEST(ConvertTest, Convert_wo_throw_Kelvins) {
 // Arrange
 Convert conv;
 double num = 100;
-double output;
 
 // Act
-output = conv.convert_to_Kelvins(num);
 
 // Assert
-ASSERT_NO_THROW(output);
+ASSERT_NO_THROW(conv.convert_to_Kelvins(num));
 }
 
 TEST(ConvertTest, Convert_wo_throw_Newton) {
 // Arrange
 Convert conv;
 double num = 100;
-double output;
 
 // Act
-output = conv.convert_to_Newton(num);
 
 // Assert
-ASSERT_NO_THROW(output);
+ASSERT_NO_THROW(conv.convert_to_Newton(num));
 }
 
 TEST(ConvertTest, Convert_with_negative_num_Kelvins) {
