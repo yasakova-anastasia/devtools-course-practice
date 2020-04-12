@@ -19,4 +19,3 @@ const double num_to_Newton = 0.33;
 };
 
 #endif  // MODULES_CONVERTER_INCLUDE_CONVERTER_H_
-    
