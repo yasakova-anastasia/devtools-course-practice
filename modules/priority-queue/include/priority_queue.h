@@ -10,8 +10,7 @@ class node {
 
 public:
     node();
-    node(int _key = 0);
-    node(int _data = 0);
+    node(int _data);
     node(int _key = 0, int _data = 0);
     int key;
     int data;
