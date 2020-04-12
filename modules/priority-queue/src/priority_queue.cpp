@@ -4,6 +4,12 @@
 
 node::node() : key(0), data(0) {}
 
+node::node(int _key = 0) 
+    : key(_key), data(0) {}
+
+node::node(int _data = 0)
+    : key(0), data(_data) {}
+
 node::node(int _key, int _data)
     : key(_key), data(_data) {}
 
