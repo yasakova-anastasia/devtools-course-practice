@@ -6,8 +6,7 @@
 
 class ConvertTest : public ::testing::Test {};
 
-TEST(ConvertTest, Convert_to_Kelvins)
-{
+TEST(ConvertTest, Convert_to_Kelvins) {
 // Arrange
 double Cels = 5.0;
 double Cels1 = 10.0;
@@ -26,8 +25,7 @@ ASSERT_EQ(Kelvins1, conv.convert_to_Kelvins(Cels1));
 ASSERT_EQ(Kelvins2, conv.convert_to_Kelvins(Cels2));
 }
 
-TEST(ConvertTest, Convert_to_Fahrenheit)
-{
+TEST(ConvertTest, Convert_to_Fahrenheit) {
 // Arrange
 double Cels = 5.5;
 double Cels1 = 10.0;
@@ -47,8 +45,7 @@ ASSERT_EQ(Fahrenheit2, conv.convert_to_Fahrenheit(Cels2));
 }
 
 
-TEST(ConvertTest, Convert_to_Newton)
-{
+TEST(ConvertTest, Convert_to_Newton) {
 // Arrange
 double Cels = 5.0;
 double Cels1 = 10.0;
@@ -70,44 +67,40 @@ ASSERT_NEAR(Newton2, conv.convert_to_Newton(Cels2), abs_error);
 }
 
 
-TEST(ConvertTest, Convert_wo_throw_Fahrenheit)
-{
+TEST(ConvertTest, Convert_wo_throw_Fahrenheit) {
 // Arrange
 Convert conv;
-double randnum = rand() % 5;
+double num = 100;
 
 // Act
 
 // Assert
-ASSERT_NO_THROW(conv.convert_to_Fahrenheit(randnum));
+ASSERT_NO_THROW(conv.convert_to_Fahrenheit(num));
 }
 
-TEST(ConvertTest, Convert_wo_throw_Kelvins)
-{
+TEST(ConvertTest, Convert_wo_throw_Kelvins) {
 // Arrange
 Convert conv;
-double randnum = rand() % 5;
+double num = 100;
 
 // Act
 
 // Assert
-ASSERT_NO_THROW(conv.convert_to_Kelvins(randnum));
+ASSERT_NO_THROW(conv.convert_to_Kelvins(num));
 }
 
-TEST(ConvertTest, Convert_wo_throw_Newton)
-{
+TEST(ConvertTest, Convert_wo_throw_Newton) {
 // Arrange
 Convert conv;
-double randnum = rand() % 5;
+double num = 100;
 
 // Act
 
 // Assert
-ASSERT_NO_THROW(conv.convert_to_Newton(randnum));
+ASSERT_NO_THROW(conv.convert_to_Newton(num));
 }
 
-TEST(ConvertTest, Convert_with_negative_num_Kelvins)
-{
+TEST(ConvertTest, Convert_with_negative_num_Kelvins) {
 // Arrange
 double Cels = -5.0;
 double Kelvins = 268.15;
@@ -118,8 +111,7 @@ Convert conv;
 ASSERT_EQ(Kelvins, conv.convert_to_Kelvins(Cels));
 }
 
-TEST(ConvertTest, Convert_with_negative_num_Fahrenheit)
-{
+TEST(ConvertTest, Convert_with_negative_num_Fahrenheit) {
 // Arrange
 double Cels = -5.0;
 double Fahrenheit = 23.0;
@@ -130,8 +122,7 @@ Convert conv;
 ASSERT_EQ(Fahrenheit, conv.convert_to_Fahrenheit(Cels));
 }
 
-TEST(ConvertTest, Convert_with_negative_num_Newton)
-{
+TEST(ConvertTest, Convert_with_negative_num_Newton) {
 // Arrange
 double Cels = -5.0;
 double Newton = -1.65;
