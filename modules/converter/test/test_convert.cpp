@@ -16,13 +16,21 @@ double Kelvins = 278.15;
 double Kelvins1 = 283.15;
 double Kelvins2 = 288.15;
 
+double output;
+double output1;
+double output2;
+
 Convert conv;
+
 // Act
+output = conv.convert_to_Kelvins(Cels);
+output1 = conv.convert_to_Kelvins(Cels1);
+output2 = conv.convert_to_Kelvins(Cels2);
 
 // Assert
-ASSERT_EQ(Kelvins, conv.convert_to_Kelvins(Cels));
-ASSERT_EQ(Kelvins1, conv.convert_to_Kelvins(Cels1));
-ASSERT_EQ(Kelvins2, conv.convert_to_Kelvins(Cels2));
+ASSERT_EQ(Kelvins, output);
+ASSERT_EQ(Kelvins1, output1);
+ASSERT_EQ(Kelvins2, output2);
 }
 
 TEST(ConvertTest, Convert_to_Fahrenheit) {
@@ -35,13 +43,21 @@ double Fahrenheit = 41.9;
 double Fahrenheit1 = 50.0;
 double Fahrenheit2 = 68.0;
 
+double output;
+double output1;
+double output2;
+
 Convert conv;
+
 // Act
+output = conv.convert_to_Fahrenheit(Cels);
+output1 = conv.convert_to_Fahrenheit(Cels1);
+output2 = conv.convert_to_Fahrenheit(Cels2);
 
 // Assert
-ASSERT_EQ(Fahrenheit, conv.convert_to_Fahrenheit(Cels));
-ASSERT_EQ(Fahrenheit1, conv.convert_to_Fahrenheit(Cels1));
-ASSERT_EQ(Fahrenheit2, conv.convert_to_Fahrenheit(Cels2));
+ASSERT_EQ(Fahrenheit, output);
+ASSERT_EQ(Fahrenheit1, output1);
+ASSERT_EQ(Fahrenheit2, output2);
 }
 
 
@@ -57,13 +73,21 @@ double Newton2 = 8.251;
 
 double abs_error = 0.01;
 
+double output;
+double output1;
+double output2;
+
 Convert conv;
+
 // Act
+output = conv.convert_to_Newton(Cels);
+output1 = conv.convert_to_Newton(Cels1);
+output2 = conv.convert_to_Newton(Cels2);
 
 // Assert
-ASSERT_DOUBLE_EQ(Newton, conv.convert_to_Newton(Cels));
-ASSERT_DOUBLE_EQ(Newton1, conv.convert_to_Newton(Cels1));
-ASSERT_NEAR(Newton2, conv.convert_to_Newton(Cels2), abs_error);
+ASSERT_DOUBLE_EQ(Newton, output);
+ASSERT_DOUBLE_EQ(Newton1, output1);
+ASSERT_NEAR(Newton2, output2, abs_error);
 }
 
 
@@ -71,33 +95,39 @@ TEST(ConvertTest, Convert_wo_throw_Fahrenheit) {
 // Arrange
 Convert conv;
 double num = 100;
+double output;
 
 // Act
+output = conv.convert_to_Fahrenheit(num);
 
 // Assert
-ASSERT_NO_THROW(conv.convert_to_Fahrenheit(num));
+ASSERT_NO_THROW(output);
 }
 
 TEST(ConvertTest, Convert_wo_throw_Kelvins) {
 // Arrange
 Convert conv;
 double num = 100;
+double output;
 
 // Act
+output = conv.convert_to_Kelvins(num);
 
 // Assert
-ASSERT_NO_THROW(conv.convert_to_Kelvins(num));
+ASSERT_NO_THROW(output);
 }
 
 TEST(ConvertTest, Convert_wo_throw_Newton) {
 // Arrange
 Convert conv;
 double num = 100;
+double output;
 
 // Act
+output = conv.convert_to_Newton(num);
 
 // Assert
-ASSERT_NO_THROW(conv.convert_to_Newton(num));
+ASSERT_NO_THROW(output);
 }
 
 TEST(ConvertTest, Convert_with_negative_num_Kelvins) {
@@ -105,10 +135,13 @@ TEST(ConvertTest, Convert_with_negative_num_Kelvins) {
 double Cels = -5.0;
 double Kelvins = 268.15;
 Convert conv;
+double output;
+
 // Act
+output = conv.convert_to_Kelvins(Cels);
 
 // Assert
-ASSERT_EQ(Kelvins, conv.convert_to_Kelvins(Cels));
+ASSERT_EQ(Kelvins, output);
 }
 
 TEST(ConvertTest, Convert_with_negative_num_Fahrenheit) {
@@ -116,10 +149,13 @@ TEST(ConvertTest, Convert_with_negative_num_Fahrenheit) {
 double Cels = -5.0;
 double Fahrenheit = 23.0;
 Convert conv;
+double output;
+
 // Act
+output = conv.convert_to_Fahrenheit(Cels);
 
 // Assert
-ASSERT_EQ(Fahrenheit, conv.convert_to_Fahrenheit(Cels));
+ASSERT_EQ(Fahrenheit, output);
 }
 
 TEST(ConvertTest, Convert_with_negative_num_Newton) {
@@ -127,8 +163,11 @@ TEST(ConvertTest, Convert_with_negative_num_Newton) {
 double Cels = -5.0;
 double Newton = -1.65;
 Convert conv;
+double output;
+
 // Act
+output = conv.convert_to_Newton(Cels);
 
 // Assert
-ASSERT_DOUBLE_EQ(Newton, conv.convert_to_Newton(Cels));
+ASSERT_DOUBLE_EQ(Newton, output);
 }

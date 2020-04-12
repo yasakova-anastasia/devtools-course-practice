@@ -5,8 +5,8 @@
 
 class Convert {
  private:
-double num_to_Kelvins = 273.15;
-double num_to_Newton = 0.33;
+const double num_to_Kelvins = 273.15;
+const double num_to_Newton = 0.33;
 
  public:
     Convert() {}
@@ -19,3 +19,4 @@ double num_to_Newton = 0.33;
 };
 
 #endif  // MODULES_CONVERTER_INCLUDE_CONVERTER_H_
+    
