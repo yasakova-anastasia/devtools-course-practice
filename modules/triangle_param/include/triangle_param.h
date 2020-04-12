@@ -28,7 +28,7 @@ class Triangle {
     bool operator== (const Triangle& _triangle) const;
     bool operator!= (const Triangle& _triangle) const;
 
-    double side(std::pair<double, double> _top1, \
+    double side(std::pair<double, double> _top1,
                 std::pair<double, double> _top2);
 
     double cornA();
