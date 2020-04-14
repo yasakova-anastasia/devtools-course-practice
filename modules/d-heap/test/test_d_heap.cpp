@@ -69,3 +69,64 @@ TEST(Dheap, is_creating_d_heap_from_move_return_correct_values) {
     size_t i = -1;
     EXPECT_EQ(a[0], i);
 }
+
+TEST(Dheap, can_return_first_child) {
+    d_heap a(3, 10);
+    a[0] = 2;
+    a[1] = 4;
+    a[2] = 3;
+    EXPECT_EQ(a.firstChild(0), 1);
+}
+
+TEST(Dheap, can_return_last_child) {
+    d_heap a(3, 10);
+    a[0] = 2;
+    a[1] = 4;
+    a[2] = 3;
+    EXPECT_EQ(a.lastChild(0), 3);
+}
+
+TEST(Dheap, can_return_min_child) {
+    d_heap a(3, 10);
+    a[0] = 2;
+    a[1] = 4;
+    a[2] = 3;
+    EXPECT_EQ(a.minChild(0), 2);
+}
+
+TEST(Dheap, can_return_father) {
+    d_heap a(3, 10);
+    a[0] = 2;
+    a[1] = 4;
+    a[2] = 3;
+    EXPECT_EQ(a.father(2), 0);
+}
+
+TEST(Dheap, can_ascent_element) {
+    d_heap a(3, 10);
+    a[0] = 2; a[1] = 4;
+    a[2] = 3; a[3] = 5;
+    a[4] = 1;
+    a.ascent(4);
+    EXPECT_EQ(a[0], 1);
+}
+
+TEST(Dheap, can_immersion_element) {
+    d_heap a(3, 10);
+    a[0] = 5; a[1] = 1;
+    a[2] = 3; a[3] = 2;
+    a[4] = 4;
+    a.immersion(0);
+    EXPECT_EQ(a[0], 1);
+    EXPECT_EQ(a[4], 5);
+}
+
+TEST(Dheap, can_insert_element) {
+    d_heap a(3, 10);
+    a[0] = 1; a[1] = 4;
+    a[2] = 3; a[3] = 2;
+    a[4] = 5;
+    a.insert(3);
+    EXPECT_EQ(a[1], 3);
+    EXPECT_EQ(a[5], 4);
+}
