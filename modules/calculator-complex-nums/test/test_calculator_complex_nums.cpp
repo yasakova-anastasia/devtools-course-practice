@@ -26,7 +26,7 @@ TEST(CalculatorComplexNums, can_create_pattern) {
     EXPECT_EQ("some", c.GetPattern());
 }
 
-TEST(CalculatorComplexNums, check_brackets_return_true_1) {
+TEST(CalculatorComplexNums, check_bracket_return_true_1) {
     // Arrange
     std::string str = "(5+2i)+(2-0i)";
 
@@ -37,7 +37,7 @@ TEST(CalculatorComplexNums, check_brackets_return_true_1) {
     EXPECT_TRUE(c.CheckBrackets());
 }
 
-TEST(CalculatorComplexNums, check_brackets_return_false_1) {
+TEST(CalculatorComplexNums, check_bracket_return_false_1) {
     // Arrange
     std::string str = "((5+2i)+(2-0i)";
 
@@ -48,7 +48,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_1) {
     EXPECT_FALSE(c.CheckBrackets());
 }
 
-TEST(CalculatorComplexNums, check_brackets_return_false_2) {
+TEST(CalculatorComplexNums, check_bracket_return_false_2) {
     // Arrange
     std::string str = "(5+)2i)+(2-0i)";
 
@@ -59,7 +59,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_2) {
     EXPECT_FALSE(c.CheckBrackets());
 }
 
-TEST(CalculatorComplexNums, check_brackets_return_false_3) {
+TEST(CalculatorComplexNums, check_bracket_return_false_3) {
     // Arrange
     std::string str = "(5+2i)=(2-0i)";
 
@@ -70,7 +70,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_3) {
     EXPECT_FALSE(c.CheckBrackets());
 }
 
-TEST(CalculatorComplexNums, check_brackets_return_false_4) {
+TEST(CalculatorComplexNums, check_bracket_return_false_4) {
     // Arrange
     std::string str = "5+2i()=(2-0i)";
 
@@ -81,7 +81,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_4) {
     EXPECT_FALSE(c.CheckBrackets());
 }
 
-TEST(CalculatorComplexNums, check_brackets_return_false_5) {
+TEST(CalculatorComplexNums, check_bracket_return_false_5) {
     // Arrange
     std::string str = "(5+0i)/(2+5)i8";
 
@@ -92,7 +92,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_5) {
     EXPECT_FALSE(c.CheckBrackets());
 }
 
-TEST(CalculatorComplexNums, check_brackets_return_false_6) {
+TEST(CalculatorComplexNums, check_bracket_return_false_6) {
     // Arrange
     std::string str = "(5)+0i8/(2+5i)";
 
@@ -101,7 +101,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_6) {
 
     // Assert
     EXPECT_FALSE(c.CheckBrackets());
-}
+} 
 
 TEST(CalculatorComplexNums, correct_characters_return_true_1) {
     // Arrange
