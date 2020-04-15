@@ -10,7 +10,7 @@ Metrics::Metrics(const std::vector<float>& _fst,
                  const std::vector<float>& _sec) {
   if (_fst.size() != _sec.size()) {
     throw "vectors of different dimensions";
-   }
+  }
   fst = _fst;
   sec = _sec;
 }
