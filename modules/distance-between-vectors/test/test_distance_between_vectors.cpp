@@ -67,3 +67,31 @@ TEST(DistanceBetweenVectorsTest, can_create_via_copying) {
   EXPECT_EQ(metrics.getFirst(), metricsCopy.getFirst());
   EXPECT_EQ(metrics.getSecond(), metricsCopy.getSecond());
 }
+
+TEST(DistanceBetweenVectorsTest, can_set_first_vec) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+
+  //Act
+  std::vector<float> newFirst{ 3.0, 2.0, 1.0 };
+  metrics.setFirst(newFirst);
+
+  // Act & Assert
+  EXPECT_EQ(metrics.getFirst(), newFirst);
+}
+
+TEST(DistanceBetweenVectorsTest, can_set_second_vec) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+
+  //Act
+  std::vector<float> newSecond{ 3.0, 2.0, 1.0 };
+  metrics.setSecond(newSecond);
+
+  // Act & Assert
+  EXPECT_EQ(metrics.getSecond(), newSecond);
+}

@@ -16,6 +16,9 @@ class Metrics {
 
   std::vector<float> getFirst();
   std::vector<float> getSecond();
+
+  void setFirst(const std::vector<float>& _fst);
+  void setSecond(const std::vector<float>& _sec);
 };
 
 #endif  // MODULES_DISTANCE_BETWEEN_VECTORS_INCLUDE_DISTANCE_BETWEEN_VECTORS_H_

@@ -22,3 +22,11 @@ std::vector<float> Metrics::getFirst() {
 std::vector<float> Metrics::getSecond() {
   return sec;
 }
+
+void Metrics::setFirst(const std::vector<float>& _fst) {
+  fst = _fst;
+}
+
+void Metrics::setSecond(const std::vector<float>& _sec) {
+  sec = _sec;
+}
