@@ -5,7 +5,7 @@
 #include "include/distance_between_vectors.h"
 
 class DistanceBetweenVectorsTest : public ::testing::Test {
-protected:
+ protected:
   double epsilon = 0.001;
 };
 
