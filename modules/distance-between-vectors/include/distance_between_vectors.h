@@ -5,11 +5,11 @@
 #include <vector>
 
 class Metrics {
-private:
+ private:
   std::vector<float> fst;
   std::vector<float> sec;
 
-public:
+ public:
   Metrics();
   std::vector<float> getFirst();
 };
