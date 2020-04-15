@@ -61,9 +61,9 @@ TEST(DistanceBetweenVectorsTest, can_create_via_copying) {
   Metrics metrics(first, second);
 
   // Act
-  Metrics copy(metrics);
+  Metrics metricsCopy(metrics);
 
   // Assert
-  EXPECT_EQ(metrics.getFirst(), copy.getFirst());
-  EXPECT_EQ(metrics.getSecond(), copy.getSecond());
+  EXPECT_EQ(metrics.getFirst(), metricsCopy.getFirst());
+  EXPECT_EQ(metrics.getSecond(), metricsCopy.getSecond());
 }
