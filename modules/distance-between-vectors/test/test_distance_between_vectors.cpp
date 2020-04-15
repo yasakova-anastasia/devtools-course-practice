@@ -53,3 +53,17 @@ TEST(DistanceBetweenVectorsTest, cannot_create_for_vec_of_different_div) {
   // Act & Assert
   ASSERT_ANY_THROW(Metrics metrics(first, second));
 }
+
+TEST(DistanceBetweenVectorsTest, can_create_via_copying) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+
+  // Act
+  Metrics copy(metrics);
+
+  // Assert
+  EXPECT_EQ(metrics.getFirst(), copy.getFirst());
+  EXPECT_EQ(metrics.getSecond(), copy.getSecond());
+}

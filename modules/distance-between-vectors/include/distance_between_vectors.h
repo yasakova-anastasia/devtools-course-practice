@@ -11,6 +11,7 @@ class Metrics {
 
  public:
   Metrics();
+  Metrics(const Metrics&) = default;
   Metrics(const std::vector<float>& _fst, const std::vector<float>& _sec);
 
   std::vector<float> getFirst();
