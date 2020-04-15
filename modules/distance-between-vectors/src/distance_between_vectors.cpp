@@ -24,9 +24,15 @@ std::vector<float> Metrics::getSecond() {
 }
 
 void Metrics::setFirst(const std::vector<float>& _fst) {
+  if (fst.size() != _fst.size()) {
+    throw "vectors of different dimensions";
+  }
   fst = _fst;
 }
 
 void Metrics::setSecond(const std::vector<float>& _sec) {
+  if (sec.size() != _sec.size()) {
+    throw "vectors of different dimensions";
+  }
   sec = _sec;
 }

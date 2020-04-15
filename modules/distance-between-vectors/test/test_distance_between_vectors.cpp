@@ -71,11 +71,11 @@ TEST(DistanceBetweenVectorsTest, can_create_via_copying) {
 TEST(DistanceBetweenVectorsTest, can_set_first_vec) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> newFirst{ 3.0, 2.0, 1.0 };
   std::vector<float> second{ 2.0, 3.0, 4.0 };
   Metrics metrics(first, second);
 
   // Act
-  std::vector<float> newFirst{ 3.0, 2.0, 1.0 };
   metrics.setFirst(newFirst);
 
   // Assert
@@ -86,12 +86,34 @@ TEST(DistanceBetweenVectorsTest, can_set_second_vec) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
   std::vector<float> second{ 2.0, 3.0, 4.0 };
+  std::vector<float> newSecond{ 3.0, 2.0, 1.0 };
   Metrics metrics(first, second);
 
   // Act
-  std::vector<float> newSecond{ 3.0, 2.0, 1.0 };
   metrics.setSecond(newSecond);
 
   // Assert
   EXPECT_EQ(metrics.getSecond(), newSecond);
+}
+
+TEST(DistanceBetweenVectorsTest, cannot_set_fst_vec_of_another_div) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  std::vector<float> newFirst{ 3.0, 2.0 };
+  Metrics metrics(first, second);
+
+  // Act & Assert
+  ASSERT_ANY_THROW(metrics.setFirst(newFirst));
+}
+
+TEST(DistanceBetweenVectorsTest, cannot_set_sec_vec_of_another_div) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  std::vector<float> newSecond{ 3.0, 2.0 };
+  Metrics metrics(first, second);
+
+  // Act & Assert
+  ASSERT_ANY_THROW(metrics.setSecond(newSecond));
 }
