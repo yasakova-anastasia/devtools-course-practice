@@ -1,6 +1,7 @@
 // Copyright 2020 Vladislav Golubev
 
 #include <vector>
+#include <cmath>
 #include "../include/distance_between_vectors.h"
 
 Metrics::Metrics() : fst(std::vector<float>(1)),
@@ -35,4 +36,12 @@ void Metrics::setSecond(const std::vector<float>& _sec) {
     throw "vectors of different dimensions";
   }
   sec = _sec;
+}
+
+double Metrics::getL1() {
+  double res = 0;
+  for (std::size_t i = 0; i < fst.size(); ++i) {
+    res += std::abs(fst[i] - sec[i]);
+  }
+  return res;
 }

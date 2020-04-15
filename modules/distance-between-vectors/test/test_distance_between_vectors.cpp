@@ -9,7 +9,7 @@ class DistanceBetweenVectorsTest : public ::testing::Test {
   double epsilon = 0.001;
 };
 
-TEST(DistanceBetweenVectorsTest, default_first_vec) {
+TEST_F(DistanceBetweenVectorsTest, default_first_vec) {
   // Arrange
   std::vector<float> defaultVec(1);
   // Act
@@ -19,7 +19,7 @@ TEST(DistanceBetweenVectorsTest, default_first_vec) {
   EXPECT_EQ(metrics.getFirst(), defaultVec);
 }
 
-TEST(DistanceBetweenVectorsTest, default_sec_vec) {
+TEST_F(DistanceBetweenVectorsTest, default_sec_vec) {
   // Arrange
   std::vector<float> defaultVec(1);
 
@@ -30,7 +30,7 @@ TEST(DistanceBetweenVectorsTest, default_sec_vec) {
   EXPECT_EQ(metrics.getSecond(), defaultVec);
 }
 
-TEST(DistanceBetweenVectorsTest, create_with_two_vectors) {
+TEST_F(DistanceBetweenVectorsTest, create_with_two_vectors) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
   std::vector<float> second{ 2.0, 3.0, 4.0 };
@@ -43,7 +43,7 @@ TEST(DistanceBetweenVectorsTest, create_with_two_vectors) {
   EXPECT_EQ(metrics.getSecond(), second);
 }
 
-TEST(DistanceBetweenVectorsTest, cannot_create_for_vec_of_different_div) {
+TEST_F(DistanceBetweenVectorsTest, cannot_create_for_vec_of_different_div) {
   // Arrange
   int div1 = 5;
   int div2 = 10;
@@ -54,7 +54,7 @@ TEST(DistanceBetweenVectorsTest, cannot_create_for_vec_of_different_div) {
   ASSERT_ANY_THROW(Metrics metrics(first, second));
 }
 
-TEST(DistanceBetweenVectorsTest, can_create_via_copying) {
+TEST_F(DistanceBetweenVectorsTest, can_create_via_copying) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
   std::vector<float> second{ 2.0, 3.0, 4.0 };
@@ -68,7 +68,7 @@ TEST(DistanceBetweenVectorsTest, can_create_via_copying) {
   EXPECT_EQ(metrics.getSecond(), metricsCopy.getSecond());
 }
 
-TEST(DistanceBetweenVectorsTest, can_set_first_vec) {
+TEST_F(DistanceBetweenVectorsTest, can_set_first_vec) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
   std::vector<float> newFirst{ 3.0, 2.0, 1.0 };
@@ -82,7 +82,7 @@ TEST(DistanceBetweenVectorsTest, can_set_first_vec) {
   EXPECT_EQ(metrics.getFirst(), newFirst);
 }
 
-TEST(DistanceBetweenVectorsTest, can_set_second_vec) {
+TEST_F(DistanceBetweenVectorsTest, can_set_second_vec) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
   std::vector<float> second{ 2.0, 3.0, 4.0 };
@@ -96,7 +96,7 @@ TEST(DistanceBetweenVectorsTest, can_set_second_vec) {
   EXPECT_EQ(metrics.getSecond(), newSecond);
 }
 
-TEST(DistanceBetweenVectorsTest, cannot_set_fst_vec_of_another_div) {
+TEST_F(DistanceBetweenVectorsTest, cannot_set_fst_vec_of_another_div) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
   std::vector<float> second{ 2.0, 3.0, 4.0 };
@@ -107,7 +107,7 @@ TEST(DistanceBetweenVectorsTest, cannot_set_fst_vec_of_another_div) {
   ASSERT_ANY_THROW(metrics.setFirst(newFirst));
 }
 
-TEST(DistanceBetweenVectorsTest, cannot_set_sec_vec_of_another_div) {
+TEST_F(DistanceBetweenVectorsTest, cannot_set_sec_vec_of_another_div) {
   // Arrange
   std::vector<float> first{ 1.0, 2.0, 3.0 };
   std::vector<float> second{ 2.0, 3.0, 4.0 };
@@ -116,4 +116,30 @@ TEST(DistanceBetweenVectorsTest, cannot_set_sec_vec_of_another_div) {
 
   // Act & Assert
   ASSERT_ANY_THROW(metrics.setSecond(newSecond));
+}
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l1_metric_1) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+  double expectedRes = 3.0;
+
+  // Act
+  double res = metrics.getL1();
+
+  // Assert
+  EXPECT_NEAR(res, 3.0, DistanceBetweenVectorsTest::epsilon);
+}
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l1_metric_2) {
+  // Arrange
+  Metrics metrics;
+  double expectedRes = 0.0;
+
+  // Act
+  double res = metrics.getL1();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
 }
