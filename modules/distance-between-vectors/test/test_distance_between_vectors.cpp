@@ -18,3 +18,13 @@ TEST(DistanceBetweenVectorsTest, default_first_vec) {
   // Assert
   EXPECT_EQ(metrics.getFirst(), defaultVec);
 }
+
+TEST(DistanceBetweenVectorsTest, default_sec_vec) {
+  // Arrange
+  std::vector<float> defaultVec(1);
+  // Act
+  Metrics metrics;
+
+  // Assert
+  EXPECT_EQ(metrics.getSecond(), defaultVec);
+}

@@ -11,7 +11,9 @@ class Metrics {
 
  public:
   Metrics();
+
   std::vector<float> getFirst();
+  std::vector<float> getSecond();
 };
 
 #endif  // MODULES_DISTANCE_BETWEEN_VECTORS_INCLUDE_DISTANCE_BETWEEN_VECTORS_H_

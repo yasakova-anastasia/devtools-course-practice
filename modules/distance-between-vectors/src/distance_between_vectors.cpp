@@ -1,5 +1,6 @@
 // Copyright 2020 Vladislav Golubev
 
+#include <vector>
 #include "../include/distance_between_vectors.h"
 
 Metrics::Metrics() {
@@ -9,4 +10,8 @@ Metrics::Metrics() {
 
 std::vector<float> Metrics::getFirst() {
   return fst;
+}
+
+std::vector<float> Metrics::getSecond() {
+  return sec;
 }
