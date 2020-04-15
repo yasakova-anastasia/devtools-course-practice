@@ -74,11 +74,11 @@ TEST(DistanceBetweenVectorsTest, can_set_first_vec) {
   std::vector<float> second{ 2.0, 3.0, 4.0 };
   Metrics metrics(first, second);
 
-  //Act
+  // Act
   std::vector<float> newFirst{ 3.0, 2.0, 1.0 };
   metrics.setFirst(newFirst);
 
-  // Act & Assert
+  // Assert
   EXPECT_EQ(metrics.getFirst(), newFirst);
 }
 
@@ -88,10 +88,10 @@ TEST(DistanceBetweenVectorsTest, can_set_second_vec) {
   std::vector<float> second{ 2.0, 3.0, 4.0 };
   Metrics metrics(first, second);
 
-  //Act
+  // Act
   std::vector<float> newSecond{ 3.0, 2.0, 1.0 };
   metrics.setSecond(newSecond);
 
-  // Act & Assert
+  // Assert
   EXPECT_EQ(metrics.getSecond(), newSecond);
 }
