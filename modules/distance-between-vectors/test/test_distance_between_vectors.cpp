@@ -256,3 +256,17 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l_inf_metric_2) {
   // Assert
   EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
 }
+
+TEST_F(DistanceBetweenVectorsTest, test) {
+  // Arrange
+  std::vector<float> first{ -1.359, 2.579, 2.498 };
+  std::vector<float> second{ 2.578, 1.0, 3.0 };
+  Metrics metrics(first, second);
+  double expectedRes = 4.271441676998529;
+
+  // Act
+  double res = metrics.getL2();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+}
