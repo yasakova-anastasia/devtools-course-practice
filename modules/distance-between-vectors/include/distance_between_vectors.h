@@ -14,8 +14,8 @@ class Metrics {
   Metrics(const Metrics&) = default;
   Metrics(const std::vector<float>& _fst, const std::vector<float>& _sec);
 
-  std::vector<float> getFirst();
-  std::vector<float> getSecond();
+  std::vector<float> getFirst() const;
+  std::vector<float> getSecond() const;
 
   void setFirst(const std::vector<float>& _fst);
   void setSecond(const std::vector<float>& _sec);

@@ -16,11 +16,11 @@ Metrics::Metrics(const std::vector<float>& _fst,
   sec = _sec;
 }
 
-std::vector<float> Metrics::getFirst() {
+std::vector<float> Metrics::getFirst() const {
   return fst;
 }
 
-std::vector<float> Metrics::getSecond() {
+std::vector<float> Metrics::getSecond() const {
   return sec;
 }
 
