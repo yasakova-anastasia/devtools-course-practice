@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <vector>
+#include <cmath>
 #include "include/distance_between_vectors.h"
 
 class DistanceBetweenVectorsTest : public ::testing::Test {
@@ -139,6 +140,34 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l1_metric_2) {
 
   // Act
   double res = metrics.getL1();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+}
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l2_metric_1) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+  double expectedRes = std::sqrt(3);
+
+  // Act
+  double res = metrics.getL2();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+}
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l2_metric_2) {
+  // Arrange
+  std::vector<float> first{ 3.0, 1.0, 1.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+  double expectedRes = std::sqrt(14);
+
+  // Act
+  double res = metrics.getL2();
 
   // Assert
   EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);

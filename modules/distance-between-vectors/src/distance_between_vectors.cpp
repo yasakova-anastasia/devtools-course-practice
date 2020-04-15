@@ -45,3 +45,11 @@ double Metrics::getL1() {
   }
   return res;
 }
+
+double Metrics::getL2() {
+  double res = 0;
+  for (std::size_t i = 0; i < fst.size(); ++i) {
+    res += (fst[i] - sec[i]) * (fst[i] - sec[i]);
+  }
+  return std::sqrt(res);
+}
