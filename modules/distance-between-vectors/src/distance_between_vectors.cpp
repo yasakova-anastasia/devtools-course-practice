@@ -6,6 +6,10 @@
 Metrics::Metrics() : fst(std::vector<float>(1)),
                      sec(std::vector<float>(1)) {}
 
+Metrics::Metrics(const std::vector<float>& _fst,
+                 const std::vector<float>& _sec) : fst(_fst),
+                                                   sec(_sec) {}
+
 std::vector<float> Metrics::getFirst() {
   return fst;
 }
