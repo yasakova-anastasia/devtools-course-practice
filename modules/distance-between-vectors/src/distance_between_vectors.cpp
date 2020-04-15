@@ -53,3 +53,11 @@ double Metrics::getL2() {
   }
   return std::sqrt(res);
 }
+
+double Metrics::getL3() {
+  double res = 0;
+  for (std::size_t i = 0; i < fst.size(); ++i) {
+    res += std::pow(std::abs(fst[i] - sec[i]), 3);
+  }
+  return std::pow(res, 1.0 / 3.0);
+}
