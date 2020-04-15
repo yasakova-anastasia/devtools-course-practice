@@ -72,9 +72,8 @@ double Metrics::getL4() {
 
 double Metrics::getLInf() {
   double res = std::abs(fst[0] - sec[0]);
-  double curElem;
   for (std::size_t i = 1; i < fst.size(); ++i) {
-    curElem = std::abs(fst[i] - sec[i]);
+    double curElem = std::abs(fst[i] - sec[i]);
     if (curElem > res) {
       res = curElem;
     }
