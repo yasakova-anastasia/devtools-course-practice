@@ -23,6 +23,8 @@ class Metrics {
   double getL1();
   double getL2();
   double getL3();
+  double getL4();
+  double getLInf();
 };
 
 #endif  // MODULES_DISTANCE_BETWEEN_VECTORS_INCLUDE_DISTANCE_BETWEEN_VECTORS_H_

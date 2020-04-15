@@ -186,3 +186,59 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l3_metric_2) {
   // Assert
   EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
 }
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l4_metric_1) {
+  // Arrange
+  std::vector<float> first{ 3.0, 1.0, 1.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+  double expectedRes = std::pow(98, 1.0 / 4.0);
+
+  // Act
+  double res = metrics.getL4();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+}
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l4_metric_2) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+  double expectedRes = std::pow(3, 1.0 / 4.0);
+
+  // Act
+  double res = metrics.getL4();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+}
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l_inf_metric_1) {
+  // Arrange
+  std::vector<float> first{ 3.0, 1.0, 1.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+  double expectedRes = 3;
+
+  // Act
+  double res = metrics.getLInf();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+}
+
+TEST_F(DistanceBetweenVectorsTest, can_return_l_inf_metric_2) {
+  // Arrange
+  std::vector<float> first{ 1.0, 2.0, 3.0 };
+  std::vector<float> second{ 2.0, 3.0, 4.0 };
+  Metrics metrics(first, second);
+  double expectedRes = 1;
+
+  // Act
+  double res = metrics.getLInf();
+
+  // Assert
+  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+}
