@@ -122,6 +122,14 @@ TEST(Dheap, can_return_first_child_2) {
     EXPECT_EQ(a.firstChild(1), 4);
 }
 
+TEST(Dheap, can_return_first_child_3) {
+    d_heap a(3, 10);
+    a.insert(2); a.insert(4);
+    a.insert(3); a.insert(5);
+    a.insert(5); a.insert(6);
+    EXPECT_EQ(a.firstChild(5), 0);
+}
+
 TEST(Dheap, can_return_last_child_without_throws) {
     d_heap a(3, 10);
     a.insert(2);
@@ -144,6 +152,14 @@ TEST(Dheap, can_return_last_child_2) {
     a.insert(3); a.insert(5);
     a.insert(5); a.insert(6);
     EXPECT_EQ(a.lastChild(1), 5);
+}
+
+TEST(Dheap, can_return_last_child_3) {
+    d_heap a(3, 6);
+    a.insert(2); a.insert(4);
+    a.insert(3); a.insert(5);
+    a.insert(5); a.insert(6);
+    EXPECT_EQ(a.lastChild(5), 0);
 }
 
 TEST(Dheap, can_return_min_child_without_throws) {
@@ -270,6 +286,15 @@ TEST(Dheap, can_delete_element_2) {
     a.insert(5); a.insert(1);
     a.del(5);
     EXPECT_EQ(a[1], 2);
+}
+
+TEST(Dheap, can_delete_element_3) {
+    d_heap a(3, 10);
+    a.insert(1); a.insert(10);
+    a.insert(2); a.insert(15);
+    a.insert(20); a.insert(5);
+    a.del(3);
+    EXPECT_EQ(a[1], 5);
 }
 
 TEST(Dheap, can_decrease_element_key_without_throws) {
