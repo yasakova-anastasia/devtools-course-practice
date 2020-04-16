@@ -11,7 +11,7 @@ TEST(RadixSortTest, Can_Fill_Array) {
 
   FillRandom(&vec);
 
-  EXPECT_EQ(true, vec != old_vec);
+  EXPECT_TRUE(vec != old_vec);
 }
 
 TEST(RadixSortTest, Can_Find_Unsorted_Array) {
@@ -19,7 +19,7 @@ TEST(RadixSortTest, Can_Find_Unsorted_Array) {
 
   bool result = IsSorted(vec);
 
-  EXPECT_EQ(static_cast<bool>(false), result);
+  EXPECT_FALSE(result);
 }
 
 TEST(RadixSortTest, Can_Find_Sorted_Array) {
@@ -27,7 +27,7 @@ TEST(RadixSortTest, Can_Find_Sorted_Array) {
 
   bool result = IsSorted(vec);
 
-  EXPECT_EQ(static_cast<bool> (true), result);
+  EXPECT_TRUE(result);
 }
 
 TEST(RadixSortTest, Can_Sort_Sorted_Array) {
