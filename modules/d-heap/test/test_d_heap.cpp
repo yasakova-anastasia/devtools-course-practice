@@ -289,7 +289,7 @@ TEST(Dheap, can_delete_element_2) {
 }
 
 TEST(Dheap, can_delete_element_3) {
-    d_heap a(3, 10);
+    d_heap a(2, 10);
     a.insert(1); a.insert(10);
     a.insert(2); a.insert(15);
     a.insert(20); a.insert(5);
