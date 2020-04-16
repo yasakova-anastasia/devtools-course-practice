@@ -25,6 +25,28 @@ bool IsSorted(const std::vector<std::int32_t>& vec_ref) {
   return true;
 }
 
-std::vector<std::int32_t> RadixSort(const std::vector<std::int32_t>& vec_ref) {
-  return std::vector<std::int32_t>();
+std::vector<std::int32_t> RadixSort(std::vector<std::int32_t> vec) {
+  std::int32_t size = vec.size();
+  std::vector<std::int32_t> res_vec(size);
+  std::uint8_t* ptr = reinterpret_cast<std::uint8_t*>(&vec[0]);
+
+  for (std::int32_t k = 0; k < 4; ++k) {
+    std::int32_t count[256] = {0};
+    for (std::int32_t i = 0; i < size; ++i) count[*(ptr + k + i * 4)]++;
+
+    std::int32_t sum = 0;
+    for (std::int32_t i = 0; i < 256; ++i) {
+      std::int32_t tmp = count[i];
+      count[i] = sum;
+      sum += tmp;
+    }
+
+    for (std::int32_t i = 0; i < size; ++i) {
+      res_vec[(count[*(ptr + k + i * 4)]) % size] = vec[i];
+      count[*(ptr + k + i * 4)]++;
+    }
+
+    vec = res_vec;
+  }
+  return res_vec;
 }
