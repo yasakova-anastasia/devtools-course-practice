@@ -5,6 +5,7 @@
 
 #include <stdint.h>
 #include <new>
+#include <algorithm>
 #include <iostream>
 
 class d_heap {
