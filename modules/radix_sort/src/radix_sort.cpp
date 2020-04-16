@@ -5,8 +5,6 @@
 #include <random>
 #include "include/radix_sort.h"
 
-
-
 void FillRandom(std::vector<std::int32_t>* vec_ptr) {
   std::mt19937 gen(time(0));
   std::int32_t size = vec_ptr->size();

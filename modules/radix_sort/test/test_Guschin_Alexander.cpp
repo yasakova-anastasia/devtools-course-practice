@@ -60,3 +60,12 @@ TEST(RadixSortTest, Can_Sort_Unsorted_Array_With_Negative_Numbers) {
 
   EXPECT_EQ(expected_vec, res);
 }
+
+TEST(RadixSortTest, Can_Sort_Unsorted_Array_With_Random_Numbers) {
+  std::vector<std::int32_t> vec(100, 0);
+  FillRandom(&vec);
+
+  bool result = IsSorted(RadixSort(vec));
+
+  EXPECT_TRUE(result);
+}
