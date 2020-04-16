@@ -1,5 +1,6 @@
 // Copyright 2020 Antipin Alexander
 
+#include <algorithm>
 #include <gtest/gtest.h>
 #include "include/d-heap.h"
 
