@@ -26,6 +26,23 @@ TEST(CalculatorComplexNums, can_create_pattern) {
     EXPECT_EQ("(5+2i)+(2-0i)", c.GetPattern());
 }
 
+TEST(CalculatorComplexNums, throw_when_create_with_wrong_pattern) {
+    // Arrange
+    std::string str = "(5+2i)=(2-0i)";
+    bool check = true;
+
+    //Act
+    try {
+        CalculatorComplexNums c(str);
+    }
+    catch (...) {
+        check = false;
+    }
+    
+    // Assert
+    EXPECT_FALSE(check);
+}
+
 TEST(CalculatorComplexNums, can_set_pattern) {
     // Arrange
     std::string str = "(5+2i)+(2-0i)";
