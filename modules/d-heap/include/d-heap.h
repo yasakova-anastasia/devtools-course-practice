@@ -11,6 +11,7 @@ class d_heap {
  protected:
     uint8_t d;
     size_t size;
+    size_t count;
     size_t* keys;
  public:
     d_heap();
@@ -19,7 +20,9 @@ class d_heap {
     d_heap(d_heap&& copy) noexcept;
     ~d_heap();
     uint8_t getD() const;
-    size_t& operator[](const size_t iter);
+    size_t getCount() const;
+    size_t getSize() const;
+    size_t operator[](const size_t iter);
     size_t minChild(const size_t iter);
     size_t firstChild(const size_t iter);
     size_t lastChild(const size_t iter);
@@ -28,8 +31,7 @@ class d_heap {
     void immersion(const size_t iter); // погружение
     void insert(const size_t key); // вставка
     void del(const size_t iter); // удаление
-    void key_decrease(const size_t iter, const  size_t down_key); // уменьшение ключа
-    void hilling(); // окучивание
+    void key_decrease(const size_t iter, const size_t down_key); // уменьшение ключа
 };
 
 #endif // !MODULES_D-HEAP_INCLUDE_D-HEAP_H_
