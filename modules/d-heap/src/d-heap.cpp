@@ -1,5 +1,6 @@
 // Copyright 2020 Antipin Alexander
 
+#include <algorithm>
 #include "include/d-heap.h"
 
 d_heap::d_heap() : d(2), size(3), count(0),
