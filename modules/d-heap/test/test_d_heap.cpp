@@ -1,8 +1,8 @@
 // Copyright 2020 Antipin Alexander
 
-#include <algorithm>
 #include <gtest/gtest.h>
 #include "include/d-heap.h"
+#include <algorithm>
 
 TEST(Dheap, can_create_default_d_heap) {
     ASSERT_NO_THROW(d_heap());
