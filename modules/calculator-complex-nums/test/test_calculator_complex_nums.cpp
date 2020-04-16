@@ -31,14 +31,14 @@ TEST(CalculatorComplexNums, throw_when_create_with_wrong_pattern) {
     std::string str = "(5+2i)=(2-0i)";
     bool check = true;
 
-    //Act
+    // Act
     try {
         CalculatorComplexNums c(str);
     }
     catch (...) {
         check = false;
     }
-    
+
     // Assert
     EXPECT_FALSE(check);
 }
