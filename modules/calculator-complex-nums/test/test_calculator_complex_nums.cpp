@@ -17,7 +17,7 @@ TEST(CalculatorComplexNums, can_create_empty_pattern) {
 
 TEST(CalculatorComplexNums, can_create_pattern) {
     // Arrange
-    std::string str = "some";
+    string str = "some";
 
     // Act
     CalculatorComplexNums c(str);
@@ -28,7 +28,7 @@ TEST(CalculatorComplexNums, can_create_pattern) {
 
 TEST(CalculatorComplexNums, check_brackets_return_true_1) {
     // Arrange
-    std::string str = "(5+2i)+(2-0i)";
+    string str = "(5+2i)+(2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -39,7 +39,7 @@ TEST(CalculatorComplexNums, check_brackets_return_true_1) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_1) {
     // Arrange
-    std::string str = "((5+2i)+(2-0i)";
+    string str = "((5+2i)+(2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -50,7 +50,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_1) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_2) {
     // Arrange
-    std::string str = "(5+)2i)+(2-0i)";
+    string str = "(5+)2i)+(2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -61,7 +61,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_2) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_3) {
     // Arrange
-    std::string str = "(5+2i)=(2-0i)";
+    string str = "(5+2i)=(2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -72,7 +72,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_3) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_4) {
     // Arrange
-    std::string str = "5+2i()=(2-0i)";
+    string str = "5+2i()=(2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -83,7 +83,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_4) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_5) {
     // Arrange
-    std::string str = "(5+0i)/(2+5)i8";
+    string str = "(5+0i)/(2+5)i8";
 
     // Act
     CalculatorComplexNums c(str);
@@ -94,7 +94,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_5) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_6) {
     // Arrange
-    std::string str = "(5)+0i8/(2+5i)";
+    string str = "(5)+0i8/(2+5i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -105,7 +105,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_6) {
 
 TEST(CalculatorComplexNums, correct_characters_return_true_1) {
     // Arrange
-    std::string str = "(5+2i)+(5.2-0i)";
+    string str = "(5+2i)+(5.2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -116,7 +116,7 @@ TEST(CalculatorComplexNums, correct_characters_return_true_1) {
 
 TEST(CalculatorComplexNums, correct_characters_return_true_2) {
     // Arrange
-    std::string str = "()()()()()()";
+    string str = "()()()()()()";
 
     // Act
     CalculatorComplexNums c(str);
@@ -127,7 +127,7 @@ TEST(CalculatorComplexNums, correct_characters_return_true_2) {
 
 TEST(CalculatorComplexNums, correct_characters_return_true_3) {
     // Arrange
-    std::string str = "123456789+-*/()";
+    string str = "123456789+-*/()";
 
     // Act
     CalculatorComplexNums c(str);
@@ -138,7 +138,7 @@ TEST(CalculatorComplexNums, correct_characters_return_true_3) {
 
 TEST(CalculatorComplexNums, correct_characters_return_false_1) {
     // Arrange
-    std::string str = "(5+2i) + (5.2-0i)";
+    string str = "(5+2i) + (5.2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -149,7 +149,7 @@ TEST(CalculatorComplexNums, correct_characters_return_false_1) {
 
 TEST(CalculatorComplexNums, correct_characters_return_false_2) {
     // Arrange
-    std::string str = "(5+2i)a-i (5.2-0i)";
+    string str = "(5+2i)a-i (5.2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -160,7 +160,7 @@ TEST(CalculatorComplexNums, correct_characters_return_false_2) {
 
 TEST(CalculatorComplexNums, correct_characters_return_false_3) {
     // Arrange
-    std::string str = "(5+2i)-(5,2-0i)";
+    string str = "(5+2i)-(5,2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -171,7 +171,7 @@ TEST(CalculatorComplexNums, correct_characters_return_false_3) {
 
 TEST(CalculatorComplexNums, initialize_from_pattern_with_positive_data) {
     // Arrange
-    std::string str = "(5+2i)-(5.2+0i)";
+    string str = "(5+2i)-(5.2+0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -187,7 +187,7 @@ TEST(CalculatorComplexNums, initialize_from_pattern_with_positive_data) {
 
 TEST(CalculatorComplexNums, initialize_from_pattern_with_negative_data) {
     // Arrange
-    std::string str = "(-5-2i)-(-5.2-0i)";
+    string str = "(-5-2i)-(-5.2-0i)";
 
     // Act
     CalculatorComplexNums c(str);

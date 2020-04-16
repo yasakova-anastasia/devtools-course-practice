@@ -7,17 +7,19 @@
 
 #include "include/complex_number.h"
 
+using namespace std;
+
 class CalculatorComplexNums {
  private:
-    std::string pattern;
+    string pattern;
     char operation;
     ComplexNumber c1;
     ComplexNumber c2;
  public:
     CalculatorComplexNums();
-    explicit CalculatorComplexNums(const std::string _pattern);
+    explicit CalculatorComplexNums(const string _pattern);
 
-    std::string GetPattern();
+    string GetPattern();
     ComplexNumber GetFirst();
     ComplexNumber GetSecond();
     char GetOperation();
