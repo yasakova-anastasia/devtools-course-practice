@@ -13,11 +13,11 @@ class d_heap {
     size_t size;
     size_t count;
     size_t* keys;
+
  public:
     d_heap();
     d_heap(const uint8_t d, const size_t size);
     d_heap(const d_heap& copy);
-    d_heap(d_heap&& copy) noexcept;
     ~d_heap();
     uint8_t getD() const;
     size_t getCount() const;
@@ -27,11 +27,11 @@ class d_heap {
     size_t firstChild(const size_t iter);
     size_t lastChild(const size_t iter);
     size_t father(const size_t iter);
-    void ascent(const size_t iter); // всполытие
-    void immersion(const size_t iter); // погружение
-    void insert(const size_t key); // вставка
-    void del(const size_t iter); // удаление
-    void key_decrease(const size_t iter, const size_t down_key); // уменьшение ключа
+    void ascent(const size_t iter);
+    void immersion(const size_t iter);
+    void insert(const size_t key);
+    void del(const size_t iter);
+    void key_decrease(const size_t iter, const size_t down_key);
 };
 
-#endif // !MODULES_D-HEAP_INCLUDE_D-HEAP_H_
+#endif  // MODULES_D_HEAP_INCLUDE_D_HEAP_H_

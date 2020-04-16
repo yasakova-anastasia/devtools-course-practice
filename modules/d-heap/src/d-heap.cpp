@@ -20,13 +20,6 @@ d_heap::d_heap(const d_heap& copy) : d(copy.d), size(copy.size), count(0),
         new(keys + i) size_t(copy.keys[i]);
 }
 
-d_heap::d_heap(d_heap&& copy) noexcept : d(copy.d), size(copy.size),
-    count(copy.count), keys(copy.keys) {
-    copy.size = 0;
-    copy.count = 0;
-    copy.keys = nullptr;
-}
-
 d_heap::~d_heap() {
     for (size_t i = 0; i < size; ++i)
         (keys + i)->~size_t();

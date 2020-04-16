@@ -52,24 +52,6 @@ TEST(Dheap, is_creating_d_heap_from_copy_return_correct_values) {
     EXPECT_EQ(a[0], i);
 }
 
-TEST(Dheap, can_create_d_heap_from_move_constructor) {
-    d_heap copy(2, 10);
-    ASSERT_NO_THROW(d_heap a(std::move(copy)));
-}
-
-TEST(Dheap, is_creating_d_heap_from_move_correct) {
-    d_heap copy(3, 10);
-    d_heap a(std::move(copy));
-    EXPECT_EQ(a.getD(), 3);
-}
-
-TEST(Dheap, is_creating_d_heap_from_move_return_correct_values) {
-    d_heap copy(3, 10);
-    d_heap a(std::move(copy));
-    size_t i = -1;
-    EXPECT_EQ(a[0], i);
-}
-
 TEST(Dheap, can_insert_element_without_throw) {
     d_heap a(3, 10);
     ASSERT_NO_THROW(a.insert(2));
