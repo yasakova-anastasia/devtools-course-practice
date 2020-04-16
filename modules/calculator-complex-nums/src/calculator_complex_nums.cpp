@@ -7,11 +7,18 @@
 
 CalculatorComplexNums::CalculatorComplexNums() : pattern("") {}
 
-CalculatorComplexNums::CalculatorComplexNums(string _pattern) :
-    pattern(_pattern) {}
+CalculatorComplexNums::CalculatorComplexNums(std::string _pattern) :
+    pattern(_pattern) {
+    if (!(CheckBrackets() && CheckSymbols()))
+        throw - 3;
+}
 
-string CalculatorComplexNums::GetPattern() {
+std::string CalculatorComplexNums::GetPattern() {
     return pattern;
+}
+
+void CalculatorComplexNums::SetPattern(std::string _pattern) {
+    pattern = _pattern;
 }
 
 ComplexNumber CalculatorComplexNums::GetFirst() {

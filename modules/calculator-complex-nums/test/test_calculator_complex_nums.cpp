@@ -17,18 +17,30 @@ TEST(CalculatorComplexNums, can_create_empty_pattern) {
 
 TEST(CalculatorComplexNums, can_create_pattern) {
     // Arrange
-    string str = "some";
+    std::string str = "(5+2i)+(2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
 
     // Assert
-    EXPECT_EQ("some", c.GetPattern());
+    EXPECT_EQ("(5+2i)+(2-0i)", c.GetPattern());
+}
+
+TEST(CalculatorComplexNums, can_set_pattern) {
+    // Arrange
+    std::string str = "(5+2i)+(2-0i)";
+
+    // Act
+    CalculatorComplexNums c;
+    c.SetPattern(str);
+
+    // Assert
+    EXPECT_EQ("(5+2i)+(2-0i)", c.GetPattern());
 }
 
 TEST(CalculatorComplexNums, check_brackets_return_true_1) {
     // Arrange
-    string str = "(5+2i)+(2-0i)";
+    std::string str = "(5+2i)+(2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -39,10 +51,11 @@ TEST(CalculatorComplexNums, check_brackets_return_true_1) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_1) {
     // Arrange
-    string str = "((5+2i)+(2-0i)";
+    std::string str = "((5+2i)+(2-0i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckBrackets());
@@ -50,10 +63,11 @@ TEST(CalculatorComplexNums, check_brackets_return_false_1) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_2) {
     // Arrange
-    string str = "(5+)2i)+(2-0i)";
+    std::string str = "(5+)2i)+(2-0i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckBrackets());
@@ -61,10 +75,11 @@ TEST(CalculatorComplexNums, check_brackets_return_false_2) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_3) {
     // Arrange
-    string str = "(5+2i)=(2-0i)";
+    std::string str = "(5+2i)=(2-0i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckBrackets());
@@ -72,10 +87,11 @@ TEST(CalculatorComplexNums, check_brackets_return_false_3) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_4) {
     // Arrange
-    string str = "5+2i()=(2-0i)";
+    std::string str = "5+2i()=(2-0i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckBrackets());
@@ -83,10 +99,11 @@ TEST(CalculatorComplexNums, check_brackets_return_false_4) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_5) {
     // Arrange
-    string str = "(5+0i)/(2+5)i8";
+    std::string str = "(5+0i)/(2+5)i8";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckBrackets());
@@ -94,10 +111,11 @@ TEST(CalculatorComplexNums, check_brackets_return_false_5) {
 
 TEST(CalculatorComplexNums, check_brackets_return_false_6) {
     // Arrange
-    string str = "(5)+0i8/(2+5i)";
+    std::string str = "(5)+0i8/(2+5i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckBrackets());
@@ -105,7 +123,7 @@ TEST(CalculatorComplexNums, check_brackets_return_false_6) {
 
 TEST(CalculatorComplexNums, correct_characters_return_true_1) {
     // Arrange
-    string str = "(5+2i)+(5.2-0i)";
+    std::string str = "(5+2i)+(5.2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -116,10 +134,11 @@ TEST(CalculatorComplexNums, correct_characters_return_true_1) {
 
 TEST(CalculatorComplexNums, correct_characters_return_true_2) {
     // Arrange
-    string str = "()()()()()()";
+    std::string str = "()()()()()()";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_TRUE(c.CheckSymbols());
@@ -127,10 +146,11 @@ TEST(CalculatorComplexNums, correct_characters_return_true_2) {
 
 TEST(CalculatorComplexNums, correct_characters_return_true_3) {
     // Arrange
-    string str = "123456789+-*/()";
+    std::string str = "123456789+-*/()";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_TRUE(c.CheckSymbols());
@@ -138,10 +158,11 @@ TEST(CalculatorComplexNums, correct_characters_return_true_3) {
 
 TEST(CalculatorComplexNums, correct_characters_return_false_1) {
     // Arrange
-    string str = "(5+2i) + (5.2-0i)";
+    std::string str = "(5+2i) + (5.2-0i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckSymbols());
@@ -149,10 +170,11 @@ TEST(CalculatorComplexNums, correct_characters_return_false_1) {
 
 TEST(CalculatorComplexNums, correct_characters_return_false_2) {
     // Arrange
-    string str = "(5+2i)a-i (5.2-0i)";
+    std::string str = "(5+2i)a-i (5.2-0i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckSymbols());
@@ -160,10 +182,11 @@ TEST(CalculatorComplexNums, correct_characters_return_false_2) {
 
 TEST(CalculatorComplexNums, correct_characters_return_false_3) {
     // Arrange
-    string str = "(5+2i)-(5,2-0i)";
+    std::string str = "(5+2i)-(5,2-0i)";
 
     // Act
-    CalculatorComplexNums c(str);
+    CalculatorComplexNums c;
+    c.SetPattern(str);
 
     // Assert
     EXPECT_FALSE(c.CheckSymbols());
@@ -171,7 +194,7 @@ TEST(CalculatorComplexNums, correct_characters_return_false_3) {
 
 TEST(CalculatorComplexNums, initialize_from_pattern_with_positive_data) {
     // Arrange
-    string str = "(5+2i)-(5.2+0i)";
+    std::string str = "(5+2i)-(5.2+0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -187,7 +210,7 @@ TEST(CalculatorComplexNums, initialize_from_pattern_with_positive_data) {
 
 TEST(CalculatorComplexNums, initialize_from_pattern_with_negative_data) {
     // Arrange
-    string str = "(-5-2i)-(-5.2-0i)";
+    std::string str = "(-5-2i)-(-5.2-0i)";
 
     // Act
     CalculatorComplexNums c(str);
@@ -267,7 +290,7 @@ TEST(CalculatorComplexNums, throw_if_try_calculate_without_initialize) {
 
 TEST(CalculatorComplexNums, throw_division_by_zero) {
     // Act
-    CalculatorComplexNums c("(1.3+5i)/(0-0)");
+    CalculatorComplexNums c("(1.3+5i)/(0-0i)");
     c.InitializeFromPattern();
 
     // Assert
