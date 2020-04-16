@@ -2,9 +2,10 @@
 
 #include <gtest/gtest.h>
 
+#include <vector>
 #include "include/radix_sort.h"
 
-TEST(RadixSortTest, Can_Fill_Vector) { 
+TEST(RadixSortTest, Can_Fill_Vector) {
   std::vector<std::int32_t> vec(3, 0);
   std::vector<std::int32_t> old_vec(3, 0);
 
