@@ -32,11 +32,31 @@ TEST(RadixSortTest, Can_Find_Sorted_Array) {
 
 TEST(RadixSortTest, Can_Sort_Sorted_Array) {
   std::vector<std::int32_t> vec = {1, 2, 4};
-  std::vector<std::int32_t> res_exp = {1, 2, 4};
+  std::vector<std::int32_t> expected_vec = {1, 2, 4};
   std::vector<std::int32_t> tmp_vec;
 
   tmp_vec = RadixSort(vec);
 
-  EXPECT_EQ(res_exp, tmp_vec);
+  EXPECT_EQ(expected_vec, tmp_vec);
 }
 
+TEST(RadixSortTest, Can_Sort_Unsorted_Array) {
+  std::vector<std::int32_t> vec = {1, 2, 4};
+  std::vector<std::int32_t> expected_vec = {1, 2, 4};
+  std::vector<std::int32_t> tmp_vec;
+
+  tmp_vec = RadixSort(vec);
+
+  EXPECT_EQ(expected_vec, tmp_vec);
+}
+
+TEST(RadixSortTest, Can_Sort_Unsorted_Array_With_Negative_Numbers) {
+  std::vector<std::int32_t> vec = {
+      -32, 332, 1 << 28, -8, 1 << 26, -(1 << 26), -24, -(1 << 27), 1111};
+  std::vector<std::int32_t> expected_vec = {
+      -(1 << 27), -(1 << 26), -32, -24, -8, 332, 1111, 1 << 26, 1 << 28};
+
+  std::vector<std::int32_t> res(RadixSort(vec));
+
+  EXPECT_EQ(expected_vec, res);
+}
