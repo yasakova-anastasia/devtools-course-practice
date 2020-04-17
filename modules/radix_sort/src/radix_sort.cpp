@@ -28,14 +28,9 @@ std::vector<std::int32_t> RadixSort(std::vector<std::int32_t> vec) {
   std::vector<std::int32_t> res_vec(size);
   std::uint8_t* ptr = reinterpret_cast<std::uint8_t*>(&vec[0]);
 
-  for (std::int32_t k = 0; k < 4; ++k) {
+  for (std::int32_t k = 0; k < 3; ++k) {
     std::int32_t count[256] = {0};
     for (std::int32_t i = 0; i < size; ++i) count[*(ptr + k + i * 4)]++;
-
-    std::int32_t shift = 0;
-    if (k == 3) {
-      for (std::int32_t i = 128; i < 256; ++i) shift += count[i];
-    }
 
     std::int32_t sum = 0;
     for (std::int32_t i = 0; i < 256; ++i) {
@@ -45,11 +40,30 @@ std::vector<std::int32_t> RadixSort(std::vector<std::int32_t> vec) {
     }
 
     for (std::int32_t i = 0; i < size; ++i) {
-      res_vec[(count[*(ptr + k + i * 4)] + shift) % size] = vec[i];
+      res_vec[count[*(ptr + k + i * 4)]] = vec[i];
       count[*(ptr + k + i * 4)]++;
     }
 
     vec = res_vec;
   }
+
+  std::int32_t count[256] = {0};
+  for (std::int32_t i = 0; i < size; ++i) count[*(ptr + 3 + i * 4)]++;
+
+  std::int32_t shift = 0;
+  for (std::int32_t i = 128; i < 256; ++i) shift += count[i];
+ 
+  std::int32_t sum = 0;
+  for (std::int32_t i = 0; i < 256; ++i) {
+    std::int32_t tmp = count[i];
+    count[i] = sum;
+    sum += tmp;
+  }
+
+  for (std::int32_t i = 0; i < size; ++i) {
+    res_vec[(count[*(ptr + 3 + i * 4)] + shift) % size] = vec[i];
+    count[*(ptr + 3 + i * 4)]++;
+  }
+
   return res_vec;
 }
