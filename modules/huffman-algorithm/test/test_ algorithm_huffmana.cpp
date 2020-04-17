@@ -1,7 +1,6 @@
 // Copyright 2020 Poletueva Anastasia
 
 #include <gtest/gtest.h>
-#include <string>
 #include "include/algorithm_huffmana.h"
 
 TEST(AlgorithmHuffmanaTest, Can_Create_Histoghram_1) {
@@ -76,7 +75,9 @@ TEST(AlgorithmHuffmanaTest, Huffman_Coding_Test_1) {
 TEST(AlgorithmHuffmanaTest, Huffman_Coding_Test_2) {
   // Arrange
   std::string text = "AAASRERTWTASR";
-  std::vector<std::string> vec = { "01", "01", "01", "000", "10", "111", "10", "001", "1101", "001", "01", "000", "10" };
+  std::vector<std::string> vec = { "01", "01", "01", 
+    "000", "10", "111", "10", "001", "1101", "001", 
+    "01", "000", "10" };
 
   // Act
   HuffmanTree Tree(text);
