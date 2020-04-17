@@ -41,3 +41,37 @@ TEST(HashMapTest, insertion_test) {
 
     ASSERT_NEAR(map[15], 6.5, 0.001);
 }
+
+TEST(HashMapTest, multiple_insertion_test) {
+    hashmap<int, int> map(5);
+
+    map.insert(13, 5);
+    map.insert(23, 7);
+
+    ASSERT_EQ(map[13], 5);
+}
+
+TEST(HashMapTest, get_count_of_elems) {
+    hashmap<int, int> map{{1, 2}, {3, 4}};
+
+    ASSERT_EQ(2, map.size());
+}
+
+TEST(HashMapTest, change_size_on_insertion) {
+    hashmap<int, int> map(100);
+
+    map.insert(1, 1);
+
+    ASSERT_EQ(1, map.size());
+}
+
+TEST(HashMapTest, insert_more_than_capacity) {
+    hashmap<int, int> map(1);
+
+    map.insert(1, 1);
+    map.insert(2, 2);
+    auto f1 = map[1] == 1;
+    auto f2 = map[2] == 2;
+
+    ASSERT_TRUE(f1 && f2);
+}
