@@ -138,7 +138,7 @@ TEST(ModifyStackTest, Do_Pop) {
     // Act 
     s.put(value);
 
-    //Assert
+    // Assert
     EXPECT_EQ(value, s.pop());
 }
 
@@ -147,10 +147,10 @@ TEST(ModifyStackTest, Check_Is_Empty) {
     int size = 10;
     bool expect = true;
 
-    // Act 
+    // Act
     Stack s();
 
-    //Assert
+    // Assert
     EXPECT_TRUE(s.IsEmpty() == expect);
 }
 
@@ -160,12 +160,12 @@ TEST(ModifyStackTest, Check_Is_Full) {
     bool expect = true;
     Stack s(size);
 
-    // Act 
+    // Act
     for (int i = 0; i < size; i++) {
         s.put(i);
     }
 
-    //Assert
+    // Assert
     EXPECT_TRUE(expect == s.IsFull());
 }
 
