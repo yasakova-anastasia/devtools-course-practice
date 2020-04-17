@@ -33,3 +33,11 @@ TEST(HashMapTest, get_elem_from_hashmap_intkey) {
 
     ASSERT_EQ(10, map[15]);
 }
+
+TEST(HashMapTest, insertion_test) {
+    hashmap<int, double> map(10);
+
+    map.insert(15, 6.5);
+
+    ASSERT_NEAR(map[15], 6.5, 0.001);
+}

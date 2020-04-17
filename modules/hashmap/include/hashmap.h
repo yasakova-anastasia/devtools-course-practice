@@ -13,7 +13,8 @@ class hashmap {
         hashmap(std::initializer_list<value_type> init);
         ~hashmap() {delete[] _buffer;}
         int max_size() {return _max_size;}
-        Value operator[](const Key& key);
+        void insert(const Key& key, const Value& value);
+        Value& operator[](const Key& key);
     private:
         int hash(const Key& key) {return std::hash<Key>()(key) % _max_size;}
         int _max_size;
@@ -39,6 +40,11 @@ hashmap<Key, Value>::hashmap(std::initializer_list<value_type> init) {
 }
 
 template <typename Key, typename Value>
-Value hashmap<Key, Value>::operator[](const Key& key) {
+Value& hashmap<Key, Value>::operator[](const Key& key) {
     return _buffer[hash(key)]->second;
+}
+
+template <typename Key, typename Value>
+void hashmap<Key, Value>::insert(const Key& key, const Value& value) {
+    _buffer[hash(key)] = new value_type(key, value);
 }
