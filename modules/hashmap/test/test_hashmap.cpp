@@ -1,7 +1,7 @@
 // Copyright 2020 Isaev Ilya
 
 #include <gtest/gtest.h>
-
+#include <string>
 #include "include/hashmap.h"
 
 TEST(HashMapTest, can_create_hashnode) {
@@ -22,7 +22,7 @@ TEST(HashMapTest, hashmap_from_initializer_list) {
 
 TEST(HashMapTest, can_get_elems_max_size) {
     hashmap<std::string, double> map(10);
-    
+
     ASSERT_EQ(10, map.max_size());
 }
 

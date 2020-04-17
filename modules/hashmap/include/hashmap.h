@@ -1,4 +1,6 @@
 // Copyright 2020 Isaev Ilya
+#ifndef MODULES_HASHMAP_INCLUDE_HASHMAP_H_
+#define MODULES_HASHMAP_INCLUDE_HASHMAP_H_
 
 #include <initializer_list>
 #include <functional>
@@ -6,36 +8,39 @@
 
 template<typename Key, typename Value>
 class hashnode {
-    public:
-        Key key;
-        Value value;
-        hashnode* next;
+ public:
+    Key key;
+    Value value;
+    hashnode* next;
 
-        hashnode(const Key& _key, const Value& _value): key(_key), value(_value), next(nullptr){}
+    hashnode(const Key& _key, const Value& _value): key(_key),
+                                                    value(_value),
+                                                    next(nullptr){}
 };
 
-template<typename Key=int, typename Value=int>
+template<typename Key = int, typename Value = int>
 class hashmap {
     using value_type = hashnode<Key, Value>;
-    public:
-        explicit hashmap() = default;
-        hashmap(const int& max_size);
-        hashmap(std::initializer_list<value_type> init);
-        ~hashmap() {delete[] _buffer;}
-        int max_size() {return _max_size;}
-        int size() {return _size;}
-        void insert(const Key& key, const Value& value);
-        void remove(const Key& key);
-        Value operator[](const Key& key);
-    private:
-        int hash(const Key& key) {return std::hash<Key>()(key) % _max_size;}
-        int _max_size;
-        int _size;
-        value_type** _buffer;
+ public:
+    hashmap() = default;
+    explicit hashmap(const int& max_size);
+    hashmap(std::initializer_list<value_type> init);
+    ~hashmap() {delete[] _buffer;}
+    int max_size() {return _max_size;}
+    int size() {return _size;}
+    void insert(const Key& key, const Value& value);
+    void remove(const Key& key);
+    Value operator[](const Key& key);
+ private:
+    int hash(const Key& key) {return std::hash<Key>()(key) % _max_size;}
+    int _max_size;
+    int _size;
+    value_type** _buffer;
 };
 
 template <typename Key, typename Value>
-hashmap<Key, Value>::hashmap(const int& max_size):_max_size(max_size), _size(0) {
+hashmap<Key, Value>::hashmap(const int& max_size):_max_size(max_size),
+                                                  _size(0) {
     _buffer = new value_type*[max_size];
     for (int i = 0; i < max_size; ++i) {
         _buffer[i] = nullptr;
@@ -47,7 +52,7 @@ hashmap<Key, Value>::hashmap(std::initializer_list<value_type> init) {
     _max_size = init.size()*2;
     _size = 0;
     _buffer = new value_type*[_max_size];
-    for (auto&& i: init) {
+    for (auto& i : init) {
         this->insert(i.key, i.value);
     }
 }
@@ -61,7 +66,7 @@ Value hashmap<Key, Value>::operator[](const Key& key) {
         if (entry->key == key) {
             return entry->value;
         }
-        entry = entry->next; 
+        entry = entry->next;
     }
     return Value();
 }
@@ -87,7 +92,7 @@ void hashmap<Key, Value>::insert(const Key& key, const Value& value) {
     } else {
         next->value = value;
     }
-    
+
     _size++;
 }
 
@@ -114,3 +119,5 @@ void hashmap<Key, Value>::remove(const Key& key) {
     }
     _size--;
 }
+
+#endif  // MODULES_HASHMAP_INCLUDE_HASHMAP_H_
