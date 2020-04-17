@@ -57,7 +57,7 @@ TEST(Stack, Can_Copy_Stack) {
 
     // Act
     for (int i = 0; i < size; i++) {
-        s1.put(value++);
+        s1.put(static_cast<double>(value++));
     }
     Stack s2(s1);
 
@@ -74,8 +74,8 @@ TEST(Stack, Do_Not_Equal) {
 
     // Act
     for (int i = 0; i < size; i++) {
-        s1.put(value++);
-        s2.put(value);
+        s1.put(static_cast<double>(value++));
+        s2.put(static_cast<double>(value));
     }
 
     // Assert
@@ -91,7 +91,7 @@ TEST(Stack, Can_Assign) {
 
     // Act
     for (int i = 0; i < size; i++) {
-        s1.put(value++);
+        s1.put(static_cast<double>(value++));
     }
     s2 = s1;
 
@@ -107,7 +107,7 @@ TEST(Stack, Do_Get_Min) {
 
     // Act
     for (int i = 0; i < size; i++) {
-        s.put((i));
+        s.put(static_cast<double>(i));
     }
 
     // Assert
@@ -122,7 +122,7 @@ TEST(Stack, Do_Get_Upper) {
 
     // Act
     for (int i = 0; i < size; i++) {
-        s.put(i);
+        s.put(static_cast<double>(i));
     }
 
     // Assert
@@ -136,7 +136,7 @@ TEST(Stack, Do_Pop) {
     Stack s(size);
 
     // Act
-    s.put(value);
+    s.put(static_cast<double>(value));
 
     // Assert
     EXPECT_EQ(value, s.pop());
@@ -162,7 +162,7 @@ TEST(Stack, Check_Is_Full) {
 
     // Act
     for (int i = 0; i < size; i++) {
-        s.put(i);
+        s.put(static_cast<double>(i));
     }
 
     // Assert
@@ -177,7 +177,7 @@ TEST(Stack, Do_Get_Top) {
 
     // Act
     for (int i = 0; i < size; i++) {
-        s.put(i);
+        s.put(static_cast<double>(i));
     }
 
     // Assert
