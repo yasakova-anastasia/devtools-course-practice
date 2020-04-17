@@ -166,7 +166,7 @@ TEST(ModifyStackTest, Check_Is_Full) {
     }
 
     // Assert
-    EXPECT_TRUE(expect == s.IsFull());
+    EXPECT_TRUE(expect == s.isFull());
 }
 
 TEST(ComplexNumberTest, Do_Get_Top) {
