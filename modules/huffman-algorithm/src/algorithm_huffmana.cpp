@@ -1,5 +1,8 @@
 // Copyright 2020 Poletueva Anastasia
 
+#include <string>
+#include <vector>
+#include <stack>
 #include "include/algorithm_huffmana.h"
 
 HuffmanTree::HuffmanTree(std::string s) {
@@ -61,10 +64,10 @@ std::vector <std::string> HuffmanTree::Encode(std::string s) {
 std::vector<int> HuffmanTree::CreateHistogram(std::string s) {
   std::vector<int> hisogram(256);
 
-  for (std::string::iterator it = s.begin(); 
+  for (std::string::iterator it = s.begin();
     it != s.end(); it++) {
     hisogram[*it]++;
-   }
+  }
   return hisogram;
 }
 
@@ -78,12 +81,12 @@ void HuffmanTree::CreateEncodingTable() {
   CreateEncodingTable(root->right, "", "1");
 }
 
-void HuffmanTree::CreateEncodingTable(HuffmanNode* node, std::string code, std::string direct) {
-  if ((node->left)||(node->right)) {
+void HuffmanTree::CreateEncodingTable(HuffmanNode* node,
+  std::string code, std::string direct) {
+  if ((node->left) || (node->right)) {
     CreateEncodingTable(node->left, code + direct, std::string("0"));
     CreateEncodingTable(node->right, code + direct, std::string("1"));
-  }
-  else {
+  } else {
     encodingTable[node->val] = code + direct;
   }
 }
