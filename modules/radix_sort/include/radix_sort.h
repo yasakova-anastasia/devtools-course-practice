@@ -8,8 +8,8 @@
 #include <random>
 
 
-void FillRandom(std::vector<std::int32_t>* vec_ptr);
-bool IsSorted(const std::vector<std::int32_t>& vec_ref);
-std::vector<std::int32_t> RadixSort(std::vector<std::int32_t> vec);
+void FillRandom(std::vector<std::int32_t>* vector_ptr);
+bool IsSorted(const std::vector<std::int32_t>& vector_ref);
+std::vector<std::int32_t> RadixSort(std::vector<std::int32_t> vector);
 
 #endif  // MODULES_RADIX_SORT_INCLUDE_RADIX_SORT_H_
