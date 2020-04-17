@@ -1,9 +1,9 @@
 // Copyright 2020 Poletueva Anastasia
 
-#include "include/algorithm_huffmana.h"
 #include <gtest/gtest.h>
 #include <string>
 #include <vector>
+#include "include/algorithm_huffmana.h"
 
 TEST(AlgorithmHuffmanaTest, Can_Create_Histoghram_1) {
   // Arrange
