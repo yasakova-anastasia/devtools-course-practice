@@ -8,7 +8,7 @@ Stack::Stack(int size) {
         throw "Size cannot be below zero";
     } else {
         if (size == 0) {
-            size = 50;
+            this->size = 50;
         } else {
             this->size = size;
         }
@@ -61,7 +61,9 @@ double Stack::pop() {
 }
 
 double Stack::getUpper() {
-     return src[top];
+    int tmp = top;
+    tmp--;
+    return src[tmp];
 }
 
 double Stack::getMin() {
