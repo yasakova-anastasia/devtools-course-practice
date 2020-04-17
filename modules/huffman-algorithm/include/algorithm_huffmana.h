@@ -30,7 +30,7 @@ class HuffmanTree {
   std::string getSimbolCode(char val);
   std::vector <std::string> Encode(std::string s);
   std::vector<int> CreateHistogram(std::string s);
-   
+
   ~HuffmanTree();
 };
 
