@@ -23,7 +23,7 @@ HuffmanTree::HuffmanTree(std::string s) {
     queue.pop_back();
     node->freq = node->left->freq + node->right->freq;
     auto i = queue.begin();
-    while (((*i)->freq > node->freq) && i != queue.end() - 1)
+    while (((*i)->freq > node->freq) && (i != queue.end() - 1))
       i++;
     queue.insert(i, node);
   }
@@ -65,7 +65,7 @@ std::vector<int> HuffmanTree::CreateHistogram(std::string s) {
   std::vector<int> hisogram(256);
 
   for (std::string::iterator it = s.begin();
-    it != s.end(); it++) {
+    it != s.end(); ++it) {
     hisogram[*it]++;
   }
   return hisogram;
