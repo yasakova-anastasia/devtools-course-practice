@@ -148,7 +148,7 @@ TEST(Stack, Check_Is_Empty) {
     bool expect = true;
 
     // Act
-    Stack s();
+    Stack s;
 
     // Assert
     EXPECT_TRUE(s.isEmpty() == expect);
