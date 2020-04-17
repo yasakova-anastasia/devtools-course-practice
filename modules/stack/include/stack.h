@@ -11,7 +11,7 @@ class Stack {
     int size;
     int top;
  public:
-    Stack(int size = sizeDefault);
+    explicit Stack(int size = sizeDefault);
     Stack(const Stack& stack);
     ~Stack();
     int getSize() const;

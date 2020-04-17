@@ -5,7 +5,7 @@
 #include "include/stack.h"
 
 TEST(Stack, wrongSizeInConstructor) {
-    // Arrange 
+    // Arrange
     int size = -5;
 
     // Act
@@ -16,9 +16,9 @@ TEST(Stack, wrongSizeInConstructor) {
 }
 
 TEST(Stack, getSizeWorks) {
-    // Arrange 
+    // Arrange
     int size = 10;
-    
+
     // Act
     Stack stack(size);
 
@@ -27,11 +27,11 @@ TEST(Stack, getSizeWorks) {
 }
 
 TEST(Stack, getTopWorks) {
-    // Arrange 
+    // Arrange
     int size = 10;
     int top = 5;
     Stack stack(size);
-    
+
     // Act
     for(int i = 0; i < top; i++) {
         stack.put(i);
@@ -42,9 +42,9 @@ TEST(Stack, getTopWorks) {
 }
 
 TEST(Stack, stackSizesAreNotEqual) {
-    // Arrange 
+    // Arrange
     int size = 10, size2 = 11;
-    
+
     // Act
     Stack stack(size);
     Stack stack2(size2);
@@ -54,10 +54,10 @@ TEST(Stack, stackSizesAreNotEqual) {
 }
 
 TEST(Stack, copyConstructorWorks) {
-    // Arrange 
+    // Arrange
     int size = 10;
     Stack stack(size);
-    
+
     // Act
     for(int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
@@ -69,10 +69,10 @@ TEST(Stack, copyConstructorWorks) {
 }
 
 TEST(Stack, equalOperatorWorks) {
-    // Arrange 
+    // Arrange
     int size = 10;
     Stack stack(size);
-    
+
     // Act
     for(int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
@@ -84,10 +84,10 @@ TEST(Stack, equalOperatorWorks) {
 }
 
 TEST(Stack, comparisonOperatorWorks) {
-    // Arrange 
+    // Arrange
     int size = 10;
     Stack stack(size);
-    
+
     // Act
     for(int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
@@ -99,11 +99,11 @@ TEST(Stack, comparisonOperatorWorks) {
 }
 
 TEST(Stack, notEqualComparisonOperatorWorks) {
-    // Arrange 
+    // Arrange
     int size = 10;
     Stack stack(size);
     Stack stack2(size);
-    
+
     // Act
     for(int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
@@ -117,9 +117,9 @@ TEST(Stack, notEqualComparisonOperatorWorks) {
 }
 
 TEST(Stack, stackIsEmpty) {
-    // Arrange 
+    // Arrange
     int size = 10;
-    
+
     // Act
     Stack stack(size);
 
@@ -128,10 +128,10 @@ TEST(Stack, stackIsEmpty) {
 }
 
 TEST(Stack, stackIsNotEmpty) {
-    // Arrange 
+    // Arrange
     int size = 10;
     Stack stack(size);
-    
+
     // Act
     for(int i = 0; i < stack.getSize()/2; i++) {
         stack.put(static_cast<double>(i));
@@ -142,10 +142,10 @@ TEST(Stack, stackIsNotEmpty) {
 }
 
 TEST(Stack, stackIsFull) {
-    // Arrange 
+    // Arrange
     int size = 10;
     Stack stack(size);
-    
+
     // Act
     for(int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
@@ -156,10 +156,10 @@ TEST(Stack, stackIsFull) {
 }
 
 TEST(Stack, stackIsNotFull) {
-    // Arrange 
+    // Arrange
     int size = 10;
     Stack stack(size);
-    
+
     // Act
     for(int i = 0; i < stack.getSize()/2; i++) {
         stack.put(static_cast<double>(i));
@@ -170,11 +170,11 @@ TEST(Stack, stackIsNotFull) {
 }
 
 TEST(Stack, getAndPutWorks) {
-    // Arrange 
+    // Arrange
     int size = 1;
     double value = 14;
     Stack stack(size);
-    
+
     // Act
     stack.put(value);
 
