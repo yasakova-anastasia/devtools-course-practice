@@ -1,6 +1,6 @@
 // Copyright 2020 Tanskii Yurii
 
-#include "include/mofidy_stack.h"
+#include "include/modify_stack.h"
 
 Stack::Stack(int size) {
     if (size < 0) {
