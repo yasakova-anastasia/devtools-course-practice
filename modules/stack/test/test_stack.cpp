@@ -74,7 +74,7 @@ TEST(Stack, equalOperatorWorks) {
     Stack stack(size);
 
     // Act
-    for(int i = 0; i < stack.getSize(); i++) {
+    for (int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
     }
     Stack stack2 = stack;
@@ -89,7 +89,7 @@ TEST(Stack, comparisonOperatorWorks) {
     Stack stack(size);
 
     // Act
-    for(int i = 0; i < stack.getSize(); i++) {
+    for (int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
     }
     Stack stack2(stack);
@@ -105,10 +105,10 @@ TEST(Stack, notEqualComparisonOperatorWorks) {
     Stack stack2(size);
 
     // Act
-    for(int i = 0; i < stack.getSize(); i++) {
+    for (int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
     }
-    for(int i = 0; i < stack2.getSize(); i++) {
+    for (int i = 0; i < stack2.getSize(); i++) {
         stack2.put(static_cast<double>(i+1));
     }
 
@@ -133,7 +133,7 @@ TEST(Stack, stackIsNotEmpty) {
     Stack stack(size);
 
     // Act
-    for(int i = 0; i < stack.getSize()/2; i++) {
+    for (int i = 0; i < stack.getSize()/2; i++) {
         stack.put(static_cast<double>(i));
     }
 
@@ -147,7 +147,7 @@ TEST(Stack, stackIsFull) {
     Stack stack(size);
 
     // Act
-    for(int i = 0; i < stack.getSize(); i++) {
+    for (int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
     }
 
@@ -161,7 +161,7 @@ TEST(Stack, stackIsNotFull) {
     Stack stack(size);
 
     // Act
-    for(int i = 0; i < stack.getSize()/2; i++) {
+    for (int i = 0; i < stack.getSize()/2; i++) {
         stack.put(static_cast<double>(i));
     }
 
