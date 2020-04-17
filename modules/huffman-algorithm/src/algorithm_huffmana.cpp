@@ -66,8 +66,8 @@ std::vector<int> HuffmanTree::CreateHistogram(std::string s)
 {
   std::vector<int> hisogram(256);
 
-  std::string::iterator it = s.begin();
-  for (it; it != s.end(); it++) {
+  for (std::string::iterator it = s.begin(); 
+    it != s.end(); it++) {
     hisogram[*it]++;
    }
 

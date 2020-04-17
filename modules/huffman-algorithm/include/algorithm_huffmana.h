@@ -21,17 +21,17 @@ class HuffmanTree {
   std::vector<std::string> encodingTable;
 
  public:
-   explicit HuffmanTree(std::string s = "");
-   void CreateEncodingTable();
-   void CreateEncodingTable(HuffmanNode* node, std::string code,
+  explicit HuffmanTree(std::string s = "");
+  void CreateEncodingTable();
+  void CreateEncodingTable(HuffmanNode* node, std::string code,
     std::string direct);
-   void SortQueue(std::vector<HuffmanNode*> *queue,
+  void SortQueue(std::vector<HuffmanNode*> *queue,
     const std::vector<int> & hist);
-   std::string getSimbolCode(char val);
-   std::vector <std::string> Encode(std::string s);
-   std::vector<int> CreateHistogram(std::string s);
+  std::string getSimbolCode(char val);
+  std::vector <std::string> Encode(std::string s);
+  std::vector<int> CreateHistogram(std::string s);
    
-   ~HuffmanTree();
+  ~HuffmanTree();
 };
 
 
