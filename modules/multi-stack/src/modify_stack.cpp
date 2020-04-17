@@ -67,7 +67,9 @@ double Stack::getUpper() {
 }
 
 double Stack::getMin() {
-    return min_items[top];
+    int tmp = top;
+    tmp--;
+    return min_items[tmp];
 }
 
 void Stack::operator = (const Stack& stack) {
