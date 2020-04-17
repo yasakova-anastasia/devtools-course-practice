@@ -1,9 +1,9 @@
 // Copyright 2020 Poletueva Anastasia
 
-#include <string>
-#include <vector>
 #include <gtest/gtest.h>
 #include "include/algorithm_huffmana.h"
+#include <string>
+#include <vector>
 
 TEST(AlgorithmHuffmanaTest, Can_Create_Histoghram_1) {
   // Arrange
@@ -65,7 +65,7 @@ TEST(AlgorithmHuffmanaTest, Can_Create_Encoding_Table_2) {
 TEST(AlgorithmHuffmanaTest, Huffman_Coding_Test_1) {
   // Arrange
   std::string text = "AAASRERASR";
-  std::vector<std::string> vec = { "1", "1", "1", 
+  std::vector<std::string> vec = { "1", "1", "1",
     "001", "01", "0001", "01", "1", "001", "01"};
 
   // Act

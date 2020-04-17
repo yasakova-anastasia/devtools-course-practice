@@ -1,9 +1,9 @@
 // Copyright 2020 Poletueva Anastasia
 
+#include "include/algorithm_huffmana.h"
 #include <string>
 #include <vector>
 #include <stack>
-#include "include/algorithm_huffmana.h"
 
 HuffmanTree::HuffmanTree(std::string s) {
   std::vector<int> hist = CreateHistogram(s);
