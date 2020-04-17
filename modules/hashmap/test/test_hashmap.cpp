@@ -30,6 +30,15 @@ TEST(HashMapTest, insertion_test) {
     ASSERT_NEAR(map[15], 6.5, 0.001);
 }
 
+TEST(HashMapTest, repeatable_insertion_test) {
+    hashmap<int, double> map(1);
+
+    map.insert(15, 6.5);
+    map.insert(15, 6.5);
+
+    ASSERT_NEAR(map[15], 6.5, 0.001);
+}
+
 TEST(HashMapTest, multiple_insertion_test) {
     hashmap<int, int> map(5);
 
@@ -87,6 +96,16 @@ TEST(HashMapTest, delete_node_from_hashmap) {
     map.insert("Ilya", 20);
 
     map.remove("Nick");
+
+    ASSERT_EQ(1, map.size());
+}
+
+TEST(HashMapTest, chain_delete_node_from_hashmap) {
+    hashmap<int, int> map(5);
+    map.insert(13, 15);
+    map.insert(23, 20);
+
+    map.remove(23);
 
     ASSERT_EQ(1, map.size());
 }
