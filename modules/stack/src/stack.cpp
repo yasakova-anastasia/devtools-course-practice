@@ -61,11 +61,9 @@ void Stack::operator = (const Stack& stack) {
 bool Stack::operator == (const Stack& stack) const {
     if (size == stack.size) {
         if (top == stack.top) {
-            Stack st1(*this);
-            Stack st2(stack);
             bool check = true;
             for (int i = 0; i < size; i++) {
-                if (st1.get() != st2.get()) {
+                if (mas[i] != stack.mas[i]) {
                     check = false;
                     break;
                 }

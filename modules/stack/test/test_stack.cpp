@@ -60,12 +60,13 @@ TEST(Stack, equalOperatorWorks) {
     // Arrange
     int size = 10;
     Stack stack(size);
+    Stack stack2;
 
     // Act
     for (int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
     }
-    Stack stack2 = stack;
+    stack2 = stack;
 
     // Assert
     EXPECT_EQ(stack, stack2);
