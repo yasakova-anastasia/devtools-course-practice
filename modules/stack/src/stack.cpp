@@ -4,7 +4,7 @@
 
 Stack::Stack(int size) {
     if (size <= 0) {
-        this->size = sizeDefault;
+        throw "The size must be greater than zero";
     } else {
         this->size = size;
     }
