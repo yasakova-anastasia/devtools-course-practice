@@ -8,7 +8,7 @@
 const unsigned char aliveCell = '*';
 const unsigned char deadCell = '.';
 
-GameOfLifeGrid::GameOfLifeGrid(uint32_t wight_, uint32_t height_) 
+GameOfLifeGrid::GameOfLifeGrid(uint32_t wight_, uint32_t height_)
                                 :wight(wight_), height(height_),
 node(reinterpret_cast<uchar*>(operator new(sizeof(uchar) *
   (wight + 2)* (height + 2)))) {

@@ -48,7 +48,7 @@ TEST(GameOfLifeTest, Equality_operator_test) {
 }
 
 TEST(GameOfLifeTest, Unequality_operator_test) {
-  //Arrange
+  // Arrange
   uint32_t w = 2;
   uint32_t h = 3;
   unsigned char input1[] = { deadCell, aliveCell, deadCell,
@@ -195,11 +195,11 @@ TEST(GameOfLifeTest, Test_Grid_Assignment_same_size) {
   uint32_t w = 3;
   uint32_t h = 3;
   unsigned char input[] = { deadCell, aliveCell, deadCell,
-    aliveCell, deadCell,aliveCell , deadCell,
+    aliveCell, deadCell, aliveCell, deadCell,
     deadCell, deadCell };
   GameOfLifeGrid expect(w, h, input);
   GameOfLifeGrid actual(w, h);
-  // Act 
+  // Act
   actual = expect;
   // Assert
   EXPECT_EQ(expect, actual);
@@ -214,14 +214,14 @@ TEST(GameOfLifeTest, Test_Grid_Assignment_different_size) {
     deadCell };
   GameOfLifeGrid expect(w, h, input);
   GameOfLifeGrid actual(w - 1, h - 1);
-  // Act 
+  // Act
   actual = expect;
   // Assert
   EXPECT_EQ(expect, actual);
 }
 
 TEST(GameOfLifeTest, Test_Grid_Assignment_zero_size) {
-  //Arrange
+  // Arrange
   uint32_t w = 3;
   uint32_t h = 3;
   GameOfLifeGrid expect(0, 0);
@@ -240,13 +240,13 @@ TEST(GameOfLifeTest, Test_Get_Next_Grid) {
     deadCell, deadCell,deadCell, deadCell, deadCell,deadCell,
     deadCell, deadCell, deadCell, aliveCell, deadCell,
     deadCell, deadCell, deadCell, deadCell, deadCell,
-    aliveCell, aliveCell,deadCell,deadCell, deadCell,
+    aliveCell, aliveCell, deadCell, deadCell, deadCell,
     deadCell, deadCell, deadCell, deadCell,
     deadCell, deadCell, deadCell, deadCell };
   unsigned char expect_input[] = { deadCell, deadCell,
     deadCell, deadCell, deadCell, deadCell, deadCell,
     deadCell, deadCell, deadCell, deadCell, aliveCell, aliveCell,
-    deadCell, deadCell, deadCell,deadCell, deadCell, deadCell,
+    deadCell, deadCell, deadCell, deadCell, deadCell, deadCell,
     aliveCell,  aliveCell, deadCell, deadCell, deadCell,
     deadCell, deadCell, deadCell, deadCell, deadCell, deadCell,
     deadCell, deadCell };
