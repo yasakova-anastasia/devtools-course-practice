@@ -1,7 +1,7 @@
 // Copyright 2020 Tanskii Yurii
 
-#ifndef MODULES_MULTI_STACK_INCLUDE_MODIFY_STACK_H_
-#define MODULES_MULTI_STACK_INCLUDE_MODIFY_STACK_H_
+#ifndef MODULES_MODIFY_STACK_INCLUDE_MODIFY_STACK_H_
+#define MODULES_MODIFY_STACK_INCLUDE_MODIFY_STACK_H_
 
 
 class Stack {
@@ -28,4 +28,4 @@ class Stack {
     bool operator != (const Stack& stack) const;
 };
 
-#endif  // MODULES_MULTI_STACK_INCLUDE_MODIFY_STACK_H_
+#endif  // MODULES_MODIFY_STACK_INCLUDE_MODIFY_STACK_H_
