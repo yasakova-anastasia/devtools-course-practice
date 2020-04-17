@@ -79,7 +79,7 @@ TEST(Stack, Do_Not_Equal) {
     }
 
     // Assert
-    EXPECT_EQ(s1 != s2);
+    EXPECT_TRUE(s1 != s2);
 }
 
 TEST(Stack, Can_Assign) {
@@ -114,7 +114,7 @@ TEST(Stack, Do_Get_Min) {
     EXPECT_EQ(exp_min, s.getMin());
 }
 
-TEST(Stack, Do_Get_Top) {
+TEST(Stack, Do_Get_Upper) {
     // Arrange
     int size = 10;
     Stack s(size);
@@ -151,7 +151,7 @@ TEST(Stack, Check_Is_Empty) {
     Stack s();
 
     // Assert
-    EXPECT_TRUE(s.IsEmpty() == expect);
+    EXPECT_TRUE(s.isEmpty() == expect);
 }
 
 TEST(Stack, Check_Is_Full) {
