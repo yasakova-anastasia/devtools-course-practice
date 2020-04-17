@@ -24,7 +24,6 @@ class hashmap {
  public:
     hashmap() = default;
     explicit hashmap(const int& max_size);
-    hashmap(std::initializer_list<value_type> init);
     ~hashmap() {delete[] _buffer;}
     int max_size() {return _max_size;}
     int size() {return _size;}
@@ -44,16 +43,6 @@ hashmap<Key, Value>::hashmap(const int& max_size):_max_size(max_size),
     _buffer = new value_type*[max_size];
     for (int i = 0; i < max_size; ++i) {
         _buffer[i] = nullptr;
-    }
-}
-
-template <typename Key, typename Value>
-hashmap<Key, Value>::hashmap(std::initializer_list<value_type> init) {
-    _max_size = init.size()*2;
-    _size = 0;
-    _buffer = new value_type*[_max_size];
-    for (auto& i : init) {
-        this->insert(i.key, i.value);
     }
 }
 
