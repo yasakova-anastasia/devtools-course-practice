@@ -14,10 +14,10 @@ Stack::Stack(int size) {
 
 Stack::Stack(const Stack& stack) {
     size = stack.size;
-	mas = new double[size];
-	top = stack.top;
-	for (int i = 0; i < top; i++)
-		mas[i] = stack.mas[i];
+    mas = new double[size];
+    top = stack.top;
+    for (int i = 0; i < top; i++)
+        mas[i] = stack.mas[i];
 }
 
 Stack::~Stack() {
@@ -51,10 +51,10 @@ double Stack::get() {
 
 void Stack::operator = (const Stack& stack) {
     size = stack.size;
-	mas = new double[size];
-	top = stack.top;
-	for (int i = 0; i < top; i++)
-		mas[i] = stack.mas[i];
+    mas = new double[size];
+    top = stack.top;
+    for (int i = 0; i < top; i++)
+        mas[i] = stack.mas[i];
 }
 
 bool Stack::operator == (const Stack& stack) const {
