@@ -41,18 +41,6 @@ TEST(Stack, getTopWorks) {
     EXPECT_EQ(stack.getTop(), top);
 }
 
-TEST(Stack, stackSizesAreNotEqual) {
-    // Arrange
-    int size = 10, size2 = 11;
-
-    // Act
-    Stack stack(size);
-    Stack stack2(size2);
-
-    // Assert
-    EXPECT_EQ(false, stack.getSize() == stack2.getSize());
-}
-
 TEST(Stack, copyConstructorWorks) {
     // Arrange
     int size = 10;
@@ -138,7 +126,7 @@ TEST(Stack, stackIsNotEmpty) {
     }
 
     // Assert
-    EXPECT_EQ(false, stack.isEmpty());
+    EXPECT_EQ(true, !stack.isEmpty());
 }
 
 TEST(Stack, stackIsFull) {
@@ -166,7 +154,7 @@ TEST(Stack, stackIsNotFull) {
     }
 
     // Assert
-    EXPECT_EQ(false, stack.isFull());
+    EXPECT_EQ(true, !stack.isFull());
 }
 
 TEST(Stack, getAndPutWorks) {
