@@ -21,7 +21,6 @@ TEST(Vigenere_Cipher_Test, Encryption_With_Zero_Length_Text) {
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_Uppercase_Text) {
-
     std::string text("AAAA");
     std::string key("bb");
 
@@ -110,7 +109,6 @@ TEST(Vigenere_Cipher_Test, Decryption_With_Zero_Length_Text) {
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_Uppercase_Text) {
-
     std::string text("SKFOD");
     std::string key("fffsg");
 
