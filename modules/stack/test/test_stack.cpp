@@ -33,7 +33,7 @@ TEST(Stack, getTopWorks) {
     Stack stack(size);
 
     // Act
-    for(int i = 0; i < top; i++) {
+    for( int i = 0; i < top; i++) {
         stack.put(i);
     }
 
