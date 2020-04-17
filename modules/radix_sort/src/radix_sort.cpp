@@ -52,7 +52,7 @@ std::vector<std::int32_t> RadixSort(std::vector<std::int32_t> vec) {
 
   std::int32_t shift = 0;
   for (std::int32_t i = 128; i < 256; ++i) shift += count[i];
- 
+
   std::int32_t sum = 0;
   for (std::int32_t i = 0; i < 256; ++i) {
     std::int32_t tmp = count[i];
