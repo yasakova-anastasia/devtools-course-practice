@@ -92,7 +92,7 @@ bool Stack::operator == (const Stack& stack) const {
                     equal = false;
                     break;
                 }
-            }       
+            }
         }
     }
     return equal;
