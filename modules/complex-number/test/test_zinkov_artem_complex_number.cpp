@@ -16,10 +16,10 @@ TEST(Zinkov_Artem_ComplexNumberTest, Inequality_Operator_Test) {
     ComplexNumber z2(re_2, im_2);
 
     // Assert
-    EXPECT_TRUE(z1!=z2);
+    EXPECT_TRUE(z1 != z2);
 }
 
-TEST(Zinkov_Artem_ComplexNumberTest, Addition_Ñomplex_Number) {
+TEST(Zinkov_Artem_ComplexNumberTest, Addition_Complex_Number) {
     // Arrange
     double re_1 = 4.2;
     double im_1 = 2.0;
@@ -36,7 +36,7 @@ TEST(Zinkov_Artem_ComplexNumberTest, Addition_Ñomplex_Number) {
     EXPECT_EQ(z, res);
 }
 
-TEST(Zinkov_Artem_ComplexNumberTest, Subtraction_Ñomplex_Number) {
+TEST(Zinkov_Artem_ComplexNumberTest, Subtraction_Complex_Number) {
     // Arrange
     double re_1 = 12.3;
     double im_1 = 9.0;
