@@ -52,6 +52,8 @@ uint32_t GameOfLifeGrid::GetHeight() {
 bool GameOfLifeGrid::operator==(const GameOfLifeGrid& grid) const {
   if (wight != grid.wight || height != grid.height)
     return false;
+  if ((wight == 0) || (height == 0))
+    return true;
   for (uint32_t i = 0; i < (wight + 2) * (height + 2); ++i)
     if (node[i] != grid.node[i])
       return false;
@@ -63,17 +65,20 @@ bool GameOfLifeGrid::operator!=(const GameOfLifeGrid& grid) {
 }
 
 GameOfLifeGrid& GameOfLifeGrid::operator=(const GameOfLifeGrid& grid) {
-  uint32_t size = wight * height;
+  uint32_t size = grid.wight * grid.height;
   if (size == 0) {
     operator delete (node);
     node = nullptr;
-  } else if (size != grid.height * grid.wight) {
+    wight = grid.wight;
+    height = grid.height;
+    return *this;
+  } else if (size != height * wight) {
     operator delete (node);
     node = reinterpret_cast<uchar*>(operator new(sizeof(uchar) *
       (grid.wight + 2) * (grid.height + 2)));
+    wight = grid.wight;
+    height = grid.height;
   }
-  wight = grid.wight;
-  height = grid.height;
   for (uint32_t i = 0; i < (wight + 2) * (height + 2); ++i) {
     node[i] = grid.node[i];
   }

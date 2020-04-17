@@ -34,6 +34,19 @@ TEST(GameOfLifeTest, Can_Create_With_Parameters) {
   EXPECT_EQ(h, res.GetHeight());
   }
 
+TEST(GameOfLifeTest, Copy_Constructor_Test) {
+  // Arrange
+  uint32_t w = 2;
+  uint32_t h = 3;
+  unsigned char input1[] = { deadCell, aliveCell, deadCell,
+    aliveCell, deadCell, deadCell };
+  GameOfLifeGrid expected(w, h, input1);
+  GameOfLifeGrid actual(expected);
+
+  // Act & Assert
+  EXPECT_EQ(expected, actual);
+}
+
 TEST(GameOfLifeTest, Equality_operator_test) {
   // Arrange
   uint32_t w = 2;
@@ -45,6 +58,28 @@ TEST(GameOfLifeTest, Equality_operator_test) {
 
   // Act & Assert
   EXPECT_TRUE(a == b);
+}
+
+TEST(GameOfLifeTest, Equality_operator_test_zero_size) {
+  // Arrange
+  uint32_t w = 0;
+  uint32_t h = 0;
+  GameOfLifeGrid a(w, h);
+  GameOfLifeGrid b(w, h);
+
+  // Act & Assert
+  EXPECT_TRUE(a == b);
+}
+
+TEST(GameOfLifeTest, Equality_operator_test_different_size) {
+  // Arrange
+  uint32_t w = 2;
+  uint32_t h = 3;
+  GameOfLifeGrid a(w, h);
+  GameOfLifeGrid b(w + 1, h);
+
+  // Act & Assert
+  EXPECT_FALSE(a == b);
 }
 
 TEST(GameOfLifeTest, Unequality_operator_test) {
