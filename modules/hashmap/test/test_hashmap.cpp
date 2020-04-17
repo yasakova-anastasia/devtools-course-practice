@@ -16,7 +16,7 @@ TEST(HashMapTest, can_create_hash_with_template_params) {
 }
 
 TEST(HashMapTest, can_get_elems_max_size) {
-    hashmap<std::string, double> map(10);
+    hashmap<const char*, double> map(10);
 
     ASSERT_EQ(10, map.max_size());
 }
@@ -41,8 +41,8 @@ TEST(HashMapTest, multiple_insertion_test) {
 
 TEST(HashMapTest, get_count_of_elems) {
     hashmap<int, int> map(2);
-    
-    map.insert(1, 2); 
+
+    map.insert(1, 2);
     map.insert(3, 4);
 
     ASSERT_EQ(2, map.size());
@@ -69,7 +69,7 @@ TEST(HashMapTest, insert_more_than_capacity) {
 
 TEST(HashMapTest, get_elem_from_hashmap_stringkey) {
     hashmap<const char*, int> map(5);
-    
+
     map.insert("Mick", 15);
 
     ASSERT_EQ(15, map["Mick"]);
