@@ -4,6 +4,10 @@
 
 #include "include/hashmap.h"
 
+TEST(HashMapTest, can_create_hashnode) {
+    ASSERT_NO_THROW((hashnode<int, int>(1, 1)));
+}
+
 TEST(HashMapTest, can_create_hash_map) {
     ASSERT_NO_THROW(hashmap<>());
 }
@@ -74,4 +78,20 @@ TEST(HashMapTest, insert_more_than_capacity) {
     auto f2 = map[2] == 2;
 
     ASSERT_TRUE(f1 && f2);
+}
+
+TEST(HashMapTest, delete_node_from_hashmap) {
+    hashmap<std::string, int> map{{"Nick", 15}, {"Ilya", 20}};
+
+    map.remove("Nick");
+
+    ASSERT_EQ(1, map.size());
+}
+
+TEST(HashMapTest, delete_node_from_hashmap_check_for_ne) {
+    hashmap<std::string, int> map{{"Nick", 15}, {"Ilya", 20}};
+
+    map.remove("Nick");
+
+    ASSERT_NE(15, map["Nick"]);
 }

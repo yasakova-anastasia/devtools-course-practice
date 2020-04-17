@@ -25,6 +25,7 @@ class hashmap {
         int max_size() {return _max_size;}
         int size() {return _size;}
         void insert(const Key& key, const Value& value);
+        void remove(const Key& key);
         Value operator[](const Key& key);
     private:
         int hash(const Key& key) {return std::hash<Key>()(key) % _max_size;}
@@ -88,4 +89,28 @@ void hashmap<Key, Value>::insert(const Key& key, const Value& value) {
     }
     
     _size++;
+}
+
+template <typename Key, typename Value>
+void hashmap<Key, Value>::remove(const Key& key) {
+    auto hashindex = hash(key);
+    auto entry = _buffer[hashindex];
+    value_type* prev = nullptr;
+
+    while (entry != nullptr && entry->key != key) {
+        prev = entry;
+        entry = entry->next;
+    }
+
+    if (entry == nullptr) {
+        return;
+    } else {
+        if (prev == nullptr) {
+            _buffer[hashindex] = entry->next;
+        } else {
+            prev->next = entry->next;
+        }
+        delete entry;
+    }
+    _size--;
 }
