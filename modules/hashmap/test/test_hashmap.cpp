@@ -21,3 +21,15 @@ TEST(HashMapTest, can_get_elems_max_size) {
     
     ASSERT_EQ(10, map.max_size());
 }
+
+TEST(HashMapTest, get_elem_from_hashmap_stringkey) {
+    hashmap<std::string, int> map{{"Mick", 15}};
+
+    ASSERT_EQ(15, map["Mick"]);
+}
+
+TEST(HashMapTest, get_elem_from_hashmap_intkey) {
+    hashmap<int, int> map{{15, 10}};
+
+    ASSERT_EQ(10, map[15]);
+}
