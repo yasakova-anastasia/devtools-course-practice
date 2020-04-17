@@ -90,9 +90,10 @@ void Stack::operator = (const Stack& stack) {
 }
 
 bool Stack::operator == (const Stack& stack) const {
-    bool equal = true;
+    bool equal = false;
     if (this->size == stack.size) {
         if (this->top == stack.top) {
+            equal = true;
             for (int i = 0; i < size; i++) {
                 if (this->src[i] != stack.src[i]) {
                     equal = false;
