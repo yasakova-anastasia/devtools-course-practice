@@ -33,7 +33,7 @@ TEST(Stack, getTopWorks) {
     Stack stack(size);
 
     // Act
-    for( int i = 0; i < top; i++) {
+    for (int i = 0; i < top; i++) {
         stack.put(i);
     }
 
@@ -59,7 +59,7 @@ TEST(Stack, copyConstructorWorks) {
     Stack stack(size);
 
     // Act
-    for(int i = 0; i < stack.getSize(); i++) {
+    for (int i = 0; i < stack.getSize(); i++) {
         stack.put(static_cast<double>(i));
     }
     Stack stack2(stack);
