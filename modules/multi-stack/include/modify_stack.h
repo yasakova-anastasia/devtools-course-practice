@@ -1,17 +1,17 @@
 // Copyright 2020 Tanskii Yurii
 
-#ifndef MODULES_MODIFY_STACK_INCLUDE_MODIFY_STACK_H_
-#define MODULES_MODIFY_STACK_INCLUDE_MODIFY_STACK_H_
+#ifndef MODULES_MULTI_STACK_INCLUDE_MODIFY_STACK_H_
+#define MODULES_MULTI_STACK_INCLUDE_MODIFY_STACK_H_
 
 
 class Stack {
-private:
+ private:
     double* src;
     double* min_items;
     int size;
     int top;
-public:
-    Stack(int size = 50);
+ public:
+    explicit Stack(int size = 50);
     Stack(const Stack& stack);
     ~Stack();
     int getSize() const;
@@ -28,4 +28,4 @@ public:
     bool operator != (const Stack& stack) const;
 };
 
-#endif  // MODULES_MODIFY_STACK_INCLUDE_MODIFY_STACK_H_
+#endif  // MODULES_MULTI_STACK_INCLUDE_MODIFY_STACK_H_
