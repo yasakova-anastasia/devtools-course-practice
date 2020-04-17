@@ -19,7 +19,7 @@ class Stack {
     bool isEmpty() const;
     bool isFull() const;
     void put(const double value);
-    double top();
+    double getUpper();
     double pop();
     double getMin();
 

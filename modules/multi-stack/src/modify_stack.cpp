@@ -1,12 +1,13 @@
 // Copyright 2020 Tanskii Yurii
 
 #include "include/modify_stack.h"
+#include <algorithm>
 
 Stack::Stack(int size) {
     if (size < 0) {
         throw "Size cannot be below zero";
     } else {
-        if (size = 0) {
+        if (size == 0) {
             size = 50;
         } else {
             this->size = size;
@@ -20,6 +21,7 @@ Stack::Stack(int size) {
 Stack::Stack(const Stack& stack) {
     this->size = stack.size;
     this->src = new double[this->size];
+    this->min_items = new double[this->size];
     this->top = stack.top;
     for (int i = 0; i < top; i++) {
         this->src[i] = stack.src[i];
@@ -50,16 +52,16 @@ bool Stack::isFull() const {
 
 void Stack::put(const double elem) {
     src[top] = elem;
-    min_items[top++] = isEmpty() ? elem : std::min(elem, top());
+    min_items[top++] = isEmpty() ? elem : min(elem, getUpper());
 }
 
 double Stack::pop() {
     top--;
-    return mas[top];
+    return src[top];
 }
 
-double Stack::top() {
-     return mas[top];
+double Stack::getUpper() {
+     return src[top];
 }
 
 double Stack::getMin() {
@@ -68,7 +70,8 @@ double Stack::getMin() {
 
 void Stack::operator = (const Stack& stack) {
     this->size = stack.size;
-    this->mas = new double[size];
+    this->src = new double[size];
+    this->min_items = new double[size];
     this->top = stack.top;
     for (int i = 0; i < top; i++) {
         this->src[i] = stack.src[i];
@@ -85,10 +88,7 @@ bool Stack::operator == (const Stack& stack) const {
                     equal = false;
                     break;
                 }
-            }
-            if (check) {
-                equal = true;
-            }
+            }       
         }
     }
     return equal;

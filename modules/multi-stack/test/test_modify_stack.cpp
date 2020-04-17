@@ -4,7 +4,7 @@
 
 #include "include/modify_stack.h"
 
-TEST(ModifyStackTest, Can_Create_With_Positive_Size) {
+TEST(Stack, Can_Create_With_Positive_Size) {
     // Arrange
     int size = 25;
 
@@ -15,7 +15,7 @@ TEST(ModifyStackTest, Can_Create_With_Positive_Size) {
     EXPECT_EQ(size, s.getSize());
 }
 
-TEST(ModifyStackTest, Can_Create_With_Zero) {
+TEST(Stack, Can_Create_With_Zero) {
     // Arrange
     int size = 0;
     int ex_size = 50;
@@ -27,7 +27,7 @@ TEST(ModifyStackTest, Can_Create_With_Zero) {
     EXPECT_EQ(ex_size, s.getSize());
 }
 
-TEST(ModifyStackTest, Can_Create_With_No_Size) {
+TEST(Stack, Can_Create_With_No_Size) {
     // Arrange
     int ex_size = 50;
 
@@ -38,7 +38,7 @@ TEST(ModifyStackTest, Can_Create_With_No_Size) {
     EXPECT_EQ(ex_size, s.getSize());
 }
 
-TEST(ModifyStackTest, Can_Assert_With_Negative_Size) {
+TEST(Stack, Can_Assert_With_Negative_Size) {
     // Arrange
     int size = 0;
 
@@ -49,7 +49,7 @@ TEST(ModifyStackTest, Can_Assert_With_Negative_Size) {
     ASSERT_ANY_THROW(Stack s(size));
 }
 
-TEST(ModifyStackTest, Can_Copy_Stack) {
+TEST(Stack, Can_Copy_Stack) {
     // Arrange
     int size = 10;
     double value = 0;
@@ -65,7 +65,7 @@ TEST(ModifyStackTest, Can_Copy_Stack) {
     EXPECT_EQ(s1, s2);
 }
 
-TEST(ModifyStackTest, Can_Copy_Stack) {
+TEST(Stack, Do_Not_Equal) {
     // Arrange
     int size = 10;
     double value = 0;
@@ -82,7 +82,7 @@ TEST(ModifyStackTest, Can_Copy_Stack) {
     EXPECT_EQ(s1 != s2);
 }
 
-TEST(ModifyStackTest, Can_Assign) {
+TEST(Stack, Can_Assign) {
     // Arrange
     int size = 10;
     double value = 0;
@@ -99,7 +99,7 @@ TEST(ModifyStackTest, Can_Assign) {
     EXPECT_TRUE(s1 == s2);
 }
 
-TEST(ModifyStackTest, Do_Get_Min) {
+TEST(Stack, Do_Get_Min) {
     // Arrange
     int size = 10;
     double exp_min = 0;
@@ -114,7 +114,7 @@ TEST(ModifyStackTest, Do_Get_Min) {
     EXPECT_EQ(exp_min, s.getMin());
 }
 
-TEST(ModifyStackTest, Do_Get_Top) {
+TEST(Stack, Do_Get_Top) {
     // Arrange
     int size = 10;
     Stack s(size);
@@ -126,10 +126,10 @@ TEST(ModifyStackTest, Do_Get_Top) {
     }
 
     // Assert
-    EXPECT_EQ(exp_top, s.top());
+    EXPECT_EQ(exp_top, s.getUpper());
 }
 
-TEST(ModifyStackTest, Do_Pop) {
+TEST(Stack, Do_Pop) {
     // Arrange
     int size = 10;
     double value = 5;
@@ -142,7 +142,7 @@ TEST(ModifyStackTest, Do_Pop) {
     EXPECT_EQ(value, s.pop());
 }
 
-TEST(ModifyStackTest, Check_Is_Empty) {
+TEST(Stack, Check_Is_Empty) {
     // Arrange
     int size = 10;
     bool expect = true;
@@ -154,7 +154,7 @@ TEST(ModifyStackTest, Check_Is_Empty) {
     EXPECT_TRUE(s.IsEmpty() == expect);
 }
 
-TEST(ModifyStackTest, Check_Is_Full) {
+TEST(Stack, Check_Is_Full) {
     // Arrange
     int size = 10;
     bool expect = true;
@@ -169,15 +169,17 @@ TEST(ModifyStackTest, Check_Is_Full) {
     EXPECT_TRUE(expect == s.isFull());
 }
 
-TEST(ComplexNumberTest, Do_Get_Top) {
+TEST(Stack, Do_Get_Top) {
     // Arrange
     int size = 10;
     Stack s(size);
     double ex_top = 10;
+
     // Act
     for (int i = 0; i < size; i++) {
         s.put(i);
     }
 
+    // Assert
     EXPECT_EQ(ex_top, s.getTop());
 }
