@@ -237,7 +237,7 @@ TEST(GameOfLifeTest, Test_Get_Next_Grid) {
   uint32_t w = 8;
   uint32_t h = 4;
   unsigned char input[] = { deadCell, deadCell, deadCell,
-    deadCell, deadCell,deadCell, deadCell, deadCell, deadCell,
+    deadCell, deadCell, deadCell, deadCell, deadCell, deadCell,
     deadCell, deadCell, deadCell, aliveCell, deadCell,
     deadCell, deadCell, deadCell, deadCell, deadCell,
     aliveCell, aliveCell, deadCell, deadCell, deadCell,
