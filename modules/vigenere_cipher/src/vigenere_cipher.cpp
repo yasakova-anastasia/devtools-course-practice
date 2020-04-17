@@ -2,9 +2,11 @@
 
 #include "include/vigenere_cipher.h"
 #include <stdexcept>
+#include <string>
 #include <vector>
 
-std::string Encrypt_Vigenere_Cipher(const std::string& text, const std::string& key) {
+std::string Encrypt_Vigenere_Cipher(const std::string& text,
+    const std::string& key) {
     if (key.size() < 1)
         throw std::length_error("key length must be greater than 0");
 
@@ -28,7 +30,8 @@ std::string Encrypt_Vigenere_Cipher(const std::string& text, const std::string& 
     return result;
 }
 
-std::string Decrypt_Vigenere_Cipher(const std::string& text, const std::string& key) {
+std::string Decrypt_Vigenere_Cipher(const std::string& text,
+    const std::string& key) {
     if (key.size() < 1)
         throw std::length_error("key length must be greater than 0");
 
