@@ -1,0 +1,153 @@
+// Copyright 2020 Myshkin Andrey
+
+#include "include/AVL_Tree.h"
+
+
+
+  ///////////////////////////////////////////////////////////////////////////
+  // PRIVATE FUNCTIONS
+
+int AVL_Tree::BFactor(Node* top) {
+    return GetHeight(top->rightNode) - GetHeight(top->leftNode);
+}
+
+void AVL_Tree::fixHeight(Node* top) {
+    unsigned char h_left = GetHeight(top->leftNode);
+    unsigned char h_right = GetHeight(top->rightNode);
+    if (h_left > h_right)  top->height = h_left + 1;
+    else top->height = h_right + 1;
+}
+
+
+  ////////////////////////////////////////////////////////////////////////////
+  // PUBLIC FUNCTIONS
+
+AVL_Tree::AVL_Tree() {
+    RootNode = nullptr;
+}
+
+//AVL_Tree::AVL_Tree(int key_) {
+//    RootNode->height = 1;
+//    RootNode->key = key_;
+//    RootNode->leftNode = nullptr;
+//    RootNode->rightNode = nullptr;
+//}
+
+
+Node* AVL_Tree::GetRootNode() {
+    return RootNode;
+}
+
+int AVL_Tree::GetRootKey() {
+    return RootNode->key;
+}
+
+int AVL_Tree::GetHeight(Node* top) {
+    if (top) return top->height;
+    else return 0;
+}
+
+Node* AVL_Tree::GetLeftSubtree(Node* top) {
+    return top->leftNode;
+}
+
+Node* AVL_Tree::GetRightSubtree(Node* top) {
+    return top->rightNode;
+}
+
+int AVL_Tree::GetKey(Node* top) {
+    return top->key;
+}
+
+
+Node* AVL_Tree::rotateRight(Node* top) {  //private
+    Node* q= top->leftNode;
+    top->leftNode = q->rightNode;
+    q->rightNode = top;
+    fixHeight(top);
+    fixHeight(q);
+    return q;
+}
+
+Node* AVL_Tree::rotateLeft(Node* top) {  //private
+    Node* p = top->rightNode;
+    top->rightNode = p->leftNode;
+    p->leftNode = top;
+    fixHeight(top);
+    fixHeight(p);
+    return p;
+}
+
+Node* AVL_Tree::Balance(Node* top) {  //private
+    fixHeight(top);
+    if (BFactor(top) == 2)
+    {
+        if (BFactor(top->rightNode) < 0)
+            top->rightNode = rotateRight(top->rightNode);
+        return rotateLeft(top);
+    }
+    if (BFactor(top) == -2)
+    {
+        if (BFactor(top->leftNode) > 0)
+            top->leftNode = rotateLeft(top->leftNode);
+        return rotateRight(top);
+    }
+    return top;
+}
+
+
+Node* AVL_Tree::Insert(Node* top, int& key_) {
+    if (!top) return new Node(key_);
+    if (key_ < top->key)
+        top->leftNode = Insert(top->leftNode, key_);
+    else
+        top->rightNode = Insert(top->rightNode, key_);
+    return Balance(top);
+}
+
+Node* AVL_Tree::FindMin(Node* top) {  // maybe private
+    if (top->leftNode) return FindMin(top->leftNode);
+    else return top;
+}
+
+Node* AVL_Tree::FindMax(Node* top) {  // maybe private
+    if (top->rightNode) return FindMax(top->rightNode);
+    else return top;
+}
+
+Node* AVL_Tree::RemoveMin(Node* top) {  //private
+    if (top->leftNode == 0)
+        return top->rightNode;
+    top->leftNode = RemoveMin(top->leftNode);
+    return Balance(top);
+}
+
+Node* AVL_Tree::Remove(Node* top, int& key_) {
+    if (!top) return 0;
+    if (key_ < top->key)
+        top->leftNode = Remove(top->leftNode, key_);
+    else if (key_ > top->key)
+        top->rightNode = Remove(top->rightNode, key_);
+    else //  k == p->key 
+    {
+        Node* q = top->leftNode;
+        Node* r = top->rightNode;
+        delete top;
+        if (!r) return q;
+        Node* min = FindMin(r);
+        min->rightNode = RemoveMin(r);
+        min->leftNode = q;
+        return Balance(min);
+    }
+    return Balance(top);
+}
+
+int AVL_Tree::FindMin() {
+    Node* ptr = FindMin(RootNode);
+    return ptr->key;
+}
+
+int AVL_Tree::FindMax() {
+    Node* ptr = FindMax(RootNode);
+    return ptr->key;
+}
