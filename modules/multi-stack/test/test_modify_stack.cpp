@@ -135,7 +135,7 @@ TEST(Stack, Do_Pop) {
     double value = 5;
     Stack s(size);
 
-    // Act 
+    // Act
     s.put(value);
 
     // Assert
