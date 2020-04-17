@@ -5,7 +5,7 @@
 
 #include <string>
 
-std::string& Encrypt_Vigenere_Cipher(const std::string& text, const std::string& key);
-std::string& Decrypt_Vigenere_Cipher(const std::string& text, const std::string& key);
+std::string Encrypt_Vigenere_Cipher(const std::string& text, const std::string& key);
+std::string Decrypt_Vigenere_Cipher(const std::string& text, const std::string& key);
 
 #endif  // MODULES_VIGENERE_CIPHER_INCLUDE_VIGENERE_CIPHER_H_
