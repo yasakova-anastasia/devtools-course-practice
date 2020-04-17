@@ -1,7 +1,7 @@
 // Copyright 2020 Poletueva Anastasia
 
-#include <gtest/gtest.h>
 #include "include/algorithm_huffmana.h"
+#include <gtest/gtest.h>
 #include <string>
 #include <vector>
 
