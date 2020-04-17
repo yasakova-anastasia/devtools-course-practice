@@ -1,0 +1,183 @@
+// Copyright 2020 Tanskii Yurii
+
+#include <gtest/gtest.h>
+
+#include "include/complex_number.h"
+
+TEST(ModifyStackTest, Can_Create_With_Positive_Size) {
+    // Arrange
+    int size = 25;
+
+    // Act
+    Stack s(size);
+
+    // Assert
+    EXPECT_EQ(size, s.getSize());
+}
+
+TEST(ModifyStackTest, Can_Create_With_Zero) {
+    // Arrange
+    int size = 0;
+    int ex_size = 50;
+
+    // Act
+    Stack s(size);
+
+    // Assert
+    EXPECT_EQ(ex_size, s.getSize());
+}
+
+TEST(ModifyStackTest, Can_Create_With_No_Size) {
+    // Arrange
+    int ex_size = 50;
+
+    // Act
+    Stack s;
+
+    // Assert
+    EXPECT_EQ(ex_size, s.getSize());
+}
+
+TEST(ModifyStackTest, Can_Assert_With_Negative_Size) {
+    // Arrange
+    int size = 0;
+
+    // Act
+    size--;
+
+    // Assert
+    ASSERT_ANY_THROW(Stack s(size));
+}
+
+TEST(ModifyStackTest, Can_Copy_Stack) {
+    // Arrange
+    int size = 10;
+    double value = 0;
+    Stack s1(size);
+
+    // Act
+    for (int i = 0; i < size; i++) {
+        s1.put(value++);
+    }
+    Stack s2(s1);
+
+    // Assert
+    EXPECT_EQ(s1, s2);
+}
+
+TEST(ModifyStackTest, Can_Copy_Stack) {
+    // Arrange
+    int size = 10;
+    double value = 0;
+    Stack s1(size);
+    Stack s2(size);
+
+    // Act
+    for (int i = 0; i < size; i++) {
+        s1.put(value++);
+        s2.put(value);
+    }
+
+    // Assert
+    EXPECT_EQ(s1 != s2);
+}
+
+TEST(ModifyStackTest, Can_Assign) {
+    // Arrange
+    int size = 10;
+    double value = 0;
+    Stack s1(size);
+    Stack s2(size);
+
+    // Act
+    for (int i = 0; i < size; i++) {
+        s1.put(value++);
+    }
+    s2 = s1;
+
+    // Assert
+    EXPECT_TRUE(s1 == s2);
+}
+
+TEST(ModifyStackTest, Do_Get_Min) {
+    // Arrange
+    int size = 10;
+    double exp_min = 0;
+    Stack s(size);
+
+    // Act
+    for (int i = 0; i < size; i++) {
+        s.put((i));
+    }
+
+    // Assert
+    EXPECT_EQ(exp_min, s.getMin());
+}
+
+TEST(ModifyStackTest, Do_Get_Top) {
+    // Arrange
+    int size = 10;
+    Stack s(size);
+    double exp_top = 9;
+
+    // Act
+    for (int i = 0; i < size; i++) {
+        s.put(i);
+    }
+
+    // Assert
+    EXPECT_EQ(exp_top, s.top());
+}
+
+TEST(ModifyStackTest, Do_Pop) {
+    // Arrange
+    int size = 10;
+    double value = 5;
+    Stack s(size);
+
+    // Act 
+    s.put(value);
+
+    //Assert
+    EXPECT_EQ(value, s.pop());
+}
+
+TEST(ModifyStackTest, Check_Is_Empty) {
+    // Arrange
+    int size = 10;
+    bool expect = true;
+
+    // Act 
+    Stack s();
+
+    //Assert
+    EXPECT_TRUE(s.IsEmpty() == expect);
+}
+
+TEST(ModifyStackTest, Check_Is_Full) {
+    // Arrange
+    int size = 10;
+    bool expect = true;
+    Stack s(size);
+
+    // Act 
+    for (int i = 0; i < size; i++) {
+        s.put(i);
+    }
+
+    //Assert
+    EXPECT_TRUE(expect == s.IsFull());
+}
+
+TEST(ComplexNumberTest, Do_Get_Top) {
+    // Arrange
+    int size = 10;
+    Stack s(size);
+    double ex_top = 10;
+    // Act
+    for (int i = 0; i < size; i++) {
+        s.put(i);
+    }
+
+    EXPECT_EQ(ex_top, s.getTop());
+}
