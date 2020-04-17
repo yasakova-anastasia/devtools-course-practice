@@ -10,7 +10,7 @@ extern const unsigned char deadCell;
 #include<stdint.h>
 
 class GameOfLifeGrid {
-public:
+ public:
   GameOfLifeGrid() :wight(0), height(0), node(nullptr) {}
   GameOfLifeGrid(uint32_t wight_, uint32_t height_);
   GameOfLifeGrid(uint32_t wight_, uint32_t height_, uchar* input);
@@ -26,7 +26,7 @@ public:
   void SetCell(uint32_t x, uint32_t y, uchar cell);
   uchar GetCell(uint32_t x, uint32_t y);
   GameOfLifeGrid NextGrid();
-protected:
+ protected:
   uint32_t wight;
   uint32_t height;
   uchar* node;
