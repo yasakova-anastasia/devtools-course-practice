@@ -33,11 +33,11 @@ int Stack::getTop() const {
 }
 
 bool Stack::isEmpty() const {
-    return (top == 0); 
+    return (top == 0);
 }
 
-bool Stack::isFull() const { 
-    return (top == size); 
+bool Stack::isFull() const {
+    return (top == size);
 }
 
 void Stack::put(const double value) {
@@ -53,8 +53,9 @@ void Stack::operator = (const Stack& stack) {
     size = stack.size;
     mas = new double[size];
     top = stack.top;
-    for (int i = 0; i < top; i++)
+    for (int i = 0; i < top; i++) {
         mas[i] = stack.mas[i];
+    }
 }
 
 bool Stack::operator == (const Stack& stack) const {
