@@ -52,7 +52,7 @@ bool Stack::isFull() const {
 
 void Stack::put(const double elem) {
     src[top] = elem;
-    min_items[top++] = isEmpty() ? elem : std::min(elem, getUpper());
+    min_items[top++] = isEmpty() ? elem : std::min(elem, min_items[top]);
 }
 
 double Stack::pop() {
