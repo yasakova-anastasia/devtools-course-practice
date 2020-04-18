@@ -26,7 +26,7 @@ GameOfLifeGrid::GameOfLifeGrid(uint32_t wight_, uint32_t height_,
   for (uint32_t i = 1; i < height + 1; ++i) {
     new(node + i * (wight + 2)) uchar(deadCell);
     for (uint32_t j = 1; j < wight + 1; ++j)
-      new(node + i * (wight + 2) + j) 
+      new(node + i * (wight + 2) + j)
         uchar(input[(i - 1) * wight + j - 1]);
     new(node + i * (wight + 2) + wight + 1) uchar(deadCell);
   }
