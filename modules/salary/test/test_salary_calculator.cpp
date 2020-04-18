@@ -1,15 +1,13 @@
-// Copyright 2020 SAVIN DMITRIY 
+// Copyright 2020 SAVIN DMITRIY
 
 #include <gtest/gtest.h>
 #include "include/Salary.h"
 
 
-class SalaryTest1 : public ::testing::Test
-{
-
+class SalaryTest1 : public ::testing::Test {
 };
 
-TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_Hours_Worked) {
+TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_H_W) {
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 0;
@@ -20,11 +18,10 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_Hours_Worked) 
     a1.setOverHours(0);
     a1.setAdminHours(0);
     float payment = a1.payment();
-
     EXPECT_EQ(payment, 120000);
 }
 
-TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_Recycled_Hours) {
+TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_R_H) {
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 2;
@@ -38,7 +35,7 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_Recycled_Hours) {
     EXPECT_EQ(payment, 129000);
 }
 
-TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_Watches) {
+TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_W) {
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 3;

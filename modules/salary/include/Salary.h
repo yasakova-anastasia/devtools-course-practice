@@ -1,9 +1,8 @@
-// Copyright 2020 SAVIN DMITRIY 
+// Copyright 2020 SAVIN DMITRIY
 #ifndef MODULES_SALARY_INCLUDE_SALARY_H_
 #define MODULES_SALARY_INCLUDE_SALARY_H_
 #pragma once
-class Salary
-{
+class Salary {
  public:
     Salary();
     ~Salary();
