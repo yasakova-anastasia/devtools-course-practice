@@ -9,8 +9,7 @@ class SalaryTest1 : public ::testing::Test
 
 };
 
-TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_Hours_Worked)
-{
+TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_Hours_Worked) {
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 0;
@@ -24,8 +23,8 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_Hours_Worked)
 
     EXPECT_EQ(payment, 120000);
 }
-TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_Recycled_Hours)
-{
+
+TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_Recycled_Hours) {
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 2;
@@ -38,8 +37,8 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_Recycled_Hours)
     float payment = a2.payment();
     EXPECT_EQ(payment, 129000);
 }
-TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_Watches)
-{
+
+TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_Watches) {
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 3;
@@ -50,10 +49,10 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_Watches)
     a3.setOverHours(3);
     a3.setAdminHours(6);
     float payment = a3.payment();
-    EXPECT_EQ(payment, 111000);
+    EXPECT_EQ(payment, 117000);
 }
-TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours)
-{
+
+TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours) {
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 0;
@@ -66,8 +65,8 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours)
     float payment = a4.payment();
     EXPECT_EQ(payment, 69000);
 }
-TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked)
-{
+
+TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked) {
     float m_salary = 120000;
     float m_hours = 0;
     float m_hours_over = 19;
@@ -81,8 +80,8 @@ TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked)
     float exptcted = 0.0;
     EXPECT_EQ(payment, exptcted);
 }
-TEST_F(SalaryTest1, Erroneous_Salary_Payment)
-{
+
+TEST_F(SalaryTest1, Erroneous_Salary_Payment) {
     float m_salary = -120000;
     float m_hours = 0;
     float m_hours_over = 19;
