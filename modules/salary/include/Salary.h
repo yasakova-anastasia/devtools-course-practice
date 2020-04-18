@@ -17,4 +17,4 @@ class Salary {
     int m_hours_over;
     int m_hours_admin;
 };
-#endif // MODULES_SALARY_INCLUDE_SALARY_H_
+#endif  // MODULES_SALARY_INCLUDE_SALARY_H_

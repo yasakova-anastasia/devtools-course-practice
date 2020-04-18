@@ -3,7 +3,6 @@
 #include <gtest/gtest.h>
 #include "include/Salary.h"
 
-
 class SalaryTest1 : public ::testing::Test {
 };
 
