@@ -5,15 +5,15 @@
 #define ISDEAD(arg) (arg & 4)
 #define RESULTNORMALIZATION(arg) (arg >> 2)
 
-const unsigned char aliveCell = '*';
-const unsigned char deadCell = '.';
+const uchar aliveCell = '*';
+const uchar deadCell = '.';
 
 GameOfLifeGrid::GameOfLifeGrid(uint32_t wight_, uint32_t height_)
                                 :wight(wight_), height(height_),
 node(reinterpret_cast<uchar*>(operator new(sizeof(uchar) *
   (wight + 2)* (height + 2)))) {
   for (uint32_t i = 0; i < (wight + 2) * (height + 2); ++i) {
-    node[i] = deadCell;
+    new(node + i) uchar(deadCell);
   }
 }
 
@@ -22,15 +22,16 @@ GameOfLifeGrid::GameOfLifeGrid(uint32_t wight_, uint32_t height_,
   node(reinterpret_cast<uchar*>(operator new(sizeof(uchar) *
   (wight + 2)* (height + 2)))) {
   for (uint32_t i = 0; i < wight + 2; ++i)
-    node[i] = deadCell;
+    new(node + i) uchar(deadCell);
   for (uint32_t i = 1; i < height + 1; ++i) {
-    node[i * (wight + 2)] = deadCell;
+    new(node + i * (wight + 2)) uchar(deadCell);
     for (uint32_t j = 1; j < wight + 1; ++j)
-      node[i * (wight + 2) + j] = input[(i - 1) * wight + j - 1];
-    node[i * (wight + 2) + wight + 1] = deadCell;
+      new(node + i * (wight + 2) + j) 
+        uchar(input[(i - 1) * wight + j - 1]);
+    new(node + i * (wight + 2) + wight + 1) uchar(deadCell);
   }
   for (uint32_t i = 0; i < wight + 2; ++i)
-    node[(wight + 2)*(height + 1) + i] = deadCell;
+    new(node + (wight + 2)*(height + 1) + i) uchar(deadCell);
 }
 
 GameOfLifeGrid::GameOfLifeGrid(const GameOfLifeGrid& grid):
@@ -38,7 +39,7 @@ GameOfLifeGrid::GameOfLifeGrid(const GameOfLifeGrid& grid):
   node(reinterpret_cast<uchar*>(operator new(sizeof(uchar)*
   (wight + 2)* (height + 2)))) {
   for (uint32_t i = 0; i < (wight + 2) * (height + 2); ++i)
-    node[i] = grid.node[i];
+    new(node + i) uchar(grid.node[i]);
 }
 
 uint32_t GameOfLifeGrid::GetWight() {

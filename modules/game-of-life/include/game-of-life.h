@@ -8,6 +8,7 @@ extern const unsigned char aliveCell;
 extern const unsigned char deadCell;
 
 #include<stdint.h>
+#include <new>
 
 class GameOfLifeGrid {
  public:
