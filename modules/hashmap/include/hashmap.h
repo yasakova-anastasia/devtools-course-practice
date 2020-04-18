@@ -24,7 +24,7 @@ class hashmap {
  public:
     hashmap() = default;
     explicit hashmap(const int& max_size);
-    ~hashmap() {delete[] _buffer;}
+    ~hashmap();
     int max_size() {return _max_size;}
     int size() {return _size;}
     void insert(const Key& key, const Value& value);
@@ -44,6 +44,20 @@ hashmap<Key, Value>::hashmap(const int& max_size):_max_size(max_size),
     for (int i = 0; i < max_size; ++i) {
         _buffer[i] = nullptr;
     }
+}
+
+template <typename Key, typename Value>
+hashmap<Key, Value>::~hashmap() {
+    for (int i = 0; i < _max_size; ++i) {
+        auto entry = _buffer[i];
+        while (entry != nullptr) {
+            auto prev = entry;
+            entry = entry->next;
+            delete prev;
+        }
+        _buffer[i] = nullptr;
+    }
+    delete[] _buffer;
 }
 
 template <typename Key, typename Value>
