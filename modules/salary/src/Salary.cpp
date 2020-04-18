@@ -24,10 +24,10 @@ float Salary::payment()
 	else {
 		paymentOver = paymentPerHour * 2.f * (m_hours_over - 2) + paymentPerHour * 1.5f * 2;
 	}
-	if (payment < 0)
+	/*if (payment < 0)
 	{
 		return 0.0f;
-	}
+	}*/
 	payment += paymentOver;
 	return payment;
 }

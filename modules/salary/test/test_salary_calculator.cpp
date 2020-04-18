@@ -42,12 +42,12 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_Watches)
 {
     float m_salary = 120000;
     float m_hours = 40;
-    float m_hours_over = 2;
+    float m_hours_over = 3;
     float m_hours_admin = 6;
     Salary a3;
     a3.setSalary(120000);
     a3.setHours(40);
-    a3.setOverHours(2);
+    a3.setOverHours(3);
     a3.setAdminHours(6);
     float payment = a3.payment();
     EXPECT_EQ(payment, 111000);
