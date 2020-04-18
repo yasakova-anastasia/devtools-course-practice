@@ -41,9 +41,10 @@ TEST(GameOfLifeTest, Copy_Constructor_Test) {
   unsigned char input1[] = { deadCell, aliveCell, deadCell,
     aliveCell, deadCell, deadCell };
   GameOfLifeGrid expected(w, h, input1);
+  // Act
   GameOfLifeGrid actual(expected);
 
-  // Act & Assert
+  // Assert
   EXPECT_EQ(expected, actual);
 }
 
@@ -211,8 +212,9 @@ TEST(GameOfLifeTest, Test_Set_Cell) {
   uint32_t w = 3;
   uint32_t h = 3;
   GameOfLifeGrid grid(w, h);
+  // Act
   grid.SetCell(1, 1, aliveCell);
-  // Act & Assert
+  // Assert
   EXPECT_EQ(aliveCell, grid.GetCell(1, 1));
 }
 
