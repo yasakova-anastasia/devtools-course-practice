@@ -1,13 +1,14 @@
 // Copyright 2020 Nazarov Vladislav
 
 #include "include/rb_tree.h"
+#include <vector>
 
 Node::Node(int _data, Node *_left, Node *_right, Node *_parent, bool _color) :
-           data(_data), left(_left), right(_right),
-           parent(_parent), color(_color) {}
+           data(_data), parent(_parent), left(_left),
+           right(_right), color(_color) {}
 
-Node::Node(const Node& node) : data(node.data), left(node.left),
-           right(node.right), parent(node.parent), color(node.color) {}
+Node::Node(const Node& node) : data(node.data), parent(node.parent),
+           left(node.left), right(node.right), color(node.color) {}
 
 Node& Node::operator=(const Node& node) {
     data = node.data;
@@ -47,7 +48,7 @@ RBTree::RBTree(const std::vector<int>& vec) :
     }
 }
 
-Node* RBTree::GetRoot() const {
+Node* RBTree::getRoot() const {
     return _root;
 }
 

@@ -3,12 +3,23 @@
 #include <gtest/gtest.h>
 
 #include <random>
+#include <algorithm>
+#include <vector>
+
 #include "include/rb_tree.h"
 
 TEST(RBTreeTest, Construct_Node) {
     Node node(15);
 
     ASSERT_EQ(15, node.data);
+}
+
+TEST(RBTreeTest, Copy_Node) {
+    Node node(15);
+
+    Node copy(node);
+
+    ASSERT_EQ(15, copy.data);
 }
 
 TEST(RBTreeTest, Assign_Node) {
@@ -55,7 +66,7 @@ TEST(RBTreeTest, Construct_From_Vector) {
 
 TEST(RBTreeTest, Copy_Constructor) {
     std::vector<int> vec{-3, 4, 1};
-    
+
     RBTree tree{vec};
 
     ASSERT_NO_THROW(RBTree{tree});
@@ -66,21 +77,21 @@ TEST(RBTreeTest, Can_Get_Root) {
 
     RBTree tree{node};
 
-    ASSERT_EQ(2, tree.GetRoot()->data);
+    ASSERT_EQ(2, tree.getRoot()->data);
 }
 
 TEST(RBTreeTest, Can_Find_Existing_Item) {
     std::vector<int> vec{-20, 1, -10, 14};
     RBTree tree{vec};
 
-    ASSERT_TRUE(tree.find(14));
+    ASSERT_EQ(tree.find(14)->data, 14);
 }
 
 TEST(RBTreeTest, Can_Not_Find_Nonexistent_Item) {
     std::vector<int> vec{-20, 1, -10, 14};
     RBTree tree{vec};
 
-    ASSERT_TRUE(tree.find(-14));
+    ASSERT_EQ(tree.find(-14)->data, 0);
 }
 
 TEST(RBTreeTest, Can_Insert_New_Item) {
@@ -113,4 +124,20 @@ TEST(RBTreeTest, Can_Not_Remove_Nonexistent_Item) {
     RBTree tree{vec};
 
     ASSERT_ANY_THROW(tree.remove(10));
+}
+
+TEST(RBTreeTest, Many_Operations_With_Tree) {
+    std::vector<int> vec;
+    for (int elem = -30; elem < 31; ++elem)
+        vec.emplace_back(elem);
+    std::default_random_engine re(0);
+    std::shuffle(vec.begin(), vec.end(), re);
+    vec.erase(std::find(vec.begin(), vec.end(), 0));
+    RBTree tree{vec};
+
+    std::shuffle(vec.begin(), vec.end(), re);
+    for (auto iter = vec.begin(); iter != vec.end(); ++iter)
+        tree.remove(*iter);
+
+    ASSERT_FALSE(tree.getRoot()->color);
 }
