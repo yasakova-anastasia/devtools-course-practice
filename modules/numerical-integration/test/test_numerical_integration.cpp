@@ -9,36 +9,30 @@
 #include "include/numerical_integration.h"
 
 class NumericalIntegrationTest : public NumericalIntegration {
-public:
-    static const double epsilon;
-    static const unsigned int N;
+ public:
+     static const double epsilon;
+     static const unsigned int N;
 
-    static double f1(double x)
-    {
-        return x * x;
-    }
-    static double F1(double x)
-    {
-        return (x * x * x) / 3.0;
-    }
+     static double f1(double x) {
+         return x * x;
+     }
+     static double F1(double x) {
+         return (x * x * x) / 3.0;
+     }
 
-    static double f2(double x)
-    {
-        return 1.0 - x;
-    }
-    static double F2(double x)
-    {
-        return x - (x * x) / 2.0;
-    }
+     static double f2(double x) {
+         return 1.0 - x;
+     }
+     static double F2(double x) {
+         return x - (x * x) / 2.0;
+     }
 
-    static double f3(double x)
-    {
-        return cos(x);
-    }
-    static double F3(double x)
-    {
-        return sin(x);
-    }
+     static double f3(double x) {
+         return cos(x);
+     }
+     static double F3(double x) {
+         return sin(x);
+     }
 };
 
 const double NumericalIntegrationTest::epsilon = 0.001;
