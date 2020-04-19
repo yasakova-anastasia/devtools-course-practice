@@ -6,8 +6,11 @@
 class QuadraticEquation {
  private:
         double a, b, c;
+        double x1, x2;
  public:
         QuadraticEquation (double a, double b, double c);
+        double GetRoot1 ();
+        double GetRoot2 ();
 };
 
 #endif  // MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_H_

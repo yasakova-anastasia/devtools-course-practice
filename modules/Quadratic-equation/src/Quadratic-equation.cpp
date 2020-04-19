@@ -1,8 +1,7 @@
 // Copyright 2020 Arisova Anastasiia
 
 #include "include/Quadratic-equation.h"
-#include <vector>
-#include <string>
+#include <math.h>
 
     QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
         if (a == 0.0) {
@@ -12,4 +11,12 @@
             b = bb;
             c = cc;
         }
+    }
+    
+    double QuadraticEquation::GetRoot1 () {
+       return x1;
+    }
+
+    double QuadraticEquation::GetRoot2 () {
+       return x2;
     }
