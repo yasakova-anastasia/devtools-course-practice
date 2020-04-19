@@ -217,7 +217,8 @@ void RBTree::removeBalancing(Node *node) {
                 tmp = node->parent->right;
             }
 
-            if (tmp->left->color == Color::black && tmp->right->color == Color::black) {
+            if (tmp->left->color == Color::black &&
+                tmp->right->color == Color::black) {
                 tmp->color = Color::red;
                 node = node->parent;
             } else {
@@ -243,7 +244,8 @@ void RBTree::removeBalancing(Node *node) {
                 tmp = node->parent->left;
             }
 
-            if (tmp->right->color == Color::black && tmp->left->color == Color::black) {
+            if (tmp->right->color == Color::black &&
+                tmp->left->color == Color::black) {
                 tmp->color = Color::red;
                 node = node->parent;
             } else {
