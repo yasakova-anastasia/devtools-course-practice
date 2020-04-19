@@ -17,20 +17,30 @@
     }
 
     double QuadraticEquation::GetRoot1() {
-        if (count_roots != 0) {
-            return x1;
-        } else {
+        if (count_roots == 0) {
             throw static_cast<std::string>(
                 "This equation cannot have real root!");
+        }
+        if (count_roots == -1) {
+            throw static_cast<std::string>(
+                "This equation is not solved!");
+        }
+        if((count_roots == 1)||(count_roots == 2)) {
+            return x1;
         }
     }
 
     double QuadraticEquation::GetRoot2() {
-        if (count_roots != 0) {
-            return x2;
-        } else {
+        if (count_roots == 0) {
             throw static_cast<std::string>(
                 "This equation cannot have real root!");
+        }
+        if (count_roots == -1) {
+            throw static_cast<std::string>(
+                "This equation is not solved!");
+        }
+        if((count_roots == 1)||(count_roots == 2)) {
+            return x2;
         }
     }
 

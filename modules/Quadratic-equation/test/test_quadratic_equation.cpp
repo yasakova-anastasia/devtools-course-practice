@@ -135,7 +135,7 @@ TEST(QuadraticEquationTest, Can_Update_Count_Roots_By_New_Coefficient) {
     EXPECT_EQ(count_roots, equat.GetCountRoots());
 }
 
-TEST(QuadraticEquationTest, Can_Get_Count_Roots_If_Equation_Not_Solve) {
+TEST(QuadraticEquationTest, Can_Get_Count_Roots_If_New_Equation_Not_Solve) {
     // Arrange
     QuadraticEquation equat(1.0, 5.0, 4.0);
     int count_roots = -1;
@@ -146,4 +146,56 @@ TEST(QuadraticEquationTest, Can_Get_Count_Roots_If_Equation_Not_Solve) {
 
     // Assert
     EXPECT_EQ(count_roots, equat.GetCountRoots());
+}
+
+TEST(QuadraticEquationTest, Can_Get_Count_Root1_If_New_Equation_Not_Solve) {
+    // Arrange
+    QuadraticEquation equat(1.0, 5.0, 4.0);
+
+    // Act
+    equat.SolveQuadraticEquation();
+    equat.SetNewCoefficients(1.0, -2.0, 1.0);
+
+    // Assert
+    EXPECT_ANY_THROW(equat.GetRoot1());
+}
+
+TEST(QuadraticEquationTest, Can_Get_Count_Root2_If_New_Equation_Not_Solve) {
+    // Arrange
+    QuadraticEquation equat(1.0, 5.0, 4.0);
+
+    // Act
+    equat.SolveQuadraticEquation();
+    equat.SetNewCoefficients(1.0, -2.0, 1.0);
+
+    // Assert
+    EXPECT_ANY_THROW(equat.GetRoot2());
+}
+
+TEST(QuadraticEquationTest, Can_Get_Count_Root1_If_New_Equation_Solve) {
+    // Arrange
+    QuadraticEquation equat(1.0, -2.0, 1.0);
+    double root1 = -1.0;
+
+    // Act
+    equat.SolveQuadraticEquation();
+    equat.SetNewCoefficients(1.0, 5.0, 4.0);
+    equat.SolveQuadraticEquation();
+
+    // Assert
+    EXPECT_EQ(root1, equat.GetRoot1());
+}
+
+TEST(QuadraticEquationTest, Can_Get_Count_Root2_If_New_Equation_Solve) {
+    // Arrange
+    QuadraticEquation equat(1.0, -2.0, 1.0);
+    double root1 = -4.0;
+
+    // Act
+    equat.SolveQuadraticEquation();
+    equat.SetNewCoefficients(1.0, 5.0, 4.0);
+    equat.SolveQuadraticEquation();
+
+    // Assert
+    EXPECT_EQ(root1, equat.GetRoot2());
 }
