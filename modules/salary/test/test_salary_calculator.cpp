@@ -7,6 +7,7 @@ class SalaryTest1 : public ::testing::Test {
 };
 
 TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_H_W) {
+    // Arrange
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 0;
@@ -16,11 +17,16 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_H_W) {
     a1.setHours(40);
     a1.setOverHours(0);
     a1.setAdminHours(0);
+
+    // Act
     float payment = a1.payment();
+
+    // Assert
     EXPECT_EQ(payment, 120000);
 }
 
 TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_R_H) {
+    // Arrange
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 2;
@@ -30,11 +36,16 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_R_H) {
     a2.setHours(40);
     a2.setOverHours(2);
     a2.setAdminHours(0);
+
+    // Act
     float payment = a2.payment();
+
+    // Assert
     EXPECT_EQ(payment, 129000);
 }
 
 TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_W) {
+    // Arrange
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 3;
@@ -44,11 +55,16 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_W) {
     a3.setHours(40);
     a3.setOverHours(3);
     a3.setAdminHours(6);
+
+    // Act
     float payment = a3.payment();
+
+    // Assert
     EXPECT_EQ(payment, 117000);
 }
 
 TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours) {
+    // Arrange
     float m_salary = 120000;
     float m_hours = 40;
     float m_hours_over = 0;
@@ -58,11 +74,16 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours) {
     a4.setHours(40);
     a4.setOverHours(0);
     a4.setAdminHours(17);
+
+    // Act
     float payment = a4.payment();
+
+    // Assert
     EXPECT_EQ(payment, 69000);
 }
 
 TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked) {
+    // Arrange
     float m_salary = 120000;
     float m_hours = 0;
     float m_hours_over = 19;
@@ -72,12 +93,17 @@ TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked) {
     a5.setHours(0);
     a5.setOverHours(19);
     a5.setAdminHours(17);
+
+    // Act
     float payment = a5.payment();
     float exptcted = 0.0;
+
+    // Assert
     EXPECT_EQ(payment, exptcted);
 }
 
 TEST_F(SalaryTest1, Erroneous_Salary_Payment) {
+    // Arrange
     float m_salary = -120000;
     float m_hours = 0;
     float m_hours_over = 19;
@@ -87,7 +113,11 @@ TEST_F(SalaryTest1, Erroneous_Salary_Payment) {
     a6.setHours(0);
     a6.setOverHours(19);
     a6.setAdminHours(17);
+
+    // Act
     float payment = a6.payment();
     float exptcted = 0.0;
+
+    // Assert
     EXPECT_EQ(payment, exptcted);
 }
