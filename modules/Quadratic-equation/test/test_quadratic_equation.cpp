@@ -189,7 +189,7 @@ TEST(QuadraticEquationTest, Can_Get_Count_Root1_If_New_Equation_Solve) {
 TEST(QuadraticEquationTest, Can_Get_Count_Root2_If_New_Equation_Solve) {
     // Arrange
     QuadraticEquation equat(1.0, -2.0, 1.0);
-    double root1 = -4.0;
+    double root2 = -4.0;
 
     // Act
     equat.SolveQuadraticEquation();
@@ -197,5 +197,5 @@ TEST(QuadraticEquationTest, Can_Get_Count_Root2_If_New_Equation_Solve) {
     equat.SolveQuadraticEquation();
 
     // Assert
-    EXPECT_EQ(root1, equat.GetRoot2());
+    EXPECT_EQ(root2, equat.GetRoot2());
 }
