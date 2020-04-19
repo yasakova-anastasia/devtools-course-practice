@@ -128,7 +128,7 @@ TEST(RBTreeTest, Can_Not_Remove_Nonexistent_Item) {
 
 TEST(RBTreeTest, Many_Operations_With_Tree) {
     std::vector<int> vec;
-    for (int elem = -30; elem < 31; ++elem)
+    for (int elem = -100; elem < 101; ++elem)
         vec.emplace_back(elem);
     std::default_random_engine re(0);
     std::shuffle(vec.begin(), vec.end(), re);
