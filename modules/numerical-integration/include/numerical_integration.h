@@ -14,6 +14,8 @@ public:
    double Right_rectangle_method(unsigned int N);
    double Middle_rectangle_method(unsigned int N);
    double Trapezoid_method(unsigned int N);
+   double Simpsons_method(unsigned int N);
+   double Gauss_method(unsigned int N);
 };
 
 #endif  // MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_

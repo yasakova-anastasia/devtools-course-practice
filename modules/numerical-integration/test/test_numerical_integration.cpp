@@ -110,3 +110,29 @@ TEST(NumericalIntegrationTest, TestTrapezoidMethod) {
     // Assert
     EXPECT_NEAR(ans, obj.Trapezoid_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
+
+TEST(NumericalIntegrationTest, TestSimpsonsMethod) {
+    // Arrange
+    double a = 4.0;
+    double b = 7.0;
+    double ans = NumericalIntegrationTest::F2(b) - NumericalIntegrationTest::F2(a);
+
+    // Act
+    NumericalIntegration obj(a, b, NumericalIntegrationTest::f2);
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Simpsons_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
+
+TEST(NumericalIntegrationTest, TestGaussMethod) {
+    // Arrange
+    double a = M_PI / 6.0;
+    double b = M_PI / 3.0;
+    double ans = NumericalIntegrationTest::F3(b) - NumericalIntegrationTest::F3(a);
+
+    // Act
+    NumericalIntegration obj(a, b, NumericalIntegrationTest::f3);
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Gauss_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
