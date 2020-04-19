@@ -21,7 +21,7 @@
             throw static_cast<std::string>(
                 "This equation cannot have real root!");
         }
-        if (count_roots == -1) {
+        if ((count_roots < 0) || (count_roots > 2)) {
             throw static_cast<std::string>(
                 "This equation is not solved!");
         }
@@ -35,7 +35,7 @@
             throw static_cast<std::string>(
                 "This equation cannot have real root!");
         }
-        if (count_roots == -1) {
+        if ((count_roots < 0) || (count_roots > 2)) {
             throw static_cast<std::string>(
                 "This equation is not solved!");
         }
