@@ -12,6 +12,7 @@ public:
 
    double Left_rectangle_method(unsigned int N);
    double Right_rectangle_method(unsigned int N);
+   double Middle_rectangle_method(unsigned int N);
 };
 
 #endif  // MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_

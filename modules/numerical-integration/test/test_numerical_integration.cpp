@@ -84,3 +84,17 @@ TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
     // Assert
     EXPECT_NEAR(ans, obj.Right_rectangle_method(N), NumericalIntegrationTest::epsilon);
 }
+
+TEST(NumericalIntegrationTest, TestMiddleRectangleMethod) {
+    // Arrange
+    double a = 2.0;
+    double b = 4.0;
+    double ans = NumericalIntegrationTest::F2(b) - NumericalIntegrationTest::F2(a);
+    unsigned int N = 100000;
+
+    // Act
+    NumericalIntegration obj(a, b, NumericalIntegrationTest::f2);
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Middle_rectangle_method(N), NumericalIntegrationTest::epsilon);
+}

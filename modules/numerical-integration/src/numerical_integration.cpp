@@ -31,3 +31,18 @@ double NumericalIntegration::Right_rectangle_method(unsigned int N)
 
 	return I * h;
 }
+
+double NumericalIntegration::Middle_rectangle_method(unsigned int N)
+{
+    double h = (b - a) / (double)N;
+    double I = 0.0;
+    double x;
+
+    for (unsigned int i = 0; i < N; i++)
+    {
+        x = a + (i + 0.5) * h;
+        I += f(x);
+    }
+
+	return I * h;
+}
