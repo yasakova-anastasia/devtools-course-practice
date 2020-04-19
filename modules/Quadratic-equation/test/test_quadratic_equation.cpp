@@ -9,7 +9,7 @@ TEST(QuadraticEquationTest, Can_Create_Quadratic_Equation) {
     EXPECT_NO_THROW(QuadraticEquation equat(2.0, 4.0, 1.0));
 }
 
-TEST(QuadraticEquationTest, 
+TEST(QuadraticEquationTest,
     Can_Create_Quadratic_Equation_First_Coeff_Equal_Zero) {
     // Arrange & Act & Assert
     EXPECT_ANY_THROW(QuadraticEquation equat(0.0, 4.0, 1.0));

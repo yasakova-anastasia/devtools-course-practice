@@ -3,6 +3,7 @@
 #include "include/Quadratic-equation.h"
 
 #include <math.h>
+#include <string>
 
     QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
         if (aa == 0.0) {
