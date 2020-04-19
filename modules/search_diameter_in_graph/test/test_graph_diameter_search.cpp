@@ -82,6 +82,20 @@ TEST_F(MityaginaGraphDiameterSearch, Can_handle_wrong_num_of_edges) {
   ASSERT_ANY_THROW(graph.addEdge(1, 2));
 }
 
+TEST_F(MityaginaGraphDiameterSearch, Can_handle_wrong_num_of_edges_to_full_graph) {
+  // Arrange
+  int number = 2;
+  Graph graph(number);
+
+  // Act
+  graph.adjList[1].push_back(2);
+  graph.adjList[2].push_back(1);
+
+  // Assert
+  ASSERT_ANY_THROW(graph.addEdge(2, 3));
+}
+
+
 TEST_F(MityaginaGraphDiameterSearch, Dfs_with_invalid_parameters) {
   // Arrange
   int number = 5;
