@@ -90,8 +90,8 @@ double NumericalIntegration::Gauss_method(unsigned int N)
         x = a + i * h;
         t1 = (2.0 * x + h) / 2.0;
         t2 = h / (2.0 * sqrt(3.0));
-        I += (h / 2.0) * (f(t1 - t2) + f(t1 + t2));
+        I += f(t1 - t2) + f(t1 + t2);
     }
 
-	return I;
+	return I * h / 2.0;
 }
