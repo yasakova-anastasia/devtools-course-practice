@@ -17,11 +17,11 @@ Graph::Graph(int n) {
 
 void Graph::addEdge(int first, int second) {
   if (first <= 0 || second <= 0) {
-    throw "Can't add this edge";
+    throw "Can't add this edge. Vertices indexes should be > 0.";
   }
   numberOfEdges++;
   if (numberOfEdges > numberOfVert * ((numberOfVert - 1) / 2)) {
-    throw "Can't add this edge";
+    throw "Can't add this edge. Complete graph.";
   }
   adjList[first].push_back(second);
   adjList[second].push_back(first);
