@@ -8,20 +8,37 @@
 
 class NumericalIntegrationTest : public NumericalIntegration {
 public:
-    double epsilon = 0.001;
+    static const double epsilon;
+
     static double f1(double x)
     {
         return x * x;
     }
+    static double F1(double x)
+    {
+        return (x * x * x) / 3.0;
+    }
+
     static double f2(double x)
     {
         return 1.0 - x;
     }
+    static double F2(double x)
+    {
+        return x - (x * x) / 2.0;
+    }
+
     static double f3(double x)
     {
         return cos(x);
     }
+    static double F3(double x)
+    {
+        return sin(x);
+    }
 };
+
+const double NumericalIntegrationTest::epsilon = 0.001;
 
 TEST(NumericalIntegrationTest, Can_Create_Correct_Object) {
     // Arrange
@@ -36,4 +53,18 @@ TEST(NumericalIntegrationTest, Can_Create_Correct_Object) {
     EXPECT_EQ(a, obj.a);
     EXPECT_EQ(b, obj.b);
     EXPECT_EQ(NumericalIntegrationTest::f1(x), obj.f(x));
+}
+
+TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {
+    // Arrange
+    double a = 0.0;
+    double b = 3.0;
+    double ans = NumericalIntegrationTest::F1(b) - NumericalIntegrationTest::F1(a);
+    unsigned int N = 100000;
+
+    // Act
+    NumericalIntegration obj(a, b, NumericalIntegrationTest::f1);
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Left_rectangle_method(N), NumericalIntegrationTest::epsilon);
 }
