@@ -56,7 +56,8 @@
        return count_roots;
     }
 
-    void QuadraticEquation::SetNewCoefficients(double aa, double bb, double cc) {
+    void QuadraticEquation::SetNewCoefficients(double aa, 
+        double bb, double cc) {
         if (aa == 0.0) {
             throw static_cast<std::string>(
                 "The coefficient for x^2 cannot be zero!");

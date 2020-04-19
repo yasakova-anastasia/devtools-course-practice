@@ -9,12 +9,12 @@ class QuadraticEquation {
         double x1, x2;
         int count_roots;
  public:
-        QuadraticEquation(double a, double b, double c);
+        QuadraticEquation(double aa, double bb, double cc);
         double GetRoot1();
         double GetRoot2();
         int GetCountRoots();
         void SolveQuadraticEquation();
-        void SetNewCoefficients(double a, double b, double c);
+        void SetNewCoefficients(double aa, double bb, double cc);
 };
 
 #endif  // MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_H_
