@@ -11,6 +11,7 @@
 class NumericalIntegrationTest : public NumericalIntegration {
 public:
     static const double epsilon;
+    static const unsigned int N;
 
     static double f1(double x)
     {
@@ -41,6 +42,7 @@ public:
 };
 
 const double NumericalIntegrationTest::epsilon = 0.001;
+const unsigned int NumericalIntegrationTest::N = 100000;
 
 TEST(NumericalIntegrationTest, Can_Create_Correct_Object) {
     // Arrange
@@ -62,13 +64,12 @@ TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {
     double a = 0.0;
     double b = 3.0;
     double ans = NumericalIntegrationTest::F1(b) - NumericalIntegrationTest::F1(a);
-    unsigned int N = 100000;
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f1);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Left_rectangle_method(N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Left_rectangle_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
@@ -76,13 +77,12 @@ TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
     double a = M_PI / 4.0;
     double b = M_PI / 2.0;
     double ans = NumericalIntegrationTest::F3(b) - NumericalIntegrationTest::F3(a);
-    unsigned int N = 100000;
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f3);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Right_rectangle_method(N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Right_rectangle_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestMiddleRectangleMethod) {
@@ -90,11 +90,23 @@ TEST(NumericalIntegrationTest, TestMiddleRectangleMethod) {
     double a = 2.0;
     double b = 4.0;
     double ans = NumericalIntegrationTest::F2(b) - NumericalIntegrationTest::F2(a);
-    unsigned int N = 100000;
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f2);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Middle_rectangle_method(N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Middle_rectangle_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
+
+TEST(NumericalIntegrationTest, TestTrapezoidMethod) {
+    // Arrange
+    double a = -1.0;
+    double b = 5.0;
+    double ans = NumericalIntegrationTest::F1(b) - NumericalIntegrationTest::F1(a);
+
+    // Act
+    NumericalIntegration obj(a, b, NumericalIntegrationTest::f1);
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Trapezoid_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
