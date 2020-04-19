@@ -12,6 +12,8 @@ public:
    NumericalIntegration(const NumericalIntegration& obj);
    NumericalIntegration& operator=(const NumericalIntegration& obj);
 
+   bool operator == (const NumericalIntegration& obj) const;
+
    double Left_rectangle_method(unsigned int N);
    double Right_rectangle_method(unsigned int N);
    double Middle_rectangle_method(unsigned int N);

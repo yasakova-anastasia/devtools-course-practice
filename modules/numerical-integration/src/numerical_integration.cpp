@@ -1,10 +1,21 @@
 // Copyright 2020 Boganov Sergei
 
 #include <cmath>
+#include <string>
 
 #include "include/numerical_integration.h"
 
-NumericalIntegration::NumericalIntegration(double _a, double _b, double (*_f)(double x)) : a(_a), b(_b), f(_f) {}
+NumericalIntegration::NumericalIntegration(double _a, double _b, double (*_f)(double x))
+{
+    if (_a >= _b)
+    {
+        throw (std::string)"The left border should be less than the right border";
+    }
+    
+    a = _a;
+    b = _b;
+    f = _f;
+}
 
 NumericalIntegration::NumericalIntegration(const NumericalIntegration& obj) : a(obj.a), b(obj.b), f(obj.f) {}
 
@@ -14,6 +25,10 @@ NumericalIntegration& NumericalIntegration::operator=(const NumericalIntegration
     f = obj.f;
 
     return *this;
+}
+
+bool NumericalIntegration::operator == (const NumericalIntegration& obj) const {
+    return ((a == obj.a) && (b == obj.b) && (f == obj.f));
 }
 
 double NumericalIntegration::Left_rectangle_method(unsigned int N)
