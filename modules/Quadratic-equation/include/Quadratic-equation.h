@@ -14,6 +14,7 @@ class QuadraticEquation {
         double GetRoot2();
         int GetCountRoots();
         void SolveQuadraticEquation();
+        void SetNewCoefficients(double a, double b, double c);
 };
 
 #endif  // MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_H_

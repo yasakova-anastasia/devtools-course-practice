@@ -21,7 +21,7 @@
             return x1;
         } else {
             throw static_cast<std::string>(
-                "This equation cannot real root!");
+                "This equation cannot have real root!");
         }
     }
 
@@ -30,7 +30,7 @@
             return x2;
         } else {
             throw static_cast<std::string>(
-                "This equation cannot real root!");
+                "This equation cannot have real root!");
         }
     }
 
@@ -54,4 +54,15 @@
 
     int QuadraticEquation::GetCountRoots() {
        return count_roots;
+    }
+
+    void QuadraticEquation::SetNewCoefficients(double aa, double bb, double cc) {
+        if (aa == 0.0) {
+            throw static_cast<std::string>(
+                "The coefficient for x^2 cannot be zero!");
+        } else {
+            a = aa;
+            b = bb;
+            c = cc;
+        }
     }

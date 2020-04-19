@@ -43,7 +43,7 @@ TEST(QuadraticEquationTest, Can_Find_Root) {
     // Arrange
     QuadraticEquation equat(1.0, -2.0, 1.0);
 
-    // Assert
+    // Act & Assert
     EXPECT_NO_THROW(equat.SolveQuadraticEquation());
 }
 
@@ -103,4 +103,20 @@ TEST(QuadraticEquationTest, Can_Not_Get_Root2_If_They_Complex) {
 
     // Assert
     EXPECT_ANY_THROW(equat.GetRoot2());
+}
+
+TEST(QuadraticEquationTest, Can_Set_New_Equation) {
+    // Arrange
+    QuadraticEquation equat(1.0, 4.0, 5.0);
+
+    // Act & Assert
+    EXPECT_NO_THROW(equat.SetNewCoefficients(3.0, 1.0, 2.0));
+}
+
+TEST(QuadraticEquationTest, Can_Set_New_Equation_With_First_Coeff_Zero) {
+    // Arrange
+    QuadraticEquation equat(1.0, 4.0, 5.0);
+
+    // Act & Assert
+    EXPECT_ANY_THROW(equat.SetNewCoefficients(0.0, 1.0, 2.0));
 }
