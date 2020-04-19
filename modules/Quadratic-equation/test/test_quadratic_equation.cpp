@@ -120,3 +120,30 @@ TEST(QuadraticEquationTest, Can_Set_New_Equation_With_First_Coeff_Zero) {
     // Act & Assert
     EXPECT_ANY_THROW(equat.SetNewCoefficients(0.0, 1.0, 2.0));
 }
+
+TEST(QuadraticEquationTest, Can_Update_Count_Roots_By_New_Coefficient) {
+    // Arrange
+    QuadraticEquation equat(1.0, 5.0, 4.0);
+    int count_roots = 1;
+
+    // Act
+    equat.SolveQuadraticEquation();
+    equat.SetNewCoefficients(1.0, -2.0, 1.0);
+    equat.SolveQuadraticEquation();
+
+    // Assert
+    EXPECT_EQ(count_roots, equat.GetCountRoots());
+}
+
+TEST(QuadraticEquationTest, Can_Get_Count_Roots_If_Equation_Not_Solve) {
+    // Arrange
+    QuadraticEquation equat(1.0, 5.0, 4.0);
+    int count_roots = -1;
+
+    // Act
+    equat.SolveQuadraticEquation();
+    equat.SetNewCoefficients(1.0, -2.0, 1.0);
+
+    // Assert
+    EXPECT_EQ(count_roots, equat.GetCountRoots());
+}

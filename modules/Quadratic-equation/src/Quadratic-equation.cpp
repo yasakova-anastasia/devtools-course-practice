@@ -65,5 +65,6 @@
             a = aa;
             b = bb;
             c = cc;
+            count_roots = -1;
         }
     }
