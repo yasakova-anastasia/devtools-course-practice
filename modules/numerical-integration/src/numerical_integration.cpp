@@ -32,7 +32,7 @@ NumericalIntegration& NumericalIntegration::operator=(
 
 bool NumericalIntegration::operator == (
     const NumericalIntegration& obj) const {
-    return ((a == obj.a) && (b == obj.b) && (f == obj.f));
+    return (a == obj.a) && (b == obj.b) && (f == obj.f);
 }
 
 double NumericalIntegration::Left_rectangle_method(unsigned int N) {
