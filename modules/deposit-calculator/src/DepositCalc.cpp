@@ -3,14 +3,14 @@
 #include "include/DepositCalc.h"
 #include <iostream>
 
-DepositCalc::DepositCalc(int _depositAmount, int _period, int _rate) :depositAmount(_depositAmount),
-period(_period), rate(_rate) {};
+DepositCalc::DepositCalc(int _depositAmount, int _period, int _rate)
+    :depositAmount(_depositAmount), period(_period), rate(_rate) {}
 
 int DepositCalc::getDepositAmount()const {
     return depositAmount;
 }
 
-int DepositCalc::getPeriod()const {
+int DepositCalc::getPeriod() {
     return period;
 }
 
@@ -43,6 +43,7 @@ void DepositCalc::setRate(const int& rate) {
 }
 
 void DepositCalc::calc() {
-    depositWithRate = depositAmount + ((depositAmount * rate * period) / (366 * 100));
+    depositWithRate = depositAmount + ((depositAmount * rate * period)
+        / (366 * 100));
     interestCharges = depositWithRate - depositAmount;
 }
