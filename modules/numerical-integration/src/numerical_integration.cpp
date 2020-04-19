@@ -5,9 +5,11 @@
 
 #include "include/numerical_integration.h"
 
-NumericalIntegration::NumericalIntegration(double _a, double _b, double (*_f)(double x)) {
+NumericalIntegration::NumericalIntegration(
+    double _a, double _b, double (*_f)(double x)) {
     if (_a >= _b) {
-        throw static_cast<std::string>("The left border should be less than the right border");
+        throw static_cast<std::string>(
+            "The left border should be less than the right border");
     }
 
     a = _a;
@@ -15,10 +17,12 @@ NumericalIntegration::NumericalIntegration(double _a, double _b, double (*_f)(do
     f = _f;
 }
 
-NumericalIntegration::NumericalIntegration(const NumericalIntegration& obj) : a(obj.a), b(obj.b), f(obj.f) {
+NumericalIntegration::NumericalIntegration(
+    const NumericalIntegration& obj) : a(obj.a), b(obj.b), f(obj.f) {
 }
 
-NumericalIntegration& NumericalIntegration::operator=(const NumericalIntegration& obj) {
+NumericalIntegration& NumericalIntegration::operator=(
+    const NumericalIntegration& obj) {
     a = obj.a;
     b = obj.b;
     f = obj.f;
@@ -26,7 +30,8 @@ NumericalIntegration& NumericalIntegration::operator=(const NumericalIntegration
     return *this;
 }
 
-bool NumericalIntegration::operator == (const NumericalIntegration& obj) const {
+bool NumericalIntegration::operator == (
+    const NumericalIntegration& obj) const {
     return ((a == obj.a) && (b == obj.b) && (f == obj.f));
 }
 
