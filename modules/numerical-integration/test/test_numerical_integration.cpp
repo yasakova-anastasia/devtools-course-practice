@@ -44,7 +44,7 @@ public:
 const double NumericalIntegrationTest::epsilon = 0.001;
 const unsigned int NumericalIntegrationTest::N = 100000;
 
-TEST(NumericalIntegrationTest, Can_Create_Correct_Object) {
+TEST(NumericalIntegrationTest, CanCreateCorrectObject) {
     // Arrange
     double a = 0.0;
     double b = 1.0;
@@ -57,6 +57,41 @@ TEST(NumericalIntegrationTest, Can_Create_Correct_Object) {
     EXPECT_EQ(a, obj.a);
     EXPECT_EQ(b, obj.b);
     EXPECT_EQ(NumericalIntegrationTest::f1(x), obj.f(x));
+}
+
+TEST(NumericalIntegrationTest, CopyConstructorTest) {
+    // Arrange
+    double a = 0.0;
+    double b = 1.0;
+    double x = 5.0;
+
+    // Act
+    NumericalIntegration obj1(a, b, NumericalIntegrationTest::f2);
+    NumericalIntegration obj2(obj1);
+
+    // Assert
+    EXPECT_EQ(obj1.a, obj2.a);
+    EXPECT_EQ(obj1.b, obj2.b);
+    EXPECT_EQ(obj1.f(x), obj2.f(x));
+}
+
+TEST(NumericalIntegrationTest, EqualityOperatorTest) {
+    // Arrange
+    double a1 = 6.0;
+    double b1 = 5.2;
+    double a2 = 3.0;
+    double b2 = 4.3;
+    double x = 3.0;
+
+    // Act
+    NumericalIntegration obj1(a1, b1, NumericalIntegrationTest::f2);
+    NumericalIntegration obj2(a2, b2, NumericalIntegrationTest::f3);
+    obj2 = obj1;
+
+    // Assert
+    EXPECT_EQ(obj1.a, obj2.a);
+    EXPECT_EQ(obj1.b, obj2.b);
+    EXPECT_EQ(obj1.f(x), obj2.f(x));
 }
 
 TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {

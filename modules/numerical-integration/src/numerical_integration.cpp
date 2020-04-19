@@ -4,6 +4,18 @@
 
 #include "include/numerical_integration.h"
 
+NumericalIntegration::NumericalIntegration(double _a, double _b, double (*_f)(double x)) : a(_a), b(_b), f(_f) {}
+
+NumericalIntegration::NumericalIntegration(const NumericalIntegration& obj) : a(obj.a), b(obj.b), f(obj.f) {}
+
+NumericalIntegration& NumericalIntegration::operator=(const NumericalIntegration& obj) {
+    a = obj.a;
+    b = obj.b;
+    f = obj.f;
+
+    return *this;
+}
+
 double NumericalIntegration::Left_rectangle_method(unsigned int N)
 {
     double h = (b - a) / (double)N;

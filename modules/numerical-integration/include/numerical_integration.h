@@ -8,7 +8,9 @@ public:
    double a, b;
    double (*f)(double x);   
 
-   NumericalIntegration(double _a, double _b, double (*_f)(double x)) : a(_a), b(_b), f(_f) {};
+   NumericalIntegration(double _a, double _b, double (*_f)(double x));
+   NumericalIntegration(const NumericalIntegration& obj);
+   NumericalIntegration& operator=(const NumericalIntegration& obj);
 
    double Left_rectangle_method(unsigned int N);
    double Right_rectangle_method(unsigned int N);
