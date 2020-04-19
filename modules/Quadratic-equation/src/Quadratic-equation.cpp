@@ -56,7 +56,7 @@
        return count_roots;
     }
 
-    void QuadraticEquation::SetNewCoefficients(double aa, 
+    void QuadraticEquation::SetNewCoefficients(double aa,
         double bb, double cc) {
         if (aa == 0.0) {
             throw static_cast<std::string>(
