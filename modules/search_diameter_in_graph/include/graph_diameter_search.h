@@ -17,7 +17,6 @@ class Graph {
   int numberOfEdges;
   int x;
 
-  Graph();
   explicit Graph(int n);
 
   void addEdge(int first, int second);

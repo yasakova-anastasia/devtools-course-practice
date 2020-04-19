@@ -15,12 +15,6 @@ Graph::Graph(int n) {
   adjList = std::vector< std::list<int> >(n + 1);
 }
 
-Graph::Graph() {
-  numberOfVert = 0;
-  numberOfEdges = 0;
-  x = 0;
-}
-
 void Graph::addEdge(int first, int second) {
   if (first <= 0 || second <= 0) {
     throw "Can't add this edge";

@@ -43,11 +43,6 @@ TEST_F(MityaginaGraphDiameterSearch, Can_handle_invalid_number_of_ver) {
   ASSERT_ANY_THROW(Graph graph(number));
 }
 
-TEST_F(MityaginaGraphDiameterSearch, Can_create_default_grapg) {
-  // Assert
-  ASSERT_NO_THROW(Graph graph());
-}
-
 TEST_F(MityaginaGraphDiameterSearch, Can_create_graph) {
   // Arrange
   int number = 5;
