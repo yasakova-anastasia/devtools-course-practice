@@ -44,7 +44,8 @@ TEST(NumericalIntegrationTest, CannotCreateObjectWithInvalidBorders) {
     double b = 3.0;
 
     // Act & Assert
-    ASSERT_ANY_THROW(NumericalIntegration obj(a, b, NumericalIntegrationTest::f1));
+    ASSERT_ANY_THROW(NumericalIntegration obj(
+        a, b, NumericalIntegrationTest::f1));
 }
 
 TEST(NumericalIntegrationTest, CopyConstructorTest) {
@@ -82,76 +83,88 @@ TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {
     // Arrange
     double a = 0.0;
     double b = 3.0;
-    double ans = NumericalIntegrationTest::F1(b) - NumericalIntegrationTest::F1(a);
+    double ans = NumericalIntegrationTest::F1(b) - 
+    NumericalIntegrationTest::F1(a);
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f1);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Left_rectangle_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Left_rectangle_method(
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
     // Arrange
     double a = M_PI / 4.0;
     double b = M_PI / 2.0;
-    double ans = NumericalIntegrationTest::F3(b) - NumericalIntegrationTest::F3(a);
+    double ans = NumericalIntegrationTest::F3(b) - 
+    NumericalIntegrationTest::F3(a);
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f3);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Right_rectangle_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Right_rectangle_method(
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestMiddleRectangleMethod) {
     // Arrange
     double a = 2.0;
     double b = 4.0;
-    double ans = NumericalIntegrationTest::F2(b) - NumericalIntegrationTest::F2(a);
+    double ans = NumericalIntegrationTest::F2(b) - 
+    NumericalIntegrationTest::F2(a);
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f2);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Middle_rectangle_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Middle_rectangle_method(
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestTrapezoidMethod) {
     // Arrange
     double a = -1.0;
     double b = 5.0;
-    double ans = NumericalIntegrationTest::F1(b) - NumericalIntegrationTest::F1(a);
+    double ans = NumericalIntegrationTest::F1(b) - 
+    NumericalIntegrationTest::F1(a);
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f1);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Trapezoid_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Trapezoid_method(
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestSimpsonsMethod) {
     // Arrange
     double a = 4.0;
     double b = 7.0;
-    double ans = NumericalIntegrationTest::F2(b) - NumericalIntegrationTest::F2(a);
+    double ans = NumericalIntegrationTest::F2(b) - 
+    NumericalIntegrationTest::F2(a);
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f2);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Simpsons_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Simpsons_method(
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestGaussMethod) {
     // Arrange
     double a = M_PI / 6.0;
     double b = M_PI / 3.0;
-    double ans = NumericalIntegrationTest::F3(b) - NumericalIntegrationTest::F3(a);
+    double ans = NumericalIntegrationTest::F3(b) - 
+    NumericalIntegrationTest::F3(a);
 
     // Act
     NumericalIntegration obj(a, b, NumericalIntegrationTest::f3);
 
     // Assert
-    EXPECT_NEAR(ans, obj.Gauss_method(NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Gauss_method(
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
