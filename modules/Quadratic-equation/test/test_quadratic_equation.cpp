@@ -1,7 +1,6 @@
 // Copyright 2020 Arisova Anastasiia
 
 #include <gtest/gtest.h>
-#include <vector>
 
 #include "include/Quadratic-equation.h"
 
@@ -44,5 +43,5 @@ TEST(QuadraticEquationTest, Can_Find_Root) {
     QuadraticEquation equat(1, -2, 1);
 
     // Assert
-    EXPECT_NO_THROW(equat.SolveQuadraticEquation(););
+    EXPECT_NO_THROW(equat.SolveQuadraticEquation());
 }

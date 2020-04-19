@@ -8,9 +8,9 @@ class QuadraticEquation {
         double a, b, c;
         double x1, x2;
  public:
-        QuadraticEquation (double a, double b, double c);
-        double GetRoot1 ();
-        double GetRoot2 ();
+        QuadraticEquation(double a, double b, double c);
+        double GetRoot1();
+        double GetRoot2();
         void SolveQuadraticEquation();
 };
 

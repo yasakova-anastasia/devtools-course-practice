@@ -1,6 +1,7 @@
 // Copyright 2020 Arisova Anastasiia
 
 #include "include/Quadratic-equation.h"
+
 #include <math.h>
 
     QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
@@ -13,19 +14,19 @@
         }
     }
     
-    double QuadraticEquation::GetRoot1 () {
+    double QuadraticEquation::GetRoot1() {
        return x1;
     }
 
-    double QuadraticEquation::GetRoot2 () {
+    double QuadraticEquation::GetRoot2() {
        return x2;
     }
 
-    void QuadraticEquation::SolveQuadraticEquation () {
+    void QuadraticEquation::SolveQuadraticEquation() {
         double diskriminant = b * b - 4.0 * a * c;
 
         if (diskriminant == 0.0) {
-            x1 = -b / (2.0 * a); 
+            x1 = -b / (2.0 * a);
             x2 = x1;
         }
         if (diskriminant > 0.0) {
