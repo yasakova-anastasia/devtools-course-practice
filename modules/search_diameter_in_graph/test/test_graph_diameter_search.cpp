@@ -82,7 +82,7 @@ TEST_F(MityaginaGraphDiameterSearch, Can_handle_wrong_num_of_edges) {
   ASSERT_ANY_THROW(graph.addEdge(1, 2));
 }
 
-TEST_F(MityaginaGraphDiameterSearch, Can_handle_wrong_num_of_edges_to_full_graph) {
+TEST_F(MityaginaGraphDiameterSearch, Wrong_num_of_edges_to_full_graph) {
   // Arrange
   int number = 2;
   Graph graph(number);

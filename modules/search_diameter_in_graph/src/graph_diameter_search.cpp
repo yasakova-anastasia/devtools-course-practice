@@ -23,9 +23,6 @@ void Graph::addEdge(int first, int second) {
   if (numberOfEdges > numberOfVert * ((numberOfVert - 1) / 2)) {
     throw "Can't add this edge";
   }
-  if (first - 1 > numberOfVert || second - 1 > numberOfVert) {
-    throw "Can't add this edge";
-  }
   adjList[first].push_back(second);
   adjList[second].push_back(first);
 }
