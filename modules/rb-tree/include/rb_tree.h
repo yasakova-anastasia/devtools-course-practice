@@ -5,10 +5,12 @@
 
 #include <vector>
 
+enum class Color{ red, black };
+
 class Node {
  public:
     Node(int _data = 0, Node* _parent = nullptr, Node* _left = nullptr,
-         Node* _right = nullptr, bool _color = false);
+         Node* _right = nullptr, Color _color = Color::black);
     Node(const Node& node);
     Node& operator=(const Node& node);
     bool operator==(const Node& node);
@@ -18,7 +20,7 @@ class Node {
     Node* parent;
     Node* left;
     Node* right;
-    bool color;  // false - Black, true - Red
+    Color color;
 };
 
 class RBTree {
@@ -26,7 +28,7 @@ class RBTree {
     RBTree();
     explicit RBTree(Node* node);
     explicit RBTree(const std::vector<int>& vec);
-    RBTree(const RBTree& tree) = default;
+    ~RBTree();
 
     Node* getRoot() const;
     Node* find(const int& data);
@@ -38,6 +40,7 @@ class RBTree {
     void removeBalancing(Node* node);
     void leftRotate(Node* node);
     void rightRotate(Node* node);
+    void free_node(Node* node);
  private:
     Node* _NIL;
     Node* _root;

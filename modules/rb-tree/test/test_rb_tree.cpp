@@ -64,14 +64,6 @@ TEST(RBTreeTest, Construct_From_Vector) {
     ASSERT_NO_THROW(RBTree{vec});
 }
 
-TEST(RBTreeTest, Copy_Constructor) {
-    std::vector<int> vec{-3, 4, 1};
-
-    RBTree tree{vec};
-
-    ASSERT_NO_THROW(RBTree{tree});
-}
-
 TEST(RBTreeTest, Can_Get_Root) {
     Node *node = new Node(2);
 
@@ -139,5 +131,5 @@ TEST(RBTreeTest, Many_Operations_With_Tree) {
     for (auto iter = vec.begin(); iter != vec.end(); ++iter)
         tree.remove(*iter);
 
-    ASSERT_FALSE(tree.getRoot()->color);
+    ASSERT_EQ(tree.getRoot()->color, Color::black);
 }

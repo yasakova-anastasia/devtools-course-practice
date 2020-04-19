@@ -3,7 +3,7 @@
 #include "include/rb_tree.h"
 #include <vector>
 
-Node::Node(int _data, Node *_left, Node *_right, Node *_parent, bool _color) :
+Node::Node(int _data, Node *_left, Node *_right, Node *_parent, Color _color) :
            data(_data), parent(_parent), left(_left),
            right(_right), color(_color) {}
 
@@ -38,7 +38,7 @@ RBTree::RBTree(Node *node) : _NIL(new Node{}), _root(node) {
         _root->left = _NIL;
         _root->right = _NIL;
         _root->parent = _NIL;
-    }
+}
 
 RBTree::RBTree(const std::vector<int>& vec) :
                _NIL(new Node{}), _root(_NIL) {
@@ -46,6 +46,18 @@ RBTree::RBTree(const std::vector<int>& vec) :
         Node *node = new Node{data};
         insert(node);
     }
+}
+
+RBTree::~RBTree() {
+    free_node(_root);
+}
+
+void RBTree::free_node(Node* node) {
+    if (node->left != _NIL && node->left != nullptr)
+        free_node(node->left);
+    if (node->right != _NIL && node->right != nullptr)
+        free_node(node->right);
+    delete[] node;
 }
 
 Node* RBTree::getRoot() const {
@@ -93,7 +105,7 @@ void RBTree::insert(Node *node) {
 
     node->left = _NIL;
     node->right = _NIL;
-    node->color = true;
+    node->color = Color::red;
 
     insertBalancing(node);
 }
@@ -107,7 +119,7 @@ void RBTree::remove(const int& data) {
     Node *tmp = node;
     Node *tmp2;
 
-    bool tmp_original_color = tmp->color;
+    Color tmp_original_color = tmp->color;
 
     if (node->left == _NIL) {
         tmp2 = node->right;
@@ -136,51 +148,50 @@ void RBTree::remove(const int& data) {
         tmp->left->parent = tmp;
         tmp->color = node->color;
     }
-
-    if (tmp_original_color == false)
+    delete[] node;
+    if (tmp_original_color == Color::black)
         removeBalancing(tmp2);
 }
 
 void RBTree::insertBalancing(Node *node) {
-    while (node->parent->color == true) {
+    while (node->parent->color == Color::red) {
         if (node->parent == node->parent->parent->left) {
             Node *tmp = node->parent->parent->right;
 
-            if (tmp->color == true) {
-                node->parent->color = false;
-                tmp->color = false;
-                node->parent->parent->color = true;
+            if (tmp->color == Color::red) {
+                node->parent->color = Color::black;
+                tmp->color = Color::black;
+                node->parent->parent->color = Color::red;
                 node = node->parent->parent;
             } else {
                 if (node == node->parent->right) {
                     node = node->parent;
                     leftRotate(node);
                 }
-                node->parent->color = false;
-                node->parent->parent->color = true;
+                node->parent->color = Color::black;
+                node->parent->parent->color = Color::red;
                 rightRotate(node->parent->parent);
             }
         } else {
             Node *tmp = node->parent->parent->left;
 
-            if (tmp->color == true) {
-                node->parent->color = false;
-                tmp->color = false;
-                node->parent->parent->color = true;
+            if (tmp->color == Color::red) {
+                node->parent->color = Color::black;
+                tmp->color = Color::black;
+                node->parent->parent->color = Color::red;
                 node = node->parent->parent;
             } else {
                 if (node == node->parent->left) {
                     node = node->parent;
                     rightRotate(node);
                 }
-                node->parent->color = false;
-                node->parent->parent->color = true;
+                node->parent->color = Color::black;
+                node->parent->parent->color = Color::red;
                 leftRotate(node->parent->parent);
             }
         }
     }
-
-    _root->color = false;
+    _root->color = Color::black;
 }
 
 void RBTree::swapNodes(Node *node1, Node *node2) {
@@ -195,63 +206,62 @@ void RBTree::swapNodes(Node *node1, Node *node2) {
 }
 
 void RBTree::removeBalancing(Node *node) {
-    while (node != _root && node->color == false) {
+    while (node != _root && node->color == Color::black) {
         if (node == node->parent->left) {
             Node *tmp = node->parent->right;
 
-            if (tmp->color == true) {
-                tmp->color = false;
-                node->parent->color = true;
+            if (tmp->color == Color::red) {
+                tmp->color = Color::black;
+                node->parent->color = Color::red;
                 leftRotate(node->parent);
                 tmp = node->parent->right;
             }
 
-            if (tmp->left->color == false && tmp->right->color == false) {
-                tmp->color = true;
+            if (tmp->left->color == Color::black && tmp->right->color == Color::black) {
+                tmp->color = Color::red;
                 node = node->parent;
             } else {
-                if (tmp->right->color == false) {
-                    tmp->left->color = false;
-                    tmp->color = true;
+                if (tmp->right->color == Color::black) {
+                    tmp->left->color = Color::black;
+                    tmp->color = Color::red;
                     rightRotate(tmp);
                     tmp = node->parent->right;
                 }
                 tmp->color = node->parent->color;
-                node->parent->color = false;
-                tmp->right->color = false;
+                node->parent->color = Color::black;
+                tmp->right->color = Color::black;
                 leftRotate(node->parent);
                 node = _root;
             }
         } else {
             Node *tmp = node->parent->left;
 
-            if (tmp->color == true) {
-                tmp->color = false;
-                node->parent->color = true;
+            if (tmp->color == Color::red) {
+                tmp->color = Color::black;
+                node->parent->color = Color::red;
                 rightRotate(node->parent);
                 tmp = node->parent->left;
             }
 
-            if (tmp->right->color == false && tmp->left->color == false) {
-                tmp->color = true;
+            if (tmp->right->color == Color::black && tmp->left->color == Color::black) {
+                tmp->color = Color::red;
                 node = node->parent;
             } else {
-                if (tmp->left->color == false) {
-                    tmp->right->color = false;
-                    tmp->color = true;
+                if (tmp->left->color == Color::black) {
+                    tmp->right->color = Color::black;
+                    tmp->color = Color::red;
                     leftRotate(tmp);
                     tmp = node->parent->left;
                 }
                 tmp->color = node->parent->color;
-                node->parent->color = false;
-                tmp->left->color = false;
+                node->parent->color = Color::black;
+                tmp->left->color = Color::black;
                 rightRotate(node->parent);
                 node = _root;
             }
         }
     }
-
-    node->color = false;
+    node->color = Color::black;
 }
 
 void RBTree::leftRotate(Node *node) {
