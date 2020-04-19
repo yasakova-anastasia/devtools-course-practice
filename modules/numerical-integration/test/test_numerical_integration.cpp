@@ -1,5 +1,7 @@
 // Copyright 2020 Boganov Sergei
 
+#define _USE_MATH_DEFINES
+
 #include <gtest/gtest.h>
 
 #include <cmath>
@@ -67,4 +69,18 @@ TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {
 
     // Assert
     EXPECT_NEAR(ans, obj.Left_rectangle_method(N), NumericalIntegrationTest::epsilon);
+}
+
+TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
+    // Arrange
+    double a = M_PI / 4.0;
+    double b = M_PI / 2.0;
+    double ans = NumericalIntegrationTest::F3(b) - NumericalIntegrationTest::F3(a);
+    unsigned int N = 100000;
+
+    // Act
+    NumericalIntegration obj(a, b, NumericalIntegrationTest::f3);
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Right_rectangle_method(N), NumericalIntegrationTest::epsilon);
 }
