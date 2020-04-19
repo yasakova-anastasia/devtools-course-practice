@@ -52,7 +52,6 @@ TEST(NumericalIntegrationTest, CopyConstructorTest) {
     // Arrange
     double a = 0.0;
     double b = 1.0;
-    double x = 5.0;
 
     // Act
     NumericalIntegration obj1(a, b, NumericalIntegrationTest::f2);
@@ -68,7 +67,6 @@ TEST(NumericalIntegrationTest, EqualityOperatorTest) {
     double b1 = 5.2;
     double a2 = 3.0;
     double b2 = 4.3;
-    double x = 3.0;
 
     // Act
     NumericalIntegration obj1(a1, b1, NumericalIntegrationTest::f2);
