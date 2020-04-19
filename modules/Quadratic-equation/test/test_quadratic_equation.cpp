@@ -6,17 +6,17 @@
 
 TEST(QuadraticEquationTest, Can_Create_Quadratic_Equation) {
     // Arrange & Act & Assert
-    EXPECT_NO_THROW(QuadraticEquation equat(2, 4, 1));
+    EXPECT_NO_THROW(QuadraticEquation equat(2.0, 4.0, 1.0));
 }
 
 TEST(QuadraticEquationTest, Can_Create_Quadratic_Equation_First_Coeff_Equal_Zero) {
     // Arrange & Act & Assert
-    EXPECT_NO_THROW(QuadraticEquation equat(0, 4, 1));
+    EXPECT_ANY_THROW(QuadraticEquation equat(0.0, 4.0, 1.0));
 }
 
 TEST(QuadraticEquationTest, Can_Get_First_Root) {
     // Arrange
-    QuadraticEquation equat(1, -2, 1);
+    QuadraticEquation equat(1.0, -2.0, 1.0);
     double root = 1.0;
 
     // Act
@@ -28,7 +28,7 @@ TEST(QuadraticEquationTest, Can_Get_First_Root) {
 
 TEST(QuadraticEquationTest, Can_Get_Second_Root) {
     // Arrange
-    QuadraticEquation equat(1, -2, 1);
+    QuadraticEquation equat(1.0, -2.0, 1.0);
     double root = 1.0;
 
     // Act
@@ -40,7 +40,7 @@ TEST(QuadraticEquationTest, Can_Get_Second_Root) {
 
 TEST(QuadraticEquationTest, Can_Find_Root) {
     // Arrange
-    QuadraticEquation equat(1, -2, 1);
+    QuadraticEquation equat(1.0, -2.0, 1.0);
 
     // Assert
     EXPECT_NO_THROW(equat.SolveQuadraticEquation());

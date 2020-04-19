@@ -5,7 +5,7 @@
 #include <math.h>
 
     QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
-        if (a == 0.0) {
+        if (aa == 0.0) {
             throw "The coefficient for x^2 cannot be zero!";
         } else {
             a = aa;
