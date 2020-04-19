@@ -83,7 +83,7 @@ TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {
     // Arrange
     double a = 0.0;
     double b = 3.0;
-    double ans = NumericalIntegrationTest::F1(b) - 
+    double ans = NumericalIntegrationTest::F1(b) -
     NumericalIntegrationTest::F1(a);
 
     // Act
@@ -98,7 +98,7 @@ TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
     // Arrange
     double a = M_PI / 4.0;
     double b = M_PI / 2.0;
-    double ans = NumericalIntegrationTest::F3(b) - 
+    double ans = NumericalIntegrationTest::F3(b) -
     NumericalIntegrationTest::F3(a);
 
     // Act
@@ -113,7 +113,7 @@ TEST(NumericalIntegrationTest, TestMiddleRectangleMethod) {
     // Arrange
     double a = 2.0;
     double b = 4.0;
-    double ans = NumericalIntegrationTest::F2(b) - 
+    double ans = NumericalIntegrationTest::F2(b) -
     NumericalIntegrationTest::F2(a);
 
     // Act
@@ -128,7 +128,7 @@ TEST(NumericalIntegrationTest, TestTrapezoidMethod) {
     // Arrange
     double a = -1.0;
     double b = 5.0;
-    double ans = NumericalIntegrationTest::F1(b) - 
+    double ans = NumericalIntegrationTest::F1(b) -
     NumericalIntegrationTest::F1(a);
 
     // Act
@@ -143,7 +143,7 @@ TEST(NumericalIntegrationTest, TestSimpsonsMethod) {
     // Arrange
     double a = 4.0;
     double b = 7.0;
-    double ans = NumericalIntegrationTest::F2(b) - 
+    double ans = NumericalIntegrationTest::F2(b) -
     NumericalIntegrationTest::F2(a);
 
     // Act
@@ -158,7 +158,7 @@ TEST(NumericalIntegrationTest, TestGaussMethod) {
     // Arrange
     double a = M_PI / 6.0;
     double b = M_PI / 3.0;
-    double ans = NumericalIntegrationTest::F3(b) - 
+    double ans = NumericalIntegrationTest::F3(b) -
     NumericalIntegrationTest::F3(a);
 
     // Act
