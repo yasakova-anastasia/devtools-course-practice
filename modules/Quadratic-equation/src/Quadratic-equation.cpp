@@ -4,13 +4,12 @@
 #include <vector>
 #include <string>
 
-    QuadraticEquation::QuadraticEquation(double aa, double bb, double cc){
-        if (a == 0.0)
+    QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
+        if (a == 0.0) {
             throw "The coefficient for x^2 cannot be zero!";
-        else {
+        } else {
             a = aa;
-            b = bb; 
+            b = bb;
             c = cc;
         }
     }
-    
