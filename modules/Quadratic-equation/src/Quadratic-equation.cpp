@@ -25,7 +25,7 @@
             throw static_cast<std::string>(
                 "This equation is not solved!");
         }
-        if((count_roots == 1)||(count_roots == 2)) {
+        if((count_roots == 1) || (count_roots == 2)) {
             return x1;
         }
     }
@@ -39,7 +39,7 @@
             throw static_cast<std::string>(
                 "This equation is not solved!");
         }
-        if((count_roots == 1)||(count_roots == 2)) {
+        if((count_roots == 1) || (count_roots == 2)) {
             return x2;
         }
     }
