@@ -17,22 +17,41 @@
     }
 
     double QuadraticEquation::GetRoot1() {
-       return x1;
+        if (count_roots != 0) {
+            return x1;
+        } else {
+            throw static_cast<std::string>(
+                "This equation cannot real root!");
+        }
     }
 
     double QuadraticEquation::GetRoot2() {
-       return x2;
+        if (count_roots != 0) {
+            return x2;
+        } else {
+            throw static_cast<std::string>(
+                "This equation cannot real root!");
+        }
     }
 
     void QuadraticEquation::SolveQuadraticEquation() {
         double diskriminant = b * b - 4.0 * a * c;
+        if (diskriminant < 0.0) {
+            count_roots = 0;
+        }
 
         if (diskriminant == 0.0) {
+            count_roots = 1;
             x1 = -b / (2.0 * a);
             x2 = x1;
         }
         if (diskriminant > 0.0) {
+            count_roots = 2;
             x1 = (-b + sqrt(diskriminant)) / (2.0 * a);
             x2 = (-b - sqrt(diskriminant)) / (2.0 * a);
         }
+    }
+
+    int QuadraticEquation::GetCountRoots() {
+       return count_roots;
     }
