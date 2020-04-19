@@ -21,5 +21,26 @@ class Node {
    bool color;  // false - Black, true - Red
 };
 
+class RBTree {
+ public:
+   RBTree();
+   explicit RBTree(Node* node);
+   explicit RBTree(const std::vector<int>& vec);
+   RBTree(const RBTree& tree) = default;
+
+   Node* GetRoot() const;
+   Node* find(const int& data);
+   void insert(Node* node);
+   void remove(const int& data);
+ private:
+   void insertBalancing(Node* node);
+   void swapNodes(Node* node1, Node* node2);
+   void removeBalancing(Node* node);
+   void leftRotate(Node* node);
+   void rightRotate(Node* node);
+ private:
+   Node* _NIL;
+   Node* _root;
+};
 
 #endif  // MODULES_RB_TREE_INCLUDE_RB_TREE_H_
