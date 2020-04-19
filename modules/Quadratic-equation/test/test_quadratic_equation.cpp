@@ -38,3 +38,11 @@ TEST(QuadraticEquationTest, Can_Get_Second_Root) {
     // Assert
     EXPECT_EQ(root, equat.GetRoot2());
 }
+
+TEST(QuadraticEquationTest, Can_Find_Root) {
+    // Arrange
+    QuadraticEquation equat(1, -2, 1);
+
+    // Assert
+    EXPECT_NO_THROW(equat.SolveQuadraticEquation(););
+}

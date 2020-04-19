@@ -11,6 +11,7 @@ class QuadraticEquation {
         QuadraticEquation (double a, double b, double c);
         double GetRoot1 ();
         double GetRoot2 ();
+        void SolveQuadraticEquation();
 };
 
 #endif  // MODULES_QUADRATIC_EQUATION_INCLUDE_QUADRATIC_EQUATION_H_

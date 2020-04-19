@@ -20,3 +20,16 @@
     double QuadraticEquation::GetRoot2 () {
        return x2;
     }
+
+    void QuadraticEquation::SolveQuadraticEquation () {
+        double diskriminant = b * b - 4.0 * a * c;
+
+        if (diskriminant == 0.0) {
+            x1 = -b / (2.0 * a); 
+            x2 = x1;
+        }
+        if (diskriminant > 0.0) {
+            x1 = (-b + sqrt(diskriminant)) / (2.0 * a);
+            x2 = (-b - sqrt(diskriminant)) / (2.0 * a);
+        }
+    }
