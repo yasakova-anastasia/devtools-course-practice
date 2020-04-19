@@ -38,10 +38,9 @@ bool NumericalIntegration::operator == (
 double NumericalIntegration::Left_rectangle_method(unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
-    double x;
 
     for (unsigned int i = 0; i < N; i++) {
-        x = a + i * h;
+        double x = a + i * h;
         I += f(x);
     }
 
@@ -51,10 +50,9 @@ double NumericalIntegration::Left_rectangle_method(unsigned int N) {
 double NumericalIntegration::Right_rectangle_method(unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
-    double x;
 
     for (unsigned int i = 1; i <= N; i++) {
-        x = a + i * h;
+        double x = a + i * h;
         I += f(x);
     }
 
@@ -64,10 +62,9 @@ double NumericalIntegration::Right_rectangle_method(unsigned int N) {
 double NumericalIntegration::Middle_rectangle_method(unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
-    double x;
 
     for (unsigned int i = 0; i < N; i++) {
-        x = a + (i + 0.5) * h;
+        double x = a + (i + 0.5) * h;
         I += f(x);
     }
 
@@ -77,10 +74,9 @@ double NumericalIntegration::Middle_rectangle_method(unsigned int N) {
 double NumericalIntegration::Trapezoid_method(unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
-    double x;
 
     for (unsigned int i = 0; i < N; i++) {
-        x = a + i * h;
+        double x = a + i * h;
         I += (f(x) + f(x + h)) / 2.0;
     }
 
@@ -90,10 +86,9 @@ double NumericalIntegration::Trapezoid_method(unsigned int N) {
 double NumericalIntegration::Simpsons_method(unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
-    double x;
 
     for (unsigned int i = 0; i < N; i += 2) {
-        x = a + i * h;
+        double x = a + i * h;
         I += f(x - h) + 4.0 * f(x) + f(x + h);
     }
 
@@ -103,12 +98,11 @@ double NumericalIntegration::Simpsons_method(unsigned int N) {
 double NumericalIntegration::Gauss_method(unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
-    double x, t1, t2;
 
     for (unsigned int i = 0; i < N; i++) {
-        x = a + i * h;
-        t1 = (2.0 * x + h) / 2.0;
-        t2 = h / (2.0 * sqrt(3.0));
+        double x = a + i * h;
+        double t1 = (2.0 * x + h) / 2.0;
+        double t2 = h / (2.0 * sqrt(3.0));
         I += f(t1 - t2) + f(t1 + t2);
     }
 
