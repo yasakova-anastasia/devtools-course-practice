@@ -10,7 +10,7 @@ int DepositCalc::getDepositAmount()const {
     return depositAmount;
 }
 
-int DepositCalc::getPeriod() {
+int DepositCalc::getPeriod()const {
     return period;
 }
 
@@ -22,7 +22,7 @@ int DepositCalc::getDepositWithRate()const {
     return depositWithRate;
 }
 
-int DepositCalc::getInterestCharges()const {
+int DepositCalc::getInterestCharges() {
     return interestCharges;
 }
 
