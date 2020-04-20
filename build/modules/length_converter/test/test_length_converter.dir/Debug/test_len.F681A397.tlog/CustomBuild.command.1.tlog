@@ -1,0 +1,10 @@
+^C:\USERS\STACY\DEVTOOLS-COURSE-PRACTICE\MODULES\LENGTH_CONVERTER\TEST\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Stacy/devtools-course-practice -BC:/Users/Stacy/devtools-course-practice/build --check-stamp-file C:/Users/Stacy/devtools-course-practice/build/modules/length_converter/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
