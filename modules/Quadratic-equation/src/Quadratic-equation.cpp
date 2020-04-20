@@ -5,72 +5,73 @@
 #include <math.h>
 #include <string>
 
-    QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
-        if (aa == 0.0) {
-            throw static_cast<std::string>(
-                "The coefficient for x^2 cannot be zero!");
-        } else {
-            a = aa;
-            b = bb;
-            c = cc;
-        }
+QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
+    if (aa == 0.0) {
+        throw static_cast<std::string>(
+            "The coefficient for x^2 cannot be zero!");
+    } else {
+        a = aa;
+        b = bb;
+        c = cc;
+    }
+}
+
+double QuadraticEquation::GetRoot1() {
+    if (count_roots == 0) {
+        throw static_cast<std::string>(
+            "This equation cannot have real root!");
+    }
+    if (count_roots == -1) {
+        throw static_cast<std::string>(
+            "This equation is not solved!");
+    }
+    return x1;
+}
+
+double QuadraticEquation::GetRoot2() {
+    if (count_roots == 0) {
+        throw static_cast<std::string>(
+            "This equation cannot have real root!");
+    }
+    if (count_roots == -1) {
+        throw static_cast<std::string>(
+            "This equation is not solved!");
+    }
+    return x2;
+}
+
+void QuadraticEquation::SolveQuadraticEquation() {
+    double diskriminant = b * b - 4.0 * a * c;  
+    if (diskriminant < 0.0) {
+        count_roots = 0;
     }
 
-    double QuadraticEquation::GetRoot1() {
-        if (count_roots == 0) {
-            throw static_cast<std::string>(
-                "This equation cannot have real root!");
-        }
-        if (count_roots == -1) {
-            throw static_cast<std::string>(
-                "This equation is not solved!");
-        }
-        return x1;
+    if (diskriminant == 0.0) {
+        count_roots = 1;
+        x1 = -b / (2.0 * a);
+        x2 = x1;
     }
 
-    double QuadraticEquation::GetRoot2() {
-        if (count_roots == 0) {
-            throw static_cast<std::string>(
-                "This equation cannot have real root!");
-        }
-        if (count_roots == -1) {
-            throw static_cast<std::string>(
-                "This equation is not solved!");
-        }
-        return x2;
+    if (diskriminant > 0.0) {
+        count_roots = 2;
+        x1 = (-b + sqrt(diskriminant)) / (2.0 * a);
+        x2 = (-b - sqrt(diskriminant)) / (2.0 * a);
     }
+}
 
-    void QuadraticEquation::SolveQuadraticEquation() {
-        double diskriminant = b * b - 4.0 * a * c;
-        if (diskriminant < 0.0) {
-            count_roots = 0;
-        }
+int QuadraticEquation::GetCountRoots() {
+    return count_roots;
+}
 
-        if (diskriminant == 0.0) {
-            count_roots = 1;
-            x1 = -b / (2.0 * a);
-            x2 = x1;
-        }
-        if (diskriminant > 0.0) {
-            count_roots = 2;
-            x1 = (-b + sqrt(diskriminant)) / (2.0 * a);
-            x2 = (-b - sqrt(diskriminant)) / (2.0 * a);
-        }
+void QuadraticEquation::SetNewCoefficients(double aa,
+    double bb, double cc) {
+    if (aa == 0.0) {
+        throw static_cast<std::string>(
+            "The coefficient for x^2 cannot be zero!");
+    } else {
+        a = aa;
+        b = bb;
+        c = cc;
+        count_roots = -1;
     }
-
-    int QuadraticEquation::GetCountRoots() {
-       return count_roots;
-    }
-
-    void QuadraticEquation::SetNewCoefficients(double aa,
-        double bb, double cc) {
-        if (aa == 0.0) {
-            throw static_cast<std::string>(
-                "The coefficient for x^2 cannot be zero!");
-        } else {
-            a = aa;
-            b = bb;
-            c = cc;
-            count_roots = -1;
-        }
-    }
+}
