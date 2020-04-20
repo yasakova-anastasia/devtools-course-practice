@@ -5,8 +5,10 @@
 #include <math.h>
 #include <string>
 
+#define EPS 10e-8
+
 QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
-    if (aa == 0.0) {
+    if (abs(aa) < EPS) {
         throw static_cast<std::string>(
             "The coefficient for x^2 cannot be zero!");
     } else {
@@ -19,7 +21,7 @@ QuadraticEquation::QuadraticEquation(double aa, double bb, double cc) {
 double QuadraticEquation::GetRoot1() {
     if (count_roots == 0) {
         throw static_cast<std::string>(
-            "This equation cannot have real root!");
+            "This equation cannot have real roots!");
     }
     if (count_roots == -1) {
         throw static_cast<std::string>(
@@ -31,7 +33,7 @@ double QuadraticEquation::GetRoot1() {
 double QuadraticEquation::GetRoot2() {
     if (count_roots == 0) {
         throw static_cast<std::string>(
-            "This equation cannot have real root!");
+            "This equation cannot have real roots!");
     }
     if (count_roots == -1) {
         throw static_cast<std::string>(
@@ -46,7 +48,7 @@ void QuadraticEquation::SolveQuadraticEquation() {
         count_roots = 0;
     }
 
-    if (diskriminant == 0.0) {
+    if (abs(diskriminant) < EPS) {
         count_roots = 1;
         x1 = -b / (2.0 * a);
         x2 = x1;
