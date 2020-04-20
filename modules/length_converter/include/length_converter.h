@@ -1,12 +1,14 @@
 // Copyright 2020 Sokova Anastasia
 
 #ifndef MODULES_LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
-#define MODULES_LENGTH_CONVERTER_INCLUDE_LENGtH_CONVERTER_H_
+#define MODULES_LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
 
 class LengthConverter {
+
 private:
     double curr;
     int side;
+
 public:
     LengthConverter() {
         curr = 0;
