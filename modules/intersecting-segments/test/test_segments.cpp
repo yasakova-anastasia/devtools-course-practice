@@ -25,3 +25,21 @@ TEST(Segment, area_sign) {
   // Act & Assert
   ASSERT_EQ(A1.area(5, 5) / A.area(5, 5), -1);
 }
+
+TEST(Segment, intersection_true) {
+  // Arrange
+  Segment A(2, 7, 10, 3);
+  Segment B(8, 7, 5, 2);
+
+  // Arrange & Assert
+  ASSERT_EQ(A.isIntersect(&B), true);
+}
+
+TEST(Segment, intersection_false) {
+  // Arrange
+  Segment A(2, 7, 5, 2);
+  Segment B(8, 7, 10, 3);
+
+  // Arrange & Assert
+  ASSERT_EQ(A.isIntersect(&B), false);
+}
