@@ -38,7 +38,6 @@ Node* Node::merge(Node* x, Node* y) {
     }
     x->dist = x->right->dist + 1;
   }
-
   return x;
 }
 

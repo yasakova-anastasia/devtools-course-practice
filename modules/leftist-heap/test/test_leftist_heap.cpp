@@ -37,7 +37,7 @@ TEST(LeftistHeapTest, Can_Create_Is_Empty) {
   EXPECT_TRUE(Heap.isEmpty());
 }
 
-TEST(LeftistHeapTest, Ñopy_Ñonstructor_Is_Operator_Copy) {
+TEST(LeftistHeapTest, Copy_Constructors_Is_Operator_Copy) {
   // Arrange
   LeftistHeap xHeap;
 
