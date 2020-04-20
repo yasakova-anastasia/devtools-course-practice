@@ -4,7 +4,7 @@
 #define MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_H_
 
 class Node {
-public:
+ public:
   explicit Node(const int key);
   static Node* merge(Node* x, Node* y);
 
