@@ -8,7 +8,6 @@ class LengthConverter {
     int side;
  public:
     LengthConverter() {
-
         curr = 0;
         side = 0;
     }
