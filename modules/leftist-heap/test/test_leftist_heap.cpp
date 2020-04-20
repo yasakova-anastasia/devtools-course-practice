@@ -37,13 +37,86 @@ TEST(LeftistHeapTest, Can_Create_Is_Empty) {
   EXPECT_TRUE(Heap.isEmpty());
 }
 
-TEST(LeftistHeapTest, Can_Copy_Head) {
+TEST(LeftistHeapTest, Ñopy_Ñonstructor_Is_Operator_Copy) {
   // Arrange
   LeftistHeap xHeap;
 
   // Act
+  xHeap.insert(19);
+  xHeap.insert(6);
   LeftistHeap yHeap = xHeap;
+  LeftistHeap zHeap(xHeap);
 
   // Assert
-  EXPECT_TRUE(yHeap.isEmpty());
+  EXPECT_EQ(yHeap.deleteMin(), zHeap.deleteMin());
+  EXPECT_EQ(yHeap.deleteMin(), zHeap.deleteMin());
+  EXPECT_EQ(yHeap.isEmpty(), zHeap.isEmpty());
+}
+
+TEST(LeftistHeapTest, Can_Merge) {
+  // Arrange
+  LeftistHeap xHeap, yHeap;
+
+  // Act
+  xHeap.insert(20);
+  yHeap.insert(50);
+  xHeap.merge(&yHeap);
+
+  // Assert
+  EXPECT_EQ(20, xHeap.deleteMin());
+  EXPECT_EQ(50, xHeap.deleteMin());
+}
+
+TEST(LeftistHeapTest, Can_Insert_And_Find_Min) {
+  // Arrange
+  LeftistHeap Heap;
+
+  // Act
+  Heap.insert(5);
+  Heap.insert(1);
+  Heap.insert(3);
+
+  // Assert
+  EXPECT_EQ(1, Heap.findMin());
+}
+
+TEST(LeftistHeapTest, Can_Insert_And_Delete_Min) {
+  // Arrange
+  LeftistHeap Heap;
+
+  // Act
+  Heap.insert(10);
+  Heap.insert(4);
+  Heap.insert(8);
+
+  // Assert
+  EXPECT_EQ(4, Heap.deleteMin());
+}
+
+TEST(LeftistHeapTest, Can_Throw_Exception_When_Find_Min_In_Empty_Heap) {
+  // Arrange
+  LeftistHeap Heap;
+
+  // Act & Assert
+  EXPECT_THROW(Heap.findMin(), std::string);
+}
+
+TEST(LeftistHeapTest, Can_Throw_Exception_When_Delete_Min_In_Empty_Heap) {
+  // Arrange
+  LeftistHeap Heap;
+
+  // Act & Assert
+  EXPECT_THROW(Heap.deleteMin(), std::string);
+}
+
+TEST(LeftistHeapTest, Heap_Is_Empty_After_Inserting_And_Deleting_Min) {
+  // Arrange
+  LeftistHeap Heap;
+
+  // Act
+  Heap.insert(17);
+  Heap.deleteMin();
+
+  // Assert
+  EXPECT_TRUE(Heap.isEmpty());
 }

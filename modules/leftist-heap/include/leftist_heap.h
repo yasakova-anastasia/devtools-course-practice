@@ -19,6 +19,10 @@ class LeftistHeap {
   LeftistHeap(const LeftistHeap& copy);
   LeftistHeap& operator= (const LeftistHeap& copy);
   bool isEmpty();
+  void merge(LeftistHeap* other);
+  void insert(const int key);
+  int deleteMin();
+  int findMin();
  private:
   Node* root;
 

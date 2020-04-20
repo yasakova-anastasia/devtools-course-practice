@@ -93,3 +93,35 @@ Node* LeftistHeap::copyRecursive(Node* other) {
 
   return newNode;
 }
+
+void LeftistHeap::merge(LeftistHeap* other) {
+  root = Node::merge(root, other->root);
+
+  other->root = NULL;
+}
+
+void LeftistHeap::insert(const int _key) {
+  Node* newNode = new Node(_key);
+  root = Node::merge(root, newNode);
+}
+
+int LeftistHeap::findMin() {
+  if (root) {
+    return root->key;
+  } else {
+    throw std::string("Heap is empty.");
+  }
+}
+
+int LeftistHeap::deleteMin() {
+  if (root) {
+    Node* _left = root->left;
+    Node* _right = root->right;
+    int keyValue = root->key;
+    delete root;
+    root = Node::merge(_left, _right);
+    return keyValue;
+  } else {
+    throw std::string("Heap is empty.");
+  }
+}
