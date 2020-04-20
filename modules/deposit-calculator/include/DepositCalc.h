@@ -19,7 +19,7 @@ class DepositCalc {
      int getPeriod()const;
      int getRate()const;
      int getDepositWithRate()const;
-     int getInterestCharges();
+     int getInterestCharges()const;
 };
 
 #endif  // MODULES_DEPOSIT_CALCULATOR_INCLUDE_DEPOSITCALC_H_

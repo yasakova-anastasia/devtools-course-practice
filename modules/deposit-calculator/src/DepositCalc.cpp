@@ -22,7 +22,7 @@ int DepositCalc::getDepositWithRate()const {
     return depositWithRate;
 }
 
-int DepositCalc::getInterestCharges() {
+int DepositCalc::getInterestCharges()const {
     return interestCharges;
 }
 
