@@ -4,13 +4,13 @@
 #define MODULES_LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
 
 class LengthConverter {
+ private:
 
-private:
     double curr;
     int side;
-
-public:
+ public:
     LengthConverter() {
+
         curr = 0;
         side = 0;
     }
