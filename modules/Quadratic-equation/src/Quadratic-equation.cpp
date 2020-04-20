@@ -41,7 +41,7 @@ double QuadraticEquation::GetRoot2() {
 }
 
 void QuadraticEquation::SolveQuadraticEquation() {
-    double diskriminant = b * b - 4.0 * a * c;  
+    double diskriminant = b * b - 4.0 * a * c;
     if (diskriminant < 0.0) {
         count_roots = 0;
     }
