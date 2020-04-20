@@ -30,8 +30,7 @@ Node* Node::merge(Node* x, Node* y) {
   if (x->left == NULL) {
     x->left = x->right;
     x->right = NULL;
-  }
-  else {
+  } else {
     if (x->left->dist < x->right->dist) {
       Node* temp = x->left;
       x->left = x->right;
