@@ -41,3 +41,55 @@ Node* Node::merge(Node* x, Node* y) {
 
   return x;
 }
+
+LeftistHeap::LeftistHeap() {
+  root = NULL;
+}
+
+LeftistHeap::~LeftistHeap() {
+  freeNode(root);
+}
+
+LeftistHeap::LeftistHeap(const LeftistHeap& copy) {
+  root = copyHeap(copy.root);
+}
+
+LeftistHeap& LeftistHeap::operator= (const LeftistHeap& copy) {
+  root = copyHeap(copy.root);
+  return *this;
+}
+
+bool LeftistHeap::isEmpty() {
+  return (root == NULL);
+}
+
+void LeftistHeap::freeNode(Node* node) {
+  if (node) {
+    if (node->left) {
+      freeNode(node->left);
+    }
+    if (node->right) {
+      freeNode(node->right);
+    }
+    delete node;
+    node = NULL;
+  }
+}
+
+Node* LeftistHeap::copyHeap(Node* copyNode) {
+  return copyRecursive(copyNode);
+}
+
+Node* LeftistHeap::copyRecursive(Node* other) {
+  if (other == NULL) {
+    return NULL;
+  }
+
+  Node* newNode = new Node(other->key);
+  newNode->dist = other->dist;
+
+  newNode->left = copyRecursive(other->left);
+  newNode->right = copyRecursive(other->right);
+
+  return newNode;
+}

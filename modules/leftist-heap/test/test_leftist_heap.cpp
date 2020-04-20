@@ -29,3 +29,21 @@ TEST(NodeTest, Can_Merge) {
   EXPECT_EQ(6, zHeap->left->key);
 }
 
+TEST(LeftistHeapTest, Can_Create_Is_Empty) {
+  // Arrange
+  LeftistHeap Heap;
+
+  // Act & Assert
+  EXPECT_TRUE(Heap.isEmpty());
+}
+
+TEST(LeftistHeapTest, Can_Copy_Head) {
+  // Arrange
+  LeftistHeap xHeap;
+
+  // Act
+  LeftistHeap yHeap = xHeap;
+
+  // Assert
+  EXPECT_TRUE(yHeap.isEmpty());
+}
