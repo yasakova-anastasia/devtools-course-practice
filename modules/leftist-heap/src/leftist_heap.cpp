@@ -4,12 +4,8 @@
 
 #include <string>
 
-Node::Node(const int _key) {
-  key = _key;
-  dist = 0;
-  left = NULL;
-  right = NULL;
-}
+Node::Node(const int _key)
+  : key(_key), dist(0), left(NULL), right(NULL) {}
 
 Node* Node::merge(Node* x, Node* y) {
   if (x == NULL) {
@@ -41,9 +37,7 @@ Node* Node::merge(Node* x, Node* y) {
   return x;
 }
 
-LeftistHeap::LeftistHeap() {
-  root = NULL;
-}
+LeftistHeap::LeftistHeap() : root(NULL) {}
 
 LeftistHeap::~LeftistHeap() {
   freeNode(root);
