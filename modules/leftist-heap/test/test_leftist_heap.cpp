@@ -37,6 +37,23 @@ TEST(LeftistHeapTest, Can_Create_Is_Empty) {
   EXPECT_TRUE(Heap.isEmpty());
 }
 
+TEST(LeftistHeapTest, Can_Copy_Big_Heap) {
+  // Arrange
+  LeftistHeap xHeap;
+  for (int i = 0; i < 100; ++i) {
+    xHeap.insert(i);
+  }
+
+  // Act
+  LeftistHeap yHeap;
+  yHeap = xHeap;
+
+  // Assert
+  for (int i = 0; i < 100; ++i) {
+    EXPECT_EQ(i, yHeap.deleteMin());
+  }
+}
+
 TEST(LeftistHeapTest, Copy_Constructors_Is_Operator_Copy) {
   // Arrange
   LeftistHeap xHeap;
