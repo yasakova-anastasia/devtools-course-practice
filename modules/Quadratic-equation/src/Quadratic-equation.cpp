@@ -67,7 +67,7 @@ int QuadraticEquation::GetCountRoots() {
 
 void QuadraticEquation::SetNewCoefficients(double aa,
     double bb, double cc) {
-    if (aa == 0.0) {
+    if (abs(aa) < EPS) {
         throw static_cast<std::string>(
             "The coefficient for x^2 cannot be zero!");
     } else {
