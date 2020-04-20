@@ -10,6 +10,7 @@ class Segment {
   double y2;
 
 public:
+
   Segment(double _x1, double _y1, double _x2, double _y2);
 };
 
