@@ -1,8 +1,8 @@
 // Copyright 2020 Kukushkina Ksenia
 
-#include "include/segments.h"
-
 #include <gtest/gtest.h>
+
+#include "include/segments.h"
 
 TEST(Segment, can_create_segment) {
   // Arrange & Act & Assert
