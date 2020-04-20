@@ -14,7 +14,6 @@ class Segment {
   double y1;
   double x2;
   double y2;
-
 };
 
 #endif  // MODULES_INTERSECTING_SEGMENTS_INCLUDE_SEGMENTS_H_
