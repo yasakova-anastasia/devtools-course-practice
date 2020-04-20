@@ -58,7 +58,7 @@ LeftistHeap& LeftistHeap::operator= (const LeftistHeap& copy) {
   return *this;
 }
 
-bool LeftistHeap::isEmpty() {
+bool LeftistHeap::isEmpty() const {
   return (root == NULL);
 }
 
@@ -104,7 +104,7 @@ void LeftistHeap::insert(const int _key) {
   root = Node::merge(root, newNode);
 }
 
-int LeftistHeap::findMin() {
+int LeftistHeap::findMin() const {
   if (root) {
     return root->key;
   } else {
