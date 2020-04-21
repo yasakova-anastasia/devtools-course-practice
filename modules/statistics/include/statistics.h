@@ -8,20 +8,20 @@
 
 typedef std::map<int, double> Map;
 
-class Statistics {
+class Distribution {
  public:
-  Statistics();
-  explicit Statistics(Map rand_var);
-  Statistics(const Statistics& s);
+  Distribution();
+  explicit Distribution(Map rand_var);
+  Distribution(const Distribution& s);
 
   Map getRandomVar() const;
   void setRandomVar(Map rand_var);
   std::vector<int> getValue() const;
   std::vector<double> getProbability() const;
 
-  Statistics& operator=(const Statistics& s);
-  bool operator==(const Statistics& s) const;
-  bool operator!=(const Statistics& s) const;
+  Distribution& operator=(const Distribution& s);
+  bool operator==(const Distribution& s) const;
+  bool operator!=(const Distribution& s) const;
 
   double expectedValue() const;
   double dispersion() const;
