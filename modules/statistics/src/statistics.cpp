@@ -32,7 +32,8 @@ Distribution::Distribution(Map rand_var) {
     random_var = rand_var;
 }
 
-Distribution::Distribution(const Distribution& s) : random_var(s.getRandomVar()) {}
+Distribution::Distribution(const Distribution& s)
+    : random_var(s.getRandomVar()) {}
 
 Map Distribution::getRandomVar() const { return random_var; }
 
@@ -59,7 +60,9 @@ bool Distribution::operator==(const Distribution& s) const {
   return random_var == s.getRandomVar();
 }
 
-bool Distribution::operator!=(const Distribution& s) const { return !(*this == s); }
+bool Distribution::operator!=(const Distribution& s) const {
+  return !(*this == s);
+}
 
 double Distribution::expectedValue() const {
   if (random_var.empty()) throw std::string("Empty data");
