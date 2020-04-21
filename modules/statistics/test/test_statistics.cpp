@@ -205,7 +205,7 @@ TEST_F(DistributionTest, Dispersion_Through_Math_Expectation) {
   // Arrange
   Distribution s({{0, 0.1}, {1, 0.3}, {2, 0.05}, {3, 0.55}});
   Distribution ss({{0, 0.1}, {1, 0.3}, {4, 0.05}, {9, 0.55}});
-  
+
   // Act
   double exp_s = s.expectedValue();
   double exp_ss = ss.expectedValue();
