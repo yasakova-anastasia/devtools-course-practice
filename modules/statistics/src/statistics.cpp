@@ -4,6 +4,7 @@
 
 #include <math.h>
 #include <stdbool.h>
+
 #include <limits>
 #include <string>
 #include <vector>
@@ -11,12 +12,12 @@
 const double eps = std::numeric_limits<double>::epsilon();
 
 int Statistics::checkProbability(Map rand_var) const {
-  double sum = 0.0;
+  double sum_probabilities = 0.0;
   for (const auto& val : rand_var) {
     if (val.second < 0) return -1;
-    sum += val.second;
+    sum_probabilities += val.second;
   }
-  return (sum > 1 - eps && sum < 1 + eps) ? 1 : 0;
+  return (sum_probabilities > 1 - eps && sum_probabilities < 1 + eps) ? 1 : 0;
 }
 
 Statistics::Statistics() {}
