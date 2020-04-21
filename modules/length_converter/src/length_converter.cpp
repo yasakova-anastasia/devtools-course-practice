@@ -27,7 +27,7 @@ double LengthConverter::m_mile(const double& curr, bool side) {
         return curr * 0.000621371;
     } else if (curr >= 0 && side == true) {
         return curr / 0.000621371;
-	} else {
+    } else {
         return -1;
     }
 }
