@@ -107,7 +107,7 @@ Tree::Tree(const Tree& tree) {
 
 Tree::~Tree() {
     TreeNode* i = root;
-    while (amount > 1 ) {
+    while (amount > 1) {
         while (i->GetLeft() != nullptr || i->GetRight() != nullptr) {
             if (i->GetLeft() != nullptr) {
                 i = i->GetLeft();
@@ -193,7 +193,7 @@ void Tree::AddElem(int data_) {
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
         i->SetRight(tmp);
         amount++;
-    } else if(data_ < i->GetData()) {
+    } else if (data_ < i->GetData()) {
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
         i->SetLeft(tmp);
         amount++;
@@ -274,7 +274,7 @@ void Tree::DelElem(int data_) {
             amount--;
         } else if (i->GetLeft() == nullptr) {
             TreeNode* tmp1 = i;
-            TreeNode* tmp2 = i->GetRight();	
+            TreeNode* tmp2 = i->GetRight();
             i = i->GetParent();
             tmp2->SetParent(i);
             if (i->GetLeft() == tmp1) {
@@ -299,7 +299,7 @@ void Tree::DelElem(int data_) {
         } else {
             bool f = false;
             TreeNode* tmp1 = i;
-            TreeNode* tmp2 = i;	
+            TreeNode* tmp2 = i;
             tmp2 = tmp2->GetLeft();
             while (tmp2->GetRight() != nullptr) {
                 tmp2 = tmp2->GetRight();
@@ -327,5 +327,5 @@ void Tree::DelElem(int data_) {
             delete tmp1;
             amount--;
         }
-    }	
+    }
 }
