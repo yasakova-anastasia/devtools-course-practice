@@ -57,7 +57,7 @@ TEST(TreesTest, Add_Existing_Element) {
 TEST(TreesTest, Copy_Constructor_Tree) {
     Tree tree1 = { 20, 10, 30, 5, 15, 25, 35 };
 
-	Tree tree2(tree1);
+    Tree tree2(tree1);
 
     ASSERT_TRUE(tree1 == tree2);
 }

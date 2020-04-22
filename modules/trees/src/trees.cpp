@@ -259,8 +259,7 @@ TreeNode* Tree::FindElemNode(int data_) const {
 }
 
 void Tree::DelElem(int data_) {
-    TreeNode* i = root;
-    i = FindElemNode(data_);
+    TreeNode* i = FindElemNode(data_);
     if (i != nullptr) {
         if (i->GetLeft() == nullptr && i->GetRight() == nullptr) {
             TreeNode* tmp = i;
