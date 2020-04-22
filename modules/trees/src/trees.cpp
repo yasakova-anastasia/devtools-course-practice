@@ -129,7 +129,7 @@ Tree::~Tree() {
 bool Tree::operator==(const Tree& tree) {
     bool res = true;
 
-    if (amount = tree.amount) {
+    if (amount == tree.amount) {
         std::queue<TreeNode*> t1, t2;
         TreeNode* i = root;
         TreeNode* j = tree.root;
@@ -191,16 +191,18 @@ void Tree::AddElem(int data_){
     if (data_ > i->GetData()){
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
         i->SetRight(tmp);
+        amount++;
     } else if(data_ < i->GetData()){
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
         i->SetLeft(tmp);
+        amount++;
     }
-    amount ++;
 }
 
 void Tree::AddElem(TreeNode* tmp) {
     if (amount == 0) {
         root = tmp;
+        amount++;
     } else {
         TreeNode* i = root;
         while ((tmp->GetData() > i->GetData() && i->GetRight() != nullptr) || (tmp->GetData() < i->GetData() && i->GetLeft() != nullptr)) {
@@ -213,12 +215,13 @@ void Tree::AddElem(TreeNode* tmp) {
         if (tmp->GetData() > i->GetData()) {
             i->SetRight(tmp);
             tmp->SetParent(i);
+            amount++;
         } else if (tmp->GetData() < i->GetData()) {
             i->SetLeft(tmp);
             tmp->SetParent(i);
+            amount++;
         }
     }
-    amount++;
 }
 
 bool Tree::FindElemData(int data_) const{
