@@ -31,7 +31,7 @@ class Tree {
     TreeNode* root;
     int amount;
  public:
-	explicit Tree(int data_);
+    explicit Tree(int data_);
     Tree(std::initializer_list<int> l);
     Tree(const Tree& tree);
     ~Tree();
