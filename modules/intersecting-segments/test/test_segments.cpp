@@ -31,7 +31,7 @@ TEST(Segment, intersection_true) {
   Segment A(2, 7, 10, 3);
   Segment B(8, 7, 5, 2);
 
-  // Arrange & Assert
+  // Act & Assert
   ASSERT_EQ(A.isIntersect(&B), true);
 }
 
@@ -40,6 +40,24 @@ TEST(Segment, intersection_false) {
   Segment A(2, 7, 5, 2);
   Segment B(8, 7, 10, 3);
 
-  // Arrange & Assert
+  // Act & Assert
+  ASSERT_EQ(A.isIntersect(&B), false);
+}
+
+TEST(Segment, same_line_intersection_true) {
+  // Arrange
+  Segment A(1, 1, 4, 10);
+  Segment B(3, 7, 2, 4);
+
+  // Act & Assert
+  ASSERT_EQ(A.isIntersect(&B), true);
+}
+
+TEST(Segment, same_line_intersection_false) {
+  // Arrange
+  Segment A(1, 1, 2, 4);
+  Segment B(3, 7, 4, 10);
+
+  // Act & Assert
   ASSERT_EQ(A.isIntersect(&B), false);
 }
