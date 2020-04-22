@@ -6,13 +6,14 @@
 #include <initializer_list>
 
 class TreeNode {
-protected:
+ protected:
     int data;
     TreeNode* left;
     TreeNode* right;
     TreeNode* parent;
-public:
-    TreeNode(int data_ = 0, TreeNode* left_ = nullptr, TreeNode* right_ = nullptr, TreeNode* parent_ = nullptr);
+ public:
+    TreeNode(int data_ = 0, TreeNode* left_ = nullptr,
+        TreeNode* right_ = nullptr, TreeNode* parent_ = nullptr);
     TreeNode(const TreeNode& node);
     TreeNode& operator=(const TreeNode& node);
     bool operator==(const TreeNode& node);
@@ -29,8 +30,8 @@ public:
 class Tree {
     TreeNode* root;
     int amount;
-public:
-    Tree(int data_ = 0);
+ public:
+	explicit Tree(int data_);
     Tree(std::initializer_list<int> l);
     Tree(const Tree& tree);
     ~Tree();
