@@ -3,8 +3,9 @@
 #include "include/trees.h"
 #include <queue>
 
-TreeNode::TreeNode(int data_, TreeNode* left_, TreeNode* right_, TreeNode* parent_)
-                         : data(data_), left(left_), right(right_), parent(parent_){}
+TreeNode::TreeNode(int data_, TreeNode* left_, TreeNode* right_,
+    TreeNode* parent_) : data(data_), left(left_),
+    right(right_), parent(parent_) {}
 
 TreeNode::TreeNode(const TreeNode& node) {
     data = node.data;
@@ -23,14 +24,15 @@ TreeNode& TreeNode::operator=(const TreeNode& node) {
 
 bool TreeNode::operator==(const TreeNode& node) {
     bool res = false;
-    if (data == node.data && left == node.left && right == node.right && parent == node.parent)
+    if (data == node.data && left == node.left &&
+        right == node.right && parent == node.parent)
         res = true;
     return res;
 }
 
 int TreeNode::GetData() const {
     return data;
- }
+}
 
 TreeNode* TreeNode::GetLeft() const {
     return left;
@@ -44,11 +46,11 @@ TreeNode* TreeNode::GetParent() const {
     return parent;
 }
 
-void TreeNode::SetLeft(TreeNode* tmp){
+void TreeNode::SetLeft(TreeNode* tmp) {
     left = tmp;
 }
 
-void TreeNode::SetRight(TreeNode* tmp){
+void TreeNode::SetRight(TreeNode* tmp) {
     right = tmp;
 }
 
@@ -62,7 +64,7 @@ Tree::Tree(int data_) {
     amount = 1;
 }
 
-Tree::Tree(std::initializer_list<int> l){
+Tree::Tree(std::initializer_list<int> l) {
     root = nullptr;
     amount = 0;
     for (auto& val : l) {
@@ -71,7 +73,7 @@ Tree::Tree(std::initializer_list<int> l){
     }
 }
 
-Tree::Tree(const Tree& tree){
+Tree::Tree(const Tree& tree) {
     TreeNode* j = tree.root;
     root = new TreeNode(j->GetData(), nullptr, nullptr, nullptr);
     amount = 1;
@@ -79,32 +81,32 @@ Tree::Tree(const Tree& tree){
     std::queue<TreeNode*> t1, t2;
     t1.push(i);
     t2.push(j);
-
     while (t1.empty() != true) {
         i = t1.front();
         t1.pop();
         j = t2.front();
         t2.pop();
         if (j->GetLeft() != nullptr) {
-            TreeNode* tmp = new TreeNode((j->GetLeft())->GetData(), nullptr, nullptr, i);
+            TreeNode* tmp = new TreeNode((j->GetLeft())->GetData(),
+                nullptr, nullptr, i);
             i->SetLeft(tmp);
             amount++;
             t1.push(tmp);
             t2.push(j->GetLeft());
         }
         if (j->GetRight() != nullptr) {
-            TreeNode* tmp = new TreeNode((j->GetRight())->GetData(), nullptr, nullptr, i);
+            TreeNode* tmp = new TreeNode((j->GetRight())->GetData(),
+                nullptr, nullptr, i);
             i->SetRight(tmp);
             amount++;
             t1.push(tmp);
             t2.push(j->GetRight());
-       }
+        }
     }
 }
 
 Tree::~Tree() {
     TreeNode* i = root;
-
     while (amount > 1 ) {
         while (i->GetLeft() != nullptr || i->GetRight() != nullptr) {
             if (i->GetLeft() != nullptr) {
@@ -128,12 +130,11 @@ Tree::~Tree() {
 
 bool Tree::operator==(const Tree& tree) {
     bool res = true;
-
     if (amount == tree.amount) {
         std::queue<TreeNode*> t1, t2;
         TreeNode* i = root;
         TreeNode* j = tree.root;
-		
+
         t1.push(i);
         t2.push(j);
         while (t1.empty() != true) {
@@ -144,7 +145,7 @@ bool Tree::operator==(const Tree& tree) {
             if (i->GetData() != j->GetData()) {
                 res = false;
                 break;
-			}
+            }
             if (i->GetLeft() != nullptr) {
                 if (j->GetLeft() != nullptr) {
                     t1.push(i->GetLeft());
@@ -178,21 +179,21 @@ int Tree::GetAmount() const {
     return amount;
 }
 
-void Tree::AddElem(int data_){
+void Tree::AddElem(int data_) {
     TreeNode* i = root;
-
-    while ((data_ > i->GetData() && i->GetRight() != nullptr) || (data_ < i->GetData() && i->GetLeft() != nullptr)) {
+    while ((data_ > i->GetData() && i->GetRight() != nullptr)
+       || (data_ < i->GetData() && i->GetLeft() != nullptr)) {
         if (data_ > i->GetData()) {
             i = i->GetRight();
         } else if (data_ < i->GetData()) {
             i = i->GetLeft();
         }
     }
-    if (data_ > i->GetData()){
+    if (data_ > i->GetData()) {
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
         i->SetRight(tmp);
         amount++;
-    } else if(data_ < i->GetData()){
+    } else if(data_ < i->GetData()) {
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
         i->SetLeft(tmp);
         amount++;
@@ -205,7 +206,8 @@ void Tree::AddElem(TreeNode* tmp) {
         amount++;
     } else {
         TreeNode* i = root;
-        while ((tmp->GetData() > i->GetData() && i->GetRight() != nullptr) || (tmp->GetData() < i->GetData() && i->GetLeft() != nullptr)) {
+        while ((tmp->GetData() > i->GetData() && i->GetRight() != nullptr)
+           || (tmp->GetData() < i->GetData() && i->GetLeft() != nullptr)) {
             if (tmp->GetData() > i->GetData()) {
                 i = i->GetRight();
             } else if (tmp->GetData() < i->GetData()) {
@@ -224,10 +226,9 @@ void Tree::AddElem(TreeNode* tmp) {
     }
 }
 
-bool Tree::FindElemData(int data_) const{
+bool Tree::FindElemData(int data_) const {
     bool res = false;
     TreeNode* i = root;
-	
     while (i != nullptr) {
         if (i->GetData() == data_) {
             res = true;
@@ -244,7 +245,6 @@ bool Tree::FindElemData(int data_) const{
 TreeNode* Tree::FindElemNode(int data_) const {
     TreeNode* res = nullptr;
     TreeNode* i = root;
-
     while (i != nullptr) {
         if (i->GetData() == data_) {
             res = i;
@@ -260,13 +260,10 @@ TreeNode* Tree::FindElemNode(int data_) const {
 
 void Tree::DelElem(int data_) {
     TreeNode* i = root;
-
     i = FindElemNode(data_);
-	
     if (i != nullptr) {
         if (i->GetLeft() == nullptr && i->GetRight() == nullptr) {
             TreeNode* tmp = i;
-				
             i = i->GetParent();
             if (i->GetLeft() == tmp) {
                 i->SetLeft(nullptr);
@@ -277,8 +274,7 @@ void Tree::DelElem(int data_) {
             amount--;
         } else if (i->GetLeft() == nullptr) {
             TreeNode* tmp1 = i;
-            TreeNode* tmp2 = i->GetRight();
-				
+            TreeNode* tmp2 = i->GetRight();	
             i = i->GetParent();
             tmp2->SetParent(i);
             if (i->GetLeft() == tmp1) {
@@ -291,7 +287,6 @@ void Tree::DelElem(int data_) {
         } else if (i->GetRight() == nullptr) {
             TreeNode* tmp1 = i;
             TreeNode* tmp2 = i->GetLeft();
-			
             i = i->GetParent();
             tmp2->SetParent(i);
             if (i->GetLeft() == tmp1) {
@@ -304,8 +299,7 @@ void Tree::DelElem(int data_) {
         } else {
             bool f = false;
             TreeNode* tmp1 = i;
-            TreeNode* tmp2 = i;
-				
+            TreeNode* tmp2 = i;	
             tmp2 = tmp2->GetLeft();
             while (tmp2->GetRight() != nullptr) {
                 tmp2 = tmp2->GetRight();
