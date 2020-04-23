@@ -318,7 +318,7 @@ void Tree::DelElem(int data_) {
                     i->SetLeft(tmp2);
                 } else {
                     i->SetRight(tmp2);
-				}
+                }
                 tmp2->SetParent(i);
             } else {
                 tmp2->SetParent(nullptr);
