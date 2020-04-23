@@ -74,7 +74,7 @@ TEST(THeap, Can_use_copy_ctor) {
 
   THeap<int> b(a);
 
-  for (int i = 0; i < a.GetSize(); i++) {
+  for (size_t i = 0; i < a.GetSize(); i++) {
     ASSERT_EQ(a.Remove(), b.Remove());
   }
 }
@@ -87,7 +87,7 @@ TEST(THeap, Can_use_assignment_operator) {
   a.Push(8);
   b = a;
 
-  for (int i = 0; i < a.GetSize(); i++) {
+  for (size_t i = 0; i < a.GetSize(); i++) {
     ASSERT_EQ(a.Remove(), b.Remove());
   }
 }
