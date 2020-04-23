@@ -312,13 +312,18 @@ void Tree::DelElem(int data_) {
             if (tmp2->GetLeft() != nullptr) {
                 (tmp2->GetLeft())->SetParent(tmp2->GetParent());
             }
-            i = i->GetParent();
-            if (i->GetLeft() == tmp1) {
-                i->SetLeft(tmp2);
+            if (i != root) {
+                i = i->GetParent();
+                if (i->GetLeft() == tmp1) {
+                    i->SetLeft(tmp2);
+                } else {
+                    i->SetRight(tmp2);
+				}
+                tmp2->SetParent(i);
             } else {
-                i->SetRight(tmp2);
+                tmp2->SetParent(nullptr);
+                root = tmp2;
             }
-            tmp2->SetParent(i);
             tmp2->SetRight(tmp1->GetRight());
             tmp2->SetLeft(tmp1->GetLeft());
             (tmp1->GetRight())->SetParent(tmp2);

@@ -80,16 +80,16 @@ TEST(TreesTest, Find_Elem_Return_Node) {
     ASSERT_EQ(10, (tree.FindElemNode(10))->GetData());
 }
 
-TEST(TreesTest, Del_Last_Elem) {
-    Tree tree1 = { 20, 10, 30, 5, 15, 25, 35, 32 };
-    Tree tree2 = { 20, 10, 30, 5, 15, 25, 32 };
+TEST(TreesTest, Del_Leaf) {
+    Tree tree1 = { 20, 10, 30, 5, 15, 25, 35 };
+    Tree tree2 = { 20, 10, 30, 5, 15, 25 };
 
     tree1.DelElem(35);
 
     ASSERT_TRUE(tree1 == tree2);
 }
 
-TEST(TreesTest, Del_No_Last_Elem) {
+TEST(TreesTest, Del_Node) {
     Tree tree1 = { 20, 10, 30, 5, 15, 25, 35, 22, 27 };
     Tree tree2 = { 20, 10, 27, 5, 15, 25, 35, 22 };
 
@@ -103,6 +103,15 @@ TEST(TreesTest, Del_Nonexistent_Elem) {
     Tree tree2 = { 20, 10, 30, 5, 15, 25, 35 };
 
     tree1.DelElem(40);
+
+    ASSERT_TRUE(tree1 == tree2);
+}
+
+TEST(TreesTest, Del_Root) {
+    Tree tree1 = { 20, 10, 30, 5, 15, 25, 35 };
+    Tree tree2 = { 15, 10, 30, 5, 25, 35 };
+
+    tree1.DelElem(20);
 
     ASSERT_TRUE(tree1 == tree2);
 }
