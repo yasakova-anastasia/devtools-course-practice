@@ -94,11 +94,12 @@ TEST(THeap, Can_use_assignment_operator) {
 
 TEST(Theap, Test_for_cov1) {
   THeap<int> a;
+
   a.Push(5);
   a.Push(28);
   a.Push(17);
   a.Push(8);
-  
+
   a.Remove();
   a.Remove();
   a.Remove();
