@@ -14,22 +14,6 @@ TreeNode::TreeNode(const TreeNode& node) {
     parent = node.parent;
 }
 
-TreeNode& TreeNode::operator=(const TreeNode& node) {
-    data = node.data;
-    left = node.left;
-    right = node.right;
-    parent = node.parent;
-    return *this;
-}
-
-bool TreeNode::operator==(const TreeNode& node) {
-    bool res = false;
-    if (data == node.data && left == node.left &&
-        right == node.right && parent == node.parent)
-        res = true;
-    return res;
-}
-
 int TreeNode::GetData() const {
     return data;
 }
@@ -134,7 +118,6 @@ bool Tree::operator==(const Tree& tree) {
         std::queue<TreeNode*> t1, t2;
         TreeNode* i = root;
         TreeNode* j = tree.root;
-
         t1.push(i);
         t2.push(j);
         while (t1.empty() != true) {

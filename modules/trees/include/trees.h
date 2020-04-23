@@ -15,8 +15,6 @@ class TreeNode {
     TreeNode(int data_ = 0, TreeNode* left_ = nullptr,
         TreeNode* right_ = nullptr, TreeNode* parent_ = nullptr);
     TreeNode(const TreeNode& node);
-    TreeNode& operator=(const TreeNode& node);
-    bool operator==(const TreeNode& node);
     int GetData() const;
     TreeNode* GetLeft() const;
     TreeNode* GetRight() const;
