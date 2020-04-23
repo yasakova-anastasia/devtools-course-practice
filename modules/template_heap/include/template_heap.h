@@ -85,7 +85,7 @@ void THeap<T>::Immersion() {
     if ((right < length) && (vec[right] > vec[largest]))
       largest = right;
     if (largest != parent) {
-      std::swap(largest, parent);
+      Swap(largest, parent);
       parent = largest;
     } else {
       break;
