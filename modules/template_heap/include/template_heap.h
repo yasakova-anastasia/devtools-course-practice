@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 template <typename T>
 class THeap {
@@ -11,6 +12,8 @@ class THeap {
   THeap() = default;
   void Push(T value);
   T Remove();
+  void PrintHeap();
+  size_t GetSize();
 
  private:
   std::vector<T> vec;
@@ -19,7 +22,7 @@ class THeap {
   void Immersion();
   int GetLeftChild(int parent);
   int GetRightChild(int parent);
-  void swap(int child, int parent);
+  void Swap(int child, int parent);
 };
 
 template<typename T>
@@ -34,7 +37,7 @@ void THeap<T>::Emersion() {
   int parent = GetParent(child);
 
   while (vec[child] > vec[parent] && child >= 0 && parent >= 0) {
-    std::swap(child, parent);
+    Swap(child, parent);
     child = parent;
     parent = GetParent(child);
   }
@@ -54,7 +57,7 @@ T THeap<T>::Remove() {
     throw "Nothing to remove";
   }
   int child = vec.size() - 1;
-  swap(child, 0);
+  Swap(child, 0);
   T value = vec.back();
   vec.pop_back();
   Immersion();
@@ -62,7 +65,7 @@ T THeap<T>::Remove() {
 }
 
 template <typename T>
-void THeap<T>::swap(int child, int parent) {
+void THeap<T>::Swap(int child, int parent) {
   std::swap(vec[child], vec[parent]);
 }
 
@@ -99,5 +102,23 @@ int THeap<T>::GetRightChild(int parent) {
   return 2 * parent + 2;
 }
 
+template <typename T>
+void THeap<T>::PrintHeap() {
+  int i = 0;
+  int k = 1;
+  while (i < this->GetSize()) {
+    while ((i < k) && (i < this->GetSize())) {
+      std::cout << vec[i] << "  ";
+      i++;
+    }
+    std::cout << std::endl;
+    k = k * 2 + 1;
+  }
+}
+
+template <typename T>
+size_t THeap<T>::GetSize() {
+  return vec.size();
+}
 
 #endif  // MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
