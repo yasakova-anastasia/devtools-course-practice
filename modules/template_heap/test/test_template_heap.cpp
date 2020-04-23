@@ -1,7 +1,6 @@
 // Copyright 2020 Pauzin_leonid
 
 #include <gtest/gtest.h>
-#include <iostream>
 #include "include/template_heap.h"
 
 
@@ -40,10 +39,9 @@ TEST(THeap, Cam_insert_and_remove_value) {
 
 TEST(THeap, Remove_from_empty_heap) {
   THeap<int> a;
-  int k;
 
   a.Push(5);
-  k = a.Remove();
+  int k = a.Remove();
 
   ASSERT_ANY_THROW(a.Remove());
 }
