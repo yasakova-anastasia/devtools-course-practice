@@ -65,3 +65,29 @@ TEST(THeap, Can_get_size) {
 
   ASSERT_EQ(3, a.GetSize());
 }
+
+TEST(THeap, Can_use_copy_ctor) {
+  THeap<int> a;
+
+  a.Push(5);
+  a.Push(8);
+
+  THeap<int> b(a);
+
+  for (int i = 0; i < a.GetSize(); i++) {
+    ASSERT_EQ(a.Remove(), b.Remove());
+  }
+}
+
+TEST(THeap, Can_use_assigment_operator) {
+  THeap<int> a;
+  THeap<int> b;
+
+  a.Push(5);
+  a.Push(8);
+  b = a;
+
+  for (int i = 0; i < a.GetSize(); i++) {
+    ASSERT_EQ(a.Remove(), b.Remove());
+  }
+}
