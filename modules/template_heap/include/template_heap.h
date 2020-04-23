@@ -58,7 +58,7 @@ T THeap<T>::Remove() {
   T value = vec.back();
   vec.pop_back();
   Immersion();
-  return value;  
+  return value;
 }
 
 template <typename T>
@@ -83,8 +83,7 @@ void THeap<T>::Immersion() {
     if (largest != parent) {
       std::swap(largest, parent);
       parent = largest;
-    }
-    else {
+    } else {
       break;
     }
   }
