@@ -125,7 +125,7 @@ size_t THeap<T>::GetSize() {
 template <typename T>
 THeap<T>& THeap<T>::operator= (const THeap<T>& heap) {
   vec = heap.vec;
-  return *this; 
+  return *this;
 }
 
 

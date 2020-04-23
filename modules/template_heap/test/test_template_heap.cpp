@@ -4,15 +4,15 @@
 #include "include/template_heap.h"
 
 
-TEST(THeap, Can_Create_int_heap) {
+TEST(THeap, Can_create_int_heap) {
   ASSERT_NO_THROW(THeap<int>());
 }
 
-TEST(THeap, Can_Create_double_heap) {
+TEST(THeap, Can_create_double_heap) {
   ASSERT_NO_THROW(THeap<double>());
 }
 
-TEST(THeap, Can_Create_char_heap) {
+TEST(THeap, Can_create_char_heap) {
   ASSERT_NO_THROW(THeap<char>());
 }
 
@@ -79,7 +79,7 @@ TEST(THeap, Can_use_copy_ctor) {
   }
 }
 
-TEST(THeap, Can_use_assigment_operator) {
+TEST(THeap, Can_use_assignment_operator) {
   THeap<int> a;
   THeap<int> b;
 
