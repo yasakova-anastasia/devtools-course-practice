@@ -3,6 +3,7 @@
 #define MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
 
 #include <vector>
+#include <algorithm>
 
 template <typename T>
 class THeap {
@@ -43,4 +44,4 @@ int THeap<T>::GetParent(int child) {
 }
 
 
-#endif MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
+#endif  // MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
