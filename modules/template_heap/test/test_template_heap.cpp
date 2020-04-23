@@ -1,4 +1,4 @@
-// Copyright 2020 Pauzin_leonid
+// Copyright 2020 Pauzin Leonid
 
 #include <gtest/gtest.h>
 #include "include/template_heap.h"
