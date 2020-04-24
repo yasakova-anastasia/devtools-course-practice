@@ -61,3 +61,12 @@ TEST(Segment, same_line_intersection_false) {
   // Act & Assert
   ASSERT_EQ(A.isIntersect(&B), false);
 }
+
+TEST(Segment, commutativity) {
+  // Arrange
+  Segment A(1, 3, 7, 8);
+  Segment B(3, 9, 1, 1);
+
+  // Act & Assert
+  ASSERT_EQ(A.isIntersect(&B), B.isIntersect(&A));
+}
