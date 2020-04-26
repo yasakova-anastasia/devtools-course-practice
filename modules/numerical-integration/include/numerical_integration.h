@@ -3,23 +3,34 @@
 #ifndef MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_
 #define MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_
 
-class NumericalIntegration {
+class FunctionsForIntegration {
  public:
-    double a, b;
-    double (*f)(double x);
+     virtual double f(double x) = 0;
+};
 
-    NumericalIntegration(double _a, double _b, double (*_f)(double x));
-    NumericalIntegration(const NumericalIntegration& obj);
+class NumericalIntegration {
+ private:
+    double a, b;
+ public:
+    NumericalIntegration(double _a, double _b);
+    NumericalIntegration(const NumericalIntegration& obj) : a(obj.a), b(obj.b) {}
     NumericalIntegration& operator=(const NumericalIntegration& obj);
 
     bool operator == (const NumericalIntegration& obj) const;
+    void Set_integration_borders(double _a, double _b);
 
-    double Left_rectangle_method(unsigned int N);
-    double Right_rectangle_method(unsigned int N);
-    double Middle_rectangle_method(unsigned int N);
-    double Trapezoid_method(unsigned int N);
-    double Simpsons_method(unsigned int N);
-    double Gauss_method(unsigned int N);
+    double Left_rectangle_method(
+        FunctionsForIntegration* func, unsigned int N);
+    double Right_rectangle_method(
+        FunctionsForIntegration* func, unsigned int N);
+    double Middle_rectangle_method(
+        FunctionsForIntegration* func, unsigned int N);
+    double Trapezoid_method(
+        FunctionsForIntegration* func, unsigned int N);
+    double Simpsons_method(
+        FunctionsForIntegration* func, unsigned int N);
+    double Gauss_method(
+        FunctionsForIntegration* func, unsigned int N);
 };
 
 #endif  // MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_

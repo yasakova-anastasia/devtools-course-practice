@@ -7,28 +7,40 @@
 
 #include "include/numerical_integration.h"
 
+class func1 : public FunctionsForIntegration {
+ public:
+     double f(double x) {
+         return x * x;
+     }
+};
+
+class func2 : public FunctionsForIntegration {
+ public:
+     double f(double x) {
+         return 1.0 - x;
+     }
+};
+
+class func3 : public FunctionsForIntegration {
+ public:
+     double f(double x) {
+         return cos(x);
+     }
+};
+
 class NumericalIntegrationTest : public NumericalIntegration {
  public:
      static const double epsilon;
      static const unsigned int N;
 
-     static double f1(double x) {
-         return x * x;
-     }
      static double F1(double x) {
          return (x * x * x) / 3.0;
      }
 
-     static double f2(double x) {
-         return 1.0 - x;
-     }
      static double F2(double x) {
          return x - (x * x) / 2.0;
      }
 
-     static double f3(double x) {
-         return cos(x);
-     }
      static double F3(double x) {
          return sin(x);
      }
@@ -43,8 +55,7 @@ TEST(NumericalIntegrationTest, CannotCreateObjectWithInvalidBorders) {
     double b = 3.0;
 
     // Act & Assert
-    ASSERT_ANY_THROW(NumericalIntegration obj(
-        a, b, NumericalIntegrationTest::f1));
+    ASSERT_ANY_THROW(NumericalIntegration obj(a, b));
 }
 
 TEST(NumericalIntegrationTest, CopyConstructorTest) {
@@ -53,7 +64,7 @@ TEST(NumericalIntegrationTest, CopyConstructorTest) {
     double b = 1.0;
 
     // Act
-    NumericalIntegration obj1(a, b, NumericalIntegrationTest::f2);
+    NumericalIntegration obj1(a, b);
     NumericalIntegration obj2(obj1);
 
     // Assert
@@ -68,8 +79,8 @@ TEST(NumericalIntegrationTest, EqualityOperatorTest) {
     double b2 = 4.3;
 
     // Act
-    NumericalIntegration obj1(a1, b1, NumericalIntegrationTest::f2);
-    NumericalIntegration obj2(a2, b2, NumericalIntegrationTest::f3);
+    NumericalIntegration obj1(a1, b1);
+    NumericalIntegration obj2(a2, b2);
     obj2 = obj1;
 
     // Assert
@@ -84,11 +95,12 @@ TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {
     NumericalIntegrationTest::F1(a);
 
     // Act
-    NumericalIntegration obj(a, b, NumericalIntegrationTest::f1);
+    NumericalIntegration obj(a, b);
+    func1 f;
 
     // Assert
-    EXPECT_NEAR(ans, obj.Left_rectangle_method(
-        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Left_rectangle_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
@@ -99,11 +111,12 @@ TEST(NumericalIntegrationTest, TestRightRectangleMethod) {
     NumericalIntegrationTest::F3(a);
 
     // Act
-    NumericalIntegration obj(a, b, NumericalIntegrationTest::f3);
+    NumericalIntegration obj(a, b);
+    func3 f;
 
     // Assert
-    EXPECT_NEAR(ans, obj.Right_rectangle_method(
-        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Right_rectangle_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestMiddleRectangleMethod) {
@@ -114,11 +127,12 @@ TEST(NumericalIntegrationTest, TestMiddleRectangleMethod) {
     NumericalIntegrationTest::F2(a);
 
     // Act
-    NumericalIntegration obj(a, b, NumericalIntegrationTest::f2);
+    NumericalIntegration obj(a, b);
+    func2 f;
 
     // Assert
-    EXPECT_NEAR(ans, obj.Middle_rectangle_method(
-        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Middle_rectangle_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestTrapezoidMethod) {
@@ -129,11 +143,12 @@ TEST(NumericalIntegrationTest, TestTrapezoidMethod) {
     NumericalIntegrationTest::F1(a);
 
     // Act
-    NumericalIntegration obj(a, b, NumericalIntegrationTest::f1);
+    NumericalIntegration obj(a, b);
+    func1 f;
 
     // Assert
-    EXPECT_NEAR(ans, obj.Trapezoid_method(
-        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+    EXPECT_NEAR(ans, obj.Trapezoid_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
 TEST(NumericalIntegrationTest, TestSimpsonsMethod) {
@@ -144,10 +159,11 @@ TEST(NumericalIntegrationTest, TestSimpsonsMethod) {
     NumericalIntegrationTest::F2(a);
 
     // Act
-    NumericalIntegration obj(a, b, NumericalIntegrationTest::f2);
+    NumericalIntegration obj(a, b);
+    func2 f;
 
     // Assert
-    EXPECT_NEAR(ans, obj.Simpsons_method(
+    EXPECT_NEAR(ans, obj.Simpsons_method(&f,
         NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
@@ -159,9 +175,10 @@ TEST(NumericalIntegrationTest, TestGaussMethod) {
     NumericalIntegrationTest::F3(a);
 
     // Act
-    NumericalIntegration obj(a, b, NumericalIntegrationTest::f3);
+    NumericalIntegration obj(a, b);
+    func3 f;
 
     // Assert
-    EXPECT_NEAR(ans, obj.Gauss_method(
+    EXPECT_NEAR(ans, obj.Gauss_method(&f,
         NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
