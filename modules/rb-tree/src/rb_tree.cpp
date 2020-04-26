@@ -4,11 +4,11 @@
 #include <vector>
 
 Node::Node(int _data, Node *_left, Node *_right, Node *_parent, Color _color) :
-           data(_data), parent(_parent), left(_left),
-           right(_right), color(_color) {}
+    data(_data), parent(_parent), left(_left),
+    right(_right), color(_color) {}
 
 Node::Node(const Node& node) : data(node.data), parent(node.parent),
-           left(node.left), right(node.right), color(node.color) {}
+    left(node.left), right(node.right), color(node.color) {}
 
 Node& Node::operator=(const Node& node) {
     data = node.data;
@@ -35,13 +35,13 @@ bool Node::operator!=(const Node& node) {
 RBTree::RBTree() : _NIL(new Node{}), _root(_NIL) {}
 
 RBTree::RBTree(Node *node) : _NIL(new Node{}), _root(node) {
-        _root->left = _NIL;
-        _root->right = _NIL;
-        _root->parent = _NIL;
+    _root->left = _NIL;
+    _root->right = _NIL;
+    _root->parent = _NIL;
 }
 
 RBTree::RBTree(const std::vector<int>& vec) :
-               _NIL(new Node{}), _root(_NIL) {
+    _NIL(new Node{}), _root(_NIL) {
     for (int data : vec) {
         Node *node = new Node{data};
         insert(node);

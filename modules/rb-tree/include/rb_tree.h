@@ -10,7 +10,7 @@ enum class Color{ red, black };
 class Node {
  public:
     Node(int _data = 0, Node* _parent = nullptr, Node* _left = nullptr,
-         Node* _right = nullptr, Color _color = Color::black);
+        Node* _right = nullptr, Color _color = Color::black);
     Node(const Node& node);
     Node& operator=(const Node& node);
     bool operator==(const Node& node);

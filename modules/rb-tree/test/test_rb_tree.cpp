@@ -76,14 +76,14 @@ TEST(RBTreeTest, Can_Find_Existing_Item) {
     std::vector<int> vec{-20, 1, -10, 14};
     RBTree tree{vec};
 
-    ASSERT_EQ(tree.find(14)->data, 14);
+    ASSERT_EQ(14, tree.find(14)->data);
 }
 
 TEST(RBTreeTest, Can_Not_Find_Nonexistent_Item) {
     std::vector<int> vec{-20, 1, -10, 14};
     RBTree tree{vec};
 
-    ASSERT_EQ(tree.find(-14)->data, 0);
+    ASSERT_EQ(0, tree.find(-14)->data);
 }
 
 TEST(RBTreeTest, Can_Insert_New_Item) {
@@ -131,5 +131,5 @@ TEST(RBTreeTest, Many_Operations_With_Tree) {
     for (auto iter = vec.begin(); iter != vec.end(); ++iter)
         tree.remove(*iter);
 
-    ASSERT_EQ(tree.getRoot()->color, Color::black);
+    ASSERT_EQ(Color::black, tree.getRoot()->color);
 }
