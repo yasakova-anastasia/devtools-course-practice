@@ -17,7 +17,7 @@ TEST_F(DistanceBetweenVectorsTest, default_first_vec) {
   Metrics metrics;
 
   // Assert
-  EXPECT_EQ(metrics.getFirst(), defaultVec);
+  EXPECT_EQ(defaultVec, metrics.getFirst());
 }
 
 TEST_F(DistanceBetweenVectorsTest, default_sec_vec) {
@@ -28,7 +28,7 @@ TEST_F(DistanceBetweenVectorsTest, default_sec_vec) {
   Metrics metrics;
 
   // Assert
-  EXPECT_EQ(metrics.getSecond(), defaultVec);
+  EXPECT_EQ(defaultVec, metrics.getSecond());
 }
 
 TEST_F(DistanceBetweenVectorsTest, create_with_two_vectors) {
@@ -40,8 +40,8 @@ TEST_F(DistanceBetweenVectorsTest, create_with_two_vectors) {
   Metrics metrics(first, second);
 
   // Assert
-  EXPECT_EQ(metrics.getFirst(), first);
-  EXPECT_EQ(metrics.getSecond(), second);
+  EXPECT_EQ(first, metrics.getFirst());
+  EXPECT_EQ(second, metrics.getSecond());
 }
 
 TEST_F(DistanceBetweenVectorsTest, cannot_create_for_vec_of_different_div) {
@@ -80,7 +80,7 @@ TEST_F(DistanceBetweenVectorsTest, can_set_first_vec) {
   metrics.setFirst(newFirst);
 
   // Assert
-  EXPECT_EQ(metrics.getFirst(), newFirst);
+  EXPECT_EQ(newFirst, metrics.getFirst());
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_set_second_vec) {
@@ -94,7 +94,7 @@ TEST_F(DistanceBetweenVectorsTest, can_set_second_vec) {
   metrics.setSecond(newSecond);
 
   // Assert
-  EXPECT_EQ(metrics.getSecond(), newSecond);
+  EXPECT_EQ(newSecond, metrics.getSecond());
 }
 
 TEST_F(DistanceBetweenVectorsTest, cannot_set_fst_vec_of_another_div) {
@@ -130,7 +130,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l1_metric_1) {
   double res = metrics.getL1();
 
   // Assert
-  EXPECT_NEAR(res, 3.0, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(3.0, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l1_metric_2) {
@@ -156,7 +156,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l2_metric_1) {
   double res = metrics.getL2();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l2_metric_2) {
@@ -170,7 +170,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l2_metric_2) {
   double res = metrics.getL2();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l3_metric_1) {
@@ -184,7 +184,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l3_metric_1) {
   double res = metrics.getL3();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l3_metric_2) {
@@ -198,7 +198,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l3_metric_2) {
   double res = metrics.getL3();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l4_metric_1) {
@@ -212,7 +212,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l4_metric_1) {
   double res = metrics.getL4();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l4_metric_2) {
@@ -226,7 +226,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l4_metric_2) {
   double res = metrics.getL4();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l_inf_metric_1) {
@@ -240,7 +240,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l_inf_metric_1) {
   double res = metrics.getLInf();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, can_return_l_inf_metric_2) {
@@ -254,7 +254,7 @@ TEST_F(DistanceBetweenVectorsTest, can_return_l_inf_metric_2) {
   double res = metrics.getLInf();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
 
 TEST_F(DistanceBetweenVectorsTest, test) {
@@ -268,5 +268,5 @@ TEST_F(DistanceBetweenVectorsTest, test) {
   double res = metrics.getL2();
 
   // Assert
-  EXPECT_NEAR(res, expectedRes, DistanceBetweenVectorsTest::epsilon);
+  EXPECT_NEAR(expectedRes, res, DistanceBetweenVectorsTest::epsilon);
 }
