@@ -14,8 +14,8 @@ class hashnode {
     hashnode* next;
 
     hashnode(const Key& _key, const Value& _value): key(_key),
-                                                    value(_value),
-                                                    next(nullptr){}
+        value(_value),
+        next(nullptr){}
 };
 
 template<typename Key = int, typename Value = int>
@@ -38,8 +38,7 @@ class hashmap {
 };
 
 template <typename Key, typename Value>
-hashmap<Key, Value>::hashmap(const int& max_size):_max_size(max_size),
-                                                  _size(0) {
+hashmap<Key, Value>::hashmap(const int& max_size):_max_size(max_size), _size(0) {
     _buffer = new value_type*[max_size];
     for (int i = 0; i < max_size; ++i) {
         _buffer[i] = nullptr;
