@@ -5,10 +5,10 @@
 #include "../include/distance_between_vectors.h"
 
 Metrics::Metrics() : fst(std::vector<float>(1)),
-                     sec(std::vector<float>(1)) {}
+  sec(std::vector<float>(1)) {}
 
 Metrics::Metrics(const std::vector<float>& _fst,
-                 const std::vector<float>& _sec) {
+  const std::vector<float>& _sec) {
   if (_fst.size() != _sec.size()) {
     throw "vectors of different dimensions";
   }
