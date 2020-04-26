@@ -18,11 +18,13 @@ TEST(THeap, Can_create_char_heap) {
 
 TEST(THeap, Can_insert_value) {
   THeap<int> a;
+
   ASSERT_NO_THROW(a.Push(3));
 }
 
 TEST(THeap, Cam_remove_value) {
   THeap<int> a;
+
   a.Push(5);
 
   ASSERT_NO_THROW(a.Remove());
@@ -31,6 +33,7 @@ TEST(THeap, Cam_remove_value) {
 TEST(THeap, Cam_insert_and_remove_value) {
   THeap<int> a;
   int k;
+
   a.Push(5);
   k = a.Remove();
 
