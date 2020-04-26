@@ -87,6 +87,22 @@ TEST(NumericalIntegrationTest, EqualityOperatorTest) {
     EXPECT_EQ(obj1, obj2);
 }
 
+TEST(NumericalIntegrationTest, SetAndGetIntegrationBordersTest) {
+    // Arrange
+    double a1 = 0.0;
+    double b1 = 1.0;
+    double a2 = 5.3;
+    double b2 = 6.0;
+
+    // Act
+    NumericalIntegration obj(a1, b1);
+    obj.Set_integration_borders(a2, b2);
+
+    // Assert
+    EXPECT_DOUBLE_EQ(a2, obj.Get_left_border());
+    EXPECT_DOUBLE_EQ(b2, obj.Get_right_border());
+}
+
 TEST(NumericalIntegrationTest, TestLeftRectangleMethod) {
     // Arrange
     double a = 0.0;

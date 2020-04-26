@@ -33,6 +33,14 @@ void NumericalIntegration::Set_integration_borders(double _a, double _b) {
     b = _b;
 }
 
+double NumericalIntegration::Get_left_border() const {
+    return a;
+}
+
+double NumericalIntegration::Get_right_border() const {
+    return b;
+}
+
 double NumericalIntegration::Left_rectangle_method(
     FunctionsForIntegration* func, unsigned int N) {
     double h = (b - a) / static_cast<double>(N);

@@ -11,13 +11,17 @@ class FunctionsForIntegration {
 class NumericalIntegration {
  private:
     double a, b;
+
  public:
     NumericalIntegration(double _a, double _b);
-    NumericalIntegration(const NumericalIntegration& obj) : a(obj.a), b(obj.b) {}
+    NumericalIntegration(const NumericalIntegration& obj) : a(obj.a),
+    b(obj.b) {}
     NumericalIntegration& operator=(const NumericalIntegration& obj);
 
     bool operator == (const NumericalIntegration& obj) const;
     void Set_integration_borders(double _a, double _b);
+    double Get_left_border() const;
+    double Get_right_border() const;
 
     double Left_rectangle_method(
         FunctionsForIntegration* func, unsigned int N);
