@@ -59,21 +59,19 @@ void Stack::operator = (const Stack& stack) {
 }
 
 bool Stack::operator == (const Stack& stack) const {
+    bool check = false;
     if (size == stack.size) {
         if (top == stack.top) {
-            bool check = true;
+            check = true;
             for (int i = 0; i < size; i++) {
                 if (mas[i] != stack.mas[i]) {
                     check = false;
                     break;
                 }
             }
-            if (check) {
-                return true;
-            }
         }
     }
-    return false;
+    return check;
 }
 
 bool Stack::operator != (const Stack& stack) const {

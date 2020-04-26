@@ -23,7 +23,7 @@ TEST(Stack, getSizeWorks) {
     Stack stack(size);
 
     // Assert
-    EXPECT_EQ(stack.getSize(), size);
+    EXPECT_EQ(size, stack.getSize());
 }
 
 TEST(Stack, getTopWorks) {
@@ -38,7 +38,7 @@ TEST(Stack, getTopWorks) {
     }
 
     // Assert
-    EXPECT_EQ(stack.getTop(), top);
+    EXPECT_EQ(top, stack.getTop());
 }
 
 TEST(Stack, copyConstructorWorks) {
