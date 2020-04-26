@@ -14,7 +14,7 @@ TEST(Segment, area_correctness) {
   Segment A(2, 7, 10, 3);
 
   // Act & Assert
-  ASSERT_EQ(abs(A.area(8, 7)), 24);
+  ASSERT_EQ(24, abs(A.area(8, 7)));
 }
 
 TEST(Segment, area_sign) {
@@ -23,7 +23,7 @@ TEST(Segment, area_sign) {
   Segment A1(7, 9, 1, 3);
 
   // Act & Assert
-  ASSERT_EQ(A1.area(5, 5) / A.area(5, 5), -1);
+  ASSERT_EQ(-1, A1.area(5, 5) / A.area(5, 5));
 }
 
 TEST(Segment, intersection_true) {
@@ -32,7 +32,7 @@ TEST(Segment, intersection_true) {
   Segment B(8, 7, 5, 2);
 
   // Act & Assert
-  ASSERT_EQ(A.isIntersect(&B), true);
+  ASSERT_EQ(true, A.isIntersect(&B));
 }
 
 TEST(Segment, intersection_false) {
@@ -41,7 +41,7 @@ TEST(Segment, intersection_false) {
   Segment B(8, 7, 10, 3);
 
   // Act & Assert
-  ASSERT_EQ(A.isIntersect(&B), false);
+  ASSERT_EQ(false, A.isIntersect(&B));
 }
 
 TEST(Segment, same_line_intersection_true) {
@@ -50,7 +50,7 @@ TEST(Segment, same_line_intersection_true) {
   Segment B(3, 7, 2, 4);
 
   // Act & Assert
-  ASSERT_EQ(A.isIntersect(&B), true);
+  ASSERT_EQ(true, A.isIntersect(&B));
 }
 
 TEST(Segment, same_line_intersection_false) {
@@ -59,7 +59,7 @@ TEST(Segment, same_line_intersection_false) {
   Segment B(3, 7, 4, 10);
 
   // Act & Assert
-  ASSERT_EQ(A.isIntersect(&B), false);
+  ASSERT_EQ(false, A.isIntersect(&B));
 }
 
 TEST(Segment, commutativity) {
