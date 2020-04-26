@@ -27,7 +27,7 @@ TEST(HashMapTest, insertion_test) {
 
     map.insert(15, 6.5);
 
-    ASSERT_DOUBLE_EQ(map[15], 6.5);
+    ASSERT_DOUBLE_EQ(6.5, map[15]);
 }
 
 TEST(HashMapTest, repeatable_insertion_test) {
@@ -36,7 +36,7 @@ TEST(HashMapTest, repeatable_insertion_test) {
     map.insert(15, 6.5);
     map.insert(15, 6.5);
 
-    ASSERT_DOUBLE_EQ(map[15], 6.5);
+    ASSERT_DOUBLE_EQ(6.5, map[15]);
 }
 
 TEST(HashMapTest, multiple_insertion_test) {
@@ -45,7 +45,7 @@ TEST(HashMapTest, multiple_insertion_test) {
     map.insert(13, 5);
     map.insert(23, 7);
 
-    ASSERT_EQ(map[13], 5);
+    ASSERT_EQ(5, map[13]);
 }
 
 TEST(HashMapTest, get_count_of_elems) {
