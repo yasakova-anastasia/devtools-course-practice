@@ -90,8 +90,8 @@ TEST(Stack, comparisonOperatorWorks) {
 TEST(Stack, notEqualComparisonOperatorWorks) {
     // Arrange
     int size = 10;
-    Stack stack(size);
     Stack stack2(size);
+    Stack stack(size);
 
     // Act
     for (int i = 0; i < stack.getSize(); i++) {
