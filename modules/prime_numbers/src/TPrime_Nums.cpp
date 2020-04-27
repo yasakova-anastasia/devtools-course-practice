@@ -5,11 +5,11 @@
 #include "include/TPrime_Nums.h"
 
 TPrime_Nums::TPrime_Nums(int left = 0, int right = 0) {
-    left_edge = left;
-    right_edge = right;
     if (left_edge < 0 || right_edge < 0 || left_edge > right_edge) {
         throw -1;
     }
+    left_edge = left;
+    right_edge = right;
 }
 
 void TPrime_Nums::SetInterval(std::pair<int, int> interval) {
