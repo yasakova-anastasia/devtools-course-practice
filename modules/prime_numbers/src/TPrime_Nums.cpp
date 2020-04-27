@@ -29,7 +29,7 @@ std::vector<unsigned int> TPrime_Nums::Get_Prime_Nums() {
     std::vector<unsigned int> result;
 
     for (unsigned int i = left_edge; i <= right_edge; ++i) {
-        int j;
+        unsigned int j;
         for (j = 2; j < i; ++j) {
             if (i % j == 0) {
                 break;
