@@ -89,40 +89,15 @@ TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_4_elements) {
     Assert("Answers on queries: 7, 3");
 }
 
-/*TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_4_elements) {
-    // Arrange
-    std::vector <int> test = {1, 2, 3, 4};
+TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements) {
+    vector<string> args = {"2", "1", "2", "1", "-1", "1", "+"};
 
-    // Act
-    SegmentTree tree(test, "+");
+    Act(args);
 
-    // Arrange
-    EXPECT_EQ(tree.query(2, 3), 7);
+    Assert("left or right interval cannot be negative");
 }
 
-TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_6_elements) {
-    // Arrange
-    std::vector <int> test = {1, 2, 3, 4, 5, 6};
-
-    // Act
-    SegmentTree tree(test, "+");
-
-    // Arrange
-    EXPECT_EQ(tree.query(1, 4), 14);
-}
-
-TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_7_elements) {
-    // Arrange
-    std::vector <int> test = {1, 2, 3, 4, 5, 6, 7};
-
-    // Act
-    SegmentTree tree(test, "+");
-
-    // Arrange
-    EXPECT_EQ(tree.query(4, 5), 11);
-}
-
-TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements) {
+/*TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements) {
     // Arrange
     std::vector <int> test = {1, 2};
 
