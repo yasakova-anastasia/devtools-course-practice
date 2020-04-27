@@ -55,6 +55,14 @@ TEST_F(SegmentTreeAppTest, Is_Checking_Number_Of_Arguments) {
     Assert("Oops, incorrect number of parameters\\..*");
 }
 
+TEST_F(SegmentTreeAppTest, Is_Checking_Number_Of_Arguments_2) {
+    vector<string> args = {"3", "1", "2", "3", "1", "0", "max"};
+
+    Act(args);
+
+    Assert("Oops, incorrect number of parameters\\..*");
+}
+
 TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Number_Format) {
     vector<string> args = {"3", "1", "2", "e", "1", "0", "2", "max"};
 
