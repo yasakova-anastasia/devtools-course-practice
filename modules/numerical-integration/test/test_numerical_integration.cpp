@@ -241,3 +241,34 @@ TEST(NumericalIntegrationTest, TestSimpsonsMethod_for_my_func) {
         NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
 
+TEST(NumericalIntegrationTest, TestMiddleRectangleMethod_for_my_func) {
+    // Arrange
+    double a = 2.0;
+    double b = 4.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Middle_rectangle_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
+
+TEST(NumericalIntegrationTest, TestTrapezoidMethod_for_my_func) {
+    // Arrange
+    double a = -1.0;
+    double b = 5.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Trapezoid_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
