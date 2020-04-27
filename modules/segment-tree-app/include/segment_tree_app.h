@@ -25,4 +25,4 @@ class SegmentTreeApp {
     } Arguments;
 };
 
-#endif  // MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_APP_H_
+#endif  // MODULES_SEGMENT_TREE_APP_INCLUDE_SEGMENT_TREE_APP_H_

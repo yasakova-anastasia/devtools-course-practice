@@ -24,4 +24,4 @@ class SegmentTree {
     std::vector <int> Get();
 };
 
-#endif  // MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_H_
+#endif  // MODULES_SEGMENT_TREE_APP_INCLUDE_SEGMENT_TREE_H_
