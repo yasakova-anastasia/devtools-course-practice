@@ -72,7 +72,8 @@ TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Operation_Format) {
 }
 
 TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_5_elements) {
-    vector<string> args = {"5", "1", "2", "3", "4", "5", "1", "0", "2", "+"};
+    vector<string> args = {
+        "5", "1", "2", "3", "4", "5", "1", "0", "2", "+"};
 
     Act(args);
 
@@ -80,7 +81,8 @@ TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_5_elements) {
 }
 
 TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_4_elements) {
-    vector<string> args = {"4", "1", "2", "3", "4", "2", "2", "3", "0", "1", "+"};
+    vector<string> args = {
+        "4", "1", "2", "3", "4", "2", "2", "3", "0", "1", "+"};
 
     Act(args);
 
