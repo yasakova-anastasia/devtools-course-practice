@@ -71,42 +71,200 @@ TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Operation_Format) {
     Assert("Wrong operation format!");
 }
 
-/*TEST_F(SegmentTreeAppTest, Can_Add_Complexs) {
-    vector<string> args = {"2.0", "3.5", "1.5", "4.0", "+"};
+TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_5_elements) {
+    vector<string> args = {"5", "1", "2", "3", "4", "5", "1", "0", "2", "+"};
 
     Act(args);
 
-    Assert("Real = 3.5 Imaginary = 7.5");
+    Assert("Answers on queries: 6");
 }
 
-TEST_F(SegmentTreeAppTest, Can_Diff_Complexs) {
-    vector<string> args = {"13", "7.6", "26", "-14", "-"};
+TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_4_elements) {
+    vector<string> args = {"4", "1", "2", "3", "4", "2", "2", "3", "0", "1", "+"};
 
     Act(args);
 
-    Assert("Real = -13 Imaginary = 21.6");
+    Assert("Answers on queries: 7, 3");
 }
 
-TEST_F(SegmentTreeAppTest, Can_Mult_Complexs) {
-    vector<string> args = {"0", "-3.6", "17.4", "21", "*"};
+/*TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_4_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4};
 
-    Act(args);
+    // Act
+    SegmentTree tree(test, "+");
 
-    Assert("Real = 75.6 Imaginary = -62.64");
+    // Arrange
+    EXPECT_EQ(tree.query(2, 3), 7);
 }
 
-TEST_F(SegmentTreeAppTest, Can_Divide_Complexs) {
-    vector<string> args = {"27", "30", "15", "20", "/"};
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_6_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6};
 
-    Act(args);
+    // Act
+    SegmentTree tree(test, "+");
 
-    Assert("Real = 1.608 Imaginary = -0.144");
+    // Arrange
+    EXPECT_EQ(tree.query(1, 4), 14);
 }
 
-TEST_F(SegmentTreeAppTest, Can_Detect_Divide_By_Zero) {
-    vector<string> args = {"27", "30", "0", "0", "/"};
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_7_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6, 7};
 
-    Act(args);
+    // Act
+    SegmentTree tree(test, "+");
 
-    Assert("Can't divide by zero");
+    // Arrange
+    EXPECT_EQ(tree.query(4, 5), 11);
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+
+    // Act
+    SegmentTree tree(test, "+");
+
+    // Arrange
+    EXPECT_ANY_THROW(tree.query(-1, 1));
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_1) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+
+    // Act
+    SegmentTree tree(test, "+");
+
+    // Arrange
+    EXPECT_ANY_THROW(tree.query(0, -1));
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_2) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+
+    // Act
+    SegmentTree tree(test, "+");
+
+    // Arrange
+    EXPECT_ANY_THROW(tree.query(1, 0));
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_3) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+
+    // Act
+    SegmentTree tree(test, "+");
+
+    // Arrange
+    EXPECT_ANY_THROW(tree.query(1, 3));
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_7_elements_and_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6, 7};
+
+    // Act
+    SegmentTree tree(test, "+");
+    tree.update(3, -5);
+
+    // Arrange
+    EXPECT_EQ(tree.query(3, 4), 0);
+}
+
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_5_elements_and_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5};
+
+    // Act
+    SegmentTree tree(test, "+");
+    tree.update(1, 0);
+
+    // Arrange
+    EXPECT_EQ(tree.query(0, 2), 4);
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_6_elements_and_2_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6};
+
+    // Act
+    SegmentTree tree(test, "+");
+    tree.update(1, 0);
+    tree.update(1, -1);
+
+    // Arrange
+    EXPECT_EQ(tree.query(0, 2), 3);
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_update) {
+    // Arrange
+    std::vector <int> test = {1, 2};
+
+    // Act
+    SegmentTree tree(test, "+");
+
+    // Arrange
+    EXPECT_ANY_THROW(tree.update(-1, 1));
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_3_elements_update) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3};
+
+    // Act
+    SegmentTree tree(test, "+");
+
+    // Arrange
+    EXPECT_ANY_THROW(tree.update(3, 1));
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Max_Query_With_5_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5};
+
+    // Act
+    SegmentTree tree(test, "max");
+
+    // Arrange
+    EXPECT_EQ(tree.query(0, 2), 3);
+}
+
+
+TEST(SegmentTreeAppTest, Test_Range_Min_Query_With_4_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4};
+
+    // Act
+    SegmentTree tree(test, "min");
+
+    // Arrange
+    EXPECT_EQ(tree.query(2, 3), 3);
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Gcd_Query_With_6_elements) {
+    // Arrange
+    std::vector <int> test = {1, 2, 3, 4, 5, 6};
+
+    // Act
+    SegmentTree tree(test, "gcd");
+
+    // Arrange
+    EXPECT_EQ(tree.query(2, 4), 1);
+}
+
+TEST(SegmentTreeAppTest, Test_Range_Maximum_Query_With_7_elements) {
+    // Arrange
+    std::vector <int> test = {2, 2, 3, 4, 8, 6, 12};
+
+    // Act
+    SegmentTree tree(test, "max");
+
+    // Arrange
+    EXPECT_EQ(tree.query(1, 5), 8);
 }*/

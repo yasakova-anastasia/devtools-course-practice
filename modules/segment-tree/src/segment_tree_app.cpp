@@ -105,11 +105,11 @@ std::string SegmentTreeApp::operator()(int argc, const char** argv) {
 
     try {
         SegmentTree tree(args.elements, args.operation);
-
+        stream << "Answers on queries: ";
         for (int i = 0; i < args.count_of_queries; i++) {
             int res;
             res = tree.query(args.left_borders[i], args.right_borders[i]);
-            stream << "query " << (i + 1) << ": " << res << "\n";
+            stream << res << ((i == args.count_of_queries - 1) ? "" : ", ");
         }
     }
     catch(std::string& str) {
