@@ -5,7 +5,7 @@
 #include "include/TPrime_Nums.h"
 
 TPrime_Nums::TPrime_Nums(int left = 0, int right = 0) {
-    if (left_edge < 0 || right_edge < 0 || left_edge > right_edge) {
+    if (left < 0 || right < 0 || left > right) {
         throw -1;
     }
     left_edge = left;
