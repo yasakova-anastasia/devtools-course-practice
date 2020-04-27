@@ -11,7 +11,7 @@
 #include <sstream>
 
 void SegmentTreeApp::help(const char* appname, const char* message) {
-    message_ = 
+    message_ =
         std::string(message) +
         "This is a segment tree application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
@@ -63,12 +63,14 @@ bool SegmentTreeApp::validateNumberOfArguments(int argc, const char** argv) {
     if (argc > count_of_elements + 2) {
         int count_of_queries = parseInt(argv[count_of_elements + 2]);
         if (argc != count_of_elements + 2 * count_of_queries + 4) {
-            help(argv[0], "Oops, that input is invalid. Please try again.\n\n");
+            help(argv[0],
+            "Oops, incorrect number of parameters. Please try again.\n\n");
             return false;
         }
         return true;
     }
-    help(argv[0], "Oops, that input is invalid. Please try again.\n\n");
+    help(argv[0],
+    "Oops, incorrect number of parameters. Please try again.\n\n");
     return false;
 }
 
@@ -92,7 +94,7 @@ std::string SegmentTreeApp::operator()(int argc, const char** argv) {
             args.left_borders[i] = parseInt(argv[k++]);
             args.right_borders[i] = parseInt(argv[k++]);
         }
-        args.operation = parseOperation(argv[args.count_of_elements 
+        args.operation = parseOperation(argv[args.count_of_elements
         + 2 * args.count_of_queries + 3]);
     }
     catch(std::string& str) {
@@ -103,11 +105,11 @@ std::string SegmentTreeApp::operator()(int argc, const char** argv) {
 
     try {
         SegmentTree tree(args.elements, args.operation);
-        
+
         for (int i = 0; i < args.count_of_queries; i++) {
             int res;
             res = tree.query(args.left_borders[i], args.right_borders[i]);
-            stream << "query " << (i + 1) << ": " << res << "\n"; 
+            stream << "query " << (i + 1) << ": " << res << "\n";
         }
     }
     catch(std::string& str) {
