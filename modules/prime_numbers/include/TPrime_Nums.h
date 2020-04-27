@@ -3,8 +3,6 @@
 #ifndef MODULES_PRIME_NUMBERS_INCLUDE_TPRIME_NUMS_H_
 #define MODULES_PRIME_NUMBERS_INCLUDE_TPRIME_NUMS_H_
 
-#pragma once
-
 #include <vector>
 #include <utility>
 
