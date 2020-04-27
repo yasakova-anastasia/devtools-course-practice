@@ -122,18 +122,16 @@ TEST_F(SegmentTreeAppTest, Test_Range_Max_Query_With_5_elements) {
     Assert("Answers on queries: 3, 5");
 }
 
-/*TEST(SegmentTreeAppTest, Test_Range_Min_Query_With_4_elements) {
-    // Arrange
-    std::vector <int> test = {1, 2, 3, 4};
+TEST_F(SegmentTreeAppTest, Test_Range_Min_Query_With_4_elements) {
+    vector<string> args = {
+        "4", "1", "2", "3", "4", "3", "0", "1", "1", "3", "2", "3", "min"};
 
-    // Act
-    SegmentTree tree(test, "min");
+    Act(args);
 
-    // Arrange
-    EXPECT_EQ(tree.query(2, 3), 3);
+    Assert("Answers on queries: 1, 2, 3");
 }
 
-TEST(SegmentTreeAppTest, Test_Range_Gcd_Query_With_6_elements) {
+/*TEST(SegmentTreeAppTest, Test_Range_Gcd_Query_With_6_elements) {
     // Arrange
     std::vector <int> test = {1, 2, 3, 4, 5, 6};
 
