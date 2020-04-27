@@ -25,8 +25,8 @@ std::pair<int, int> TPrime_Nums::GetInterval() {
     return std::make_pair(left_edge, right_edge);
 }
 
-std::vector<int> TPrime_Nums::Get_Prime_Nums() {
-    std::vector<int> result;
+std::vector<unsigned int> TPrime_Nums::Get_Prime_Nums() {
+    std::vector<unsigned int> result;
 
     for (int i = left_edge; i <= right_edge; ++i) {
         int j;
