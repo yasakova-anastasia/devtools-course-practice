@@ -8,7 +8,7 @@
 
 SegmentTree::SegmentTree(int size) {
     if (size <= 0) {
-        throw "Cannot be negative or zero size";
+        throw static_cast<std::string>("Cannot be negative or zero size");
     } else {
         _size = size;
         tree.resize(4*size);
@@ -19,7 +19,7 @@ SegmentTree::SegmentTree(const std::vector <int>& input,
                          std::string operation) {
     int size = static_cast<int>(input.size());
     if (size <= 0) {
-        throw "Cannot be negative or zero size";
+        throw static_cast<std::string>("Cannot be negative or zero size");
     } else {
         _size = size;
         _operation = operation;
@@ -49,7 +49,7 @@ int SegmentTree::op(int x, int y) {
     } else if (_operation == "gcd") {
         return gcd(x, y);
     } else {
-        throw "Cannot be this operation";
+        throw static_cast<std::string>("Cannot be this operation");
     }
 }
 
@@ -83,13 +83,16 @@ int SegmentTree::query(int index, int l, int r, int left, int right) {
 
 int SegmentTree::query(int left, int right) {
     if (left < 0 || right < 0) {
-        throw "left or right interval cannot be negative";
+        throw static_cast<std::string>(
+            "left or right interval cannot be negative");
     }
     if (right < left) {
-        throw "left interval cannot be > than right";
+        throw static_cast<std::string>(
+            "left interval cannot be > than right");
     }
     if (right >= _size) {
-        throw "right interval cannot be > that size";
+        throw static_cast<std::string>(
+            "right interval cannot be > that size");
     }
     return query(1, 0, _size - 1, left, right);
 }
@@ -110,7 +113,8 @@ void SegmentTree::update(int index, int l, int r, int change_index, int value) {
 
 void SegmentTree::update(int change_index, int value) {
     if (change_index < 0 || change_index >= _size) {
-        throw "Index cannot be zero or > size";
+        throw static_cast<std::string>(
+            "Index cannot be zero or > size");
     }
     update(1, 0, _size - 1, change_index, value);
 }

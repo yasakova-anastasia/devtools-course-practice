@@ -4,23 +4,25 @@
 #define MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_APP_H_
 
 #include <string>
+#include <vector>
 
-/*class ComplexCalculator {
+class SegmentTreeApp {
  public:
-    ComplexCalculator();
-    std::string operator()(int argc, const char** argv);
+     SegmentTreeApp() : message_("") {}
+     std::string operator()(int argc, const char** argv);
 
  private:
-    void help(const char* appname, const char* message = "");
-    bool validateNumberOfArguments(int argc, const char** argv);
-    std::string message_;
-    typedef struct {
-        double z1_real;
-        double z1_imaginary;
-        double z2_real;
-        double z2_imaginary;
-        char operation;
+     void help(const char* appname, const char* message = "");
+     bool validateNumberOfArguments(int argc, const char** argv);
+     std::string message_;
+     typedef struct {
+        int count_of_elements;
+        std::vector<int> elements;
+        int count_of_queries;
+        std::vector<int> left_borders;
+        std::vector<int> right_borders;
+        std::string operation;
     } Arguments;
-};*/
+};
 
 #endif  // MODULES_SEGMENT_TREE_INCLUDE_SEGMENT_TREE_APP_H_

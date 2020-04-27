@@ -14,10 +14,8 @@ using ::testing::internal::RE;
 using std::vector;
 using std::string;
 
-/*class ComplexCalculatorTest : public ::testing::Test {
+class SegmentTreeAppTest : public ::testing::Test {
  protected:
-    // virtual void SetUp() {}
-
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -37,43 +35,43 @@ using std::string;
     }
 
  private:
-    ComplexCalculator app_;
+    SegmentTreeApp app_;
     string output_;
 };
 
-TEST_F(ComplexCalculatorTest, Do_Print_Help_Without_Arguments) {
+TEST_F(SegmentTreeAppTest, Do_Print_Help_Without_Arguments) {
     vector<string> args = {};
 
     Act(args);
 
-    Assert("This is a complex number calculator application\\..*");
+    Assert("This is a segment tree application\\..*");
 }
 
-TEST_F(ComplexCalculatorTest, Is_Checking_Number_Of_Arguments) {
+/*TEST_F(SegmentTreeAppTest, Is_Checking_Number_Of_Arguments) {
     vector<string> args = {"1", "2"};
 
     Act(args);
 
-    Assert("ERROR: Should be 5 arguments\\..*");
+    Assert("Oops, that input is invalid\\..*");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = {"1", "pi", "2", "4", "+"};
+TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Number_Format) {
+    vector<string> args = {"3", "1", "2", "e", "1", "0", "2", "max"};
 
     Act(args);
 
-    Assert("Wrong number format!.*");
+    Assert("Wrong number format!");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = {"1", "1", "1", "1", "garbage"};
+TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Operation_Format) {
+    vector<string> args = {"2", "1", "3", "1", "0", "1", "garbage"};
 
     Act(args);
 
     Assert("Wrong operation format!");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Add_Complexs) {
+TEST_F(SegmentTreeAppTest, Can_Add_Complexs) {
     vector<string> args = {"2.0", "3.5", "1.5", "4.0", "+"};
 
     Act(args);
@@ -81,7 +79,7 @@ TEST_F(ComplexCalculatorTest, Can_Add_Complexs) {
     Assert("Real = 3.5 Imaginary = 7.5");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Diff_Complexs) {
+TEST_F(SegmentTreeAppTest, Can_Diff_Complexs) {
     vector<string> args = {"13", "7.6", "26", "-14", "-"};
 
     Act(args);
@@ -89,7 +87,7 @@ TEST_F(ComplexCalculatorTest, Can_Diff_Complexs) {
     Assert("Real = -13 Imaginary = 21.6");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Mult_Complexs) {
+TEST_F(SegmentTreeAppTest, Can_Mult_Complexs) {
     vector<string> args = {"0", "-3.6", "17.4", "21", "*"};
 
     Act(args);
@@ -97,7 +95,7 @@ TEST_F(ComplexCalculatorTest, Can_Mult_Complexs) {
     Assert("Real = 75.6 Imaginary = -62.64");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Divide_Complexs) {
+TEST_F(SegmentTreeAppTest, Can_Divide_Complexs) {
     vector<string> args = {"27", "30", "15", "20", "/"};
 
     Act(args);
@@ -105,7 +103,7 @@ TEST_F(ComplexCalculatorTest, Can_Divide_Complexs) {
     Assert("Real = 1.608 Imaginary = -0.144");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Detect_Divide_By_Zero) {
+TEST_F(SegmentTreeAppTest, Can_Detect_Divide_By_Zero) {
     vector<string> args = {"27", "30", "0", "0", "/"};
 
     Act(args);

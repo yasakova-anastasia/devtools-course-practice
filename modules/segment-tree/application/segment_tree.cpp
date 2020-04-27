@@ -7,8 +7,8 @@
 #include "include/segment_tree_app.h"
 
 int main(int argc, const char** argv) {
-    /*SegmentTreeApp app;
+    SegmentTreeApp app;
     std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());*/
+    printf("%s\n", output.c_str());
     return 0;
 }
