@@ -272,3 +272,35 @@ TEST(NumericalIntegrationTest, TestTrapezoidMethod_for_my_func) {
     EXPECT_NEAR(ans, obj.Trapezoid_method(&f,
     NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
+
+TEST(NumericalIntegrationTest, TestLeftRectangleMethod_for_my_func) {
+    // Arrange
+    double a = 0.0;
+    double b = 3.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Left_rectangle_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
+
+TEST(NumericalIntegrationTest, TestRightRectangleMethod_for_my_func) {
+    // Arrange
+    double a = M_PI / 4.0;
+    double b = M_PI / 2.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Right_rectangle_method(&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
