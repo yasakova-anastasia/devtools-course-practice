@@ -47,23 +47,23 @@ TEST_F(SegmentTreeAppTest, Do_Print_Help_Without_Arguments) {
     Assert("This is a segment tree application\\..*");
 }
 
-/*TEST_F(SegmentTreeAppTest, Is_Checking_Number_Of_Arguments) {
+TEST_F(SegmentTreeAppTest, Is_Checking_Number_Of_Arguments) {
     vector<string> args = {"1", "2"};
 
     Act(args);
 
-    Assert("Oops, that input is invalid\\..*");
+    Assert("Oops, incorrect number of parameters\\..*");
 }
 
-TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Number_Format) {
+/*TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Number_Format) {
     vector<string> args = {"3", "1", "2", "e", "1", "0", "2", "max"};
 
     Act(args);
 
     Assert("Wrong number format!");
-}
+}*/
 
-TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Operation_Format) {
+/*TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Operation_Format) {
     vector<string> args = {"2", "1", "3", "1", "0", "1", "garbage"};
 
     Act(args);
