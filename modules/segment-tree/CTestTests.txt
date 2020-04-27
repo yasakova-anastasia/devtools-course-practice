@@ -55,7 +55,7 @@ add_test(
     NAME ${prefix}_Test_Range_Sum_Query_With_2_elements
     COMMAND ${APPLICATION} 2 1 2 1 1 0 +
 )
-set_tests_properties (${prefix}_Test_Range_Sum_Query_With_5_elements PROPERTIES
+set_tests_properties (${prefix}_Test_Range_Sum_Query_With_2_elements PROPERTIES
     PASS_REGULAR_EXPRESSION "left interval cannot be > than right"
     LABELS "${MODULE}")
 
