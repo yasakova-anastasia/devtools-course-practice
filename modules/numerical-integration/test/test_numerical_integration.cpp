@@ -28,6 +28,13 @@ class func3 : public FunctionsForIntegration {
      }
 };
 
+class func4 : public FunctionsForIntegration {
+ public:
+     double f(double x) {
+         return sin(x)*sin(4*x);
+     }
+};
+
 class NumericalIntegrationTest : public NumericalIntegration {
  public:
      static const double epsilon;
@@ -43,6 +50,9 @@ class NumericalIntegrationTest : public NumericalIntegration {
 
      static double F3(double x) {
          return sin(x);
+     }
+     static double F4(double x) {
+         return 4.0/15.0*(2.0 + 3.0*cos(2*x))*sin(x)*sin(x)*sin(x);
      }
 };
 
@@ -198,3 +208,36 @@ TEST(NumericalIntegrationTest, TestGaussMethod) {
     EXPECT_NEAR(ans, obj.Gauss_method(&f,
         NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
+
+TEST(NumericalIntegrationTest, TestGaussMethod_for_my_func) {
+    // Arrange
+    double a = M_PI / 6.0;
+    double b = M_PI / 3.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Gauss_method(&f,
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
+
+TEST(NumericalIntegrationTest, TestSimpsonsMethod_for_my_func) {
+    // Arrange
+    double a = 4.0;
+    double b = 7.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.Simpsons_method(&f,
+        NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
+
