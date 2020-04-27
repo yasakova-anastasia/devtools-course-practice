@@ -63,7 +63,7 @@ TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Number_Format) {
     Assert("Wrong number format!");
 }
 
-/*TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Operation_Format) {
+TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Operation_Format) {
     vector<string> args = {"2", "1", "3", "1", "0", "1", "garbage"};
 
     Act(args);
@@ -71,7 +71,7 @@ TEST_F(SegmentTreeAppTest, Can_Detect_Wrong_Number_Format) {
     Assert("Wrong operation format!");
 }
 
-TEST_F(SegmentTreeAppTest, Can_Add_Complexs) {
+/*TEST_F(SegmentTreeAppTest, Can_Add_Complexs) {
     vector<string> args = {"2.0", "3.5", "1.5", "4.0", "+"};
 
     Act(args);
