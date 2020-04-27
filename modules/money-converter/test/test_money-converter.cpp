@@ -3,8 +3,6 @@
 #include <gtest/gtest.h>
 #include "include/Money_Converter.h"
 
-//char str[4];
-
 TEST(test_brazhnikov_eugene_money_converter, Can_Create) {
     ASSERT_NO_THROW(MoneyConverter a);
 }
