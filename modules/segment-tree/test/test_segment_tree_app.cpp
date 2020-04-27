@@ -97,40 +97,15 @@ TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements) {
     Assert("left or right interval cannot be negative");
 }
 
-/*TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements) {
-    // Arrange
-    std::vector <int> test = {1, 2};
+TEST_F(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_2) {
+    vector<string> args = {"2", "1", "2", "1", "1", "0", "+"};
 
-    // Act
-    SegmentTree tree(test, "+");
+    Act(args);
 
-    // Arrange
-    EXPECT_ANY_THROW(tree.query(-1, 1));
+    Assert("left interval cannot be > than right");
 }
 
-TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_1) {
-    // Arrange
-    std::vector <int> test = {1, 2};
-
-    // Act
-    SegmentTree tree(test, "+");
-
-    // Arrange
-    EXPECT_ANY_THROW(tree.query(0, -1));
-}
-
-TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_2) {
-    // Arrange
-    std::vector <int> test = {1, 2};
-
-    // Act
-    SegmentTree tree(test, "+");
-
-    // Arrange
-    EXPECT_ANY_THROW(tree.query(1, 0));
-}
-
-TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_3) {
+/*TEST(SegmentTreeAppTest, Test_Range_Sum_Query_With_2_elements_3) {
     // Arrange
     std::vector <int> test = {1, 2};
 
