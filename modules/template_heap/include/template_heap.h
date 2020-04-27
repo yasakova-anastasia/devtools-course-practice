@@ -15,7 +15,7 @@ class THeap {
   T Remove();
   void PrintHeap();
   size_t GetSize();
-  THeap<T>& operator = (const THeap<T>& heap);
+  THeap<T>& operator = (const THeap<T>& heap) = default;
  private:
   std::vector<T> vec;
   void Emersion();
@@ -120,13 +120,6 @@ void THeap<T>::PrintHeap() {
 template <typename T>
 size_t THeap<T>::GetSize() {
   return vec.size();
-}
-
-template <typename T>
-THeap<T>& THeap<T>::operator= (const THeap<T>& heap) {
-  if (this != &heap)
-    vec = heap.vec;
-  return *this;
 }
 
 #endif  // MODULES_TEMPLATE_HEAP_INCLUDE_TEMPLATE_HEAP_H_
