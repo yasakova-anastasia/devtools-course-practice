@@ -6,7 +6,7 @@
 #include <vector>
 #include "include/TPrime_Nums.h"
 
-bool compare_vec(std::vector<int> v1, std::vector<int> v2) {
+bool compare_vec(std::vector<unsigned int> v1, std::vector<unsigned int> v2) {
     if (v1.size() != v2.size()) {
         return false;
     }
