@@ -3,6 +3,8 @@
 #ifndef MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_
 #define MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_
 
+#include <map>
+
 class FunctionsForIntegration {
  public:
      virtual double f(double x) = 0;
@@ -13,6 +15,8 @@ class NumericalIntegration {
     double a, b;
 
  public:
+    std::map<int, std::function<double(FunctionsForIntegration*,
+                                      unsigned int)>> method;
     NumericalIntegration(double _a, double _b);
     NumericalIntegration(const NumericalIntegration& obj) : a(obj.a),
     b(obj.b) {}
