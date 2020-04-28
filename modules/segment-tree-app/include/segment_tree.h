@@ -16,6 +16,7 @@ class SegmentTree {
     int query(int index, int l, int r, int left, int right);
     int op(int x, int y);
     int gcd(int x, int y);
+
  public:
     explicit SegmentTree(int size = 1);
     explicit SegmentTree(const std::vector <int>& input, std::string operation);
