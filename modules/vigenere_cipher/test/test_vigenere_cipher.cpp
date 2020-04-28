@@ -187,5 +187,5 @@ TEST(Vigenere_Cipher_Test, Encryption_and_Decryption_Text) {
     std::string res = Encrypt_Vigenere_Cipher(text, key);
     res = Decrypt_Vigenere_Cipher(res, key);
 
-    ASSERT_EQ(text,res);
+    ASSERT_EQ(text, res);
 }
