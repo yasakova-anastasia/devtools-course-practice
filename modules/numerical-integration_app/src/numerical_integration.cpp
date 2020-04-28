@@ -9,27 +9,27 @@
 #include "include/numerical_integration.h"
 
 NumericalIntegration::NumericalIntegration(double _a, double _b) {
-    method.insert(std::pair<int, std::function<double
+    method.insert(std::pair<int, function<double
     (FunctionsForIntegration*, unsigned int)>>
     (1, std::bind(&NumericalIntegration::Left_rectangle_method,
-    this, std::placeholders::_1,  std::placeholders::_2)));
-    method.insert(std::pair<int, std::function<double
+    this, std::placeholders::_1, std::placeholders::_2)));
+    method.insert(std::pair<int, function<double
     (FunctionsForIntegration*, unsigned int)>>
     (2, std::bind(&NumericalIntegration::Right_rectangle_method,
     this, std::placeholders::_1, std::placeholders::_2)));
-    method.insert(std::pair<int, std::function<double
+    method.insert(std::pair<int, function<double
     (FunctionsForIntegration*, unsigned int)>>
     (3, std::bind(&NumericalIntegration::Middle_rectangle_method,
     this, std::placeholders::_1, std::placeholders::_2)));
-    method.insert(std::pair<int, std::function<double
+    method.insert(std::pair<int, function<double
     (FunctionsForIntegration*, unsigned int)>>
     (4, std::bind(&NumericalIntegration::Trapezoid_method,
     this, std::placeholders::_1, std::placeholders::_2)));
-    method.insert(std::pair<int, std::function<double
+    method.insert(std::pair<int, function<double
     (FunctionsForIntegration*, unsigned int)>>
     (5, std::bind(&NumericalIntegration::Simpsons_method,
     this, std::placeholders::_1, std::placeholders::_2)));
-    method.insert(std::pair<int, std::function<double
+    method.insert(std::pair<int, function<double
     (FunctionsForIntegration*, unsigned int)>>
     (6, std::bind(&NumericalIntegration::Gauss_method,
     this, std::placeholders::_1, std::placeholders::_2)));
