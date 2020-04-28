@@ -41,7 +41,7 @@ TEST(Segment, intersection_false) {
   Segment B(8, 7, 10, 3);
 
   // Act & Assert
-  ASSERT_EQ(false, A.isIntersect(&B));
+  ASSERT_EQ(0, A.isIntersect(&B));
 }
 
 TEST(Segment, same_line_intersection_true) {
@@ -59,7 +59,7 @@ TEST(Segment, same_line_intersection_false) {
   Segment B(3, 7, 4, 10);
 
   // Act & Assert
-  ASSERT_EQ(false, A.isIntersect(&B));
+  ASSERT_EQ(0, A.isIntersect(&B));
 }
 
 TEST(Segment, commutativity) {
