@@ -17,7 +17,7 @@ TEST(Vigenere_Cipher_Test, Encryption_With_Zero_Length_Text) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "");
+    ASSERT_EQ("", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_Uppercase_Text) {
@@ -26,7 +26,7 @@ TEST(Vigenere_Cipher_Test, Encryption_Uppercase_Text) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "BBBB");
+    ASSERT_EQ("BBBB", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_Uppercase_Key) {
@@ -35,7 +35,7 @@ TEST(Vigenere_Cipher_Test, Encryption_Uppercase_Key) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "vvzpfd");
+    ASSERT_EQ("vvzpfd", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_Uppercase_Key_And_Text) {
@@ -44,7 +44,7 @@ TEST(Vigenere_Cipher_Test, Encryption_Uppercase_Key_And_Text) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "ZKVTFZKVKPLKO");
+    ASSERT_EQ("ZKVTFZKVKPLKO", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_With_Different_Registers) {
@@ -53,7 +53,7 @@ TEST(Vigenere_Cipher_Test, Encryption_With_Different_Registers) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "koQKFdaqixpyRXOVTQX");
+    ASSERT_EQ("koQKFdaqixpyRXOVTQX", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_Text_Shorter_Key) {
@@ -62,7 +62,7 @@ TEST(Vigenere_Cipher_Test, Encryption_Text_Shorter_Key) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "f");
+    ASSERT_EQ("f", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_Key_Shorter_Text) {
@@ -71,7 +71,7 @@ TEST(Vigenere_Cipher_Test, Encryption_Key_Shorter_Text) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "semfbudbulgul");
+    ASSERT_EQ("semfbudbulgul", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_Key_A) {
@@ -80,16 +80,16 @@ TEST(Vigenere_Cipher_Test, Encryption_Key_A) {
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, text);
+    ASSERT_EQ(text, res);
 }
 
-TEST(Vigenere_Cipher_Test, Encryption_Key_Lenght_1) {
+TEST(Vigenere_Cipher_Test, Encryption_Key_Lenght_One) {
     std::string text("fsdfsgsdgassd");
     std::string key("g");
 
     std::string res = Encrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "lyjlymyjmgyyj");
+    ASSERT_EQ("lyjlymyjmgyyj", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_With_Zero_Length_Key) {
@@ -105,7 +105,7 @@ TEST(Vigenere_Cipher_Test, Decryption_With_Zero_Length_Text) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "");
+    ASSERT_EQ("", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_Uppercase_Text) {
@@ -114,7 +114,7 @@ TEST(Vigenere_Cipher_Test, Decryption_Uppercase_Text) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "NFAWX");
+    ASSERT_EQ("NFAWX", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_Uppercase_Key) {
@@ -123,7 +123,7 @@ TEST(Vigenere_Cipher_Test, Decryption_Uppercase_Key) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "onucysd");
+    ASSERT_EQ("onucysd", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_Uppercase_Key_And_Text) {
@@ -132,7 +132,7 @@ TEST(Vigenere_Cipher_Test, Decryption_Uppercase_Key_And_Text) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "RKJJNBPAAELAWERRGDAVNAANQWGVQEAxzVRZPENV");
+    ASSERT_EQ("RKJJNBPAAELAWERRGDAVNAANQWGVQEAxzVRZPENV", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_With_Different_Registers) {
@@ -141,7 +141,7 @@ TEST(Vigenere_Cipher_Test, Decryption_With_Different_Registers) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "BPakcavcncancPYBCQKGYXGrvfa");
+    ASSERT_EQ("BPakcavcncancPYBCQKGYXGrvfa", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_Text_Shorter_Key) {
@@ -150,7 +150,7 @@ TEST(Vigenere_Cipher_Test, Decryption_Text_Shorter_Key) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "f");
+    ASSERT_EQ("f", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_Key_Shorter_Text) {
@@ -159,7 +159,7 @@ TEST(Vigenere_Cipher_Test, Decryption_Key_Shorter_Text) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "ppernuammxsui");
+    ASSERT_EQ("ppernuammxsui", res);
 }
 
 TEST(Vigenere_Cipher_Test, Decryption_Key_A) {
@@ -168,16 +168,16 @@ TEST(Vigenere_Cipher_Test, Decryption_Key_A) {
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, text);
+    ASSERT_EQ(text, res);
 }
 
-TEST(Vigenere_Cipher_Test, Decryption_Key_Lenght_1) {
+TEST(Vigenere_Cipher_Test, Decryption_Key_Lenght_One) {
     std::string text("sleoasldalfapFLS");
     std::string key("h");
 
     std::string res = Decrypt_Vigenere_Cipher(text, key);
 
-    ASSERT_EQ(res, "lexhtlewteytiYEL");
+    ASSERT_EQ("lexhtlewteytiYEL", res);
 }
 
 TEST(Vigenere_Cipher_Test, Encryption_and_Decryption_Text) {
@@ -187,5 +187,5 @@ TEST(Vigenere_Cipher_Test, Encryption_and_Decryption_Text) {
     std::string res = Encrypt_Vigenere_Cipher(text, key);
     res = Decrypt_Vigenere_Cipher(res, key);
 
-    ASSERT_EQ(res, text);
+    ASSERT_EQ(text,res);
 }
