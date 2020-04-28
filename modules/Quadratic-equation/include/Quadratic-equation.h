@@ -7,12 +7,12 @@ class QuadraticEquation {
  private:
         double a, b, c;
         double x1, x2;
-        int count_roots;
+        char count_roots;
  public:
         QuadraticEquation(double aa, double bb, double cc);
         double GetRoot1();
         double GetRoot2();
-        int GetCountRoots();
+        char GetCountRoots();
         void SolveQuadraticEquation();
         void SetNewCoefficients(double aa, double bb, double cc);
 };

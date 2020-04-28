@@ -50,7 +50,7 @@ TEST(QuadraticEquationTest, Can_Find_Root) {
 TEST(QuadraticEquationTest, Can_Find_Count_Roots_1) {
     // Arrange
     QuadraticEquation equat(1.0, -2.0, 1.0);
-    int count_roots = 1;
+    char count_roots = '1';
 
     // Act
     equat.SolveQuadraticEquation();
@@ -62,7 +62,7 @@ TEST(QuadraticEquationTest, Can_Find_Count_Roots_1) {
 TEST(QuadraticEquationTest, Can_Find_Count_Roots_2) {
     // Arrange
     QuadraticEquation equat(1.0, 5.0, 4.0);
-    int count_roots = 2;
+    char count_roots = '2';
 
     // Act
     equat.SolveQuadraticEquation();
@@ -74,7 +74,7 @@ TEST(QuadraticEquationTest, Can_Find_Count_Roots_2) {
 TEST(QuadraticEquationTest, Can_Find_Count_Roots_If_They_Complex) {
     // Arrange
     QuadraticEquation equat(1.0, 4.0, 5.0);
-    int count_roots = 0;
+    char count_roots = '0';
 
     // Act
     equat.SolveQuadraticEquation();
@@ -124,7 +124,7 @@ TEST(QuadraticEquationTest, Can_Set_New_Equation_With_First_Coeff_Zero) {
 TEST(QuadraticEquationTest, Can_Update_Count_Roots_By_New_Coefficient) {
     // Arrange
     QuadraticEquation equat(1.0, 5.0, 4.0);
-    int count_roots = 1;
+    char count_roots = '1';
 
     // Act
     equat.SolveQuadraticEquation();
@@ -138,7 +138,7 @@ TEST(QuadraticEquationTest, Can_Update_Count_Roots_By_New_Coefficient) {
 TEST(QuadraticEquationTest, Can_Get_Count_Roots_If_New_Equation_Not_Solve) {
     // Arrange
     QuadraticEquation equat(1.0, 5.0, 4.0);
-    int count_roots = -1;
+    char count_roots = '-';
 
     // Act
     equat.SolveQuadraticEquation();
