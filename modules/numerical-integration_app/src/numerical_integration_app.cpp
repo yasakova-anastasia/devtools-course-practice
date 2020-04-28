@@ -98,7 +98,7 @@ bool NumericalIntegrationApp::validateArguments(int argc,
     args.N = parseInt(argv[3]);
     args.num_function = parseInt(argv[4]);
     args.method = parseInt(argv[5]);
-    
+
     if (args.N < 1 || args.N > 100000) {
         help(argv[0], "Incorrect <number_of_iteration>\n\n");
         return false;
