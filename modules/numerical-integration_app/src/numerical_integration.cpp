@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <utility>
+#include <functional>
 
 #include "include/numerical_integration.h"
 
