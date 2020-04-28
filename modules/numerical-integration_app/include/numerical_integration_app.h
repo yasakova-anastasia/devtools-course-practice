@@ -13,6 +13,7 @@ class NumericalIntegrationApp {
  private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
+    bool validateArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
         double a;

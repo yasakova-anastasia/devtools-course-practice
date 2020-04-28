@@ -87,20 +87,27 @@ bool NumericalIntegrationApp::validateNumberOfArguments(int argc,
     } else if (argc != 6) {
         help(argv[0], "ERROR: Should be 5 arguments.\n\n");
         return false;
-    } else {
-        int N = parseInt(argv[3]);
-        int num_function = parseInt(argv[4]);
-        int method = parseInt(argv[5]);
-        if (N < 1 || N > 100000) {
-            help(argv[0], "Incorrect <number_of_iteration>\n\n");
-            return false;
-        } else if (num_function < 1 || num_function > 3) {
-            help(argv[0], "Incorrect <number_of_function>\n\n");
-            return false;
-        } else if (method < 1 || method > 6) {
-            help(argv[0], "Incorrect <number_of_algorithm>\n\n");
-            return false;
-        }
+    }
+    return true;
+}
+
+bool NumericalIntegrationApp::validateArguments(int argc,
+                                                const char**argv) {
+    Arguments args;
+
+    args.N = parseInt(argv[3]);
+    args.num_function = parseInt(argv[4]);
+    args.method = parseInt(argv[5]);
+    
+    if (args.N < 1 || args.N > 100000) {
+        help(argv[0], "Incorrect <number_of_iteration>\n\n");
+        return false;
+    } else if (args.num_function < 1 || args.num_function > 3) {
+        help(argv[0], "Incorrect <number_of_function>\n\n");
+        return false;
+    } else if (args.method < 1 || args.method > 6) {
+        help(argv[0], "Incorrect <number_of_algorithm>\n\n");
+        return false;
     }
     return true;
 }
@@ -120,6 +127,9 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
     }
     catch(std::string& str) {
         return str;
+    }
+    if (!validateArguments(argc, argv)) {
+        return message_;
     }
     try {
         if (args.num_function == 1) {
