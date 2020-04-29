@@ -54,9 +54,8 @@ vector<char> converter::convert_dec_to_hex(const int& value) {
 
   while (temp_value > 0) {
     auto remainder = temp_value % 16;
-
-      if ((9 < remainder) && (remainder < 16)) {
-        element = static_cast<char>(remainder + 55);
+    if ((9 < remainder) && (remainder < 16)) {
+      element = static_cast<char>(remainder + 55);
     } else {
       element = remainder + '0';
     }
