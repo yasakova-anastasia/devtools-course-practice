@@ -12,7 +12,7 @@ using std::vector;
 using std::string;
 
 class Vector3DCalculatorTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
 
@@ -31,7 +31,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     Vector3DCalculator app_;
     string output_;
 };
@@ -50,4 +50,36 @@ TEST_F(Vector3DCalculatorTest, Check_Number_Of_Arguments) {
     Act(args);
 
     Assert("Should be 7 arguments\\..*");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
+    vector<string> args = { "qwerty", "1", "1", "1", "1", "1", "+" };
+
+    Act(args);
+
+    Assert("Wrong number format!.*");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format) {
+    vector<string> args = { "1", "1", "1", "1", "1", "1", "qwerty" };
+
+    Act(args);
+
+    Assert("Wrong operation format!");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Add_Vectors) {
+    vector<string> args = { "1", "2", "3", "4", "5", "6", "+" };
+
+    Act(args);
+
+    Assert("X = 5 Y = 7 Z = 9");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Diff_Vectors) {
+    vector<string> args = { "1", "2", "3", "4", "5", "6", "-" };
+
+    Act(args);
+
+    Assert("X = -3 Y = -3 Z = -3");
 }

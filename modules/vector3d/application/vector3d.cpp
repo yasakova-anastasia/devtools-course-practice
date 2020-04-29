@@ -8,6 +8,8 @@
 #include "include/vector3D_calculator.h"
 
 int main(int argc, const char** argv) {
-    std::cout << "Hello world" << std::endl;
+    Vector3DCalculator app;
+    std::string output = app(argc, argv);
+    printf("%s\n", output.c_str());
     return 0;
 }

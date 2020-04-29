@@ -93,5 +93,26 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
         return str;
     }
 
+    Vector3D v1(args.v1_x, args.v1_y, args.v1_z);
+    Vector3D v2(args.v2_x, args.v2_y, args.v2_z);
+    Vector3D res;
+
+    std::ostringstream stream;
+    switch (args.operation) {
+     case '+':
+        res = v1 + v2;
+        stream << "X = " << res.getX() << " "
+               << "Y = " << res.getY() << " "
+               << "Z = " << res.getZ();
+        break;
+     case '-':
+        res = v1 - v2;
+        stream << "X = " << res.getX() << " "
+               << "Y = " << res.getY() << " "
+               << "Z = " << res.getZ();
+        break;
+    }
+
+    message_ = stream.str();
     return message_;
 }
