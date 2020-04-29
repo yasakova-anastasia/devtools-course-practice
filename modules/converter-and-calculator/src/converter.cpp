@@ -55,39 +55,8 @@ vector<char> converter::convert_dec_to_hex(const int& value) {
   while (temp_value > 0) {
     auto remainder = temp_value % 16;
 
-    if (remainder > 9) {
-      /*if (remainder == 10)
-        element = 'A';
-      if (remainder == 11)
-        element = 'B';
-      if (remainder == 12)
-        element = 'C';
-      if (remainder == 13)
-        element = 'D';
-      if (remainder == 14)
-        element = 'E';
-      if (remainder == 15)
-        element = 'F';*/
-      switch (remainder) {
-      case 10:
-        element = 'A';
-        break;
-      case 11:
-        element = 'B';
-        break;
-      case 12:
-        element = 'C';
-        break;
-      case 13:
-        element = 'D';
-        break;
-      case 14:
-        element = 'E';
-        break;
-      case 15:
-        element = 'F';
-        break;
-      }
+      if ((9 < remainder) && (remainder < 16)) {
+        element = char(remainder + 55);
     } else {
       element = remainder + '0';
     }
@@ -114,37 +83,8 @@ int converter::convert_hex_to_dec(const vector<char>& value) {
     if (isdigit(value[i])) {
       temp = atoi(string({ static_cast<char>(value[i]) }).c_str());
     } else {
-      switch (value[i]) {
-        /*if (value[i] == 'A')
-          temp = 10;
-        if (value[i] == 'B')
-          temp = 11;
-        if (value[i] == 'C')
-          temp = 12;
-        if (value[i] == 'D')
-          temp = 13;
-        if (value[i] == 'E')
-          temp = 14;
-        if (value[i] == 'F')
-          temp = 15;*/
-      case 'A':
-        temp = 10;
-        break;
-      case 'B':
-        temp = 11;
-        break;
-      case 'C':
-        temp = 12;
-        break;
-      case 'D':
-        temp = 13;
-        break;
-      case 'E':
-        temp = 14;
-        break;
-      case 'F':
-        temp = 15;
-        break;
+      if (static_cast<int>(value[i]) >= 65 && static_cast<int>(value[i]) <= 71) {
+        temp = static_cast<int>(value[i]) - 55;
       }
     }
     res += temp * static_cast<int>(pow(16, value.size() - i - 1));
