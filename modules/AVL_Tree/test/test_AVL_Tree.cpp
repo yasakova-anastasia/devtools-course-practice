@@ -58,7 +58,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_Get_Left_And_Right_Subtree) {
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Insert) {
     int KeyArrays[] = { 10, 20, 30, 40, 50 };
-    int sts = 0;
+    int sts = -1;
 
     AVL_Tree tree;
     tree.InitRoot(KeyArrays[0]);
@@ -80,7 +80,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Insert) {
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_War_Found) {
     int KeyArrays[] = { 150, 120, 90, 60, 30, 200 };
-    int sts = 0;
+    int sts = -1;
 
     AVL_Tree tree;
     tree.InitRoot(KeyArrays[0]);
