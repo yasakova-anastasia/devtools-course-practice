@@ -18,7 +18,7 @@ class NumericalIntegrationApp {
     typedef struct {
         double a;
         double b;
-        int N;
+        unsigned int N;
         int num_function;
         int method;
     } Arguments;

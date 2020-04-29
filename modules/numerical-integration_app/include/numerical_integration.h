@@ -11,13 +11,22 @@ class FunctionsForIntegration {
      virtual double f(double x) = 0;
 };
 
+enum IntegrationMethod {
+    Left_rectangle_method = 1,
+    Right_rectangle_method,
+    Middle_rectangle_method,
+    Trapezoid_method,
+    Simpsons_method,
+    Gauss_method
+};
+
 class NumericalIntegration {
- private:
+ protected:
     double a, b;
 
  public:
     std::map<int, std::function<double(FunctionsForIntegration*,
-                                      unsigned int)> > method;
+                                      unsigned int)> > methodss;
     NumericalIntegration(double _a, double _b);
     NumericalIntegration(const NumericalIntegration& obj) : a(obj.a),
     b(obj.b) {}

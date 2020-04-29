@@ -81,6 +81,17 @@ int parseInt(const char* arg) {
     return value;
 }
 
+unsigned int parseUInt(const char* arg) {
+    char* end;
+    unsigned int value = static_cast<unsigned int>(strtoul(arg, &end, 10));
+
+    if (end[0]) {
+        throw std::string("Wrong number format!");
+    }
+
+    return value;
+}
+
 bool NumericalIntegrationApp::validateNumberOfArguments(int argc,
                                                         const char** argv) {
     if (argc == 1) {
@@ -97,7 +108,7 @@ bool NumericalIntegrationApp::validateArguments(int argc,
                                                 const char**argv) {
     Arguments args;
 
-    args.N = parseInt(argv[3]);
+    args.N = parseUInt(argv[3]);
     args.num_function = parseInt(argv[4]);
     args.method = parseInt(argv[5]);
 
@@ -123,7 +134,7 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
     try {
         args.a = parseDouble(argv[1]);
         args.b = parseDouble(argv[2]);
-        args.N = parseInt(argv[3]);
+        args.N = parseUInt(argv[3]);
         args.num_function = parseInt(argv[4]);
         args.method = parseInt(argv[5]);
     }
@@ -140,19 +151,19 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
             func1 f;
             stream << "Answer is ";
             stream << std::fixed << std::setprecision(4) <<
-                                    obj.method[args.method](&f, args.N);
+                                    obj.methods[args.method](&f, args.N);
         } else if (args.num_function == 2) {
             NumericalIntegration obj(args.a, args.b);
             func2 f;
             stream << "Answer is ";
             stream << std::fixed << std::setprecision(4) <<
-                                    obj.method[args.method](&f, args.N);
+                                    obj.methods[args.method](&f, args.N);
         } else {
             NumericalIntegration obj(args.a, args.b);
             func3 f;
             stream << "Answer is ";
             stream << std::fixed << std::setprecision(4) <<
-                                    obj.method[args.method](&f, args.N);
+                                    obj.methods[args.method](&f, args.N);
         }
     }
      catch(std::string& str) {

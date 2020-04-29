@@ -304,3 +304,35 @@ TEST(NumericalIntegrationTest, TestRightRectangleMethod_for_my_func) {
     EXPECT_NEAR(ans, obj.Right_rectangle_method(&f,
     NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
 }
+
+TEST(NumericalIntegrationTest, TestRightRectangleMethod_for_my_func_with_map) {
+    // Arrange
+    double a = M_PI / 4.0;
+    double b = M_PI / 2.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.methods[Right_rectangle_method](&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
+
+TEST(NumericalIntegrationTest, TestLeftRectangleMethod_for_my_func_with_map) {
+    // Arrange
+    double a = M_PI / 4.0;
+    double b = M_PI / 2.0;
+    double ans = NumericalIntegrationTest::F4(b) -
+    NumericalIntegrationTest::F4(a);
+
+    // Act
+    NumericalIntegration obj(a, b);
+    func4 f;
+
+    // Assert
+    EXPECT_NEAR(ans, obj.methods[Left_rectangle_method](&f,
+    NumericalIntegrationTest::N), NumericalIntegrationTest::epsilon);
+}
