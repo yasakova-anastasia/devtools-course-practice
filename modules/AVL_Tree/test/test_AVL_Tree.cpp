@@ -155,6 +155,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes_Balance_Right) {
 
     status = tree.Remove(250);
     status = tree.Remove(110);
+    status = tree.Remove(200);
 
     EXPECT_EQ(0, status);
 }
