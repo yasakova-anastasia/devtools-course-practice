@@ -56,7 +56,7 @@ vector<char> converter::convert_dec_to_hex(const int& value) {
     auto remainder = temp_value % 16;
 
       if ((9 < remainder) && (remainder < 16)) {
-        element = char(remainder + 55);
+        element = static_cast<char>(remainder + 55);
     } else {
       element = remainder + '0';
     }
@@ -83,7 +83,8 @@ int converter::convert_hex_to_dec(const vector<char>& value) {
     if (isdigit(value[i])) {
       temp = atoi(string({ static_cast<char>(value[i]) }).c_str());
     } else {
-      if (static_cast<int>(value[i]) >= 65 && static_cast<int>(value[i]) <= 71) {
+      if (static_cast<int>(value[i]) >= 65 && 
+        static_cast<int>(value[i]) <= 71) {
         temp = static_cast<int>(value[i]) - 55;
       }
     }
