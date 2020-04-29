@@ -17,7 +17,9 @@ struct Node {
     int height;
     Node* leftNode;
     Node* rightNode;
-    explicit Node(int key_) { key = key_; height = 1; leftNode = rightNode = nullptr; }
+    explicit Node(int key_) {
+        key = key_; height = 1; leftNode = rightNode = nullptr;
+    }
 };
 
 
@@ -36,8 +38,8 @@ class AVL_Tree{
 
     Node* Insert(Node* top, const int& key_);
 
-    Node* FindMin(Node* top);  // search for the node with the minimum key in the top tree
-    Node* FindMax(Node* top);  // search for the node with the maximum key in the top tree
+    Node* FindMin(Node* top);
+    Node* FindMax(Node* top);
 
     // Delete
     Node* RemoveMin(Node* top);
