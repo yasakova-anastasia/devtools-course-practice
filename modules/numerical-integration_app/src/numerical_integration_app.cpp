@@ -49,7 +49,7 @@ void NumericalIntegrationApp::help(const char* appname, const char* message) {
           "Where <left_bound> and <right_bound> arguments" +
           "are double-precision numbers,\n"+
           "<number_of_iteration> is integer and <number_of_iteration>" +
-          ">= 1 and <number_of_iteration> <= 100000, \n" +
+          ">= 1 and <number_of_iteration> <= 1000000, \n" +
           "<number_of_function> is integer and takes value {1, 2, 3}\n" +
           "where 1.x^2, 2.sin(x), 3.x\n" +
           "<number_of_algorithm> is integer and takes value"+
@@ -101,7 +101,7 @@ bool NumericalIntegrationApp::validateArguments(int argc,
     args.num_function = parseInt(argv[4]);
     args.method = parseInt(argv[5]);
 
-    if (args.N < 1 || args.N > 100000) {
+    if (args.N < 1 || args.N > 1000000) {
         help(argv[0], "Incorrect <number_of_iteration>\n\n");
         return false;
     } else if (args.num_function < 1 || args.num_function > 3) {
@@ -139,19 +139,19 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
             NumericalIntegration obj(args.a, args.b);
             func1 f;
             stream << "Answer is ";
-            stream << std::fixed << std::setprecision(5) <<
+            stream << std::fixed << std::setprecision(4) <<
                                     obj.method[args.method](&f, args.N);
         } else if (args.num_function == 2) {
             NumericalIntegration obj(args.a, args.b);
             func2 f;
             stream << "Answer is ";
-            stream << std::fixed << std::setprecision(5) <<
+            stream << std::fixed << std::setprecision(4) <<
                                     obj.method[args.method](&f, args.N);
         } else {
             NumericalIntegration obj(args.a, args.b);
             func3 f;
             stream << "Answer is ";
-            stream << std::fixed << std::setprecision(5) <<
+            stream << std::fixed << std::setprecision(4) <<
                                     obj.method[args.method](&f, args.N);
         }
     }

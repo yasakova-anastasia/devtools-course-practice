@@ -169,7 +169,7 @@ TEST_F(NumberIntegrationTest, Test_Left_rectangle_method_in_app) {
     double temp = obj.Left_rectangle_method(&f, N);
     std::stringstream ss;
     string s;
-    ss << s << std::fixed << std::setprecision(5) << temp;
+    ss << s << std::fixed << std::setprecision(4) << temp;
     s = ss.str();
     ans += s;
 
@@ -193,7 +193,7 @@ TEST_F(NumberIntegrationTest, Test_Right_rectangle_method_in_app) {
     double temp = obj.Right_rectangle_method(&f, N);
     std::stringstream ss;
     string s;
-    ss << s << std::fixed << std::setprecision(5) << temp;
+    ss << s << std::fixed << std::setprecision(4) << temp;
     s = ss.str();
     ans += s;
 
@@ -216,7 +216,7 @@ TEST_F(NumberIntegrationTest, Test_Middle_rectangle_method_in_app) {
     double temp = obj.Middle_rectangle_method(&f, N);
     std::stringstream ss;
     string s;
-    ss << s << std::fixed << std::setprecision(5) << temp;
+    ss << s << std::fixed << std::setprecision(4) << temp;
     s = ss.str();
     ans += s;
 
@@ -239,7 +239,7 @@ TEST_F(NumberIntegrationTest, Test_Trapezoid_method_in_app) {
     double temp = obj.Trapezoid_method(&f, N);
     std::stringstream ss;
     string s;
-    ss << s << std::fixed << std::setprecision(5) << temp;
+    ss << s << std::fixed << std::setprecision(4) << temp;
     s = ss.str();
     ans += s;
 
@@ -262,7 +262,7 @@ TEST_F(NumberIntegrationTest, Test_Simpsons_method_in_app) {
     double temp = obj.Simpsons_method(&f, N);
     std::stringstream ss;
     string s;
-    ss << s << std::fixed << std::setprecision(5) << temp;
+    ss << s << std::fixed << std::setprecision(4) << temp;
     s = ss.str();
     ans += s;
 
@@ -285,7 +285,7 @@ TEST_F(NumberIntegrationTest, Test_Gauss_method_in_app) {
     double temp = obj.Gauss_method(&f, N);
     std::stringstream ss;
     string s;
-    ss << s << std::fixed << std::setprecision(5) << temp;
+    ss << s << std::fixed << std::setprecision(4) << temp;
     s = ss.str();
     ans += s;
 
