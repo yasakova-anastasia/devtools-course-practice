@@ -93,8 +93,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_War_Found) {
     for (int i = 0; i < 6; i++) {
         if (tree.FindNode(KeyArrays[i]) == STATUS_OK) {
             sts = 0;
-        }
-        else {
+        } else {
             sts = -1;
         }
         EXPECT_EQ(0, sts);
