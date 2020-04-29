@@ -26,7 +26,7 @@ class NumericalIntegration {
 
  public:
     std::map<int, std::function<double(FunctionsForIntegration*,
-                                      unsigned int)> > methodss;
+                                      unsigned int)> > methods;
     NumericalIntegration(double _a, double _b);
     NumericalIntegration(const NumericalIntegration& obj) : a(obj.a),
     b(obj.b) {}
