@@ -142,7 +142,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Min) {
     EXPECT_EQ(80, tree.FindMin());
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes) {
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes_Balance_Right) {
     int KeyArrays[] = { 300, 200, 100, 250, 90, 110 };
     int status = 0;
 
@@ -155,6 +155,23 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes) {
 
     status = tree.Remove(250);
     status = tree.Remove(110);
+
+    EXPECT_EQ(0, status);
+}
+
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes_Balance_Left) {
+    int KeyArrays[] = { 500, 800, 600, 900, 660, 700, 500 };
+    int status = 0;
+
+    AVL_Tree tree;
+    tree.InitRoot(KeyArrays[0]);
+
+    for (int i = 1; i < 7; i++) {
+        tree.Insert(KeyArrays[i]);
+    }
+
+    status = tree.Remove(500);
+    status = tree.Remove(600);
 
     EXPECT_EQ(0, status);
 }
