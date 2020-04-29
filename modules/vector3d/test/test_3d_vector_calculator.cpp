@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include <string>
+#include <vector>
 
 #include "include/vector3D.h"
 #include "include/vector3D_calculator.h"

@@ -3,7 +3,15 @@
 #ifndef MODULES_VECTOR3D_INCLUDE_VECTOR3D_CALCULATOR_H_
 #define MODULES_VECTOR3D_INCLUDE_VECTOR3D_CALCULATOR_H_
 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#include <sstream>
+#include <iostream>
 #include <string>
+#include <vector>
 
 class Vector3DCalculator {
  public:
