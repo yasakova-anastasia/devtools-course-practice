@@ -10,6 +10,8 @@
 #include <string>
 #include <sstream>
 #include <cmath>
+#include <iostream>
+#include <iomanip>
 
 class func1 : public FunctionsForIntegration {
  public:
@@ -131,26 +133,33 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
     if (!validateArguments(argc, argv)) {
         return message_;
     }
+    std::ostringstream stream;
     try {
         if (args.num_function == 1) {
             NumericalIntegration obj(args.a, args.b);
             func1 f;
-            printf("%f\n", obj.method[args.method](&f, args.N));
+            stream << "Answer is ";
+            stream << std::fixed << std::setprecision(5) <<
+                                    obj.method[args.method](&f, args.N);
         } else if (args.num_function == 2) {
             NumericalIntegration obj(args.a, args.b);
             func2 f;
-            printf("%f\n", obj.method[args.method](&f, args.N));
+            stream << "Answer is ";
+            stream << std::fixed << std::setprecision(5) <<
+                                    obj.method[args.method](&f, args.N);
         } else {
             NumericalIntegration obj(args.a, args.b);
             func3 f;
-            printf("%f\n", obj.method[args.method](&f, args.N));
+            stream << "Answer is ";
+            stream << std::fixed << std::setprecision(5) <<
+                                    obj.method[args.method](&f, args.N);
         }
     }
      catch(std::string& str) {
         return str;
     }
 
-    message_ = "";
+    message_ = stream.str();
 
     return message_;
 }

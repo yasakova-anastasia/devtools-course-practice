@@ -7,8 +7,12 @@
 #include <algorithm>
 #include <functional>
 #include <iterator>
+#include <sstream>
+#include <iostream>
+#include <cmath>
 
 #include "include/numerical_integration_app.h"
+#include "include/numerical_integration.h"
 
 using ::testing::internal::RE;
 using std::vector;
@@ -37,6 +41,38 @@ class NumberIntegrationTest : public ::testing::Test {
  private:
     NumericalIntegrationApp app_;
     string output_;
+};
+
+class func1 : public FunctionsForIntegration {
+ public:
+     double f(double x) {
+         return x * x;
+     }
+};
+
+class func2 : public FunctionsForIntegration {
+ public:
+     double f(double x) {
+         return sin(x);
+     }
+};
+
+class func3 : public FunctionsForIntegration {
+ public:
+     double f(double x) {
+         return x;
+     }
+};
+
+
+class NumericalIntegrationTest : public NumericalIntegration {
+ public:
+     static const double epsilon;
+     static const unsigned int N;
+
+     static double F1(double x) {
+         return (x * x * x) / 3.0;
+     }
 };
 
 TEST_F(NumberIntegrationTest, Do_Print_Help_Without_Arguments) {
@@ -117,4 +153,143 @@ TEST_F(NumberIntegrationTest, Can_Detect_Wrong_Number_Format_Argument_5) {
     Act(args);
 
     Assert("Wrong number format!");
+}
+
+TEST_F(NumberIntegrationTest, Test_Left_rectangle_method_in_app) {
+    vector <string> args = {"1", "10", "10000", "1", "1"};
+    double a = 1;
+    double b = 10;
+    int N = 10000;
+
+    NumericalIntegration obj(a, b);
+    func1 f;
+
+    string ans;
+    ans += "Answer is ";
+    double temp = obj.Left_rectangle_method(&f, N);
+    std::stringstream ss;
+    string s;
+    ss << s << std::fixed << std::setprecision(5) << temp;
+    s = ss.str();
+    ans += s;
+
+    Act(args);
+
+    Assert(ans);
+}
+
+
+TEST_F(NumberIntegrationTest, Test_Right_rectangle_method_in_app) {
+    vector <string> args = {"1", "5", "100000", "1", "2"};
+    double a = 1;
+    double b = 5;
+    int N = 100000;
+
+    NumericalIntegration obj(a, b);
+    func1 f;
+
+    string ans;
+    ans += "Answer is ";
+    double temp = obj.Right_rectangle_method(&f, N);
+    std::stringstream ss;
+    string s;
+    ss << s << std::fixed << std::setprecision(5) << temp;
+    s = ss.str();
+    ans += s;
+
+    Act(args);
+
+    Assert(ans);
+}
+
+TEST_F(NumberIntegrationTest, Test_Middle_rectangle_method_in_app) {
+    vector <string> args = {"3", "10", "100000", "2", "3"};
+    double a = 3;
+    double b = 10;
+    int N = 100000;
+
+    NumericalIntegration obj(a, b);
+    func2 f;
+
+    string ans;
+    ans += "Answer is ";
+    double temp = obj.Middle_rectangle_method(&f, N);
+    std::stringstream ss;
+    string s;
+    ss << s << std::fixed << std::setprecision(5) << temp;
+    s = ss.str();
+    ans += s;
+
+    Act(args);
+
+    Assert(ans);
+}
+
+TEST_F(NumberIntegrationTest, Test_Trapezoid_method_in_app) {
+    vector <string> args = {"3", "10", "100000", "2", "4"};
+    double a = 3;
+    double b = 10;
+    int N = 100000;
+
+    NumericalIntegration obj(a, b);
+    func2 f;
+
+    string ans;
+    ans += "Answer is ";
+    double temp = obj.Trapezoid_method(&f, N);
+    std::stringstream ss;
+    string s;
+    ss << s << std::fixed << std::setprecision(5) << temp;
+    s = ss.str();
+    ans += s;
+
+    Act(args);
+
+    Assert(ans);
+}
+
+TEST_F(NumberIntegrationTest, Test_Simpsons_method_in_app) {
+    vector <string> args = {"1", "100", "10000", "3", "5"};
+    double a = 1;
+    double b = 100;
+    int N = 10000;
+
+    NumericalIntegration obj(a, b);
+    func3 f;
+
+    string ans;
+    ans += "Answer is ";
+    double temp = obj.Simpsons_method(&f, N);
+    std::stringstream ss;
+    string s;
+    ss << s << std::fixed << std::setprecision(5) << temp;
+    s = ss.str();
+    ans += s;
+
+    Act(args);
+
+    Assert(ans);
+}
+
+TEST_F(NumberIntegrationTest, Test_Gauss_method_in_app) {
+    vector <string> args = {"1", "100", "100000", "3", "6"};
+    double a = 1;
+    double b = 100;
+    int N = 100000;
+
+    NumericalIntegration obj(a, b);
+    func3 f;
+
+    string ans;
+    ans += "Answer is ";
+    double temp = obj.Gauss_method(&f, N);
+    std::stringstream ss;
+    string s;
+    ss << s << std::fixed << std::setprecision(5) << temp;
+    s = ss.str();
+    ans += s;
+
+    Act(args);
+
+    Assert(ans);
 }
