@@ -104,7 +104,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_War_Found) {
     // if (t == 1) printf("MESSAGE: STATUS_WAR_NODE_NOT_FOUND\n");
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Max) {
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Max_Two_Nodes) {
     int KeyArrays[] = { 100, 90 };
 
     AVL_Tree tree;
@@ -114,6 +114,20 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Max) {
 
     EXPECT_EQ(100, tree.FindMax());
 }
+
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Max_Eight_Nodes) {
+    int KeyArrays[] = { 100, 90, 200, 400, 500, 300, 250, 330 };
+
+    AVL_Tree tree;
+    tree.InitRoot(KeyArrays[0]);
+
+    for (int i = 1; i < 8; i++) {
+        tree.Insert(KeyArrays[i]);
+    }
+
+    EXPECT_EQ(500, tree.FindMax());
+}
+
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Min) {
     int KeyArrays[] = { 100, 90, 110, 200, 80, 300 };
@@ -126,4 +140,21 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Min) {
     }
 
     EXPECT_EQ(80, tree.FindMin());
+}
+
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes) {
+    int KeyArrays[] = { 300, 200, 100, 250, 90, 110 };
+    int status = 0;
+
+    AVL_Tree tree;
+    tree.InitRoot(KeyArrays[0]);
+
+    for (int i = 1; i < 6; i++) {
+        tree.Insert(KeyArrays[i]);
+    }
+
+    status = tree.Remove(250);
+    status = tree.Remove(110);
+
+    EXPECT_EQ(0, status);
 }
