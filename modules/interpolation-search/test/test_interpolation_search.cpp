@@ -53,6 +53,28 @@ TEST(InterpolationSearchTest, throw_when_partition_boarders_are_negative) {
   ASSERT_ANY_THROW(int result = partition(&vec, -2, -3));
 }
 
+TEST(InterpolationSearchTest, throw_when_partition_right_boarder_is_negative) {
+  // Arrange
+  int size = 10;
+
+  // Act
+  std::vector<int> vec = generateRandomVector(size);
+
+  // Assert
+  ASSERT_ANY_THROW(int result = partition(&vec, -2, 5));
+}
+
+TEST(InterpolationSearchTest, throw_when_partition_left_boarder_is_negative) {
+  // Arrange
+  int size = 10;
+
+  // Act
+  std::vector<int> vec = generateRandomVector(size);
+
+  // Assert
+  ASSERT_ANY_THROW(int result = partition(&vec, 2, -3));
+}
+
 TEST(InterpolationSearchTest, throw_when_partition_boarders_min_greater_max) {
   // Arrange
   int size = 10;
@@ -187,7 +209,7 @@ TEST(InterpolationSearchTest, right_eq_left_val_does_not_exist) {
   int size = 10;
 
   // Act
-  std::vector<int> vec = {7};
+  std::vector<int> vec = {5};
 
   // Assert
   EXPECT_EQ(interpolationSearch(&vec, 0), -1);
