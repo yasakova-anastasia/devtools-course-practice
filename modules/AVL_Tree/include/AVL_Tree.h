@@ -8,8 +8,7 @@
 enum Status {
     STATUS_WAR_NODE_NOT_FOUND = 1,
     STATUS_OK = 0,
-    STATUS_ERR_NULL_PTR_ROOT = -1,
-    // STATUS_ERR_NODE_NOT_FOUND = -2
+    STATUS_ERR_NULL_PTR_ROOT = -1
 };
 
 struct Node {

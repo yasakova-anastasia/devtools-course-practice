@@ -70,13 +70,12 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Insert) {
     for (int i = 0; i < 5; i++) {
         if (tree.FindNode(KeyArrays[i]) == STATUS_OK) {
             sts = 0;
-        } else {
-            sts = -1;
         }
+        // else {
+        //     sts = -1;
+        // }
         EXPECT_EQ(0, sts);
     }
-    // Status t = tree.FindNode(60);
-    // if (t == 1) printf("MESSAGE: STATUS_WAR_NODE_NOT_FOUND\n");
 }
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_War_Found) {
@@ -93,15 +92,16 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_War_Found) {
     for (int i = 0; i < 6; i++) {
         if (tree.FindNode(KeyArrays[i]) == STATUS_OK) {
             sts = 0;
-        } else {
-            sts = -1;
         }
+        // else {
+        //     sts = -1;
+        // }
         EXPECT_EQ(0, sts);
     }
 
     Status status = tree.FindNode(1000);
+
     EXPECT_EQ(1, status);
-    // if (t == 1) printf("MESSAGE: STATUS_WAR_NODE_NOT_FOUND\n");
 }
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Find_Max_Two_Nodes) {

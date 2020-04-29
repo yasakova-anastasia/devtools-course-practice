@@ -53,6 +53,18 @@ Node* AVL_Tree::Balance(Node* top) {  // private
     return top;
 }
 
+Node* AVL_Tree::Insert(Node* top, const int& key_) {
+    if (!top) return new Node(key_);
+    if (key_ < top->key) {
+        top->leftNode = Insert(top->leftNode, key_);
+    }
+    else {
+        top->rightNode = Insert(top->rightNode, key_);
+    }
+    return Balance(top);
+}
+
+
 Node* AVL_Tree::FindMin(Node* top) {  // maybe private
     if (top->leftNode) {
         return FindMin(top->leftNode);
@@ -73,6 +85,27 @@ Node* AVL_Tree::RemoveMin(Node* top) {  // private
     if (top->leftNode == 0)
         return top->rightNode;
     top->leftNode = RemoveMin(top->leftNode);
+    return Balance(top);
+}
+
+Node* AVL_Tree::Remove(Node* top, const int& key_) {
+    if (!top) return 0;
+    if (key_ < top->key) {
+        top->leftNode = Remove(top->leftNode, key_);
+    }
+    else if (key_ > top->key) {
+        top->rightNode = Remove(top->rightNode, key_);
+    }
+    else {
+        Node* q = top->leftNode;
+        Node* r = top->rightNode;
+        delete top;
+        if (!r) return q;
+        Node* min = FindMin(r);
+        min->rightNode = RemoveMin(r);
+        min->leftNode = q;
+        return Balance(min);
+    }
     return Balance(top);
 }
 
@@ -116,35 +149,6 @@ int AVL_Tree::GetKey(Node* top) {
     return top->key;
 }
 
-
-Node* AVL_Tree::Insert(Node* top, const int& key_) {
-    if (!top) return new Node(key_);
-    if (key_ < top->key) {
-        top->leftNode = Insert(top->leftNode, key_);
-    } else {
-        top->rightNode = Insert(top->rightNode, key_);
-    }
-    return Balance(top);
-}
-
-Node* AVL_Tree::Remove(Node* top, const int& key_) {
-    if (!top) return 0;
-    if (key_ < top->key) {
-        top->leftNode = Remove(top->leftNode, key_);
-    } else if (key_ > top->key) {
-        top->rightNode = Remove(top->rightNode, key_);
-    } else {
-        Node* q = top->leftNode;
-        Node* r = top->rightNode;
-        delete top;
-        if (!r) return q;
-        Node* min = FindMin(r);
-        min->rightNode = RemoveMin(r);
-        min->leftNode = q;
-        return Balance(min);
-    }
-    return Balance(top);
-}
 
 int AVL_Tree::FindMin() {
     Node* ptr = FindMin(RootNode);
