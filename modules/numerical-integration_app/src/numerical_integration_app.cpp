@@ -163,4 +163,3 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
 
     return message_;
 }
-    
