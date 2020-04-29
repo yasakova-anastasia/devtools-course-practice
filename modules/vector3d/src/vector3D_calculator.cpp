@@ -18,13 +18,17 @@ void Vector3DCalculator::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is a 3d vector calculator application.\n\n" +
-        "Please provide arguments in the following format:\n\n" +
-
-        "  $ " + appname + " <v1_x> <v1_y> <v1_z> " +
-        "<v2_x> <v2_y> <v2_z> <operation>\n\n" +
-
+        "If you want use normalization,please " +
+        "provide arguments in the following format:\n\n" +
+        "  $ " + appname + " <operation> <v2_x> <v2_y> <v2_z>\n\n" +
         "Where all arguments are double-precision numbers, " +
-        "and <operation> is one of '+', '-', 'n' or 'N' (normalization), " +
+        "and <operation> is one of 'n' or 'N'\n\n" +
+        "If you want use another operations, please " +
+        "provide arguments in the following format:\n\n" +
+        "  $ " + appname + " <operation> <v1_x> <v1_y> <v1_z> " +
+        "<v2_x> <v2_y> <v2_z>\n\n" +
+        "Where all arguments are double-precision numbers, " +
+        "and <operation> is one of '+', '-', " +
         "'s' or 'S' (Scalar product), 'v' or 'V' (Vector product). \n ";
 }
 
@@ -33,8 +37,8 @@ bool Vector3DCalculator::validateNumberOfArguments(int argc, const char** argv) 
         help(argv[0]);
         return false;
     }
-    else if (argc != 8) {
-        help(argv[0], "Should be 7 arguments.\n\n");
+    else if (argc != 8 && argc != 5) {
+        help(argv[0], "Should be 4 or 7 arguments.\n\n");
         return false;
     }
     return true;
@@ -81,13 +85,20 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.v1_x = parseDouble(argv[1]);
-        args.v1_y = parseDouble(argv[2]);
-        args.v1_z = parseDouble(argv[3]);
-        args.v2_x = parseDouble(argv[4]);
-        args.v2_y = parseDouble(argv[5]);
-        args.v2_z = parseDouble(argv[6]);
-        args.operation = parseOperation(argv[7]);
+        args.operation = parseOperation(argv[1]);
+        if (args.operation == 'n' || args.operation == 'N') {
+            args.v1_x = parseDouble(argv[2]);
+            args.v1_y = parseDouble(argv[3]);
+            args.v1_z = parseDouble(argv[4]);
+        }
+        else {
+            args.v1_x = parseDouble(argv[2]);
+            args.v1_y = parseDouble(argv[3]);
+            args.v1_z = parseDouble(argv[4]);
+            args.v2_x = parseDouble(argv[5]);
+            args.v2_y = parseDouble(argv[6]);
+            args.v2_z = parseDouble(argv[7]);
+        }
     }
     catch (std::string& str) {
         return str;
@@ -95,30 +106,58 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
 
     Vector3D v1;
     Vector3D v2;
-    Vector3D res;
+    Vector3D resVec;
+    double resDouble;
 
-    v1.setX(args.v1_x);
-    v1.setY(args.v1_y);
-    v1.setZ(args.v1_z);
-    v2.setX(args.v2_x);
-    v2.setY(args.v2_y);
-    v2.setZ(args.v2_z);
-    
+    if (args.operation == 'n' || args.operation == 'N') {
+        v1.setX(args.v1_x);
+        v1.setY(args.v1_y);
+        v1.setZ(args.v1_z);
+    }
+    else {
+        v1.setX(args.v1_x);
+        v1.setY(args.v1_y);
+        v1.setZ(args.v1_z);
+        v2.setX(args.v2_x);
+        v2.setY(args.v2_y);
+        v2.setZ(args.v2_z);
+    }
 
     std::ostringstream stream;
     switch (args.operation) {
      case '+':
-        res = v1 + v2;
-        stream << "X = " << res.getX() << " "
-               << "Y = " << res.getY() << " "
-               << "Z = " << res.getZ();
+        resVec = v1 + v2;
+        stream << "X = " << resVec.getX() << " "
+               << "Y = " << resVec.getY() << " "
+               << "Z = " << resVec.getZ();
         break;
      case '-':
-        res = v1 - v2;
-        stream << "X = " << res.getX() << " "
-               << "Y = " << res.getY() << " "
-               << "Z = " << res.getZ();
+        resVec = v1 - v2;
+        stream << "X = " << resVec.getX() << " "
+               << "Y = " << resVec.getY() << " "
+               << "Z = " << resVec.getZ();
         break;
+     case 'n':
+         try {
+             resVec = normalization(v1);
+             stream << "X = " << resVec.getX() << " "
+                    << "Y = " << resVec.getY() << " "
+                    << "Z = " << resVec.getZ();
+             break;
+         }
+         catch (std::string& str) {
+             return str;
+         }
+     case 's':
+         resDouble = ScalarProduct(v1, v2);
+         stream << "Scalar product = " << resDouble;
+         break;
+     case 'v':
+         resVec = VectorProduct(v1, v2);
+         stream << "X = " << resVec.getX() << " "
+                << "Y = " << resVec.getY() << " "
+                << "Z = " << resVec.getZ();
+         break;
     }
 
     message_ = stream.str();

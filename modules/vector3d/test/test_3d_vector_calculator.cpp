@@ -49,11 +49,11 @@ TEST_F(Vector3DCalculatorTest, Check_Number_Of_Arguments) {
 
     Act(args);
 
-    Assert("Should be 7 arguments\\..*");
+    Assert("Should be 4 or 7 arguments\\..*");
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "qwerty", "1", "1", "1", "1", "1", "+" };
+    vector<string> args = { "+", "1", "1", "1", "1", "1", "qwerty" };
 
     Act(args);
 
@@ -61,7 +61,7 @@ TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = { "1", "1", "1", "1", "1", "1", "qwerty" };
+    vector<string> args = { "qwerty", "1", "1", "1", "1", "1", "1" };
 
     Act(args);
 
@@ -69,7 +69,7 @@ TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Add_Vectors) {
-    vector<string> args = { "1", "2", "3", "4", "5", "6", "+" };
+    vector<string> args = { "+", "1", "2", "3", "4", "5", "6" };
 
     Act(args);
 
@@ -77,10 +77,41 @@ TEST_F(Vector3DCalculatorTest, Can_Add_Vectors) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Diff_Vectors) {
-    vector<string> args = { "1", "2", "3", "4", "5", "6", "-" };
+    vector<string> args = { "-", "1", "2", "3", "4", "5", "6" };
 
     Act(args);
 
     Assert("X = -3 Y = -3 Z = -3");
 }
 
+TEST_F(Vector3DCalculatorTest, Can_Normalize_Vector) {
+    vector<string> args = { "n", "1", "1", "1" };
+
+    Act(args);
+
+    Assert("X = 0.57735 Y = 0.57735 Z = 0.57735");
+}
+
+TEST_F(Vector3DCalculatorTest, Normalize_Zero_Vector_Test) {
+    vector<string> args = { "n", "0", "0", "0" };
+
+    Act(args);
+
+    Assert("can`t be zero\\..*");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Use_Scalar_Product) {
+    vector<string> args = { "s", "1", "2", "3", "4", "5", "6" };
+
+    Act(args);
+
+    Assert("Scalar product = 32");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Use_Vector_Product) {
+    vector<string> args = { "v", "1", "2", "3", "4", "5", "6" };
+
+    Act(args);
+
+    Assert("X = -3 Y = 6 Z = -3");
+}
