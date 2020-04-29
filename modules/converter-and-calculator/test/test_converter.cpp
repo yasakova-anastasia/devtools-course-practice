@@ -26,7 +26,7 @@ TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Decimal_To_Binary) {
   res = conv.convert(value, 10, 2);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Decimal_To_Binary,
@@ -40,7 +40,7 @@ TEST(ConverterTest_Decimal_To_Binary,
   res = conv.convert(value, 10, 2);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Big_Decimal_To_Binary) {
@@ -55,7 +55,7 @@ TEST(ConverterTest_Decimal_To_Binary, Can_Convert_Big_Decimal_To_Binary) {
   res = conv.convert(value, 10, 2);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Binary to decimal
@@ -69,7 +69,7 @@ TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Binary_To_Decimal) {
   res = conv.convert(value, 2, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Binary_To_Decimal,
@@ -82,7 +82,7 @@ TEST(ConverterTest_Binary_To_Decimal,
   res = conv.convert(value, 2, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Big_Binary_To_Decimal) {
@@ -97,7 +97,7 @@ TEST(ConverterTest_Binary_To_Decimal, Can_Convert_Big_Binary_To_Decimal) {
   res = conv.convert(value, 2, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Decimal to octal
@@ -112,7 +112,7 @@ TEST(ConverterTest_Decimal_To_Octal, Can_Convert_Decimal_To_Octal) {
   res = conv.convert(value, 10, 8);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Decimal_To_Octal,
@@ -126,7 +126,7 @@ TEST(ConverterTest_Decimal_To_Octal,
   res = conv.convert(value, 10, 8);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Decimal_To_Octal, Can_Convert_Big_Decimal_To_Octal) {
@@ -139,7 +139,7 @@ TEST(ConverterTest_Decimal_To_Octal, Can_Convert_Big_Decimal_To_Octal) {
   res = conv.convert(value, 10, 8);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Octal to decimal
@@ -153,7 +153,7 @@ TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Octal_To_Decimal) {
   res = conv.convert(value, 8, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Octal_To_Decimal,
@@ -166,7 +166,7 @@ TEST(ConverterTest_Octal_To_Decimal,
   res = conv.convert(value, 8, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Big_Octal_To_Decimal) {
@@ -179,7 +179,7 @@ TEST(ConverterTest_Octal_To_Decimal, Can_Convert_Big_Octal_To_Decimal) {
   res = conv.convert(value, 8, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Decimal to hexadecimal
@@ -195,7 +195,7 @@ TEST(ConverterTest_Decimal_To_Hexadecimal,
   res = conv.convert_to_16(value, 10, 16);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Decimal_To_Hexadecimal,
@@ -209,7 +209,7 @@ TEST(ConverterTest_Decimal_To_Hexadecimal,
   res = conv.convert_to_16(value, 10, 16);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Decimal_To_Hexadecimal, Can_Convert_Big_Decimal_To_Hex) {
@@ -222,7 +222,7 @@ TEST(ConverterTest_Decimal_To_Hexadecimal, Can_Convert_Big_Decimal_To_Hex) {
   res = conv.convert_to_16(value, 10, 16);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Hexadecimal to decimal
@@ -238,7 +238,7 @@ TEST(ConverterTest_Hexadecimal_To_Decimal,
   res = conv.convert_16_to(value, 16, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Hexadecimal_To_Decimal,
@@ -252,7 +252,7 @@ TEST(ConverterTest_Hexadecimal_To_Decimal,
   res = conv.convert_16_to(value, 16, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Hexadecimal_To_Decimal,
@@ -266,7 +266,7 @@ TEST(ConverterTest_Hexadecimal_To_Decimal,
   res = conv.convert_16_to(value, 16, 10);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Binary to octal
@@ -281,7 +281,7 @@ TEST(ConverterTest_Binary_To_Octal, Can_Convert_Binary_To_Octal_1) {
   res = conv.convert(value, 2, 8);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Binary_To_Octal, Can_Convert_Binary_To_Octal_2) {
@@ -293,7 +293,7 @@ TEST(ConverterTest_Binary_To_Octal, Can_Convert_Binary_To_Octal_2) {
   res = conv.convert(value, 2, 8);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Octal to Binary
@@ -308,7 +308,7 @@ TEST(ConverterTest_Octal_To_Binary, Can_Convert_Octal_To_Binary_1) {
   res = conv.convert(value, 8, 2);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Octal_To_Binary, Can_Convert_Octal_To_Binary_2) {
@@ -320,7 +320,7 @@ TEST(ConverterTest_Octal_To_Binary, Can_Convert_Octal_To_Binary_2) {
   res = conv.convert(value, 8, 2);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Binary to hexadecimal
@@ -337,7 +337,7 @@ TEST(ConverterTest_Binary_To_Hexadecimal,
   auto res = conv.convert_to_16(value, 2, 16);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Binary_To_Hexadecimal,
@@ -352,7 +352,7 @@ TEST(ConverterTest_Binary_To_Hexadecimal,
   auto res = conv.convert_to_16(value, 2, 16);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Hexadecimal to binary
@@ -368,7 +368,7 @@ TEST(ConverterTest_Hexadecimal_To_Binary,
   res = conv.convert_16_to(value, 16, 2);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Hexadecimal_To_Binary,
@@ -382,7 +382,7 @@ TEST(ConverterTest_Hexadecimal_To_Binary,
   res = conv.convert_16_to(value, 16, 2);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Octal to hexadecimal
@@ -398,7 +398,7 @@ TEST(ConverterTest_Octal_To_Hexadecimal,
   auto res = conv.convert_to_16(value, 8, 16);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Octal_To_Hexadecimal,
@@ -412,7 +412,7 @@ TEST(ConverterTest_Octal_To_Hexadecimal,
   auto res = conv.convert_to_16(value, 8, 16);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 // Hexadecimal to octal
@@ -428,7 +428,7 @@ TEST(ConverterTest_Hexadecimal_To_Octal,
   res = conv.convert_16_to(value, 16, 8);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }
 
 TEST(ConverterTest_Hexadecimal_To_Octal,
@@ -442,5 +442,5 @@ TEST(ConverterTest_Hexadecimal_To_Octal,
   res = conv.convert_16_to(value, 16, 8);
 
   // Assert
-  ASSERT_EQ(res, exp_res);
+  ASSERT_EQ(exp_res, res);
 }

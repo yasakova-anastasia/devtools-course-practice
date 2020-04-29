@@ -11,14 +11,12 @@ class calculator : public converter {
   // resultat vsegda v desytichnoy sisteme
 
   // sum
-
   int sum(const int& a, const int& a_system,
     const int& b, const int& b_system);
   int sum(const int& a, const int& a_system, const vector<char>& b);
   int sum(const vector<char>& a, const vector<char>& b);
 
   // difference
-
   int diff(const int& a, const int& a_system,
     const int& b, const int& b_system);
   int diff(const int& a, const int& a_system, const vector<char>& b);
@@ -26,14 +24,12 @@ class calculator : public converter {
   int diff(const vector<char>& a, const vector<char>& b);
 
   // multiply
-
   int mult(const int& a, const int& a_system,
     const int& b, const int& b_system);
   int mult(const int& a, const int& a_system, const vector<char>& b);
   int mult(const vector<char>& a, const vector<char>& b);
 
   // division
-
   double div(const int& a, const int& a_system,
     const int& b, const int& b_system);
   double div(const int& a, const int& a_system, const vector<char>& b);

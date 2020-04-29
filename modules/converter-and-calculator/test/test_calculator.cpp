@@ -25,7 +25,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Two_Decimal) {
   c = calc.sum(a, 10, b, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Decimal_And_Binary) {
@@ -37,7 +37,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Decimal_And_Binary) {
   c = calc.sum(a, 10, b, 2);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Binary_And_Decimal) {
@@ -49,7 +49,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Binary_And_Decimal) {
   c = calc.sum(b, 2, a, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Decimal_And_Octal) {
@@ -61,7 +61,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Decimal_And_Octal) {
   c = calc.sum(a, 10, b, 8);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Octal_And_Decimal) {
@@ -73,7 +73,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Octal_And_Decimal) {
   c = calc.sum(b, 8, a, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Decimal_And_Hexadecimal) {
@@ -86,7 +86,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Decimal_And_Hexadecimal) {
   c = calc.sum(a, 10, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Binary_And_Hexadecimal) {
@@ -99,7 +99,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Binary_And_Hexadecimal) {
   c = calc.sum(a, 2, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Octal_And_Hexadecimal) {
@@ -112,7 +112,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Octal_And_Hexadecimal) {
   c = calc.sum(a, 8, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Sum, Can_Sum_Hexadecimal_And_Hexadecimal) {
@@ -125,7 +125,7 @@ TEST(CalculatorTest_Sum, Can_Sum_Hexadecimal_And_Hexadecimal) {
   c = calc.sum(a, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 // Diference
@@ -139,7 +139,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Two_Decimal) {
   c = calc.diff(a, 10, b, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Difference, Can_Diff_Decimal_And_Binary) {
@@ -151,7 +151,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Decimal_And_Binary) {
   c = calc.diff(a, 10, b, 2);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Difference, Can_Diff_Decimal_And_Octal) {
@@ -163,7 +163,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Decimal_And_Octal) {
   c = calc.diff(a, 10, b, 8);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Difference, Can_Diff_Decimal_And_Hexadecimal) {
@@ -176,7 +176,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Decimal_And_Hexadecimal) {
   c = calc.diff(a, 10, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Difference, Can_Diff_Binary_And_Hexadecimal) {
@@ -189,7 +189,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Binary_And_Hexadecimal) {
   c = calc.diff(a, 2, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Difference, Can_Diff_Hexadecimal_And_Decimal) {
@@ -202,7 +202,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Hexadecimal_And_Decimal) {
   c = calc.diff(b, a, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Difference, Can_Diff_Hexadecimal_And_Octal) {
@@ -215,7 +215,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Hexadecimal_And_Octal) {
   c = calc.diff(b, a, 8);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Difference, Can_Diff_Hexadecimal_And_Hexadecimal) {
@@ -228,7 +228,7 @@ TEST(CalculatorTest_Difference, Can_Diff_Hexadecimal_And_Hexadecimal) {
   c = calc.diff(a, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 // Multiply
@@ -242,7 +242,7 @@ TEST(CalculatorTest_Mult, Can_Mult_Two_Decimal) {
   c = calc.mult(a, 10, b, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Mult, Can_Mult_Decimal_And_Binary) {
@@ -254,7 +254,7 @@ TEST(CalculatorTest_Mult, Can_Mult_Decimal_And_Binary) {
   c = calc.mult(a, 10, b, 2);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Mult, Can_Mult_Decimal_And_Hexadecimal) {
@@ -267,7 +267,7 @@ TEST(CalculatorTest_Mult, Can_Mult_Decimal_And_Hexadecimal) {
   auto c = calc.mult(a, 10, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Mult, Can_Mult_Binary_And_Hexadecimal) {
@@ -280,7 +280,7 @@ TEST(CalculatorTest_Mult, Can_Mult_Binary_And_Hexadecimal) {
   auto c = calc.mult(a, 2, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Mult, Can_Mult_Hexadecimal_And_Hexadecimal) {
@@ -293,7 +293,7 @@ TEST(CalculatorTest_Mult, Can_Mult_Hexadecimal_And_Hexadecimal) {
   auto c = calc.mult(a, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 // Division
@@ -308,7 +308,7 @@ TEST(CalculatorTest_Div, Can_Div_Two_Decimal) {
   auto c = calc.div(a, 10, b, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Div, Can_Div_Decimal_And_Binary) {
@@ -319,7 +319,7 @@ TEST(CalculatorTest_Div, Can_Div_Decimal_And_Binary) {
   auto c = calc.div(a, 10, b, 2);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Div, Can_Div_Decimal_And_Hexadecimal) {
@@ -332,7 +332,7 @@ TEST(CalculatorTest_Div, Can_Div_Decimal_And_Hexadecimal) {
   auto c = calc.div(a, 10, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Div, Can_Div_Hexadecimal_And_Decimal) {
@@ -345,7 +345,7 @@ TEST(CalculatorTest_Div, Can_Div_Hexadecimal_And_Decimal) {
   auto c = calc.div(b, a, 10);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Div, Can_Div_Hexadecimal_And_Hexadecimal) {
@@ -358,7 +358,7 @@ TEST(CalculatorTest_Div, Can_Div_Hexadecimal_And_Hexadecimal) {
   auto c = calc.div(a, b);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
 
 TEST(CalculatorTest_Div, Can_Div_Binary_And_Octal) {
@@ -370,5 +370,5 @@ TEST(CalculatorTest_Div, Can_Div_Binary_And_Octal) {
   auto c = calc.div(a, 2, b, 8);
 
   // Assert
-  ASSERT_EQ(c, exp_res);
+  ASSERT_EQ(exp_res, c);
 }
