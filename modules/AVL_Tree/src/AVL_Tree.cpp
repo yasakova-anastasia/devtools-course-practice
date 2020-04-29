@@ -57,8 +57,7 @@ Node* AVL_Tree::Insert(Node* top, const int& key_) {
     if (!top) return new Node(key_);
     if (key_ < top->key) {
         top->leftNode = Insert(top->leftNode, key_);
-    }
-    else {
+    } else {
         top->rightNode = Insert(top->rightNode, key_);
     }
     return Balance(top);
@@ -92,11 +91,9 @@ Node* AVL_Tree::Remove(Node* top, const int& key_) {
     if (!top) return 0;
     if (key_ < top->key) {
         top->leftNode = Remove(top->leftNode, key_);
-    }
-    else if (key_ > top->key) {
+    } else if (key_ > top->key) {
         top->rightNode = Remove(top->rightNode, key_);
-    }
-    else {
+    } else {
         Node* q = top->leftNode;
         Node* r = top->rightNode;
         delete top;
