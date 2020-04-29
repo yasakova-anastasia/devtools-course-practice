@@ -176,3 +176,20 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes_Balance_Left) {
 
     EXPECT_EQ(0, status);
 }
+
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes) {
+    int KeyArrays[] = { 500, 300, 200, 400, 600, 700, 800, 100, 220,
+                        330, 410, 560, 650, 790, 820 };
+    int status = 0;
+
+    AVL_Tree tree;
+    tree.InitRoot(KeyArrays[0]);
+
+    for (int i = 1; i < 15; i++) {
+        tree.Insert(KeyArrays[i]);
+    }
+
+    status = tree.Remove(700);
+
+    EXPECT_EQ(0, status);
+}
