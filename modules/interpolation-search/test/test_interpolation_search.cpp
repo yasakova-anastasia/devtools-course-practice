@@ -86,6 +86,17 @@ TEST(InterpolationSearchTest, interpolation_search_works) {
   ASSERT_NO_THROW(int result = interpolationSearch(&vec, vec[3]));
 }
 
+TEST(InterpolationSearchTest, interpolation_search_works_correctly) {
+  // Arrange
+  int size = 10;
+
+  // Act
+  std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+  // Assert
+  EXPECT_EQ(interpolationSearch(&vec, 3), 3);
+}
+
 TEST(InterpolationSearchTest, interpolation_search_value_exists) {
   // Arrange
   int size = 10;
