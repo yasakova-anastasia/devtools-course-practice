@@ -12,7 +12,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_Can_Create_Node) {
     ASSERT_EQ(key, tmp.key);
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor) {   
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor) {
     AVL_Tree tree;
 
     ASSERT_EQ(nullptr, tree.GetRootNode());
@@ -20,7 +20,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor) {
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor_Height) {
     int key = 100;
-    
+
     AVL_Tree tree;
     tree.InitRoot(key);
 
@@ -68,8 +68,11 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Insert) {
     }
 
     for (int i = 0; i < 5; i++) {
-        if (tree.FindNode(KeyArrays[i]) == STATUS_OK) sts = 0;
-        else sts = -1;
+        if (tree.FindNode(KeyArrays[i]) == STATUS_OK) {
+            sts = 0;
+        } else {
+            sts = -1;
+        }
         EXPECT_EQ(0, sts);
     }
     // Status t = tree.FindNode(60);

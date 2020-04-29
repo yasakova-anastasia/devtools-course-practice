@@ -5,8 +5,7 @@
 #include <utility>
 #include <random>
 
-enum Status
-{
+enum Status {
     STATUS_WAR_NODE_NOT_FOUND = 1,
     STATUS_OK = 0,
     STATUS_ERR_NULL_PTR_ROOT = -1,
@@ -18,12 +17,12 @@ struct Node {
     int height;
     Node* leftNode;
     Node* rightNode;
-    Node(int key_) { key = key_; height = 1; leftNode = rightNode = nullptr; }
+    explicit Node(int key_) { key = key_; height = 1; leftNode = rightNode = nullptr; }
 };
 
 
 class AVL_Tree{
-private:
+ private:
     Node* RootNode;
 
     // For work with Node
@@ -31,22 +30,23 @@ private:
     void fixHeight(Node* top);
 
     // Balance
-    Node* rotateRight(Node* top);  // правый поворот вокруг top
-    Node* rotateLeft(Node* top);  // левый поворот вокруг top
-    Node* Balance(Node* top);  // балансировка узла top
+    Node* rotateRight(Node* top);  // right turn around top
+    Node* rotateLeft(Node* top);  // left turn around top
+    Node* Balance(Node* top);  // top node balancing
 
-    Node* Insert(Node* top, const int& key_);  // вставка ключа k в дерево с корнем top
+    Node* Insert(Node* top, const int& key_);
 
-    Node* FindMin(Node* top);  // поиск узла с минимальным ключом в дереве top
-    Node* FindMax(Node* top);  // поиск узла с максимальным ключом в дереве top
+    Node* FindMin(Node* top);  // search for the node with the minimum key in the top tree
+    Node* FindMax(Node* top);  // search for the node with the maximum key in the top tree
 
     // Delete
-    Node* RemoveMin(Node* top);  // удаление узла с минимальным ключом из дерева top
-    Node* Remove(Node* top, const int& key_);  // удаление ключа key_ из дерева top
-public:
+    Node* RemoveMin(Node* top);
+    Node* Remove(Node* top, const int& key_);
+
+ public:
     AVL_Tree();
 
-    Node* InitRoot(const int& key_); // Init RootNode
+    Node* InitRoot(const int& key_);  // Init RootNode
 
     Node* GetRootNode();  // Get functions
     int GetRootKey();
@@ -54,7 +54,7 @@ public:
     Node* GetLeftSubtree(Node* top);
     Node* GetRightSubtree(Node* top);
     int GetKey(Node* top);
-  
+
     int FindMin();
     int FindMax();
 
