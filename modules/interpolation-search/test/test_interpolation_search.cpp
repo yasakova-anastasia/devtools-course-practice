@@ -196,6 +196,17 @@ TEST(InterpolationSearchTest, right_value_changes_2) {
   ASSERT_GE(interpolationSearch(&vec, 51), 0);
 }
 
+TEST(InterpolationSearchTest, mid_greater_val) {
+  // Arrange
+  int size = 10;
+
+  // Act
+  std::vector<int> vec = {1, 4, 7, 9, 9, 12, 13, 14, 15, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25};
+
+  // Assert
+  ASSERT_GE(interpolationSearch(&vec, 13), 0);
+}
+
 TEST(InterpolationSearchTest, right_eq_left_val_exists) {
   // Arrange
   std::vector<int> vec = {0};
