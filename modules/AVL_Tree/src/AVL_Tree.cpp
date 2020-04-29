@@ -183,7 +183,9 @@ Status AVL_Tree::FindNode(const int& key_) {
         }
     }
 
-    if (KeySearch == key_) return STATUS_OK;
-    if (KeySearch != key_) return STATUS_WAR_NODE_NOT_FOUND;
-    // else return STATUS_WAR_NODE_NOT_FOUND;
+    if (KeySearch == key_) {
+        return STATUS_OK;
+    } else {
+        return STATUS_WAR_NODE_NOT_FOUND;
+    }
 }
