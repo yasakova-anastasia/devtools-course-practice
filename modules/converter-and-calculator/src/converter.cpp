@@ -113,8 +113,7 @@ int converter::convert_hex_to_dec(const vector<char>& value) {
   for (size_t i = 0; i < value.size(); i++) {
     if (isdigit(value[i])) {
       temp = atoi(string({ static_cast<char>(value[i]) }).c_str());
-    }
-    else {
+    } else {
       switch (value[i]) {
         /*if (value[i] == 'A')
           temp = 10;
