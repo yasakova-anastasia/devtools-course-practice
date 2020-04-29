@@ -110,7 +110,7 @@ TEST(InterpolationSearchTest, interpolation_search_value_does_not_exist) {
 
 TEST(InterpolationSearchTest, returns_right) {
   // Arrange
-  int size = 10; 
+  int size = 10;
 
   // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -121,7 +121,7 @@ TEST(InterpolationSearchTest, returns_right) {
 
 TEST(InterpolationSearchTest, returns_left) {
   // Arrange
-  int size = 10; 
+  int size = 10;
 
   // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -143,7 +143,7 @@ TEST(InterpolationSearchTest, returns_left_double_check) {
 
 TEST(InterpolationSearchTest, right_value_changes) {
   // Arrange
-  int size = 10; 
+  int size = 10;
 
   // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};

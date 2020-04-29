@@ -53,7 +53,7 @@ int interpolationSearch(std::vector<int> *vec, int val) {
   int left = 0;
   int size = static_cast<int>((*vec).size());
   int right = size - 1;
-  
+
   if ((*vec)[right] == (*vec)[left]) {
     if ((*vec)[right] == val) {
       return right;
