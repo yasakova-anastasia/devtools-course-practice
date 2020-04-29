@@ -83,7 +83,7 @@ int converter::convert_hex_to_dec(const vector<char>& value) {
     if (isdigit(value[i])) {
       temp = atoi(string({ static_cast<char>(value[i]) }).c_str());
     } else {
-      if (static_cast<int>(value[i]) >= 65 && 
+      if (static_cast<int>(value[i]) >= 65 &&
         static_cast<int>(value[i]) <= 71) {
         temp = static_cast<int>(value[i]) - 55;
       }
