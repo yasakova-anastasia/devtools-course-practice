@@ -93,9 +93,17 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
         return str;
     }
 
-    Vector3D v1(args.v1_x, args.v1_y, args.v1_z);
-    Vector3D v2(args.v2_x, args.v2_y, args.v2_z);
+    Vector3D v1;
+    Vector3D v2;
     Vector3D res;
+
+    v1.setX(args.v1_x);
+    v1.setY(args.v1_y);
+    v1.setZ(args.v1_z);
+    v2.setX(args.v2_x);
+    v2.setY(args.v2_y);
+    v2.setZ(args.v2_z);
+    
 
     std::ostringstream stream;
     switch (args.operation) {

@@ -83,3 +83,4 @@ TEST_F(Vector3DCalculatorTest, Can_Diff_Vectors) {
 
     Assert("X = -3 Y = -3 Z = -3");
 }
+
