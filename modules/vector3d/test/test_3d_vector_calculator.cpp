@@ -61,8 +61,16 @@ TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
     Assert("Wrong number format!*");
 }
 
-TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format) {
+TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format7) {
     vector<string> args = { "1", "1", "1", "1", "1", "1", "qwerty" };
+
+    Act(args);
+
+    Assert("Wrong operation format!");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format4) {
+    vector<string> args = { "1", "1", "1", "qwerty" };
 
     Act(args);
 
