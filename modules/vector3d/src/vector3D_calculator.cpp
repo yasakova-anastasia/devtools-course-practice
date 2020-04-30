@@ -13,16 +13,17 @@ void Vector3DCalculator::help(const char* appname, const char* message) {
         "This is a 3d vector calculator application.\n\n" +
         "If you want use normalization,please " +
         "provide arguments in the following format:\n\n" +
-        "  $ " + appname + " <operation> <v2_x> <v2_y> <v2_z>\n\n" +
+        "  $ " + appname + " <v_x> <v_y> <v_z> <operation> \n\n" +
         "Where all arguments are double-precision numbers, " +
-        "and <operation> is one of 'n' or 'N'\n\n" +
+        "and <operation> is one of 'n' or 'N', " +
+        "'l' or 'L' (Vector length).\n\n" +
         "If you want use another operations, please " +
         "provide arguments in the following format:\n\n" +
-        "  $ " + appname + " <operation> <v1_x> <v1_y> <v1_z> " +
-        "<v2_x> <v2_y> <v2_z>\n\n" +
+        "  $ " + appname + " <v1_x> <v1_y> <v1_z> " +
+        "<v2_x> <v2_y> <v2_z> <operation>\n\n" +
         "Where all arguments are double-precision numbers, " +
         "and <operation> is one of '+', '-', " +
-        "'s' or 'S' (Scalar product), 'v' or 'V' (Vector product). \n ";
+        "'s' or 'S' (Scalar product), 'v' or 'V' (Vector product). \n";
 }
 
 bool Vector3DCalculator::validateNumberOfArguments(int argc,
@@ -60,6 +61,8 @@ char parseOperation(const char* arg) {
         op = 's';
     } else if (strcmp(arg, "v") == 0 || strcmp(arg, "V") == 0) {
         op = 'v';
+    } else if (strcmp(arg, "l") == 0 || strcmp(arg, "L") == 0) {
+        op = 'l';
     } else {
         throw std::string("Wrong operation format!");
     }
@@ -73,18 +76,19 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.operation = parseOperation(argv[1]);
-        if (args.operation == 'n' || args.operation == 'N') {
-            args.v1_x = parseDouble(argv[2]);
-            args.v1_y = parseDouble(argv[3]);
-            args.v1_z = parseDouble(argv[4]);
+        if (argc == 5) {
+            args.v1_x = parseDouble(argv[1]);
+            args.v1_y = parseDouble(argv[2]);
+            args.v1_z = parseDouble(argv[3]);
+            args.operation = parseOperation(argv[4]);
         } else {
-            args.v1_x = parseDouble(argv[2]);
-            args.v1_y = parseDouble(argv[3]);
-            args.v1_z = parseDouble(argv[4]);
-            args.v2_x = parseDouble(argv[5]);
-            args.v2_y = parseDouble(argv[6]);
-            args.v2_z = parseDouble(argv[7]);
+            args.v1_x = parseDouble(argv[1]);
+            args.v1_y = parseDouble(argv[2]);
+            args.v1_z = parseDouble(argv[3]);
+            args.v2_x = parseDouble(argv[4]);
+            args.v2_y = parseDouble(argv[5]);
+            args.v2_z = parseDouble(argv[6]);
+            args.operation = parseOperation(argv[7]);
         }
     }
     catch (std::string& str) {
@@ -96,7 +100,8 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
     Vector3D resVec;
     double resDouble;
 
-    if (args.operation == 'n' || args.operation == 'N') {
+    if (args.operation == 'n' || args.operation == 'N' ||
+        args.operation == 'l' || args.operation == 'L') {
         v1.setX(args.v1_x);
         v1.setY(args.v1_y);
         v1.setZ(args.v1_z);
@@ -143,6 +148,10 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
          stream << "X = " << resVec.getX() << " "
                 << "Y = " << resVec.getY() << " "
                 << "Z = " << resVec.getZ();
+         break;
+     case 'l':
+         resDouble = v1.norm();
+         stream << "Vector length = " << resDouble;
          break;
     }
 

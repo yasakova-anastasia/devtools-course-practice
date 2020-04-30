@@ -54,7 +54,7 @@ TEST_F(Vector3DCalculatorTest, Check_Number_Of_Arguments) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "+", "1", "1", "1", "1", "1", "qwerty" };
+    vector<string> args = { "йцукен", "1", "1", "1", "1", "1", "+" };
 
     Act(args);
 
@@ -62,7 +62,7 @@ TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = { "qwerty", "1", "1", "1", "1", "1", "1" };
+    vector<string> args = { "1", "1", "1", "1", "1", "1", "qwerty" };
 
     Act(args);
 
@@ -70,7 +70,7 @@ TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Add_Vectors) {
-    vector<string> args = { "+", "1", "2", "3", "4", "5", "6" };
+    vector<string> args = { "1", "2", "3", "4", "5", "6", "+" };
 
     Act(args);
 
@@ -78,7 +78,7 @@ TEST_F(Vector3DCalculatorTest, Can_Add_Vectors) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Diff_Vectors) {
-    vector<string> args = { "-", "1", "2", "3", "4", "5", "6" };
+    vector<string> args = { "1", "2", "3", "4", "5", "6", "-" };
 
     Act(args);
 
@@ -86,7 +86,7 @@ TEST_F(Vector3DCalculatorTest, Can_Diff_Vectors) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Normalize_Vector) {
-    vector<string> args = { "n", "1", "1", "1" };
+    vector<string> args = { "1", "1", "1", "n" };
 
     Act(args);
 
@@ -94,7 +94,7 @@ TEST_F(Vector3DCalculatorTest, Can_Normalize_Vector) {
 }
 
 TEST_F(Vector3DCalculatorTest, Normalize_Zero_Vector_Test) {
-    vector<string> args = { "n", "0", "0", "0" };
+    vector<string> args = { "0", "0", "0", "n" };
 
     Act(args);
 
@@ -102,7 +102,7 @@ TEST_F(Vector3DCalculatorTest, Normalize_Zero_Vector_Test) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Use_Scalar_Product) {
-    vector<string> args = { "s", "1", "2", "3", "4", "5", "6" };
+    vector<string> args = { "1", "2", "3", "4", "5", "6", "s" };
 
     Act(args);
 
@@ -110,9 +110,17 @@ TEST_F(Vector3DCalculatorTest, Can_Use_Scalar_Product) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Use_Vector_Product) {
-    vector<string> args = { "v", "1", "2", "3", "4", "5", "6" };
+    vector<string> args = { "1", "2", "3", "4", "5", "6", "v" };
 
     Act(args);
 
     Assert("X = -3 Y = 6 Z = -3");
+}
+
+TEST_F(Vector3DCalculatorTest, Calculate_Length_Vector_Test) {
+    vector<string> args = { "4", "4", "2", "l" };
+
+    Act(args);
+
+    Assert("Vector length = 6");
 }
