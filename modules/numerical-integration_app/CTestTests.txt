@@ -99,11 +99,3 @@ add_test(
 set_tests_properties (${prefix}_test_Middle_method_app_with_sin PROPERTIES
     PASS_REGULAR_EXPRESSION "Answer is -0.6998"
     LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_test_Middle_method_app_left_less_right
-    COMMAND ${APPLICATION} 2 1 100000 2 3 
-)
-set_tests_properties (${prefix}_test_Middle_method_app_left_less_right PROPERTIES
-    PASS_REGULAR_EXPRESSION "The left border should be less than the right border"
-    LABELS "${MODULE}")

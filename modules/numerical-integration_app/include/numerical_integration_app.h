@@ -15,13 +15,14 @@ class NumericalIntegrationApp {
     bool validateNumberOfArguments(int argc, const char** argv);
     bool validateArguments(int argc, const char** argv);
     std::string message_;
-    typedef struct {
+    class Arguments {
+     public:
         double a;
         double b;
         unsigned int N;
         int num_function;
         int method;
-    } Arguments;
+    };
 };
 
 #endif  // MODULES_NUMERICAL_INTEGRATION_APP_INCLUDE_NUMERICAL_INTEGRATION_APP_H_

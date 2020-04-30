@@ -9,41 +9,9 @@
 #include "include/numerical_integration.h"
 
 NumericalIntegration::NumericalIntegration(double _a, double _b) {
-    methods.insert(std::pair<int, std::function<double
-    (FunctionsForIntegration*, unsigned int)> >
-    (1, std::bind(&NumericalIntegration::Left_rectangle_method,
-    this, std::placeholders::_1,  std::placeholders::_2)));
-
-    methods.insert(std::pair<int, std::function<double
-    (FunctionsForIntegration*, unsigned int)> >
-    (2, std::bind(&NumericalIntegration::Right_rectangle_method,
-    this, std::placeholders::_1, std::placeholders::_2)));
-
-    methods.insert(std::pair<int, std::function<double
-    (FunctionsForIntegration*, unsigned int)> >
-    (3, std::bind(&NumericalIntegration::Middle_rectangle_method,
-    this, std::placeholders::_1, std::placeholders::_2)));
-
-    methods.insert(std::pair<int, std::function<double
-    (FunctionsForIntegration*, unsigned int)> >
-    (4, std::bind(&NumericalIntegration::Trapezoid_method,
-    this, std::placeholders::_1, std::placeholders::_2)));
-
-    methods.insert(std::pair<int, std::function<double
-    (FunctionsForIntegration*, unsigned int)> >
-    (5, std::bind(&NumericalIntegration::Simpsons_method,
-    this, std::placeholders::_1, std::placeholders::_2)));
-
-    methods.insert(std::pair<int, std::function<double
-    (FunctionsForIntegration*, unsigned int)> >
-    (6, std::bind(&NumericalIntegration::Gauss_method,
-    this, std::placeholders::_1, std::placeholders::_2)));
-
     if (_a >= _b) {
-        throw static_cast<std::string>(
-            "The left border should be less than the right border");
+        throw std::invalid_argument("a > b");
     }
-
     a = _a;
     b = _b;
 }
@@ -74,8 +42,8 @@ double NumericalIntegration::Get_right_border() const {
     return b;
 }
 
-double NumericalIntegration::Left_rectangle_method(
-    FunctionsForIntegration* func, unsigned int N) {
+double Left_rectangle_method::Integration_method
+    (FunctionsForIntegration* func, unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
 
@@ -87,8 +55,8 @@ double NumericalIntegration::Left_rectangle_method(
     return I * h;
 }
 
-double NumericalIntegration::Right_rectangle_method(
-    FunctionsForIntegration* func, unsigned int N) {
+double Right_rectangle_method::Integration_method
+    (FunctionsForIntegration* func, unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
 
@@ -100,8 +68,8 @@ double NumericalIntegration::Right_rectangle_method(
     return I * h;
 }
 
-double NumericalIntegration::Middle_rectangle_method(
-    FunctionsForIntegration* func, unsigned int N) {
+double Middle_rectangle_method::Integration_method
+    (FunctionsForIntegration* func, unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
 
@@ -113,8 +81,8 @@ double NumericalIntegration::Middle_rectangle_method(
     return I * h;
 }
 
-double NumericalIntegration::Trapezoid_method(
-    FunctionsForIntegration* func, unsigned int N) {
+double Trapezoid_method::Integration_method
+    (FunctionsForIntegration* func, unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
 
@@ -126,8 +94,8 @@ double NumericalIntegration::Trapezoid_method(
     return I * h;
 }
 
-double NumericalIntegration::Simpsons_method(
-    FunctionsForIntegration* func, unsigned int N) {
+double Simpsons_method::Integration_method
+    (FunctionsForIntegration* func, unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
 
@@ -139,8 +107,8 @@ double NumericalIntegration::Simpsons_method(
     return I * h / 3.0;
 }
 
-double NumericalIntegration::Gauss_method(
-    FunctionsForIntegration* func, unsigned int N) {
+double Gauss_method::Integration_method
+    (FunctionsForIntegration* func, unsigned int N) {
     double h = (b - a) / static_cast<double>(N);
     double I = 0.0;
 

@@ -161,12 +161,12 @@ TEST_F(NumberIntegrationTest, Test_Left_rectangle_method_in_app) {
     double b = 10;
     int N = 10000;
 
-    NumericalIntegration obj(a, b);
+    Left_rectangle_method obj(a, b);
     func1 f;
 
     string ans;
     ans += "Answer is ";
-    double temp = obj.Left_rectangle_method(&f, N);
+    double temp = obj.Integration_method(&f, N);
     std::stringstream ss;
     string s;
     ss << s << std::fixed << std::setprecision(4) << temp;
@@ -185,12 +185,12 @@ TEST_F(NumberIntegrationTest, Test_Right_rectangle_method_in_app) {
     double b = 5;
     int N = 100000;
 
-    NumericalIntegration obj(a, b);
+    Right_rectangle_method obj(a, b);
     func1 f;
 
     string ans;
     ans += "Answer is ";
-    double temp = obj.Right_rectangle_method(&f, N);
+    double temp = obj.Integration_method(&f, N);
     std::stringstream ss;
     string s;
     ss << s << std::fixed << std::setprecision(4) << temp;
@@ -208,12 +208,12 @@ TEST_F(NumberIntegrationTest, Test_Middle_rectangle_method_in_app) {
     double b = 10;
     int N = 100000;
 
-    NumericalIntegration obj(a, b);
+    Middle_rectangle_method obj(a, b);
     func2 f;
 
     string ans;
     ans += "Answer is ";
-    double temp = obj.Middle_rectangle_method(&f, N);
+    double temp = obj.Integration_method(&f, N);
     std::stringstream ss;
     string s;
     ss << s << std::fixed << std::setprecision(4) << temp;
@@ -231,12 +231,12 @@ TEST_F(NumberIntegrationTest, Test_Trapezoid_method_in_app) {
     double b = 10;
     int N = 100000;
 
-    NumericalIntegration obj(a, b);
+    Trapezoid_method obj(a, b);
     func2 f;
 
     string ans;
     ans += "Answer is ";
-    double temp = obj.Trapezoid_method(&f, N);
+    double temp = obj.Integration_method(&f, N);
     std::stringstream ss;
     string s;
     ss << s << std::fixed << std::setprecision(4) << temp;
@@ -254,12 +254,12 @@ TEST_F(NumberIntegrationTest, Test_Simpsons_method_in_app) {
     double b = 100;
     int N = 10000;
 
-    NumericalIntegration obj(a, b);
+    Simpsons_method obj(a, b);
     func3 f;
 
     string ans;
     ans += "Answer is ";
-    double temp = obj.Simpsons_method(&f, N);
+    double temp = obj.Integration_method(&f, N);
     std::stringstream ss;
     string s;
     ss << s << std::fixed << std::setprecision(4) << temp;
@@ -277,12 +277,12 @@ TEST_F(NumberIntegrationTest, Test_Gauss_method_in_app) {
     double b = 100;
     int N = 100000;
 
-    NumericalIntegration obj(a, b);
+    Gauss_method obj(a, b);
     func3 f;
 
     string ans;
     ans += "Answer is ";
-    double temp = obj.Gauss_method(&f, N);
+    double temp = obj.Integration_method(&f, N);
     std::stringstream ss;
     string s;
     ss << s << std::fixed << std::setprecision(4) << temp;

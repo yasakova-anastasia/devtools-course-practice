@@ -11,22 +11,10 @@ class FunctionsForIntegration {
      virtual double f(double x) = 0;
 };
 
-enum IntegrationMethod {
-    Left_rectangle_method = 1,
-    Right_rectangle_method,
-    Middle_rectangle_method,
-    Trapezoid_method,
-    Simpsons_method,
-    Gauss_method
-};
-
 class NumericalIntegration {
  protected:
     double a, b;
-
  public:
-    std::map<int, std::function<double(FunctionsForIntegration*,
-                                      unsigned int)> > methods;
     NumericalIntegration(double _a, double _b);
     NumericalIntegration(const NumericalIntegration& obj) : a(obj.a),
     b(obj.b) {}
@@ -37,18 +25,46 @@ class NumericalIntegration {
     double Get_left_border() const;
     double Get_right_border() const;
 
-    double Left_rectangle_method(
-        FunctionsForIntegration* func, unsigned int N);
-    double Right_rectangle_method(
-        FunctionsForIntegration* func, unsigned int N);
-    double Middle_rectangle_method(
-        FunctionsForIntegration* func, unsigned int N);
-    double Trapezoid_method(
-        FunctionsForIntegration* func, unsigned int N);
-    double Simpsons_method(
-        FunctionsForIntegration* func, unsigned int N);
-    double Gauss_method(
-        FunctionsForIntegration* func, unsigned int N);
+    virtual double Integration_method
+            (FunctionsForIntegration* func, unsigned int N) = 0;
+};
+
+class Left_rectangle_method : public NumericalIntegration {
+ public:
+    Left_rectangle_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    double Integration_method(FunctionsForIntegration* func, unsigned int N);
+};
+
+class Right_rectangle_method : public NumericalIntegration {
+ public:
+    Right_rectangle_method(double _a, double _b):
+                           NumericalIntegration(_a, _b) {}
+    double Integration_method(FunctionsForIntegration* func, unsigned int N);
+};
+
+class Middle_rectangle_method : public NumericalIntegration {
+ public:
+    Middle_rectangle_method(double _a, double _b):
+                            NumericalIntegration(_a, _b) {}
+    double Integration_method(FunctionsForIntegration* func, unsigned int N);
+};
+
+class Trapezoid_method : public NumericalIntegration {
+ public:
+    Trapezoid_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    double Integration_method(FunctionsForIntegration* func, unsigned int N);
+};
+
+class Simpsons_method : public NumericalIntegration {
+ public:
+    Simpsons_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    double Integration_method(FunctionsForIntegration* func, unsigned int N);
+};
+
+class Gauss_method : public NumericalIntegration {
+ public:
+    Gauss_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    double Integration_method(FunctionsForIntegration* func, unsigned int N);
 };
 
 #endif  // MODULES_NUMERICAL_INTEGRATION_APP_INCLUDE_NUMERICAL_INTEGRATION_H_
