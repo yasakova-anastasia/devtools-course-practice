@@ -282,7 +282,8 @@ TEST(NumericalIntegrationTest, TestLeftRectangleMethod_for_my_func) {
     NumericalIntegrationTest::F4(a);
 
     // Act
-    Left_rectangle_method obj(a, b);
+    Left_rectangle_method obj;
+    obj.Set_integration_borders(b, a);
     func4 f;
 
     // Assert
