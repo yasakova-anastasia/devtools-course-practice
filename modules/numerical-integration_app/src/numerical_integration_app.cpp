@@ -141,8 +141,8 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
                       methods[args.method - 1]->Integration_method(&f, args.N);
         }
     }
-     catch(std::string& str) {
-        return str;
+     catch(const std::invalid_argument& e) {
+        return e.what();
     }
 
     message_ = stream.str();
