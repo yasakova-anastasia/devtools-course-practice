@@ -85,12 +85,13 @@ Tree::Tree(const Tree& tree) {
 Tree::~Tree() {
     TreeNode* i = root;
     while (amount > 1) {
-        while (i->GetLeft() != nullptr || i->GetRight() != nullptr) {
-            if (i->GetLeft() != nullptr) {
+        while (true) {
+            if (i->GetLeft() != nullptr)
                 i = i->GetLeft();
-            } else {
+            else if (i->GetRight() != nullptr)
                 i = i->GetRight();
-            }
+            else
+                break;
         }
         TreeNode* j = i;
         i = j->GetParent();
@@ -157,13 +158,13 @@ int Tree::GetAmount() const {
 
 void Tree::AddElem(int data_) {
     TreeNode* i = root;
-    while ((data_ > i->GetData() && i->GetRight() != nullptr)
-       || (data_ < i->GetData() && i->GetLeft() != nullptr)) {
-        if (data_ > i->GetData()) {
+    while (true) {
+        if (data_ > i->GetData() && i->GetRight() != nullptr)
             i = i->GetRight();
-        } else if (data_ < i->GetData()) {
+        else if (data_ < i->GetData() && i->GetLeft() != nullptr)
             i = i->GetLeft();
-        }
+        else
+            break;
     }
     if (data_ > i->GetData()) {
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
@@ -173,6 +174,8 @@ void Tree::AddElem(int data_) {
         TreeNode* tmp = new TreeNode(data_, nullptr, nullptr, i);
         i->SetLeft(tmp);
         amount++;
+    } else {
+        throw "Adding an existing element.";
     }
 }
 
@@ -182,13 +185,13 @@ void Tree::AddElem(TreeNode* tmp) {
         amount++;
     } else {
         TreeNode* i = root;
-        while ((tmp->GetData() > i->GetData() && i->GetRight() != nullptr)
-           || (tmp->GetData() < i->GetData() && i->GetLeft() != nullptr)) {
-            if (tmp->GetData() > i->GetData()) {
+        while (true) {
+            if (tmp->GetData() > i->GetData() && i->GetRight() != nullptr)
                 i = i->GetRight();
-            } else if (tmp->GetData() < i->GetData()) {
+            else if (tmp->GetData() < i->GetData() && i->GetLeft() != nullptr)
                 i = i->GetLeft();
-            }
+            else
+                break;
         }
         if (tmp->GetData() > i->GetData()) {
             i->SetRight(tmp);
@@ -198,6 +201,8 @@ void Tree::AddElem(TreeNode* tmp) {
             i->SetLeft(tmp);
             tmp->SetParent(i);
             amount++;
+        } else {
+            throw "Adding an existing element.";
         }
     }
 }
