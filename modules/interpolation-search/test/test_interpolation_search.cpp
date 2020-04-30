@@ -138,7 +138,7 @@ TEST(InterpolationSearchTest, interpolation_search_value_does_not_exist) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  ASSERT_LE(0, interpolationSearch(&vec, 100));
+  ASSERT_GE(0, interpolationSearch(&vec, 100));
 }
 
 TEST(InterpolationSearchTest, returns_right) {
@@ -160,7 +160,7 @@ TEST(InterpolationSearchTest, returns_left) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  ASSERT_LE(4, interpolationSearch(&vec, 0));
+  ASSERT_GE(4, interpolationSearch(&vec, 0));
 }
 
 TEST(InterpolationSearchTest, returns_left_double_check) {
