@@ -110,12 +110,9 @@ TEST(InterpolationSearchTest, interpolation_search_works) {
 
 TEST(InterpolationSearchTest, interpolation_search_works_correctly) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  // Assert
+  // Act && Assert
   EXPECT_EQ(3, interpolationSearch(&vec, 3));
 }
 
@@ -132,80 +129,59 @@ TEST(InterpolationSearchTest, interpolation_search_value_exists) {
 
 TEST(InterpolationSearchTest, interpolation_search_value_does_not_exist) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  // Assert
+  // Act && Assert
   ASSERT_GE(0, interpolationSearch(&vec, 100));
 }
 
 TEST(InterpolationSearchTest, returns_right) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  // Assert
+  // Act && Assert
   ASSERT_LE(4, interpolationSearch(&vec, 9));
 }
 
 TEST(InterpolationSearchTest, returns_left) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  // Assert
+  // Act && Assert
   ASSERT_GE(4, interpolationSearch(&vec, 0));
 }
 
 TEST(InterpolationSearchTest, returns_left_double_check) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  // Assert
+  // Act && Assert
   ASSERT_LE(0, interpolationSearch(&vec, 0));
 }
 
 TEST(InterpolationSearchTest, right_value_changes) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-  // Assert
+  // Act && Assert
   ASSERT_LE(0, interpolationSearch(&vec, 3));
 }
 
 TEST(InterpolationSearchTest, right_value_changes_2) {
   // Arrange
-  int size = 12;
-
-  // Act
   std::vector<int> vec = {0, 1, 2, 3, 4, 51, 6, 7, 8, 90, 100, 11};
 
-  // Assert
+  // Act && Assert
   ASSERT_LE(0, interpolationSearch(&vec, 51));
 }
 
 TEST(InterpolationSearchTest, mid_greater_val) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {1, 4, 7, 9, 9, 12,
                           13, 14, 15, 15, 16, 17,
                           18, 19, 20, 21, 22, 23, 24, 25};
 
-  // Assert
+  // Act && Assert
   ASSERT_LE(0, interpolationSearch(&vec, 13));
 }
 
@@ -219,11 +195,8 @@ TEST(InterpolationSearchTest, right_eq_left_val_exists) {
 
 TEST(InterpolationSearchTest, right_eq_left_val_does_not_exist) {
   // Arrange
-  int size = 10;
-
-  // Act
   std::vector<int> vec = {5};
 
-  // Assert
+  // Act && Assert
   EXPECT_EQ(-1, interpolationSearch(&vec, 0));
 }
