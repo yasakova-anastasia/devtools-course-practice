@@ -49,23 +49,30 @@ double parseDouble(const char* arg) {
     return value;
 }
 
-char parseOperation(const char* arg) {
+char parseOperation(const int &argc, const char* arg) {
     char op;
-    if (strcmp(arg, "+") == 0) {
-        op = '+';
-    } else if (strcmp(arg, "-") == 0) {
-        op = '-';
-    } else if (strcmp(arg, "n") == 0 || strcmp(arg, "N") == 0) {
-        op = 'n';
-    } else if (strcmp(arg, "s") == 0 || strcmp(arg, "S") == 0) {
-        op = 's';
-    } else if (strcmp(arg, "v") == 0 || strcmp(arg, "V") == 0) {
-        op = 'v';
-    } else if (strcmp(arg, "l") == 0 || strcmp(arg, "L") == 0) {
-        op = 'l';
+    if (argc == 8) {
+        if (strcmp(arg, "+") == 0) {
+            op = '+';
+        } else if (strcmp(arg, "-") == 0) {
+            op = '-';
+        } else if (strcmp(arg, "s") == 0 || strcmp(arg, "S") == 0) {
+            op = 's';
+        } else if (strcmp(arg, "v") == 0 || strcmp(arg, "V") == 0) {
+            op = 'v';
+        } else {
+            throw std::string("Wrong operation format!");
+        }
     } else {
-        throw std::string("Wrong operation format!");
+        if (strcmp(arg, "n") == 0 || strcmp(arg, "N") == 0) {
+            op = 'n';
+        } else if (strcmp(arg, "l") == 0 || strcmp(arg, "L") == 0) {
+            op = 'l';
+        } else {
+            throw std::string("Wrong operation format!");
+        }
     }
+
     return op;
 }
 
@@ -80,7 +87,7 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
             args.v1_x = parseDouble(argv[1]);
             args.v1_y = parseDouble(argv[2]);
             args.v1_z = parseDouble(argv[3]);
-            args.operation = parseOperation(argv[4]);
+            args.operation = parseOperation(argc, argv[4]);
         } else {
             args.v1_x = parseDouble(argv[1]);
             args.v1_y = parseDouble(argv[2]);
@@ -88,7 +95,7 @@ std::string Vector3DCalculator::operator()(int argc, const char** argv) {
             args.v2_x = parseDouble(argv[4]);
             args.v2_y = parseDouble(argv[5]);
             args.v2_z = parseDouble(argv[6]);
-            args.operation = parseOperation(argv[7]);
+            args.operation = parseOperation(argc, argv[7]);
         }
     }
     catch (std::string& str) {
