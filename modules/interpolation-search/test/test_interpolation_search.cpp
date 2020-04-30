@@ -94,7 +94,7 @@ TEST(InterpolationSearchTest, partition_result_is_positive) {
   std::vector<int> vec = generateRandomVector(size);
 
   // Assert
-  ASSERT_GE(partition(&vec, 0, size - 1), 0);
+  ASSERT_LE(0, partition(&vec, 0, size - 1));
 }
 
 TEST(InterpolationSearchTest, interpolation_search_works) {
@@ -116,7 +116,7 @@ TEST(InterpolationSearchTest, interpolation_search_works_correctly) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  EXPECT_EQ(interpolationSearch(&vec, 3), 3);
+  EXPECT_EQ(3, interpolationSearch(&vec, 3));
 }
 
 TEST(InterpolationSearchTest, interpolation_search_value_exists) {
@@ -127,7 +127,7 @@ TEST(InterpolationSearchTest, interpolation_search_value_exists) {
   std::vector<int> vec = generateRandomVector(size);
 
   // Assert
-  ASSERT_GE(interpolationSearch(&vec, vec[5]), 0);
+  ASSERT_LE(0, interpolationSearch(&vec, vec[5]));
 }
 
 TEST(InterpolationSearchTest, interpolation_search_value_does_not_exist) {
@@ -138,7 +138,7 @@ TEST(InterpolationSearchTest, interpolation_search_value_does_not_exist) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  ASSERT_GT(0, interpolationSearch(&vec, 100));
+  ASSERT_LE(0, interpolationSearch(&vec, 100));
 }
 
 TEST(InterpolationSearchTest, returns_right) {
@@ -149,7 +149,7 @@ TEST(InterpolationSearchTest, returns_right) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  ASSERT_GT(interpolationSearch(&vec, 9), 4);
+  ASSERT_LE(4, interpolationSearch(&vec, 9));
 }
 
 TEST(InterpolationSearchTest, returns_left) {
@@ -160,7 +160,7 @@ TEST(InterpolationSearchTest, returns_left) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  ASSERT_GE(4, interpolationSearch(&vec, 0));
+  ASSERT_LE(4, interpolationSearch(&vec, 0));
 }
 
 TEST(InterpolationSearchTest, returns_left_double_check) {
@@ -171,7 +171,7 @@ TEST(InterpolationSearchTest, returns_left_double_check) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  ASSERT_GE(interpolationSearch(&vec, 0), 0);
+  ASSERT_LE(0, interpolationSearch(&vec, 0));
 }
 
 TEST(InterpolationSearchTest, right_value_changes) {
@@ -182,7 +182,7 @@ TEST(InterpolationSearchTest, right_value_changes) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
   // Assert
-  ASSERT_GE(interpolationSearch(&vec, 3), 0);
+  ASSERT_LE(0, interpolationSearch(&vec, 3));
 }
 
 TEST(InterpolationSearchTest, right_value_changes_2) {
@@ -193,7 +193,7 @@ TEST(InterpolationSearchTest, right_value_changes_2) {
   std::vector<int> vec = {0, 1, 2, 3, 4, 51, 6, 7, 8, 90, 100, 11};
 
   // Assert
-  ASSERT_GE(interpolationSearch(&vec, 51), 0);
+  ASSERT_LE(0, interpolationSearch(&vec, 51));
 }
 
 TEST(InterpolationSearchTest, mid_greater_val) {
@@ -206,7 +206,7 @@ TEST(InterpolationSearchTest, mid_greater_val) {
                           18, 19, 20, 21, 22, 23, 24, 25};
 
   // Assert
-  ASSERT_GE(interpolationSearch(&vec, 13), 0);
+  ASSERT_LE(0, interpolationSearch(&vec, 13));
 }
 
 TEST(InterpolationSearchTest, right_eq_left_val_exists) {
@@ -214,7 +214,7 @@ TEST(InterpolationSearchTest, right_eq_left_val_exists) {
   std::vector<int> vec = {0};
 
   // Act && Assert
-  EXPECT_EQ(interpolationSearch(&vec, 0), 0);
+  EXPECT_EQ(0, interpolationSearch(&vec, 0));
 }
 
 TEST(InterpolationSearchTest, right_eq_left_val_does_not_exist) {
@@ -225,5 +225,5 @@ TEST(InterpolationSearchTest, right_eq_left_val_does_not_exist) {
   std::vector<int> vec = {5};
 
   // Assert
-  EXPECT_EQ(interpolationSearch(&vec, 0), -1);
+  EXPECT_EQ(-1, interpolationSearch(&vec, 0));
 }
