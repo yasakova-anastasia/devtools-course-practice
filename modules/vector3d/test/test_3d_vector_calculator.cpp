@@ -54,7 +54,7 @@ TEST_F(Vector3DCalculatorTest, Check_Number_Of_Arguments) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "йцукен", "1", "1", "1", "1", "1", "+" };
+    vector<string> args = { "qwerty", "1", "1", "1", "1", "1", "+" };
 
     Act(args);
 
