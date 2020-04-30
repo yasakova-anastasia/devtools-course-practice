@@ -9,19 +9,13 @@
 #include "include/numerical_integration.h"
 
 NumericalIntegration::NumericalIntegration(double _a, double _b) {
-    if (_a >= _b) {
-        throw std::invalid_argument("a > b");
+    if (_a > _b) {
+        a = _b;
+        b = _a;
+    } else {
+        a = _a;
+        b = _b;
     }
-    a = _a;
-    b = _b;
-}
-
-NumericalIntegration& NumericalIntegration::operator=(
-    const NumericalIntegration& obj) {
-    a = obj.a;
-    b = obj.b;
-
-    return *this;
 }
 
 bool NumericalIntegration::operator == (
@@ -30,8 +24,13 @@ bool NumericalIntegration::operator == (
 }
 
 void NumericalIntegration::Set_integration_borders(double _a, double _b) {
-    a = _a;
-    b = _b;
+    if (_a > _b) {
+        a = _b;
+        b = _a;
+    } else {
+        a = _a;
+        b = _b;
+    }
 }
 
 double NumericalIntegration::Get_left_border() const {

@@ -65,7 +65,7 @@ TEST(NumericalIntegrationTest, CannotCreateObjectWithInvalidBorders) {
     double b = 3.0;
 
     // Act & Assert
-    ASSERT_ANY_THROW(Left_rectangle_method obj(a, b));
+    ASSERT_NO_THROW(Left_rectangle_method obj(a, b));
 }
 
 TEST(NumericalIntegrationTest, CopyConstructorTest) {

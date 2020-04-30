@@ -15,10 +15,10 @@ class NumericalIntegration {
  protected:
     double a, b;
  public:
-    NumericalIntegration(double _a, double _b);
+    explicit NumericalIntegration(double _a = 0, double _b = 0);
+    virtual ~NumericalIntegration() {}
     NumericalIntegration(const NumericalIntegration& obj) : a(obj.a),
     b(obj.b) {}
-    NumericalIntegration& operator=(const NumericalIntegration& obj);
 
     bool operator == (const NumericalIntegration& obj) const;
     void Set_integration_borders(double _a, double _b);
@@ -31,39 +31,43 @@ class NumericalIntegration {
 
 class Left_rectangle_method : public NumericalIntegration {
  public:
-    Left_rectangle_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    explicit Left_rectangle_method(double _a = 0, double _b = 0):
+                                   NumericalIntegration(_a, _b) {}
     double Integration_method(FunctionsForIntegration* func, unsigned int N);
 };
 
 class Right_rectangle_method : public NumericalIntegration {
  public:
-    Right_rectangle_method(double _a, double _b):
-                           NumericalIntegration(_a, _b) {}
+    explicit Right_rectangle_method(double _a = 0, double _b = 0):
+                                    NumericalIntegration(_a, _b) {}
     double Integration_method(FunctionsForIntegration* func, unsigned int N);
 };
 
 class Middle_rectangle_method : public NumericalIntegration {
  public:
-    Middle_rectangle_method(double _a, double _b):
-                            NumericalIntegration(_a, _b) {}
+    explicit Middle_rectangle_method(double _a = 0, double _b = 0):
+                                     NumericalIntegration(_a, _b) {}
     double Integration_method(FunctionsForIntegration* func, unsigned int N);
 };
 
 class Trapezoid_method : public NumericalIntegration {
  public:
-    Trapezoid_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    explicit Trapezoid_method(double _a = 0, double _b = 0):
+                              NumericalIntegration(_a, _b) {}
     double Integration_method(FunctionsForIntegration* func, unsigned int N);
 };
 
 class Simpsons_method : public NumericalIntegration {
  public:
-    Simpsons_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    explicit Simpsons_method(double _a = 0, double _b = 0):
+                             NumericalIntegration(_a, _b) {}
     double Integration_method(FunctionsForIntegration* func, unsigned int N);
 };
 
 class Gauss_method : public NumericalIntegration {
  public:
-    Gauss_method(double _a, double _b): NumericalIntegration(_a, _b) {}
+    explicit Gauss_method(double _a = 0, double _b = 0):
+                          NumericalIntegration(_a, _b) {}
     double Integration_method(FunctionsForIntegration* func, unsigned int N);
 };
 

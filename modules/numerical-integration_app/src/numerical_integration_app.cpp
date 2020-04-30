@@ -10,8 +10,6 @@
 #include <iomanip>
 #include <vector>
 
-std::vector <NumericalIntegration*> methods(6);
-
 class func1 : public FunctionsForIntegration {
  public:
      double f(double x) {
@@ -33,7 +31,21 @@ class func3 : public FunctionsForIntegration {
      }
 };
 
-NumericalIntegrationApp::NumericalIntegrationApp() : message_("") {}
+NumericalIntegrationApp::NumericalIntegrationApp() : message_("") {
+    methods.resize(6);
+    methods[0] = new Left_rectangle_method();
+    methods[1] = new Right_rectangle_method();
+    methods[2] = new Middle_rectangle_method();
+    methods[3] = new Trapezoid_method();
+    methods[4] = new Simpsons_method();
+    methods[5] = new Gauss_method();
+}
+
+NumericalIntegrationApp::~NumericalIntegrationApp() {
+    for (unsigned int i = 0; i < methods.size(); i++) {
+        delete methods[i];
+    }
+}
 
 void NumericalIntegrationApp::help(const char* appname, const char* message) {
     message_ =
@@ -70,14 +82,19 @@ bool NumericalIntegrationApp::validateNumberOfArguments(int argc,
     return true;
 }
 
+void NumericalIntegrationApp::set_vector(double a, double b) {
+    for (unsigned int i = 0; i < methods.size(); i++) {
+        methods[i]->Set_integration_borders(a, b);
+    }
+}
+
 bool NumericalIntegrationApp::validateArguments(int argc,
                                                 const char**argv) {
     Arguments args;
 
-    args.N = static_cast<unsigned int>
-            (stoul(static_cast<std::string>(argv[3])));
-    args.num_function = stoi(static_cast<std::string>(argv[4]));
-    args.method = std::stoi(static_cast<std::string>(argv[5]));
+    args.N = static_cast<unsigned int>(std::stoul(std::string(argv[3])));
+    args.num_function = std::stoi(std::string(argv[4]));
+    args.method = std::stoi(std::string(argv[5]));
 
     if (args.N < 1 || args.N > 1000000) {
         help(argv[0], "Incorrect <number_of_iteration>\n\n");
@@ -92,15 +109,6 @@ bool NumericalIntegrationApp::validateArguments(int argc,
     return true;
 }
 
-void set_vector(double a, double b) {
-    methods[0] = new Left_rectangle_method(a, b);
-    methods[1] = new Right_rectangle_method(a, b);
-    methods[2] = new Middle_rectangle_method(a, b);
-    methods[3] = new Trapezoid_method(a, b);
-    methods[4] = new Simpsons_method(a, b);
-    methods[5] = new Gauss_method(a, b);
-}
-
 std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
     Arguments args;
 
@@ -108,12 +116,11 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        args.a = std::stod(static_cast<std::string>(argv[1]));
-        args.b = std::stod(static_cast<std::string>(argv[2]));
-        args.N = static_cast<unsigned int>
-                (stoul(static_cast<std::string>(argv[3])));
-        args.num_function = stoi(static_cast<std::string>(argv[4]));
-        args.method = std::stoi(static_cast<std::string>(argv[5]));
+        args.a = std::stod(std::string(argv[1]));
+        args.b = std::stod(std::string(argv[2]));
+        args.N = static_cast<unsigned int>(std::stoul(std::string(argv[3])));
+        args.num_function = std::stoi(std::string(argv[4]));
+        args.method = std::stoi(std::string(argv[5]));
     }
     catch(std::invalid_argument& e) {
         return "Wrong number format!";
@@ -122,27 +129,26 @@ std::string NumericalIntegrationApp::operator()(int argc, const char** argv) {
         return message_;
     }
     std::ostringstream stream;
-    try {
-        set_vector(args.a, args.b);
-        if (args.num_function == 1) {
-            func1 f;
+    set_vector(args.a, args.b);
+    func1 f1;
+    func2 f2;
+    func3 f3;
+    switch (args.num_function) {
+        case 1:
             stream << "Answer is ";
             stream << std::fixed << std::setprecision(4) <<
-                      methods[args.method - 1]->Integration_method(&f, args.N);
-        } else if (args.num_function == 2) {
-            func2 f;
+                      methods[args.method - 1]->Integration_method(&f1, args.N);
+            break;
+        case 2:
             stream << "Answer is ";
             stream << std::fixed << std::setprecision(4) <<
-                      methods[args.method - 1]->Integration_method(&f, args.N);
-        } else {
-            func3 f;
+                      methods[args.method - 1]->Integration_method(&f2, args.N);
+            break;
+        default:
             stream << "Answer is ";
             stream << std::fixed << std::setprecision(4) <<
-                      methods[args.method - 1]->Integration_method(&f, args.N);
-        }
-    }
-     catch(const std::invalid_argument& e) {
-        return e.what();
+                      methods[args.method - 1]->Integration_method(&f3, args.N);
+            break;
     }
 
     message_ = stream.str();
