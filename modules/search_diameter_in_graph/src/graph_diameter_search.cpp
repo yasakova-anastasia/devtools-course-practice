@@ -3,6 +3,7 @@
 #include "include/graph_diameter_search.h"
 #include <limits.h>
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <list>
 
@@ -23,6 +24,10 @@ void Graph::addEdge(int first, int second) {
   if (numberOfEdges > numberOfVert * ((numberOfVert - 1) / 2)) {
     throw "Can't add this edge. Complete graph.";
   }
+  auto it = std::find(adjList[first].begin(), adjList[first].end(), second);
+  if (it != adjList[first].end())
+    throw "Can't add existing edge.";
+
   adjList[first].push_back(second);
   adjList[second].push_back(first);
 }
