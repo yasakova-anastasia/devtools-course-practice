@@ -4,10 +4,10 @@
 #include <vector>
 #include "include/roman-arabic-converter.h"
 
-constexpr char romanNumbersC[] = "IVXLCDM";
 const std::string romanNumbersS = "IVXLCDM";
 
 int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
+    constexpr char romanNumbersC[] = "IVXLCDM";
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         if (romanNum[i] != romanNumbersS[0] &&
             romanNum[i] != romanNumbersS[1] &&
@@ -117,6 +117,7 @@ int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
 }
 
 int RomanArabicConverter::setArabicNum(std::string romanNum) {
+    constexpr char romanNumbersC[] = "IVXLCDM";
     int arabicNum = 0;
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         switch (romanNum[i]) {
@@ -194,7 +195,7 @@ std::string RomanArabicConverter::setRomanNumUnits(int arabicNumUnits) {
     switch (arabicNumUnits) {
         case 1:
             romanNumUnits.resize(1);
-            romanNumUnits[0] = romanNumbersC[0];
+            romanNumUnits[0] = romanNumbersS[0];
             break;
         case 2:
             romanNumUnits.resize(2);
