@@ -54,10 +54,13 @@ void Stack::put(const double elem) {
     src[top] = elem;
     int tmp = top;
     tmp--;
-    if (min_items[tmp] > elem)
+    if (tmp >= 0) {
+        if (min_items[tmp] > elem)
+            min_items[top] = elem;
+        else
+            min_items[top] = min_items[tmp];
+    } else
         min_items[top] = elem;
-    else
-        min_items[top] = min_items[tmp];
     top++;
 }
 
@@ -67,15 +70,11 @@ double Stack::pop() {
 }
 
 double Stack::getUpper() {
-    int tmp = top;
-    tmp--;
-    return src[tmp];
+    return src[top-1];
 }
 
 double Stack::getMin() {
-    int tmp = top;
-    tmp--;
-    return min_items[tmp];
+    return min_items[top-1];
 }
 
 void Stack::operator = (const Stack& stack) {
