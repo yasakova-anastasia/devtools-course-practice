@@ -194,7 +194,7 @@ std::string RomanArabicConverter::setRomanNumUnits(int arabicNumUnits) {
     switch (arabicNumUnits) {
         case 1:
             romanNumUnits.resize(1);
-            romanNumUnits[0] = romanNumbersS[0];
+            romanNumUnits[0] = romanNumbersC[0];
             break;
         case 2:
             romanNumUnits.resize(2);
