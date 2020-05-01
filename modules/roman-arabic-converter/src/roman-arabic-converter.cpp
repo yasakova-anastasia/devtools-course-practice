@@ -3,8 +3,6 @@
 #include <string>
 #include "include/roman-arabic-converter.h"
 
-constexpr char romanNumbers[7] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
-
 int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         if (romanNum[i] != romanNumbers[0] &&
