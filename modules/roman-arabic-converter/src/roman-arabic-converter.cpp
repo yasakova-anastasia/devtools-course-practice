@@ -4,10 +4,10 @@
 #include <vector>
 #include "include/roman-arabic-converter.h"
 
+constexpr char romanNumbersC[] = "IVXLCDM";
 const std::string romanNumbersS = "IVXLCDM";
 
 int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
-    constexpr char romanNumbersC[] = "IVXLCDM";
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         if (romanNum[i] != romanNumbersS[0] &&
             romanNum[i] != romanNumbersS[1] &&
@@ -22,7 +22,7 @@ int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
 
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         switch (romanNum[i]) {
-            case (char)romanNumbersC[0]:
+            case static_cast<char>(romanNumbersC[0]):
                 if (i < romanNum.size() - 3 &&
                     romanNum[i + 1] == romanNumbersS[0] &&
                     romanNum[i + 2] == romanNumbersS[0] &&
@@ -46,7 +46,7 @@ int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
                     }
                 }
                 break;
-            case (char)romanNumbersC[1]:
+            case static_cast<char>(romanNumbersC[1]):
                 if (i < romanNum.size() - 1 &&
                     (romanNum[i + 1] == romanNumbersS[1] ||
                     romanNum[i + 1] == romanNumbersS[2] ||
@@ -57,7 +57,7 @@ int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
                     throw(std::string)"Incorrect input of the roman number";
                 }
                 break;
-            case (char)romanNumbersC[2]:
+            case static_cast<char>(romanNumbersC[2]):
                 if (i < romanNum.size() - 3 &&
                     romanNum[i + 1] == romanNumbersS[2] &&
                     romanNum[i + 2] == romanNumbersS[2] &&
@@ -79,7 +79,7 @@ int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
                     }
                 }
                 break;
-            case (char)romanNumbersC[3]:
+            case static_cast<char>(romanNumbersC[3]):
                 if (i < romanNum.size() - 1 &&
                     (romanNum[i + 1] == romanNumbersS[3] ||
                     romanNum[i + 1] == romanNumbersS[4] ||
@@ -88,7 +88,7 @@ int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
                     throw(std::string)"Incorrect input of the roman number";
                 }
                 break;
-            case (char)romanNumbersC[4]:
+            case static_cast<char>(romanNumbersC[4]):
                 if (i < romanNum.size() - 3 &&
                     romanNum[i + 1] == romanNumbersS[4] &&
                     romanNum[i + 2] == romanNumbersS[4] &&
@@ -96,14 +96,14 @@ int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
                     throw(std::string)"Incorrect input of the roman number";
                 }
                 break;
-            case (char)romanNumbersC[5]:
+            case static_cast<char>(romanNumbersC[5]):
                 if (i < romanNum.size() - 1 &&
                    (romanNum[i + 1] == romanNumbersS[5] ||
                     romanNum[i + 1] == romanNumbersS[6])) {
                     throw(std::string)"Incorrect input of the roman number";
                 }
                 break;
-            case (char)romanNumbersC[6]:
+            case static_cast<char>(romanNumbersC[6]):
                 if (i < romanNum.size() - 3 &&
                     romanNum[i + 1] == romanNumbersS[6] &&
                     romanNum[i + 2] == romanNumbersS[6] &&
@@ -121,13 +121,13 @@ int RomanArabicConverter::setArabicNum(std::string romanNum) {
     int arabicNum = 0;
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         switch (romanNum[i]) {
-            case (char)romanNumbersC[6]:
+            case static_cast<char>(romanNumbersC[6]):
                 arabicNum += 1000;
                 break;
-            case (char)romanNumbersC[5]:
+            case static_cast<char>(romanNumbersC[5]):
                 arabicNum += 500;
                 break;
-            case (char)romanNumbersC[4]:
+            case static_cast<char>(romanNumbersC[4]):
                 if (romanNum[i + 1] == romanNumbersS[5] &&
                     i != romanNum.size() - 1) {
                     i++;
@@ -142,10 +142,10 @@ int RomanArabicConverter::setArabicNum(std::string romanNum) {
                 }
                 arabicNum += 100;
                 break;
-            case (char)romanNumbersC[3]:
+            case static_cast<char>(romanNumbersC[3]):
                 arabicNum += 50;
                 break;
-            case (char)romanNumbersC[2]:
+            case static_cast<char>(romanNumbersC[2]):
                 if (romanNum[i + 1] == romanNumbersS[3] &&
                     i != romanNum.size() - 1) {
                     i++;
@@ -160,10 +160,10 @@ int RomanArabicConverter::setArabicNum(std::string romanNum) {
                 }
                 arabicNum += 10;
                 break;
-            case (char)romanNumbersC[1]:
+            case static_cast<char>(romanNumbersC[1]):
                 arabicNum += 5;
                 break;
-            case (char)romanNumbersC[0]:
+            case static_cast<char>(romanNumbersC[0]):
                 if (romanNum[i + 1] == romanNumbersS[1] &&
                     i != romanNum.size() - 1) {
                 i++;
