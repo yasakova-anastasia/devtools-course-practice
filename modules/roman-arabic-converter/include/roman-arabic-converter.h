@@ -5,8 +5,6 @@
 
 #include <string>
 
-constexpr char romanNumbers[7] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
-
 class RomanArabicConverter {
  private:
     int validationCheckRomanNum(std::string romanNum);

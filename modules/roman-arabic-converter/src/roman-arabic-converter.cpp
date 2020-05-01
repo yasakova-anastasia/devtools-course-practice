@@ -1,7 +1,10 @@
 // Copyright 2020 Vedrukov Pavel
 
 #include <string>
+#include <vector>
 #include "include/roman-arabic-converter.h"
+
+const char romanNumbers[7] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
 
 int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
     for (unsigned int i = 0; i < romanNum.size(); i++) {
