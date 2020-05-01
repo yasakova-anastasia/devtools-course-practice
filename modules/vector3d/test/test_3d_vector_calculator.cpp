@@ -33,7 +33,7 @@ class Vector3DCalculatorTest : public ::testing::Test {
     }
 
  private:
-    Vector3DCalculator app_;
+    Vector3DApplication app_;
     string output_;
 };
 
@@ -53,8 +53,16 @@ TEST_F(Vector3DCalculatorTest, Check_Number_Of_Arguments) {
     Assert("Should be 4 or 7 arguments\\..*");
 }
 
-TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "qwerty", "1", "1", "1", "1", "1", "+" };
+TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format4) {
+    vector<string> args = { "q", "1", "1", "+" };
+
+    Act(args);
+
+    Assert("Wrong number format!*");
+}
+
+TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format7) {
+    vector<string> args = { "q", "1", "1", "1", "1", "1", "+" };
 
     Act(args);
 
@@ -62,7 +70,7 @@ TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format7) {
-    vector<string> args = { "1", "1", "1", "1", "1", "1", "qwerty" };
+    vector<string> args = { "1", "1", "1", "1", "1", "1", "q" };
 
     Act(args);
 
@@ -70,7 +78,7 @@ TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format7) {
 }
 
 TEST_F(Vector3DCalculatorTest, Can_Detect_Wrong_Operation_Format4) {
-    vector<string> args = { "1", "1", "1", "qwerty" };
+    vector<string> args = { "1", "1", "1", "q" };
 
     Act(args);
 

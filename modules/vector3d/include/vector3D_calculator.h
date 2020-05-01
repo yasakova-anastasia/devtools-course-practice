@@ -3,34 +3,60 @@
 #ifndef MODULES_VECTOR3D_INCLUDE_VECTOR3D_CALCULATOR_H_
 #define MODULES_VECTOR3D_INCLUDE_VECTOR3D_CALCULATOR_H_
 
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <sstream>
 #include <iostream>
 #include <string>
 #include <vector>
 
+using std::string;
+using std::vector;
+using std::stod;
+using std::invalid_argument;
+using std::ostringstream;
+
 class Vector3DCalculator {
  public:
     Vector3DCalculator();
-    std::string operator()(int argc, const char** argv);
+    virtual string calculate(const string* argv) = 0;
+
+ protected:
+    string message_;
+    char operation;
+ 
+};
+
+class Vector3DCalculatorForOneVector : public Vector3DCalculator {
+ public:
+    Vector3DCalculatorForOneVector() : Vector3DCalculator() {};
+    string calculate(const string* argv);
 
  private:
-    void help(const char* appname, const char* message = "");
-    bool validateNumberOfArguments(int argc, const char** argv);
-    std::string message_;
-    typedef struct {
-        double v1_x;
-        double v1_y;
-        double v1_z;
-        double v2_x;
-        double v2_y;
-        double v2_z;
-        char operation;
-    } Arguments;
+    vector<double> v;
+
+};
+
+class Vector3DCalculatorForTwoVectors : public Vector3DCalculator {
+ public:
+    Vector3DCalculatorForTwoVectors() : Vector3DCalculator() {};
+    string calculate(const string* argv);
+
+ private:
+    vector<double> v1;
+    vector<double> v2;
+
+};
+
+class Vector3DApplication {
+ public:
+    Vector3DApplication();
+    string operator()(int argc, const char** argv);
+
+ private:
+    void help(const string appname, const char* message = "");
+    bool validateNumberOfArguments(int argc, const string* argv);
+
+    string message_;
+
 };
 
 #endif  // MODULES_VECTOR3D_INCLUDE_VECTOR3D_CALCULATOR_H_
