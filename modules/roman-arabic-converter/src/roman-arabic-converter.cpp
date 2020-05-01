@@ -5,7 +5,7 @@
 #include "include/roman-arabic-converter.h"
 
 constexpr char romanNumbersC[] = "IVXLCDM";
-const std::string str = "IVXLCDM";
+
 int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         for (unsigned int j = 0; j < 7; j++) {
