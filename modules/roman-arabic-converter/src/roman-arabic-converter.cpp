@@ -3,137 +3,172 @@
 #include <string>
 #include "include/roman-arabic-converter.h"
 
-int RomanArabicConverter::romanToArabic(std::string romanNum) {
-    int arabicNum = 0;
+constexpr char romanNumbers[7] = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
 
-    // Search not roman
+int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
     for (unsigned int i = 0; i < romanNum.size(); i++) {
-        if (romanNum[i] != 'I' && romanNum[i] != 'V' && romanNum[i] != 'X' &&
-            romanNum[i] != 'L' && romanNum[i] != 'C' && romanNum[i] != 'D' &&
-            romanNum[i] != 'M') {
+        if (romanNum[i] != romanNumbers[0] &&
+            romanNum[i] != romanNumbers[1] &&
+            romanNum[i] != romanNumbers[2] &&
+            romanNum[i] != romanNumbers[3] &&
+            romanNum[i] != romanNumbers[4] &&
+            romanNum[i] != romanNumbers[5] &&
+            romanNum[i] != romanNumbers[6]) {
             throw(std::string)"It is not roman number";
         }
     }
-    // Search incorrect number
-    for (unsigned int i = 0; i < romanNum.size(); i++) {
-        if (romanNum[i] == 'I') {
-            if (i < romanNum.size() - 3 && romanNum[i + 1] == 'I' &&
-                romanNum[i + 2] == 'I' && romanNum[i + 3] == 'I') {
-                throw(std::string)"Incorrect input of the roman number";
-            }
-            if (i < romanNum.size() - 2) {
-                if ((romanNum[i + 1] == 'X' && romanNum[i + 2] == 'L') ||
-                    (romanNum[i + 1] == 'X' && romanNum[i + 2] == 'C')) {
-                    throw(std::string)"Incorrect input of the roman number";
-                }
-            }
-            if (i < romanNum.size() - 1) {
-                if (romanNum[i + 1] == 'L' || romanNum[i + 1] == 'C' ||
-                    romanNum[i + 1] == 'D' || romanNum[i + 1] == 'M') {
-                    throw(std::string)"Incorrect input of the roman number";
-                }
-            }
-        }
-        if (romanNum[i] == 'V') {
-            if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'V' ||
-                romanNum[i + 1] == 'X' || romanNum[i + 1] == 'L' ||
-                romanNum[i + 1] == 'C' || romanNum[i + 1] == 'D' ||
-                romanNum[i + 1] == 'M')) {
-                throw(std::string)"Incorrect input of the roman number";
-            }
-        }
-        if (romanNum[i] == 'X') {
-            if (i < romanNum.size() - 3 && romanNum[i + 1] == 'X' &&
-                romanNum[i + 2] == 'X' && romanNum[i + 3] == 'X') {
-                throw(std::string)"Incorrect input of the roman number";
-            }
-            if (i < romanNum.size() - 2) {
-                if ((romanNum[i + 1] == 'C' && romanNum[i + 2] == 'D') ||
-                    (romanNum[i + 1] == 'C' && romanNum[i + 2] == 'M')) {
-                    throw(std::string)"Incorrect input of the roman number";
-                }
-            }
-            if (i < romanNum.size() - 1) {
-                if (romanNum[i + 1] == 'D' || romanNum[i + 1] == 'M') {
-                    throw(std::string)"Incorrect input of the roman number";
-                }
-            }
-        }
-        if (romanNum[i] == 'L') {
-            if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'L' ||
-                romanNum[i + 1] == 'C' || romanNum[i + 1] == 'D' ||
-                romanNum[i + 1] == 'M')) {
-                throw(std::string)"Incorrect input of the roman number";
-            }
-        }
-        if (romanNum[i] == 'C') {
-            if (i < romanNum.size() - 3 && romanNum[i + 1] == 'C' &&
-                romanNum[i + 2] == 'C' && romanNum[i + 3] == 'C') {
-                throw(std::string)"Incorrect input of the roman number";
-            }
-        }
-        if (romanNum[i] == 'D') {
-            if (i < romanNum.size() - 1 && (romanNum[i + 1] == 'D' ||
-                romanNum[i + 1] == 'M')) {
-                throw(std::string)"Incorrect input of the roman number";
-            }
-        }
-        if (romanNum[i] == 'M') {
-            if (i < romanNum.size() - 3 && romanNum[i + 1] == 'M' &&
-                romanNum[i + 2] == 'M' && romanNum[i + 3] == 'M') {
-                throw(std::string)"Incorrect input of the roman number";
-            }
-        }
-    }
 
-    // Convert roman to arabic
     for (unsigned int i = 0; i < romanNum.size(); i++) {
         switch (romanNum[i]) {
-            case 'M':
+            case romanNumbers[0]:
+                if (i < romanNum.size() - 3 &&
+                    romanNum[i + 1] == romanNumbers[0] &&
+                    romanNum[i + 2] == romanNumbers[0] &&
+                    romanNum[i + 3] == romanNumbers[0]) {
+                    throw(std::string)"Incorrect input of the roman number";
+                }
+                if (i < romanNum.size() - 2) {
+                    if ((romanNum[i + 1] == romanNumbers[2] &&
+                        romanNum[i + 2] == romanNumbers[3]) ||
+                        (romanNum[i + 1] == romanNumbers[2] &&
+                        romanNum[i + 2] == romanNumbers[4])) {
+                        throw(std::string)"Incorrect input of the roman number";
+                    }
+                }
+                if (i < romanNum.size() - 1) {
+                    if (romanNum[i + 1] == romanNumbers[3] ||
+                        romanNum[i + 1] == romanNumbers[4] ||
+                        romanNum[i + 1] == romanNumbers[5] ||
+                        romanNum[i + 1] == romanNumbers[6]) {
+                        throw(std::string)"Incorrect input of the roman number";
+                    }
+                }
+                break;
+            case romanNumbers[1]:
+                if (i < romanNum.size() - 1 &&
+                    (romanNum[i + 1] == romanNumbers[1] ||
+                    romanNum[i + 1] == romanNumbers[2] ||
+                    romanNum[i + 1] == romanNumbers[3] ||
+                    romanNum[i + 1] == romanNumbers[4] ||
+                    romanNum[i + 1] == romanNumbers[5] ||
+                    romanNum[i + 1] == romanNumbers[6])) {
+                    throw(std::string)"Incorrect input of the roman number";
+                }
+                break;
+            case romanNumbers[2]:
+                if (i < romanNum.size() - 3 &&
+                    romanNum[i + 1] == romanNumbers[2] &&
+                    romanNum[i + 2] == romanNumbers[2] &&
+                    romanNum[i + 3] == romanNumbers[2]) {
+                    throw(std::string)"Incorrect input of the roman number";
+                }
+                if (i < romanNum.size() - 2) {
+                    if ((romanNum[i + 1] == romanNumbers[4] &&
+                        romanNum[i + 2] == romanNumbers[5]) ||
+                        (romanNum[i + 1] == romanNumbers[4] &&
+                        romanNum[i + 2] == romanNumbers[6])) {
+                        throw(std::string)"Incorrect input of the roman number";
+                    }
+                }
+                if (i < romanNum.size() - 1) {
+                    if (romanNum[i + 1] == romanNumbers[5] ||
+                        romanNum[i + 1] == romanNumbers[6]) {
+                        throw(std::string)"Incorrect input of the roman number";
+                    }
+                }
+                break;
+            case romanNumbers[3]:
+                if (i < romanNum.size() - 1 &&
+                    (romanNum[i + 1] == romanNumbers[3] ||
+                    romanNum[i + 1] == romanNumbers[4] ||
+                    romanNum[i + 1] == romanNumbers[5] ||
+                    romanNum[i + 1] == romanNumbers[6])) {
+                    throw(std::string)"Incorrect input of the roman number";
+                }
+                break;
+            case romanNumbers[4]:
+                if (i < romanNum.size() - 3 &&
+                    romanNum[i + 1] == romanNumbers[4] &&
+                    romanNum[i + 2] == romanNumbers[4] &&
+                    romanNum[i + 3] == romanNumbers[4]) {
+                    throw(std::string)"Incorrect input of the roman number";
+                }
+                break;
+            case romanNumbers[5]:
+                if (i < romanNum.size() - 1 &&
+                   (romanNum[i + 1] == romanNumbers[5] ||
+                    romanNum[i + 1] == romanNumbers[6])) {
+                    throw(std::string)"Incorrect input of the roman number";
+                }
+                break;
+            case romanNumbers[6]:
+                if (i < romanNum.size() - 3 &&
+                    romanNum[i + 1] == romanNumbers[6] &&
+                    romanNum[i + 2] == romanNumbers[6] &&
+                    romanNum[i + 3] == romanNumbers[6]) {
+                    throw(std::string)"Incorrect input of the roman number";
+                }
+                break;
+        }
+    }
+    return 0;
+}
+
+int RomanArabicConverter::setArabicNum(std::string romanNum) {
+    int arabicNum = 0;
+    for (unsigned int i = 0; i < romanNum.size(); i++) {
+        switch (romanNum[i]) {
+            case romanNumbers[6]:
                 arabicNum += 1000;
                 break;
-            case 'D':
+            case romanNumbers[5]:
                 arabicNum += 500;
                 break;
-            case 'C':
-                if (romanNum[i + 1] == 'D' && i != romanNum.size() - 1) {
+            case romanNumbers[4]:
+                if (romanNum[i + 1] == romanNumbers[5] &&
+                    i != romanNum.size() - 1) {
                     i++;
                     arabicNum += 400;
                     break;
                 }
-                if (romanNum[i + 1] == 'M' && i != romanNum.size() - 1) {
+                if (romanNum[i + 1] == romanNumbers[6] &&
+                    i != romanNum.size() - 1) {
                     i++;
                     arabicNum += 900;
                     break;
                 }
                 arabicNum += 100;
                 break;
-            case 'L':
+            case romanNumbers[3]:
                 arabicNum += 50;
                 break;
-            case 'X':
-                if (romanNum[i + 1] == 'L' && i != romanNum.size() - 1) {
+            case romanNumbers[2]:
+                if (romanNum[i + 1] == romanNumbers[3] &&
+                    i != romanNum.size() - 1) {
                     i++;
                     arabicNum += 40;
                     break;
                 }
-                if (romanNum[i + 1] == 'C' && i != romanNum.size() - 1) {
+                if (romanNum[i + 1] == romanNumbers[4] &&
+                    i != romanNum.size() - 1) {
                     i++;
                     arabicNum += 90;
                     break;
                 }
                 arabicNum += 10;
                 break;
-            case 'V':
+            case romanNumbers[1]:
                 arabicNum += 5;
                 break;
-            case 'I':
-                if (romanNum[i + 1] == 'V' && i != romanNum.size() - 1) {
+            case romanNumbers[0]:
+                if (romanNum[i + 1] == romanNumbers[1] &&
+                    i != romanNum.size() - 1) {
                 i++;
                 arabicNum += 4;
                 break;
                 }
-                if (romanNum[i + 1] == 'X' && i != romanNum.size() - 1) {
+                if (romanNum[i + 1] == romanNumbers[2] &&
+                    i != romanNum.size() - 1) {
                     i++;
                     arabicNum += 9;
                     break;
@@ -142,123 +177,223 @@ int RomanArabicConverter::romanToArabic(std::string romanNum) {
                 break;
         }
     }
+    return arabicNum;
+}
 
-    // Return
+int RomanArabicConverter::validationCheckArabicNum(int arabicNum) {
+    if (arabicNum < 1 || arabicNum > 3999) {
+        throw(std::string)"OutOfRange";
+    }
+    return 0;
+}
+
+std::string RomanArabicConverter::setRomanNumUnits(int arabicNumUnits) {
+    std::string romanNumUnits = "";
+    switch (arabicNumUnits) {
+        case 1:
+            romanNumUnits.resize(1);
+            romanNumUnits[0] = romanNumbers[0];
+            break;
+        case 2:
+            romanNumUnits.resize(2);
+            romanNumUnits[0] = romanNumbers[0];
+            romanNumUnits[1] = romanNumbers[0];
+            break;
+        case 3:
+            romanNumUnits.resize(3);
+            romanNumUnits[0] = romanNumbers[0];
+            romanNumUnits[1] = romanNumbers[0];
+            romanNumUnits[2] = romanNumbers[0];
+            break;
+        case 4:
+            romanNumUnits.resize(2);
+            romanNumUnits[0] = romanNumbers[0];
+            romanNumUnits[1] = romanNumbers[1];
+            break;
+        case 5:
+            romanNumUnits.resize(1);
+            romanNumUnits[0] = romanNumbers[1];
+            break;
+        case 6:
+            romanNumUnits.resize(2);
+            romanNumUnits[0] = romanNumbers[1];
+            romanNumUnits[1] = romanNumbers[0];
+            break;
+        case 7:
+            romanNumUnits.resize(3);
+            romanNumUnits[0] = romanNumbers[1];
+            romanNumUnits[1] = romanNumbers[0];
+            romanNumUnits[2] = romanNumbers[0];
+            break;
+        case 8:
+            romanNumUnits.resize(4);
+            romanNumUnits[0] = romanNumbers[1];
+            romanNumUnits[1] = romanNumbers[0];
+            romanNumUnits[2] = romanNumbers[0];
+            romanNumUnits[3] = romanNumbers[0];
+            break;
+        case 9:
+            romanNumUnits.resize(2);
+            romanNumUnits[0] = romanNumbers[0];
+            romanNumUnits[1] = romanNumbers[2];
+            break;
+    }
+    return romanNumUnits;
+}
+
+std::string RomanArabicConverter::setRomanNumTens(int arabicNumTens) {
+    std::string romanNumTens = "";
+    switch (arabicNumTens) {
+        case 1:
+            romanNumTens.resize(1);
+            romanNumTens[0] = romanNumbers[2];
+            break;
+        case 2:
+            romanNumTens.resize(2);
+            romanNumTens[0] = romanNumbers[2];
+            romanNumTens[1] = romanNumbers[2];
+            break;
+        case 3:
+            romanNumTens.resize(3);
+            romanNumTens[0] = romanNumbers[2];
+            romanNumTens[1] = romanNumbers[2];
+            romanNumTens[2] = romanNumbers[2];
+            break;
+        case 4:
+            romanNumTens.resize(2);
+            romanNumTens[0] = romanNumbers[2];
+            romanNumTens[1] = romanNumbers[3];
+            break;
+        case 5:
+            romanNumTens.resize(1);
+            romanNumTens[0] = romanNumbers[3];
+            break;
+        case 6:
+            romanNumTens.resize(2);
+            romanNumTens[0] = romanNumbers[3];
+            romanNumTens[1] = romanNumbers[2];
+            break;
+        case 7:
+            romanNumTens.resize(3);
+            romanNumTens[0] = romanNumbers[3];
+            romanNumTens[1] = romanNumbers[2];
+            romanNumTens[2] = romanNumbers[2];
+            break;
+        case 8:
+            romanNumTens.resize(4);
+            romanNumTens[0] = romanNumbers[3];
+            romanNumTens[1] = romanNumbers[2];
+            romanNumTens[2] = romanNumbers[2];
+            romanNumTens[3] = romanNumbers[2];
+            break;
+        case 9:
+            romanNumTens.resize(2);
+            romanNumTens[0] = romanNumbers[2];
+            romanNumTens[1] = romanNumbers[4];
+            break;
+    }
+    return romanNumTens;
+}
+
+std::string RomanArabicConverter::setRomanNumHundreds(int arabicNumHundreds) {
+    std::string romanNumHundreds = "";
+    switch (arabicNumHundreds) {
+        case 1:
+            romanNumHundreds.resize(1);
+            romanNumHundreds[0] = romanNumbers[4];
+            break;
+        case 2:
+            romanNumHundreds.resize(2);
+            romanNumHundreds[0] = romanNumbers[4];
+            romanNumHundreds[1] = romanNumbers[4];
+            break;
+        case 3:
+            romanNumHundreds.resize(3);
+            romanNumHundreds[0] = romanNumbers[4];
+            romanNumHundreds[1] = romanNumbers[4];
+            romanNumHundreds[2] = romanNumbers[4];
+            break;
+        case 4:
+            romanNumHundreds.resize(2);
+            romanNumHundreds[0] = romanNumbers[4];
+            romanNumHundreds[1] = romanNumbers[5];
+            break;
+        case 5:
+            romanNumHundreds.resize(1);
+            romanNumHundreds[0] = romanNumbers[5];
+            break;
+        case 6:
+            romanNumHundreds.resize(2);
+            romanNumHundreds[0] = romanNumbers[5];
+            romanNumHundreds[1] = romanNumbers[4];
+            break;
+        case 7:
+            romanNumHundreds.resize(3);
+            romanNumHundreds[0] = romanNumbers[5];
+            romanNumHundreds[1] = romanNumbers[4];
+            romanNumHundreds[2] = romanNumbers[4];
+            break;
+        case 8:
+            romanNumHundreds.resize(4);
+            romanNumHundreds[0] = romanNumbers[5];
+            romanNumHundreds[1] = romanNumbers[4];
+            romanNumHundreds[2] = romanNumbers[4];
+            romanNumHundreds[3] = romanNumbers[4];
+            break;
+        case 9:
+            romanNumHundreds.resize(2);
+            romanNumHundreds[0] = romanNumbers[4];
+            romanNumHundreds[1] = romanNumbers[6];
+            break;
+    }
+    return romanNumHundreds;
+}
+
+std::string RomanArabicConverter::setRomanNumThousands(int arabicNumThousands) {
+    std::string romanNumThousands = "";
+    switch (arabicNumThousands) {
+        case 1:
+            romanNumThousands.resize(1);
+            romanNumThousands[0] = romanNumbers[6];
+            break;
+        case 2:
+            romanNumThousands.resize(2);
+            romanNumThousands[0] = romanNumbers[6];
+            romanNumThousands[1] = romanNumbers[6];
+            break;
+        case 3:
+            romanNumThousands.resize(3);
+            romanNumThousands[0] = romanNumbers[6];
+            romanNumThousands[1] = romanNumbers[6];
+            romanNumThousands[2] = romanNumbers[6];
+            break;
+    }
+    return romanNumThousands;
+}
+
+std::string RomanArabicConverter::setRomanNum(int arabicNum) {
+    std::string romanNum = "";
+    int digitArabicNum[4] = {arabicNum / 1000, arabicNum % 1000 / 100,
+                             arabicNum % 100 / 10, arabicNum % 10};
+    romanNum.insert(0, setRomanNumUnits(digitArabicNum[3]));
+    romanNum.insert(0, setRomanNumTens(digitArabicNum[2]));
+    romanNum.insert(0, setRomanNumHundreds(digitArabicNum[1]));
+    romanNum.insert(0, setRomanNumThousands(digitArabicNum[0]));
+    return romanNum;
+}
+
+int RomanArabicConverter::romanToArabic(std::string romanNum) {
+    int arabicNum = 0;
+    if (validationCheckRomanNum(romanNum) == 0) {
+        arabicNum = setArabicNum(romanNum);
+    }
     return arabicNum;
 }
 
 std::string RomanArabicConverter::arabicToRoman(int arabicNum) {
     std::string romanNum = "";
-
-    // Search input error
-    if (arabicNum < 1 || arabicNum > 3999) {
-        throw(std::string)"OutOfRange";
+    if (validationCheckArabicNum(arabicNum) == 0) {
+        romanNum = setRomanNum(arabicNum);
     }
-
-    int digitArabicNum[4] = {arabicNum / 1000, arabicNum % 1000 / 100,
-                             arabicNum % 100 / 10, arabicNum % 10};
-
-    switch (digitArabicNum[3]) {
-        case 1:
-            romanNum.insert(0, "I");
-            break;
-        case 2:
-            romanNum.insert(0, "II");
-            break;
-        case 3:
-            romanNum.insert(0, "III");
-            break;
-        case 4:
-            romanNum.insert(0, "IV");
-            break;
-        case 5:
-            romanNum.insert(0, "V");
-            break;
-        case 6:
-            romanNum.insert(0, "VI");
-            break;
-        case 7:
-            romanNum.insert(0, "VII");
-            break;
-        case 8:
-            romanNum.insert(0, "VIII");
-            break;
-        case 9:
-            romanNum.insert(0, "IX");
-            break;
-    }
-
-    switch (digitArabicNum[2]) {
-        case 1:
-            romanNum.insert(0, "X");
-            break;
-        case 2:
-            romanNum.insert(0, "XX");
-            break;
-        case 3:
-            romanNum.insert(0, "XXX");
-            break;
-        case 4:
-            romanNum.insert(0, "XL");
-            break;
-        case 5:
-            romanNum.insert(0, "L");
-            break;
-        case 6:
-            romanNum.insert(0, "LX");
-            break;
-        case 7:
-            romanNum.insert(0, "LXX");
-            break;
-        case 8:
-            romanNum.insert(0, "LXXX");
-            break;
-        case 9:
-            romanNum.insert(0, "XC");
-            break;
-    }
-
-    switch (digitArabicNum[1]) {
-        case 1:
-            romanNum.insert(0, "C");
-            break;
-        case 2:
-            romanNum.insert(0, "CC");
-            break;
-        case 3:
-            romanNum.insert(0, "CCC");
-            break;
-        case 4:
-            romanNum.insert(0, "CD");
-            break;
-        case 5:
-            romanNum.insert(0, "D");
-            break;
-        case 6:
-            romanNum.insert(0, "DC");
-            break;
-        case 7:
-            romanNum.insert(0, "DCC");
-            break;
-        case 8:
-            romanNum.insert(0, "DCCC");
-            break;
-        case 9:
-            romanNum.insert(0, "CM");
-            break;
-    }
-
-    switch (digitArabicNum[0]) {
-        case 1:
-            romanNum.insert(0, "M");
-            break;
-        case 2:
-            romanNum.insert(0, "MM");
-            break;
-        case 3:
-            romanNum.insert(0, "MMM");
-            break;
-    }
-
     return romanNum;
 }
