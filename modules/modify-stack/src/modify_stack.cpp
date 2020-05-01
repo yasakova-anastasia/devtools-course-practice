@@ -59,8 +59,9 @@ void Stack::put(const double elem) {
             min_items[top] = elem;
         else
             min_items[top] = min_items[tmp];
-    } else
+    } else {
         min_items[top] = elem;
+    }
     top++;
 }
 

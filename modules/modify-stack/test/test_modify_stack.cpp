@@ -183,3 +183,18 @@ TEST(Stack, Do_Get_Top) {
     // Assert
     EXPECT_EQ(ex_top, s.getTop());
 }
+
+TEST(Stack, Another_test_for_review) {
+    // Arrange
+    int size = 4;
+    Stack s(size);
+    double ex_min = 1;
+
+    // Act
+    for (int i = 0; i < size; i++) {
+        s.put(static_cast<double>(i+1));
+    }
+
+    // Assert
+    EXPECT_EQ(ex_min, s.getMin());
+}
