@@ -11,39 +11,36 @@
 using std::string;
 using std::vector;
 using std::stod;
-using std::invalid_argument;
 using std::ostringstream;
 
 class Vector3DCalculator {
  public:
     Vector3DCalculator();
+    virtual ~Vector3DCalculator() {}
     virtual string calculate(const string* argv) = 0;
 
  protected:
     string message_;
     char operation;
- 
 };
 
 class Vector3DCalculatorForOneVector : public Vector3DCalculator {
  public:
-    Vector3DCalculatorForOneVector() : Vector3DCalculator() {};
+    Vector3DCalculatorForOneVector() : Vector3DCalculator() {}
     string calculate(const string* argv);
 
  private:
     vector<double> v;
-
 };
 
 class Vector3DCalculatorForTwoVectors : public Vector3DCalculator {
  public:
-    Vector3DCalculatorForTwoVectors() : Vector3DCalculator() {};
+    Vector3DCalculatorForTwoVectors() : Vector3DCalculator() {}
     string calculate(const string* argv);
 
  private:
     vector<double> v1;
     vector<double> v2;
-
 };
 
 class Vector3DApplication {
@@ -56,7 +53,6 @@ class Vector3DApplication {
     bool validateNumberOfArguments(int argc, const string* argv);
 
     string message_;
-
 };
 
 #endif  // MODULES_VECTOR3D_INCLUDE_VECTOR3D_CALCULATOR_H_

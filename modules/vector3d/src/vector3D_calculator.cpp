@@ -88,7 +88,7 @@ string Vector3DCalculatorForOneVector::calculate(const string* argv) {
         v[1] = stod(argv[2]);
         v[2] = stod(argv[3]);
     }
-    catch (invalid_argument& arg) {
+    catch (std::invalid_argument& arg) {
         return string("Wrong number format!");
     }
 
@@ -155,7 +155,7 @@ string Vector3DCalculatorForTwoVectors::calculate(const string* argv) {
         v2[1] = stod(argv[5]);
         v2[2] = stod(argv[6]);
     }
-    catch (invalid_argument& arg) {
+    catch (std::invalid_argument& arg) {
         return string("Wrong number format!");
     }
 
