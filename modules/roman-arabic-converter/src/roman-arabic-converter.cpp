@@ -5,17 +5,16 @@
 #include "include/roman-arabic-converter.h"
 
 constexpr char romanNumbersC[] = "IVXLCDM";
-
+const std::string str = "IVXLCDM";
 int RomanArabicConverter::validationCheckRomanNum(std::string romanNum) {
     for (unsigned int i = 0; i < romanNum.size(); i++) {
-        if (romanNum[i] != romanNumbersC[0] &&
-            romanNum[i] != romanNumbersC[1] &&
-            romanNum[i] != romanNumbersC[2] &&
-            romanNum[i] != romanNumbersC[3] &&
-            romanNum[i] != romanNumbersC[4] &&
-            romanNum[i] != romanNumbersC[5] &&
-            romanNum[i] != romanNumbersC[6]) {
-            throw(std::string)"It is not roman number";
+        for (unsigned int j = 0; j < 7; j++) {
+            if (romanNum[i] == romanNumbersC[j]) {
+                break;
+            }
+            if (j == 6) {
+                throw(std::string)"It is not roman number";
+            }
         }
     }
 
