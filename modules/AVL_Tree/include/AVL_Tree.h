@@ -16,9 +16,8 @@ struct Node {
     int height;
     Node* leftNode;
     Node* rightNode;
-    explicit Node(int key_) {
-        key = key_; height = 1; leftNode = rightNode = nullptr;
-    }
+    explicit Node(int key_) : key(key_), height(1),
+        leftNode(nullptr), rightNode(nullptr) {}
 };
 
 
@@ -45,19 +44,19 @@ class AVL_Tree{
     Node* Remove(Node* top, const int& key_);
 
  public:
-    AVL_Tree();
+    AVL_Tree(void);
 
     Node* InitRoot(const int& key_);  // Init RootNode
 
-    Node* GetRootNode();  // Get functions
-    int GetRootKey();
+    Node* GetRootNode(void);  // Get functions
+    int GetRootKey(void);
     int GetHeight(Node* top);
     Node* GetLeftSubtree(Node* top);
     Node* GetRightSubtree(Node* top);
     int GetKey(Node* top);
 
-    int FindMin();
-    int FindMax();
+    int FindMin(void);
+    int FindMax(void);
 
     Status Insert(const int& key_);
     Status Remove(const int& key_);

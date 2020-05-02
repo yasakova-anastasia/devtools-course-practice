@@ -3,9 +3,6 @@
 #include "include/AVL_Tree.h"
 
 
-  ///////////////////////////////////////////////////////////////////////////
-  // PRIVATE FUNCTIONS
-
 int AVL_Tree::BFactor(Node* top) {
     return GetHeight(top->rightNode) - GetHeight(top->leftNode);
 }
@@ -106,10 +103,9 @@ Node* AVL_Tree::Remove(Node* top, const int& key_) {
     return Balance(top);
 }
 
-  ////////////////////////////////////////////////////////////////////////////
-  // PUBLIC FUNCTIONS
 
-AVL_Tree::AVL_Tree() {
+
+AVL_Tree::AVL_Tree(void) {
     RootNode = nullptr;
 }
 
@@ -118,11 +114,11 @@ Node* AVL_Tree::InitRoot(const int& key_) {
     return RootNode;
 }
 
-Node* AVL_Tree::GetRootNode() {
+Node* AVL_Tree::GetRootNode(void) {
     return RootNode;
 }
 
-int AVL_Tree::GetRootKey() {
+int AVL_Tree::GetRootKey(void) {
     return RootNode->key;
 }
 
@@ -147,12 +143,12 @@ int AVL_Tree::GetKey(Node* top) {
 }
 
 
-int AVL_Tree::FindMin() {
+int AVL_Tree::FindMin(void) {
     Node* ptr = FindMin(RootNode);
     return ptr->key;
 }
 
-int AVL_Tree::FindMax() {
+int AVL_Tree::FindMax(void) {
     Node* ptr = FindMax(RootNode);
     return ptr->key;
 }
