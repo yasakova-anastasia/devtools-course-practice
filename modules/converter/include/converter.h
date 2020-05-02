@@ -5,16 +5,14 @@
 
 class Convert {
  private:
-const double num_to_Kelvins = 273.15;
-const double num_to_Newton = 0.33;
+    const double num_to_Kelvins = 273.15;
+    const double num_to_Newton = 0.33;
 
  public:
     Convert() {}
 
     double convert_to_Kelvins(const double& celsius);
-
     double convert_to_Fahrenheit(const double& celsius);
-
     double convert_to_Newton(const double& celsius);
 };
 
