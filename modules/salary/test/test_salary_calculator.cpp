@@ -79,7 +79,7 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours) {
     float payment = a4.payment();
 
     // Assert
-    EXPECT_EQ(69000,payment);
+    EXPECT_EQ(69000, payment);
 }
 
 TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked) {
