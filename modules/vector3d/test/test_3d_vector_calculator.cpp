@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "include/vector3D.h"
+#include "include/vector3D_application.h"
 #include "include/vector3D_calculator.h"
 
 using ::testing::internal::RE;
