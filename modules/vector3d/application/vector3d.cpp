@@ -4,7 +4,6 @@
 #include <iostream>
 
 #include "include/vector3D_application.h"
-#include "include/vector3D_calculator.h"
 
 int main(int argc, const char** argv) {
     Vector3DApplication app;
