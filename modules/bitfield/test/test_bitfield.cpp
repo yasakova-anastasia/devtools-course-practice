@@ -1,7 +1,5 @@
 // Copyright 2020 Kudryashov Nikita
 
-// TODO(Kudryashov Nikita): mb move for(**) bool check to assert.
-
 #include <gtest/gtest.h>
 #include <vector>
 #include "include/bitfield.h"
@@ -62,7 +60,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Set_Test) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Set_Stay_One_At_Its_Place) {
@@ -124,7 +122,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_Test) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Unset_Stay_Zero_At_Its_Place) {
@@ -192,7 +190,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Get_Returns_Only_One_Or_Zero) {
     a.set(7);
 
     // Act
-    for (unsigned int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); ++i) {
         if (a.get(i) != 1 && a.get(i) != 0) {
             check = false;
             break;
@@ -200,7 +198,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Get_Returns_Only_One_Or_Zero) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Bitfield_Creates_Empty) {
@@ -210,7 +208,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Bitfield_Creates_Empty) {
     Bitfield a(size);
 
     // Act
-    for (unsigned int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); ++i) {
         if (a.get(i) != 0) {
             check = false;
             break;
@@ -218,7 +216,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Bitfield_Creates_Empty) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Fill_Test) {
@@ -231,7 +229,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Fill_Test) {
     a.fill();
 
     // Like this (**)
-    for (unsigned int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); ++i) {
         if (a.get(i) != 1) {
             check = false;
             break;
@@ -239,7 +237,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Fill_Test) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Clear_Test) {
@@ -254,7 +252,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Clear_Test) {
     // Act
     a.clear();
 
-    for (unsigned int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); ++i) {
         if (a.get(i) != 0) {
             check = false;
             break;
@@ -262,7 +260,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Clear_Test) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Set_Vector_Arguments) {
@@ -288,7 +286,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Set_Vector_Arguments) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Set_With_Empty_Vector) {
@@ -335,7 +333,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unset_Vector_Arguments) {
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Unset_With_Empty_Vector) {
@@ -381,14 +379,14 @@ TEST(Kudryashov_Nikita_BitfieldTest, Can_Copy_Object_Itself) {
     // Act
     a = a;
 
-    for (unsigned int i = 0; i < a.get_size(); i++) {
+    for (unsigned int i = 0; i < a.get_size(); ++i) {
         if (b.get(i) != a.get(i)) {
             check = false;
         }
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Copy_Constructor_Test) {
@@ -402,14 +400,14 @@ TEST(Kudryashov_Nikita_BitfieldTest, Copy_Constructor_Test) {
     // Act
     b = a;
 
-    for (unsigned int i = 0; i < b.get_size(); i++) {
+    for (unsigned int i = 0; i < b.get_size(); ++i) {
         if (b.get(i) != a.get(i)) {
             check = false;
         }
     }
 
     // Assert
-    EXPECT_EQ(check, true);
+    EXPECT_EQ(true, check);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Equality_Operator_Test) {
@@ -421,7 +419,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Equality_Operator_Test) {
     b.fill();
 
     // Act & Assert
-    EXPECT_EQ(a == b, true);
+    EXPECT_EQ(true, a == b);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Unequality_Operator_Test) {
@@ -433,7 +431,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Unequality_Operator_Test) {
     b.clear();
 
     // Act & Assert
-    EXPECT_EQ(a != b, true);
+    EXPECT_EQ(true, a != b);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Bitfields_Of_Unequal_Size_Are_Unequal) {
@@ -445,7 +443,7 @@ TEST(Kudryashov_Nikita_BitfieldTest, Bitfields_Of_Unequal_Size_Are_Unequal) {
     b.fill();
 
     // Act & Assert
-    EXPECT_EQ(a != b, true);
+    EXPECT_EQ(true, a != b);
 }
 
 TEST(Kudryashov_Nikita_BitfieldTest, Can_Use_Index_Value_Operator_Test) {
@@ -466,4 +464,16 @@ TEST(Kudryashov_Nikita_BitfieldTest, Index_Value_Operator_Throw_Out_Of_Bounds) {
 
     // Act & Assert
     EXPECT_ANY_THROW(a[pos]);
+}
+
+TEST(Kudryashov_Nikita_BitfieldTest, Equality_Operator_Sets_Size) {
+    // Arrange
+    unsigned int size = 5;
+    Bitfield a(size), b;
+
+    // Act
+    b = a;
+
+    // Assert
+    EXPECT_EQ(size, b.get_size());
 }

@@ -52,25 +52,22 @@ int Bitfield::get(unsigned int position) const {
                 (position % UNSIGNED_CHAR_SIZE));
         return temp >> (UNSIGNED_CHAR_SIZE - 1);
     }
-
-    // return ((bitfield[position / 8] << (position % 8)) >> 7);
-    // This doesn't work for some reason. Mb priorioty problems? Ask later.
 }
 
 void Bitfield::fill() {
-    for (unsigned int i = 0; i < bitfield.size(); i++) {
+    for (unsigned int i = 0; i < bitfield.size(); ++i) {
         bitfield[i] = 255;
     }
 }
 
 void Bitfield::clear() {
-    for (unsigned int i = 0; i < bitfield.size(); i++) {
+    for (unsigned int i = 0; i < bitfield.size(); ++i) {
         bitfield[i] = 0;
     }
 }
 
 void Bitfield::set(const std::vector<unsigned int>& arr_of_positions) {
-    for (unsigned int i = 0; i < arr_of_positions.size(); i++) {
+    for (unsigned int i = 0; i < arr_of_positions.size(); ++i) {
         if (arr_of_positions[i] > bitfield_size - 1) {
             throw(std::string)"Out of bounds setting";
         } else {
@@ -80,7 +77,7 @@ void Bitfield::set(const std::vector<unsigned int>& arr_of_positions) {
 }
 
 void Bitfield::unset(const std::vector<unsigned int>& arr_of_positions) {
-    for (unsigned int i = 0; i < arr_of_positions.size(); i++) {
+    for (unsigned int i = 0; i < arr_of_positions.size(); ++i) {
         if (arr_of_positions[i] > bitfield_size - 1) {
             throw(std::string)"Out of bounds unsetting";
         } else {
@@ -92,9 +89,10 @@ void Bitfield::unset(const std::vector<unsigned int>& arr_of_positions) {
 Bitfield& Bitfield::operator =(const Bitfield& arg) {
     if (this != &arg) {
         if (bitfield_size != arg.bitfield_size) {
-            bitfield.resize(arg.bitfield_size);
+            bitfield.resize(arg.bitfield.size());
+            bitfield_size = arg.bitfield_size;
         }
-        for (unsigned int i = 0; i < arg.bitfield_size; i++) {
+        for (unsigned int i = 0; i < bitfield.size(); ++i) {
             bitfield[i] = arg.bitfield[i];
         }
     }
@@ -106,8 +104,8 @@ bool Bitfield::operator ==(const Bitfield& rhs) const {
     if (bitfield_size != rhs.bitfield_size) {
         return false;
     } else {
-        for (unsigned int i = 0; i < rhs.get_size(); i++) {
-            if (get(i) != rhs.get(i)) {
+        for (unsigned int i = 0; i < rhs.bitfield.size(); ++i) {
+            if (bitfield[i] != rhs.bitfield[i]) {
                 return false;
             }
         }
