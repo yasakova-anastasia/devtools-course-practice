@@ -11,8 +11,8 @@ TEST_F(PriorityQueueTest, CanCreateDefaultNode) {
     node n;
 
     // Assert
-    EXPECT_EQ(n.key, 0);
-    EXPECT_EQ(n.data, 0);
+    EXPECT_EQ(0, n.key);
+    EXPECT_EQ(0, n.data);
 }
 
 TEST_F(PriorityQueueTest, CanInsertNode) {
@@ -26,7 +26,9 @@ TEST_F(PriorityQueueTest, CanInsertNode) {
     p_n = pq.extract_minimum();
 
     // Assert
-    EXPECT_EQ(p_n->data, n.data);
+    EXPECT_EQ(n.data, p_n->data);
+
+    delete p_n;
 }
 
 TEST_F(PriorityQueueTest, CheckEmptyReturnTrueIfEmpty) {
@@ -37,7 +39,7 @@ TEST_F(PriorityQueueTest, CheckEmptyReturnTrueIfEmpty) {
     bool res = pq.is_empty();
 
     // Assert
-    EXPECT_EQ(res, true);
+    EXPECT_TRUE(res);
 }
 
 TEST_F(PriorityQueueTest, CheckEmptyReturnFalseIfEmpty) {
@@ -50,7 +52,7 @@ TEST_F(PriorityQueueTest, CheckEmptyReturnFalseIfEmpty) {
     bool res = pq.is_empty();
 
     // Assert
-    EXPECT_EQ(res, false);
+    EXPECT_FALSE(res);
 }
 
 TEST_F(PriorityQueueTest, CanExtractMinimum) {
@@ -68,7 +70,9 @@ TEST_F(PriorityQueueTest, CanExtractMinimum) {
     p_n = pq.extract_minimum();
 
     // Assert
-    EXPECT_EQ(p_n->key, n2.key);
+    EXPECT_EQ(n2.key, p_n->key);
+
+    delete p_n;
 }
 
 TEST_F(PriorityQueueTest, CanExtractMaximum) {
@@ -86,7 +90,9 @@ TEST_F(PriorityQueueTest, CanExtractMaximum) {
     p_n = pq.extract_maximum();
 
     // Assert
-    EXPECT_EQ(p_n->key, n2.key);
+    EXPECT_EQ(n2.key, p_n->key);
+
+    delete p_n;
 }
 
 TEST_F(PriorityQueueTest, CanDeleteMinimum) {
@@ -103,8 +109,10 @@ TEST_F(PriorityQueueTest, CanDeleteMinimum) {
     p_n = pq.extract_minimum();
 
     // Assert
-    EXPECT_EQ(res, true);
-    EXPECT_EQ(p_n->key, n1.key);
+    EXPECT_TRUE(res);
+    EXPECT_EQ(n1.key, p_n->key);
+
+    delete p_n;
 }
 
 TEST_F(PriorityQueueTest, CanDeleteMaximum) {
@@ -121,8 +129,10 @@ TEST_F(PriorityQueueTest, CanDeleteMaximum) {
     p_n = pq.extract_maximum();
 
     // Assert
-    EXPECT_EQ(res, true);
-    EXPECT_EQ(p_n->key, n2.key);
+    EXPECT_TRUE(res);
+    EXPECT_EQ(n2.key, p_n->key);
+
+    delete p_n;
 }
 
 TEST_F(PriorityQueueTest, ReturnNullptrWhileExtractMinFromEmpty) {
@@ -134,7 +144,9 @@ TEST_F(PriorityQueueTest, ReturnNullptrWhileExtractMinFromEmpty) {
     p_n = pq.extract_minimum();
 
     // Assert
-    EXPECT_EQ(p_n, nullptr);
+    EXPECT_EQ(nullptr, p_n);
+
+    delete p_n;
 }
 
 TEST_F(PriorityQueueTest, ReturnNullptrWhileExtractMaxFromEmpty) {
@@ -146,29 +158,29 @@ TEST_F(PriorityQueueTest, ReturnNullptrWhileExtractMaxFromEmpty) {
     p_n = pq.extract_maximum();
 
     // Assert
-    EXPECT_EQ(p_n, nullptr);
+    EXPECT_EQ(nullptr, p_n);
+
+    delete p_n;
 }
 
 TEST_F(PriorityQueueTest, ReturnFalseWhileDeleteMinFromEmpty) {
     // Arrange
     priority_queue pq;
-    node* p_n;
 
     // Act
     bool res = pq.deleteMin();
 
     // Assert
-    EXPECT_EQ(res, false);
+    EXPECT_FALSE(res);
 }
 
 TEST_F(PriorityQueueTest, ReturnFalseWhileDeleteMaxFromEmpty) {
     // Arrange
     priority_queue pq;
-    node* p_n;
 
     // Act
     bool res = pq.deleteMax();
 
     // Assert
-    EXPECT_EQ(res, false);
+    EXPECT_FALSE(res);
 }
