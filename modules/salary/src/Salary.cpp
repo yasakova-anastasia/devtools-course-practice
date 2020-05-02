@@ -10,7 +10,7 @@ Salary::~Salary() {
 
 float Salary::payment() {
     if (m_hours <= 0) {
-    return 0.0f;
+        return 0.0f;
     }
     float paymentPerHour = m_salary / m_hours;
     float payment = (m_hours - m_hours_admin) * paymentPerHour;

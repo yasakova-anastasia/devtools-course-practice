@@ -22,7 +22,7 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_And_Without_H_W) {
     float payment = a1.payment();
 
     // Assert
-    EXPECT_EQ(payment, 120000);
+    EXPECT_EQ(120000, payment);
 }
 
 TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_R_H) {
@@ -41,7 +41,7 @@ TEST_F(SalaryTest1, Work_Without_Administrative_Leave_With_Two_R_H) {
     float payment = a2.payment();
 
     // Assert
-    EXPECT_EQ(payment, 129000);
+    EXPECT_EQ(129000, payment);
 }
 
 TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_W) {
@@ -60,7 +60,7 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_With_Recycled_W) {
     float payment = a3.payment();
 
     // Assert
-    EXPECT_EQ(payment, 117000);
+    EXPECT_EQ(117000, payment);
 }
 
 TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours) {
@@ -79,7 +79,7 @@ TEST_F(SalaryTest1, Work_With_Administrative_Leave_Without_Hours) {
     float payment = a4.payment();
 
     // Assert
-    EXPECT_EQ(payment, 69000);
+    EXPECT_EQ(69000,payment);
 }
 
 TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked) {
@@ -99,7 +99,7 @@ TEST_F(SalaryTest1, Working_With_Zero_Hours_Worked) {
     float exptcted = 0.0;
 
     // Assert
-    EXPECT_EQ(payment, exptcted);
+    EXPECT_EQ(exptcted, payment);
 }
 
 TEST_F(SalaryTest1, Erroneous_Salary_Payment) {
@@ -119,5 +119,5 @@ TEST_F(SalaryTest1, Erroneous_Salary_Payment) {
     float exptcted = 0.0;
 
     // Assert
-    EXPECT_EQ(payment, exptcted);
+    EXPECT_EQ(exptcted, payment);
 }
