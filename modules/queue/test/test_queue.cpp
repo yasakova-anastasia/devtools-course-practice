@@ -53,7 +53,7 @@ TEST(Queue, Can_Get_Element) {
     EXPECT_NO_THROW(q.Get());
 }
 
-TEST(Queue, Cant_Get_Element_In_Empty_Queue) {
+TEST(Queue, Cant_Get_Element_In_Empty) {
     // Arrange
     Queue q(3);
 
