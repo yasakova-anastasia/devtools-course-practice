@@ -17,14 +17,11 @@ std::string Encrypt_Vigenere_Cipher(const std::string& text,
     for (auto& s : result) {
         if (islower(key[i % key.size()]))
             difference = static_cast<int>(key[i++ % key.size()] - 'a');
-        else
-            if (isupper(key[i % key.size()]))
+        else if (isupper(key[i % key.size()]))
                 difference = static_cast<int>(key[i++ % key.size()] - 'A');
-
         if (islower(s))
             s = ((static_cast<int>(s - 'a') + difference) % 26) + 'a';
-        else
-            if (isupper(s))
+        else if (isupper(s))
                 s = ((static_cast<int>(s - 'A') + difference) % 26) + 'A';
     }
     return result;
@@ -42,14 +39,11 @@ std::string Decrypt_Vigenere_Cipher(const std::string& text,
     for (auto& s : result) {
         if (islower(key[i % key.size()]))
             difference = static_cast<int>(key[i++ % key.size()] - 'a');
-        else
-            if (isupper(key[i % key.size()]))
+        else if (isupper(key[i % key.size()]))
                 difference = static_cast<int>(key[i++ % key.size()] - 'A');
-
         if (islower(s))
             s = ((static_cast<int>(s - 'a') + 26 - difference) % 26) + 'a';
-        else
-            if (isupper(s))
+        else if (isupper(s))
                 s = ((static_cast<int>(s - 'A') + 26 - difference) % 26) + 'A';
     }
     return result;
