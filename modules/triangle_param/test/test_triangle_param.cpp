@@ -31,6 +31,16 @@ TEST(TriangleParamTest, ComstructorByArgs) {
   ASSERT_EQ(expextedC, triag.getTopC());
 }
 
+TEST(TriangleParamTest, ComstructorByArgsEx) {
+  // Arrange
+  std::pair<double, double> expextedA(0, 0);
+  std::pair<double, double> expextedB(0, 0);
+  std::pair<double, double> expextedC(1, 1);
+
+  // Assert
+  ASSERT_ANY_THROW(Triangle triag(expextedA, expextedB, expextedC));
+}
+
 TEST(TriangleParamTest, ComstructorByCopy) {
   // Arrange
   std::pair<double, double> expextedA(0, 0);
