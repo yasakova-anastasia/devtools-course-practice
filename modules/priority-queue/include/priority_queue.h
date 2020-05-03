@@ -22,8 +22,8 @@ class priority_queue {
 
  public:
     void insert(node _node);
-    node* extract_minimum();
-    node* extract_maximum();
+    int* extract_minimum();
+    int* extract_maximum();
     bool deleteMin();
     bool deleteMax();
     bool is_empty();

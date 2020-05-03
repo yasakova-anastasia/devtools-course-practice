@@ -44,24 +44,20 @@ void priority_queue::insert(node _node) {
     queue.push_back(_node);
 }
 
-node* priority_queue::extract_minimum() {
+int* priority_queue::extract_minimum() {
     if (is_empty()) return nullptr;
 
     std::list<node>::iterator min = get_min_it();
 
-    node* _node = new node(min->key, min->data);
-
-    return _node;
+    return &min->data;
 }
 
-node* priority_queue::extract_maximum() {
+int* priority_queue::extract_maximum() {
     if (is_empty()) return nullptr;
 
     std::list<node>::iterator max = get_max_it();
 
-    node* _node = new node(max->key, max->data);
-
-    return _node;
+    return &max->data;
 }
 
 bool priority_queue::deleteMin() {
