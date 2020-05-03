@@ -11,8 +11,8 @@ class Triangle {
  public:
     Triangle();
     Triangle(const std::pair<double, double>& _a,
-             const std::pair<double, double>& _b,
-             const std::pair<double, double>& _c);
+      const std::pair<double, double>& _b,
+      const std::pair<double, double>& _c);
     Triangle(const Triangle& _triangle);
 
     std::pair<double, double> getTopA() const;
@@ -29,7 +29,7 @@ class Triangle {
     bool operator!= (const Triangle& _triangle) const;
 
     double side(std::pair<double, double> _top1,
-                std::pair<double, double> _top2);
+      std::pair<double, double> _top2);
 
     double cornA();
     double cornB();
