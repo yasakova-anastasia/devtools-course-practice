@@ -29,7 +29,7 @@ TEST(Queue, Can_Put_Element) {
     EXPECT_NO_THROW(q.Put(1));
 }
 
-TEST(Queue, Cant_Put_Element_In_Full_Queue) {
+TEST(Queue, Cant_Put_Element_In_Full) {
     // Arrange
     Queue q(3);
 
