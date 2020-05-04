@@ -8,7 +8,7 @@
 #include "include/complex_number.h"
 
 TEST(CalculatorComplexNums, can_create_empty_pattern) {
-    // Act
+    // Arrange & Act
     CalculatorComplexNums c;
 
     // Assert
@@ -298,7 +298,7 @@ TEST(CalculatorComplexNums, calculate_with_division) {
 }
 
 TEST(CalculatorComplexNums, throw_if_try_calculate_without_initialize) {
-    // Act
+    // Arrange & Act
     CalculatorComplexNums c("(1.3+5i)/(0.5-3.5i)");
 
     // Assert
@@ -306,7 +306,7 @@ TEST(CalculatorComplexNums, throw_if_try_calculate_without_initialize) {
 }
 
 TEST(CalculatorComplexNums, throw_division_by_zero) {
-    // Act
+    // Arrange & Act
     CalculatorComplexNums c("(1.3+5i)/(0-0i)");
     c.InitializeFromPattern();
 
