@@ -1,7 +1,4 @@
 // Copyright 2020 Mazur Daniil
-#include <cmath>
-#include <vector>
-#include <numeric>
 #include <utility>
 
 #ifndef MODULES_TRIANGLE_PARAM_INCLUDE_TRIANGLE_PARAM_H_

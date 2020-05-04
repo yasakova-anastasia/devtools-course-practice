@@ -1,9 +1,5 @@
 // Copyright 2020 Mazur Daniil
 #include <cmath>
-#include <vector>
-#include <numeric>
-#include <utility>
-#include <string>
 #include "../include/triangle_param.h"
 
 Triangle::Triangle():
@@ -15,8 +11,7 @@ Triangle::Triangle(const std::pair<double, double>& _a,
   if ((_a == _b) || (_b == _c) || (_a == _c) || ((_a.first == _b.first) &&
     (_b.first == _c.first)) || ((_a.second == _b.second) &&
     (_b.second == _c.second))) {
-    throw static_cast<std::string>(
-      "Invalid params");
+    throw -1;
   } else {
     a = _a;
     b = _b;

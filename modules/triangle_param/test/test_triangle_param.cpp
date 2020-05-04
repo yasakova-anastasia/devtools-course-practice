@@ -1,8 +1,6 @@
 // Copyright 2020 Mazur Daniil
 
 #include <gtest/gtest.h>
-#include <utility>
-#include <numeric>
 #include "../include/triangle_param.h"
 
 TEST(TriangleParamTest, DefaultComstructor) {
