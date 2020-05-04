@@ -42,7 +42,7 @@ void Triangle::setTopA(const std::pair<double, double>& _top) {
   std::pair<double, double> oldA = a;
   a = _top;
   if (isCorrect() == false) {
-	a = oldA;
+    a = oldA;
     throw -1;
   }
 }
@@ -51,7 +51,7 @@ void Triangle::setTopB(const std::pair<double, double>& _top) {
   std::pair<double, double> oldB = b;
   b = _top;
   if (isCorrect() == false) {
-	a = oldB;
+    b = oldB;
     throw -1;
   }
 }
@@ -60,7 +60,7 @@ void Triangle::setTopC(const std::pair<double, double>& _top) {
     std::pair<double, double> oldC = c;
   c = _top;
   if (isCorrect() == false) {
-	c = oldC;
+    c = oldC;
     throw -1;
   }
 }
