@@ -11,13 +11,19 @@ Triangle::Triangle(const std::pair<double, double>& _a,
   const std::pair<double, double>& _c) {
   if ((_a == _b) || (_b == _c) || (_a == _c) || (((_c.second - _a.second) /
     (_b.second - _a.second)) == ((_c.first - _a.first) /
-	(_b.first - _a.first)))) {
+    (_b.first - _a.first)))) {
     throw -1;
   } else {
     a = _a;
     b = _b;
     c = _c;
   }
+}
+
+bool Triangle::isCorrect() {
+  return !((a == b) || (b == c) || (a == c) || (((c.second - a.second) /
+    (b.second - a.second)) == ((c.first - a.first) /
+    (b.first - a.first))));
 }
 
 std::pair<double, double> Triangle::getTopA() const {

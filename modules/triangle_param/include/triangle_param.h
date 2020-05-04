@@ -1,8 +1,9 @@
 // Copyright 2020 Mazur Daniil
-#include <utility>
 
 #ifndef MODULES_TRIANGLE_PARAM_INCLUDE_TRIANGLE_PARAM_H_
 #define MODULES_TRIANGLE_PARAM_INCLUDE_TRIANGLE_PARAM_H_
+
+#include <utility>
 
 class Triangle {
  public:
@@ -10,6 +11,8 @@ class Triangle {
     Triangle(const std::pair<double, double>& _a,
       const std::pair<double, double>& _b,
       const std::pair<double, double>& _c);
+
+    bool isCorrect();
 
     std::pair<double, double> getTopA() const;
     std::pair<double, double> getTopB() const;
