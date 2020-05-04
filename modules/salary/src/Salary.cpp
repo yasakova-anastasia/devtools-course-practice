@@ -13,7 +13,8 @@ Salary::~Salary() {
 }
 
 float Salary::payment() {
-    if (m_hours <= 0 || m_salary <= 0 || m_hours_admin < 0 || m_hours_over < 0) {
+    if (m_hours <= 0 || m_salary <= 0 ||
+        m_hours_admin < 0 || m_hours_over < 0) {
         return 0.0f;
     }
     float paymentPerHour = m_salary / m_hours;
@@ -33,8 +34,7 @@ bool Salary::setSalary(float s) {
     if (s > 0) {
         m_salary = s;
         return true;
-    }
-    else
+    } else
        return false;
 }
 
@@ -42,8 +42,7 @@ bool Salary::setHours(int h) {
     if (h > 0) {
         m_hours = h;
         return true;
-    }
-    else
+    } else
         return false;
 }
 
@@ -51,8 +50,7 @@ bool Salary::setOverHours(int h) {
     if (h >= 0) {
         m_hours_over = h;
         return true;
-    }
-    else
+    } else
         return false;
 }
 
@@ -60,7 +58,6 @@ bool Salary::setAdminHours(int h) {
     if (h >= 0) {
         m_hours_admin = h;
         return true;
-    }
-    else
+    } else
         return false;
 }
