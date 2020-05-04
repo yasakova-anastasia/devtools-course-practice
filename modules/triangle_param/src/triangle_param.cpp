@@ -45,13 +45,7 @@ void Triangle::setTopC(const std::pair<double, double>& _top) {
 }
 
 bool Triangle::operator== (const Triangle& _triangle) const {
-  if ((a == _triangle.getTopA()) &&
-    (b == _triangle.getTopB()) &&
-    (c == _triangle.getTopC())) {
-      return true;
-  } else {
-      return false;
-    }
+  return ((a == _triangle.a) && (b == _triangle.b) && (c == _triangle.c));
 }
 
 bool Triangle::operator!= (const Triangle& _triangle) const {
