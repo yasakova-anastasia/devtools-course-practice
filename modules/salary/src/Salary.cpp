@@ -34,30 +34,34 @@ bool Salary::setSalary(float s) {
     if (s > 0) {
         m_salary = s;
         return true;
-    } else
-       return false;
+    } else {
+        return false;
+    }
 }
 
 bool Salary::setHours(int h) {
     if (h > 0) {
         m_hours = h;
         return true;
-    } else
+    } else {
         return false;
+    }
 }
 
 bool Salary::setOverHours(int h) {
     if (h >= 0) {
         m_hours_over = h;
         return true;
-    } else
+    } else {
         return false;
+    }
 }
 
 bool Salary::setAdminHours(int h) {
     if (h >= 0) {
         m_hours_admin = h;
         return true;
-    } else
+    } else {
         return false;
+    }
 }
