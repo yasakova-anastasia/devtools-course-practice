@@ -29,7 +29,7 @@ TEST(TriangleParamTest, ComstructorByArgs) {
   ASSERT_EQ(expextedC, triag.getTopC());
 }
 
-TEST(TriangleParamTest, ComstructorByArgsEx) {
+TEST(TriangleParamTest, ComstructorByArgsEx1) {
   // Arrange
   std::pair<double, double> expextedA(0, 0);
   std::pair<double, double> expextedB(0, 0);
@@ -39,11 +39,22 @@ TEST(TriangleParamTest, ComstructorByArgsEx) {
   ASSERT_ANY_THROW(Triangle triag(expextedA, expextedB, expextedC));
 }
 
-TEST(TriangleParamTest, IsCorrect1) {
+TEST(TriangleParamTest, ComstructorByArgsEx2) {
   // Arrange
   std::pair<double, double> expextedA(0, 0);
-  std::pair<double, double> expextedB(0, 0);
-  std::pair<double, double> expextedC(1, 1);
+  std::pair<double, double> expextedB(1, 1);
+  std::pair<double, double> expextedC(2, 2);
+
+  // Assert
+  ASSERT_ANY_THROW(Triangle triag(expextedA, expextedB, expextedC));
+}
+
+TEST(TriangleParamTest, NotCorrect) {
+  // Arrange
+  std::pair<double, double> expextedA(0, 0);
+  std::pair<double, double> expextedB(1, 1);
+  std::pair<double, double> expextedC(1, 2);
+  std::pair<double, double> newC(1, 1);
   Triangle triag{};
 
   // Act
@@ -52,7 +63,58 @@ TEST(TriangleParamTest, IsCorrect1) {
   triag.setTopC(expextedC);
 
   // Assert
-  ASSERT_FALSE(triag.isCorrect());
+  ASSERT_ANY_THROW(triag.setTopC(newC));
+}
+
+TEST(TriangleParamTest, NotCorrectA) {
+  // Arrange
+  std::pair<double, double> expextedA(-1, 0);
+  std::pair<double, double> expextedB(1, 1);
+  std::pair<double, double> expextedC(2, 2);
+  std::pair<double, double> newA(0, 0);
+  Triangle triag{};
+
+  // Act
+  triag.setTopA(expextedA);
+  triag.setTopB(expextedB);
+  triag.setTopC(expextedC);
+
+  // Assert
+  ASSERT_ANY_THROW(triag.setTopA(newA));
+}
+
+TEST(TriangleParamTest, NotCorrectB) {
+  // Arrange
+  std::pair<double, double> expextedA(0, 0);
+  std::pair<double, double> expextedB(-1, 1);
+  std::pair<double, double> expextedC(2, 2);
+  std::pair<double, double> newB(1, 1);
+  Triangle triag{};
+
+  // Act
+  triag.setTopA(expextedA);
+  triag.setTopB(expextedB);
+  triag.setTopC(expextedC);
+
+  // Assert
+  ASSERT_ANY_THROW(triag.setTopB(newB));
+}
+
+TEST(TriangleParamTest, NotCorrectC) {
+  // Arrange
+  std::pair<double, double> expextedA(0, 0);
+  std::pair<double, double> expextedB(1, 1);
+  std::pair<double, double> expextedC(1, 2);
+  std::pair<double, double> newC(2, 2);
+  Triangle triag{};
+
+  // Act
+  triag.setTopA(expextedA);
+  triag.setTopB(expextedB);
+  triag.setTopC(expextedC);
+
+  // Assert
+  ASSERT_ANY_THROW(triag.setTopC(newC));
 }
 
 TEST(TriangleParamTest, ComstructorByCopy) {

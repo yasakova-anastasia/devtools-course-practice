@@ -39,15 +39,30 @@ std::pair<double, double> Triangle::getTopC() const {
 }
 
 void Triangle::setTopA(const std::pair<double, double>& _top) {
+  std::pair<double, double> oldA = a;
   a = _top;
+  if (isCorrect() == false) {
+	a = oldA;
+    throw -1;
+  }
 }
 
 void Triangle::setTopB(const std::pair<double, double>& _top) {
+  std::pair<double, double> oldB = b;
   b = _top;
+  if (isCorrect() == false) {
+	a = oldB;
+    throw -1;
+  }
 }
 
 void Triangle::setTopC(const std::pair<double, double>& _top) {
+    std::pair<double, double> oldC = c;
   c = _top;
+  if (isCorrect() == false) {
+	c = oldC;
+    throw -1;
+  }
 }
 
 bool Triangle::operator== (const Triangle& _triangle) const {
