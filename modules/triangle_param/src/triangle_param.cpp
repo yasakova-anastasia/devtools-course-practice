@@ -9,9 +9,9 @@ Triangle::Triangle():
 Triangle::Triangle(const std::pair<double, double>& _a,
   const std::pair<double, double>& _b,
   const std::pair<double, double>& _c) {
-  if ((_a == _b) || (_b == _c) || (_a == _c) || ((_a.first == _b.first) &&
-    (_b.first == _c.first)) || ((_a.second == _b.second) &&
-    (_b.second == _c.second))) {
+  if ((_a == _b) || (_b == _c) || (_a == _c) || (((_c.second - _a.second) /
+    (_b.second - _a.second)) == ((_c.first - _a.first) /
+	(_b.first - _a.first)))) {
     throw -1;
   } else {
     a = _a;
