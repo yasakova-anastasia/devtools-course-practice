@@ -20,7 +20,7 @@ Triangle::Triangle(const std::pair<double, double>& _a,
   }
 }
 
-bool Triangle::isCorrect() {
+bool Triangle::isCorrect() const {
   return !((a == b) || (b == c) || (a == c) || (((c.second - a.second) /
     (b.second - a.second)) == ((c.first - a.first) /
     (b.first - a.first))));

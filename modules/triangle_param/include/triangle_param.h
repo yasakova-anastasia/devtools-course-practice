@@ -12,7 +12,7 @@ class Triangle {
       const std::pair<double, double>& _b,
       const std::pair<double, double>& _c);
 
-    bool isCorrect();
+    bool isCorrect() const;
 
     std::pair<double, double> getTopA() const;
     std::pair<double, double> getTopB() const;
