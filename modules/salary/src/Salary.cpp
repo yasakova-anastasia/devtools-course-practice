@@ -9,9 +9,6 @@ Salary::Salary() {
 }
 
 
-Salary::~Salary() {
-}
-
 float Salary::payment() {
     if (m_hours <= 0 || m_salary <= 0 ||
         m_hours_admin < 0 || m_hours_over < 0) {

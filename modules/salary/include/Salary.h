@@ -4,7 +4,6 @@
 class Salary {
  public:
     Salary();
-    ~Salary();
     float payment();
     bool setSalary(float s);
     bool setHours(int h);
