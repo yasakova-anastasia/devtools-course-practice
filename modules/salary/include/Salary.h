@@ -6,14 +6,14 @@ class Salary {
     Salary();
     ~Salary();
     float payment();
-    void setSalary(float s);
-    void setHours(int h);
-    void setOverHours(int h);
-    void setAdminHours(int h);
+    bool setSalary(float s);
+    bool setHours(int h);
+    bool setOverHours(int h);
+    bool setAdminHours(int h);
  private:
     float m_salary;
-    int m_hours;
-    int m_hours_over;
-    int m_hours_admin;
+    unsigned int m_hours;
+    unsigned int m_hours_over;
+    unsigned int m_hours_admin;
 };
 #endif  // MODULES_SALARY_INCLUDE_SALARY_H_

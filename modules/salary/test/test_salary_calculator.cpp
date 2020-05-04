@@ -121,3 +121,27 @@ TEST_F(SalaryTest1, Erroneous_Salary_Payment) {
     // Assert
     EXPECT_EQ(exptcted, payment);
 }
+
+TEST_F(SalaryTest1, Erroneous_Salary_Payment_Chek_Wrong_Admin_H) {
+    // Arrange
+    float m_hours_admin = -1;
+    Salary a7;
+
+    // Act
+    bool res = a7.setAdminHours(m_hours_admin);
+
+    // Assert
+    EXPECT_FALSE(res);
+}
+
+TEST_F(SalaryTest1, Erroneous_Salary_Payment_Chek_Wrong_Ower_H) {
+    // Arrange
+    float m_hours_over = -1;
+    Salary a8;
+
+    // Act
+    bool res = a8.setOverHours(m_hours_over);
+
+    // Assert
+    EXPECT_FALSE(res);
+}
