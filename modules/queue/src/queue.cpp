@@ -3,8 +3,8 @@
 #include "include/queue.h"
 
 Queue::Queue(int s) {
-    if (s < 1)
-        throw "Queue size < 1";
+    if (s < 0)
+        throw "Queue size < 0";
     tail_ = -1;
     head_ = -1;
     pq_.resize(s);

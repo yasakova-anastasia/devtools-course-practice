@@ -8,10 +8,10 @@
 
 class Queue {
  private:
-    int tail_;
-    int head_;
-    std::vector<int> pq_;
-    int size_;
+    std::size_t tail_;
+    std::size_t head_;
+    std::vector<std::size_t> pq_;
+    std::size_t size_;
     int count_;
 
     int GetNextIndex(int index) const;
