@@ -3,7 +3,7 @@
 #include "include/AVL_Tree.h"
 
 
-int AVL_Tree::BFactor(Node* top) {
+int AVL_Tree::BalanceFactor(Node* top) {
     return GetHeight(top->rightNode) - GetHeight(top->leftNode);
 }
 
@@ -37,13 +37,13 @@ Node* AVL_Tree::rotateLeft(Node* top) {  // private
 
 Node* AVL_Tree::Balance(Node* top) {  // private
     fixHeight(top);
-    if (BFactor(top) == 2) {
-        if (BFactor(top->rightNode) < 0)
+    if (BalanceFactor(top) == 2) {
+        if (BalanceFactor(top->rightNode) < 0)
             top->rightNode = rotateRight(top->rightNode);
         return rotateLeft(top);
     }
-    if (BFactor(top) == -2) {
-        if (BFactor(top->leftNode) > 0)
+    if (BalanceFactor(top) == -2) {
+        if (BalanceFactor(top->leftNode) > 0)
             top->leftNode = rotateLeft(top->leftNode);
         return rotateRight(top);
     }
@@ -103,10 +103,22 @@ Node* AVL_Tree::Remove(Node* top, const int& key_) {
     return Balance(top);
 }
 
-
-
 AVL_Tree::AVL_Tree(void) {
     RootNode = nullptr;
+}
+
+AVL_Tree::~AVL_Tree(void) {
+    if (RootNode != nullptr) DeleteTree(RootNode);
+}
+
+void AVL_Tree::DeleteTree(Node* top) {
+    Node* leftTree = nullptr;
+    Node* rightTree = nullptr;
+
+    if (top->leftNode) { leftTree = top->leftNode; DeleteTree(leftTree); }
+    if (top->rightNode) { rightTree = top->rightNode; DeleteTree(rightTree); }
+
+    if (top) { free(top); top = nullptr; }
 }
 
 Node* AVL_Tree::InitRoot(const int& key_) {
@@ -141,7 +153,6 @@ Node* AVL_Tree::GetRightSubtree(Node* top) {
 int AVL_Tree::GetKey(Node* top) {
     return top->key;
 }
-
 
 int AVL_Tree::FindMin(void) {
     Node* ptr = FindMin(RootNode);

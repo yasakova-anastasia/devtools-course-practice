@@ -21,12 +21,11 @@ struct Node {
 };
 
 
-class AVL_Tree{
+class AVL_Tree {
  private:
     Node* RootNode;
 
-    // For work with Node
-    int BFactor(Node* top);
+    int BalanceFactor(Node* top);
     void fixHeight(Node* top);
 
     // Balance
@@ -43,8 +42,11 @@ class AVL_Tree{
     Node* RemoveMin(Node* top);
     Node* Remove(Node* top, const int& key_);
 
+    void DeleteTree(Node* top);
+
  public:
     AVL_Tree(void);
+    ~AVL_Tree(void);
 
     Node* InitRoot(const int& key_);  // Init RootNode
 

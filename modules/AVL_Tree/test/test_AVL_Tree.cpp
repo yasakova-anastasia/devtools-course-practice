@@ -5,7 +5,7 @@
 #include "include/AVL_Tree.h"
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_Can_Create_Node) {
-    // Arrange
+    // Arrange & Act
     int key = 9;
     Node tmp(key);
 
@@ -13,15 +13,15 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_Can_Create_Node) {
     ASSERT_EQ(key, tmp.key);
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor) {
-    // Arrange
+TEST(Myshkin_Andrey_AVL_Tree, Test_Can_Create_Root_Node) {
+    // Arrange & Act
     AVL_Tree tree;
 
     // Assert
     ASSERT_EQ(nullptr, tree.GetRootNode());
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor_Height) {
+TEST(Myshkin_Andrey_AVL_Tree, Test_Get_Root_Height) {
     // Arrange
     int key = 100;
     AVL_Tree tree;
@@ -33,7 +33,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor_Height) {
     ASSERT_EQ(1, tree.GetHeight(tree.GetRootNode()));
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor_Key) {
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Get_Key) {
     // Arrange
     int key = 100;
     AVL_Tree tree;
@@ -45,7 +45,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor_Key) {
     ASSERT_EQ(key, tree.GetKey(tree.GetRootNode()));
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Constructor_Root_Key) {
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Get_Root_Key) {
     // Arrange
     int key = 10;
     AVL_Tree tree;
@@ -74,7 +74,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_Get_Left_And_Right_Subtree) {
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Insert) {
     // Arrange
     int KeyArrays[] = { 10, 20, 30, 40, 50 };
-    int sts = -1;
+    int sts = 0;
     AVL_Tree tree;
 
     // Act
@@ -85,19 +85,18 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Insert) {
     }
 
     for (int i = 0; i < 5; i++) {
-        if (tree.FindNode(KeyArrays[i]) == STATUS_OK) {
-            sts = 0;
+        if (tree.FindNode(KeyArrays[i]) != STATUS_OK) {
+            sts = -1;
         }
         // Assert
         EXPECT_EQ(0, sts);
-        sts = -1;
     }
 }
 
 TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Found) {
     // Arrange
     int KeyArrays[] = { 150, 120, 90, 60, 30, 200 };
-    int sts = -1;
+    int sts = 0;
     AVL_Tree tree;
 
     // Act
@@ -108,12 +107,11 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Small_Tree_Found) {
     }
 
     for (int i = 0; i < 6; i++) {
-        if (tree.FindNode(KeyArrays[i]) == STATUS_OK) {
-            sts = 0;
+        if (tree.FindNode(KeyArrays[i]) != STATUS_OK) {
+            sts = -1;
         }
         // Assert
         EXPECT_EQ(0, sts);
-        sts = -1;
     }
 }
 
@@ -223,7 +221,7 @@ TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes_Balance_Left) {
     EXPECT_EQ(0, status);
 }
 
-TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Nodes) {
+TEST(Myshkin_Andrey_AVL_Tree, Test_With_Remove_Node) {
     // Arrange
     int KeyArrays[] = { 500, 300, 200, 400, 600, 700, 800, 100, 220,
                         330, 410, 560, 650, 790, 820 };
