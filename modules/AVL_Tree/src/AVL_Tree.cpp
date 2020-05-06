@@ -112,11 +112,8 @@ AVL_Tree::~AVL_Tree(void) {
 }
 
 void AVL_Tree::DeleteTree(Node* top) {
-    Node* leftTree = nullptr;
-    Node* rightTree = nullptr;
-
-    if (top->leftNode) { leftTree = top->leftNode; DeleteTree(leftTree); }
-    if (top->rightNode) { rightTree = top->rightNode; DeleteTree(rightTree); }
+    if (top->leftNode) { DeleteTree(top->leftNode); }
+    if (top->rightNode) { DeleteTree(top->rightNode); }
 
     if (top) { free(top); top = nullptr; }
 }
