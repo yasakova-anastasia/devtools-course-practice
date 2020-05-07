@@ -53,3 +53,12 @@ TEST_F(Segment_app_test, Is_Checking_Number_Of_Arguments) {
 
   Assert("ERROR: Should be 8 arguments\\..*");
 }
+
+TEST_F(Segment_app_test, Can_Detect_Wrong_Number_Format) {
+  vector<string> args = { "1", "pi", "2", "4", "+", "3", "7", "5" };
+
+  Act(args);
+
+  Assert("Wrong number format!.*");
+}
+

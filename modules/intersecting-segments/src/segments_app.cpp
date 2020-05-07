@@ -8,6 +8,7 @@
 #include <sstream>
 
 #include "include/segments_app.h"
+#include "include/segments.h"
 
 Segment_app::Segment_app() : message_("") {}
 
@@ -47,9 +48,28 @@ double parseDouble(const char* arg) {
 }
 
 std::string Segment_app::operator()(int argc, const char** argv) {
+  Arguments args;
+
   if (!validateNumberOfArguments(argc, argv)) {
     return message_;
   }
+  try {
+    args.x11 = parseDouble(argv[1]);
+    args.y11 = parseDouble(argv[2]);
+    args.x12 = parseDouble(argv[3]);
+    args.y12 = parseDouble(argv[4]);
+    args.x11 = parseDouble(argv[5]);
+    args.y11 = parseDouble(argv[6]);
+    args.x12 = parseDouble(argv[7]);
+    args.y12 = parseDouble(argv[8]);
+  }
+  catch (std::string& str) {
+    return str;
+  }
+
+  Segment s1(args.x11, args.y11, args.x12, args.y12);
+  Segment s2(args.x21, args.y21, args.x22, args.y22);
+
   std::ostringstream stream;
 
   message_ = stream.str();
