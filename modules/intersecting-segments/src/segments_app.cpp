@@ -21,7 +21,7 @@ void Segment_app::help(const char* appname, const char* message) {
     "  $ " + appname + " <x11> <y11> " +
     "<x12> <y12> \n\n" + " <x21> <y21> " +
     "<x22> <y22> \n\n" +
-
+	
     "Where all arguments are double-precision numbers\n";
 }
 
@@ -73,10 +73,11 @@ std::string Segment_app::operator()(int argc, const char** argv) {
   std::ostringstream stream;
 
   bool intersect = s1.isIntersect(&s2);
-  if (intersect)
+  if (intersect) {
     stream << "Segments do intersect";
-  else
+  } else {
     stream << "Segments do not intersect";
+  }
 
   message_ = stream.str();
   return message_;
