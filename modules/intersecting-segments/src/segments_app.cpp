@@ -21,7 +21,7 @@ void Segment_app::help(const char* appname, const char* message) {
     "  $ " + appname + " <x11> <y11> " +
     "<x12> <y12> \n\n" + " <x21> <y21> " +
     "<x22> <y22> \n\n" +
-	
+
     "Where all arguments are double-precision numbers\n";
 }
 
