@@ -31,6 +31,14 @@ TEST(InterpolationSearchTest, throw_when_size_0) {
   ASSERT_ANY_THROW(std::vector<int> vec = generateRandomVector(size));
 }
 
+TEST(InterpolationSearchTest, throw_when_vec_size_0_interpolation search) {
+  // Arrange
+  std::vector<int> vec;
+
+  // Act && Assert
+  ASSERT_ANY_THROW(int result = interpolationSearch(&vec, 3));
+}
+
 TEST(InterpolationSearchTest, partition_works) {
   // Arrange
   int size = 10;
