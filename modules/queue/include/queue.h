@@ -11,7 +11,7 @@ class Queue {
     int tail_;
     int head_;
     std::vector<int> pq_;
-    size_t size_;
+    int size_;
     int count_;
 
     int GetNextIndex(int index) const;
