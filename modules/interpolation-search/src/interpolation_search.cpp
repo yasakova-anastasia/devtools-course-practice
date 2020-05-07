@@ -53,8 +53,8 @@ void quickSort(std::vector<int> *vec, int left, int right) {
 int interpolationSearch(std::vector<int> *vec, int val) {
   int left = 0;
   int size = static_cast<int>((*vec).size());
-  if (size <= 0) {
-    throw "Invalid vector size";
+  if (size = 0) {
+    throw "Vector size is 0";
   }
   int right = size - 1;
 
