@@ -6,6 +6,8 @@
 
 #include "include/rb_tree_application.h"
 
+using ::testing::internal::RE;
+
 class RBTreeAppTest: public ::testing::Test {
  protected:
     void Act(std::vector<std::string> args_) {
@@ -21,11 +23,19 @@ class RBTreeAppTest: public ::testing::Test {
 
         output_ = app_(argc, argv);
     }
+
+    void Assert(std::string expected) {
+        EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
+    }
  private:
     std::string output_;
     RBTreeApp app_;
-}
+};
 
-TEST(RBTreeAppTest, fictive) {
-    ASSERT_TRUE(true);
+TEST_F(RBTreeAppTest, Print_Help_If_No_Args_Given) {
+    std::vector<std::string> args = {};
+
+    Act(args);
+
+    Assert("This is a complex number calculator application\\..*");
 }
