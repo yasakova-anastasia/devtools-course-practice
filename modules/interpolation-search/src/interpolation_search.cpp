@@ -4,6 +4,7 @@
 #include <random>
 #include <iostream>
 #include <vector>
+#include <ctime>
 
 std::vector<int> generateRandomVector(int size) {
   if (size <= 0) {
@@ -52,6 +53,9 @@ void quickSort(std::vector<int> *vec, int left, int right) {
 int interpolationSearch(std::vector<int> *vec, int val) {
   int left = 0;
   int size = static_cast<int>((*vec).size());
+  if (size <= 0) {
+    throw "Invalid vector size";
+  }
   int right = size - 1;
 
   if ((*vec)[right] == (*vec)[left]) {

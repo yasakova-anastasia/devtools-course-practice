@@ -3,7 +3,6 @@
 #ifndef MODULES_INTERPOLATION_SEARCH_INCLUDE_INTERPOLATION_SEARCH_H_
 #define MODULES_INTERPOLATION_SEARCH_INCLUDE_INTERPOLATION_SEARCH_H_
 
-#include <stdlib.h>
 #include <stdio.h>
 #include <vector>
 
