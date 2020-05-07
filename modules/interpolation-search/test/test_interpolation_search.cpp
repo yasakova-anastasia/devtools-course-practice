@@ -135,7 +135,7 @@ TEST(InterpolationSearchTest, interpolation_search_value_exists) {
   ASSERT_LE(0, interpolationSearch(&vec, vec[5]));
 }
 
-TEST(InterpolationSearchTest, DISABLED_interpolation_search_value_does_not_exist) {
+TEST(InterpolationSearchTest, interpolation_search_value_does_not_exist) {
   // Arrange
   std::vector<int> vec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
