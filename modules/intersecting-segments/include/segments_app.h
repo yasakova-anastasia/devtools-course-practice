@@ -8,6 +8,7 @@
 class Segment_app {
  public:
   Segment_app();
+  std::string operator()(int argc, const char** argv);
 
  private:
   void help(const char* appname, const char* message = "");
