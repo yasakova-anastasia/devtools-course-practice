@@ -1,11 +1,12 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2020 Maximova Irina
 
-#include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
 
+#include "include/segments_app.h"
+
 int main(int argc, const char** argv) {
-    std::cout << "Hallo world!\n";
+    std::cout << "hello, world!" << endl;
     return 0;
 }

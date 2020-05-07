@@ -4,7 +4,7 @@
 
 #include "include/segments_app.h"
 
-TEST(Segment, Trivial_check) {
+TEST(Segment_app, can_create_segment) {
   // Arrange & Act & Assert
-  ASSERT_EQ(2 + 2, 4);
+  ASSERT_EQ(2, 1 + 1);
 }

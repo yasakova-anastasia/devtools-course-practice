@@ -1,4 +1,4 @@
-// Copyright 2020 Kukushkina Ksenia
+// Copyright 2020 Kukushkina Ksenia & Maximova Irina
 
 #ifndef MODULES_INTERSECTING_SEGMENTS_INCLUDE_SEGMENTS_H_
 #define MODULES_INTERSECTING_SEGMENTS_INCLUDE_SEGMENTS_H_
