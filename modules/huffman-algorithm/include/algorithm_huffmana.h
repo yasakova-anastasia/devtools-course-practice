@@ -10,7 +10,7 @@
 struct HuffmanNode {
   HuffmanNode* left;
   HuffmanNode* right;
-  unsigned char val;
+  unsigned char value;
   int freq;
 };
 
@@ -21,15 +21,15 @@ class HuffmanTree {
   std::vector<std::string> encodingTable;
 
  public:
-  explicit HuffmanTree(std::string s = "");
+  explicit HuffmanTree(std::string str = "");
   void CreateEncodingTable();
   void CreateEncodingTable(HuffmanNode* node, std::string code,
     std::string direct);
   void SortQueue(std::vector<HuffmanNode*> *queue,
     const std::vector<int> & hist);
   std::string getSimbolCode(char val);
-  std::vector <std::string> Encode(std::string s);
-  std::vector<int> CreateHistogram(std::string s);
+  std::vector <std::string> Encode(std::string str);
+  std::vector<int> CreateHistogram(std::string str);
 
   ~HuffmanTree();
 };
