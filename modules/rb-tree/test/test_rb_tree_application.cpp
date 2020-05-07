@@ -37,5 +37,5 @@ TEST_F(RBTreeAppTest, Print_Help_If_No_Args_Given) {
 
     Act(args);
 
-    Assert("This is a complex number calculator application\\..*");
+    Assert("This is a Red-black tree application\\..*");
 }
