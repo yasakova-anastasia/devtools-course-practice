@@ -58,10 +58,10 @@ std::string Segment_app::operator()(int argc, const char** argv) {
     args.y11 = parseDouble(argv[2]);
     args.x12 = parseDouble(argv[3]);
     args.y12 = parseDouble(argv[4]);
-    args.x11 = parseDouble(argv[5]);
-    args.y11 = parseDouble(argv[6]);
-    args.x12 = parseDouble(argv[7]);
-    args.y12 = parseDouble(argv[8]);
+    args.x21 = parseDouble(argv[5]);
+    args.y21 = parseDouble(argv[6]);
+    args.x22 = parseDouble(argv[7]);
+    args.y22 = parseDouble(argv[8]);
   }
   catch (std::string& str) {
     return str;
@@ -72,7 +72,12 @@ std::string Segment_app::operator()(int argc, const char** argv) {
 
   std::ostringstream stream;
 
-  message_ = stream.str();
+  bool intersect = s1.isIntersect(&s2);
+  if (intersect)
+    stream << "Segments do intersect";
+  else
+    stream << "Segments do not intersect";
 
+  message_ = stream.str();
   return message_;
 }

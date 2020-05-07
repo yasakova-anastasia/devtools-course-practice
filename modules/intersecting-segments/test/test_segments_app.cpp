@@ -62,3 +62,18 @@ TEST_F(Segment_app_test, Can_Detect_Wrong_Number_Format) {
   Assert("Wrong number format!.*");
 }
 
+TEST_F(Segment_app_test, Intersection_True) {
+  vector<string> args = { "1", "1", "1", "5", "0", "3", "2", "4" };
+
+  Act(args);
+
+  Assert("Segments do intersect");
+}
+
+TEST_F(Segment_app_test, Intersection_False) {
+  vector<string> args = { "1", "1", "1", "5", "2", "3", "2", "4" };
+
+  Act(args);
+
+  Assert("Segments do not intersect");
+}
