@@ -7,6 +7,8 @@
 #include "include/segments_app.h"
 
 int main(int argc, const char** argv) {
-    std::cout << "hello, world!" << endl;
+    Segment_app app;
+    std::string output = app(argc, argv);
+    printf("%s\n", output.c_str());
     return 0;
 }
