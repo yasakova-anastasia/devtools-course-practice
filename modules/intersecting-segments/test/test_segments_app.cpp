@@ -52,7 +52,7 @@ TEST_F(Segment_app_test, Do_Print_Help_Without_Arguments) {
 TEST_F(Segment_app_test, Is_Checking_Number_Of_Arguments) {
   // Arrange
   vector<string> args = { "1", "2" };
-  
+
   // Act
   Act(args);
 
