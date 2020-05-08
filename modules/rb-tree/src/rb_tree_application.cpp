@@ -24,7 +24,7 @@ std::string RBTreeApp::operator()(int argc, const char** argv) {
 std::string RBTreeApp::help(const char* appname, const char* message) {
     return std::string(message) + "This is a Red-black tree application.\n\n"+
         "Please provide arguments in the following format:\n\n"+
-        "  $ " + appname + "<actions> \n\n" +
+        "  $ " + appname + " <actions> \n\n" +
         "Where <actions> are: \n\n" + 
         "getRoot - get root element from tree\n" + 
         "find <data> - find element by data\n" + 
