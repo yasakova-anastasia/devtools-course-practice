@@ -16,6 +16,7 @@ class RBTreeApp {
     bool validateNumberOfArguments(int argc, const char** argv);
     int parseOperation(const char** ops);
     int parseToValue(const char* strval);
+    int isNIL(Node* node);
     RBTree _rb;
     std::stringstream _sstream;
 };

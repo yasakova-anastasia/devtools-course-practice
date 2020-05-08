@@ -3,7 +3,6 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include <string>
-#include <iostream>
 
 #include "include/rb_tree_application.h"
 
@@ -87,4 +86,12 @@ TEST_F(RBTreeAppTest, Can_Get_Root) {
     Act(args);
 
     Assert("\\(Root value: 2\\)");
+}
+
+TEST_F(RBTreeAppTest, Cant_Get_Root_Of_Empty_Tree) {
+    std::vector<std::string> args = {"getRoot"};
+
+    Act(args);
+
+    Assert("\\(Tree is empty\\)");
 }

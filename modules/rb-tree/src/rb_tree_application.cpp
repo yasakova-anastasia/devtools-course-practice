@@ -3,7 +3,6 @@
 #include <cstring>
 #include <stdexcept>
 #include <sstream>
-#include <iostream>
 #include "include/rb_tree_application.h"
 
 std::string RBTreeApp::operator()(int argc, const char** argv) {
@@ -63,7 +62,7 @@ int RBTreeApp::parseOperation(const char** ops) {
     if (std::strcmp(ops[0], "find") == 0) {
         auto value = parseToValue(ops[1]);
         auto found = _rb.find(value);
-        if (found->data) {
+        if (!isNIL(found)) {
             _sstream << "(" << value << " is found) ";  
         } else {
             _sstream << "(" << value << " is not found) ";
@@ -77,11 +76,16 @@ int RBTreeApp::parseOperation(const char** ops) {
     }
     if (std::strcmp(ops[0], "getRoot") == 0) {
         auto root = _rb.getRoot();
-
-        _sstream << "(Root value: " << root->data << ")";
-
+        if (!isNIL(root))
+            _sstream << "(Root value: " << root->data << ")";
+        else
+            _sstream << "(Tree is empty)";
         return 1;
     }
     throw std::invalid_argument("Bad arguments!");
     return 0;
+}
+
+int RBTreeApp::isNIL(Node* node) {
+    return node->color == Color::black && node->right==nullptr && node->left==nullptr;
 }
