@@ -36,5 +36,4 @@ bool Segment::isIntersect(Segment* A) {
     // summary length >= most remote points distance
   }
   return (s1 * s2 <= 0) && (s3 * s4 <= 0);
-  }
 }
