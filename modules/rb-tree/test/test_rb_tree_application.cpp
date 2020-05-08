@@ -56,3 +56,20 @@ TEST_F(RBTreeAppTest, Can_Add_And_Find) {
 
     Assert("\\(1 is found\\)");
 }
+
+TEST_F(RBTreeAppTest, Cant_Add_Wrong_Number) {
+    std::vector<std::string> args = {"insert", "a"};
+
+    Act(args);
+
+    Assert("Invalid value: a");
+}
+
+TEST_F(RBTreeAppTest, Cant_Add_Wrong_Garbage_Value) {
+    std::vector<std::string> args = {"insert", "-155asdasd"};
+
+    Act(args);
+
+    Assert("Invalid value: -155asdasd");
+}
+
