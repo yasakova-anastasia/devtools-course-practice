@@ -13,7 +13,7 @@ class RBTreeApp {
  private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
-
+    int parseOperation(const char** ops);
     RBTree _rb;
     std::string _message;
 };

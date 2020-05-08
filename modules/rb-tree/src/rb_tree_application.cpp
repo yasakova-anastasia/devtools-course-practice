@@ -1,10 +1,19 @@
 // Copyright 2020 Isaev Ilya
 
+#include <stdexcept>
+#include <iostream>
 #include "include/rb_tree_application.h"
 
 std::string RBTreeApp::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
         return _message;
+    }
+    try {
+        for (int i = 1; i < argc; ++i) {
+            parseOperation(argv+i);
+        }
+    } catch(std::exception& exc) {
+        return exc.what();
     }
 
     return _message;
@@ -27,4 +36,9 @@ bool RBTreeApp::validateNumberOfArguments(int argc, const char** argv) {
         return false;
     }
     return true;
+}
+
+int RBTreeApp::parseOperation(const char** ops) {
+    throw std::invalid_argument("Bad arguments!");
+    return 0;
 }

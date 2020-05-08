@@ -39,3 +39,11 @@ TEST_F(RBTreeAppTest, Print_Help_If_No_Args_Given) {
 
     Assert("This is a Red-black tree application\\..*");
 }
+
+TEST_F(RBTreeAppTest, Detects_Wrong_Args) {
+    std::vector<std::string> args = {"ins", "1"};
+
+    Act(args);
+
+    Assert("Bad arguments!");
+}
