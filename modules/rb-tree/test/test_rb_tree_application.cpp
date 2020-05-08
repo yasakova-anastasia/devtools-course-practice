@@ -73,3 +73,18 @@ TEST_F(RBTreeAppTest, Cant_Add_Wrong_Garbage_Value) {
     Assert("Invalid value: -155asdasd");
 }
 
+TEST_F(RBTreeAppTest, Can_Remove_Element) {
+    std::vector<std::string> args = {"insert", "1", "remove", "1", "find", "1"};
+
+    Act(args);
+
+    Assert("\\(1 is not found\\)");
+}
+
+TEST_F(RBTreeAppTest, Can_Get_Root) {
+    std::vector<std::string> args = {"insert", "1", "insert", "2", "insert", "3", "getRoot"};
+
+    Act(args);
+
+    Assert("\\(Root value: 2\\)");
+}
