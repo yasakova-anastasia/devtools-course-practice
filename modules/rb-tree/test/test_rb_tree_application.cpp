@@ -81,7 +81,8 @@ TEST_F(RBTreeAppTest, Can_Remove_Element) {
 }
 
 TEST_F(RBTreeAppTest, Can_Get_Root) {
-    std::vector<std::string> args = {"insert", "1", "insert", "2", "insert", "3", "getRoot"};
+    std::vector<std::string> args = {"insert", "1", "insert", "2",
+        "insert", "3", "getRoot"};
 
     Act(args);
 

@@ -21,4 +21,4 @@ class RBTreeApp {
     std::stringstream _sstream;
 };
 
-#endif  // MODULES_RB_TREE_INCLUDE_RB_TREE_APPLICATION_H_ 
+#endif  // MODULES_RB_TREE_INCLUDE_RB_TREE_APPLICATION_H_

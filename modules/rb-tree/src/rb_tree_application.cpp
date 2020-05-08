@@ -2,6 +2,7 @@
 
 #include <cstring>
 #include <stdexcept>
+#include <string>
 #include <sstream>
 #include "include/rb_tree_application.h"
 
@@ -25,10 +26,10 @@ std::string RBTreeApp::help(const char* appname, const char* message) {
     return std::string(message) + "This is a Red-black tree application.\n\n"+
         "Please provide arguments in the following format:\n\n"+
         "  $ " + appname + " <actions> \n\n" +
-        "Where <actions> are: \n\n" + 
-        "getRoot - get root element from tree\n" + 
-        "find <data> - find element by data\n" + 
-        "insert <node> - insert node into tree\n" + 
+        "Where <actions> are: \n\n" +
+        "getRoot - get root element from tree\n" +
+        "find <data> - find element by data\n" +
+        "insert <node> - insert node into tree\n" +
         "remove <data> - remove element from tree\n ";
 }
 
@@ -43,12 +44,14 @@ bool RBTreeApp::validateNumberOfArguments(int argc, const char** argv) {
 int RBTreeApp::parseToValue(const char* strval) {
     auto n = static_cast<int>(std::strlen(strval));
 
-    if ((strval[0] != '-' && !std::isdigit(strval[0])) || (strval[0] == '-' && n == 1))
+    if ((strval[0] != '-' && !std::isdigit(strval[0])) ||
+        (strval[0] == '-' && n == 1))
         throw std::invalid_argument("Invalid value: " + std::string(strval));
 
     for (int i = 1; i < n; i++) {
         if (!std::isdigit(strval[i]))
-            throw std::invalid_argument("Invalid value: " + std::string(strval));
+            throw
+                std::invalid_argument("Invalid value: " + std::string(strval));
     }
     return std::atoi(strval);
 }
@@ -63,7 +66,7 @@ int RBTreeApp::parseOperation(const char** ops) {
         auto value = parseToValue(ops[1]);
         auto found = _rb.find(value);
         if (!isNIL(found)) {
-            _sstream << "(" << value << " is found) ";  
+            _sstream << "(" << value << " is found) ";
         } else {
             _sstream << "(" << value << " is not found) ";
         }
@@ -87,5 +90,6 @@ int RBTreeApp::parseOperation(const char** ops) {
 }
 
 int RBTreeApp::isNIL(Node* node) {
-    return node->color == Color::black && node->right==nullptr && node->left==nullptr;
+    return node->color == Color::black &&
+        node->right == nullptr && node->left == nullptr;
 }
