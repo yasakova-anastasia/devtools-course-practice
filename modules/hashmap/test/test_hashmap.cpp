@@ -76,7 +76,7 @@ TEST(HashMapTest, insert_more_than_capacity) {
     ASSERT_TRUE(f1 && f2);
 }
 
-TEST(HashMapTest, DISABLED_get_elem_from_hashmap_stringkey) {
+TEST(HashMapTest, get_elem_from_hashmap_stringkey) {
     hashmap<const char*, int> map(5);
 
     map.insert("Mick", 15);
@@ -90,7 +90,7 @@ TEST(HashMapTest, get_elem_from_hashmap_intkey) {
 
     ASSERT_EQ(10, map[15]);
 }
-TEST(HashMapTest, DISABLED_delete_node_from_hashmap) {
+TEST(HashMapTest, delete_node_from_hashmap) {
     hashmap<const char*, int> map(10);
     map.insert("Nick", 15);
     map.insert("Ilya", 20);
