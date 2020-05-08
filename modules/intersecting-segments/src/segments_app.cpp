@@ -72,8 +72,7 @@ std::string Segment_app::operator()(int argc, const char** argv) {
 
   std::ostringstream stream;
 
-  bool intersect = s1.isIntersect(&s2);
-  if (intersect) {
+  if (s1.isIntersect(&s2)) {
     stream << "Segments do intersect";
   } else {
     stream << "Segments do not intersect";
