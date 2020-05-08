@@ -3,8 +3,8 @@
 #ifndef MODULES_HUFFMAN_ALGORITHM_INCLUDE_ALGORITHM_HUFFMANA_H_
 #define MODULES_HUFFMAN_ALGORITHM_INCLUDE_ALGORITHM_HUFFMANA_H_
 
+#include <string>
 #include <vector>
-#include <stack>
 
 struct HuffmanNode {
   HuffmanNode* left;
