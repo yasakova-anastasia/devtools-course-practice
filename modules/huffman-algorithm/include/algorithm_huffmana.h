@@ -3,9 +3,8 @@
 #ifndef MODULES_HUFFMAN_ALGORITHM_INCLUDE_ALGORITHM_HUFFMANA_H_
 #define MODULES_HUFFMAN_ALGORITHM_INCLUDE_ALGORITHM_HUFFMANA_H_
 
-#include<string>
-#include<vector>
-#include<stack>
+#include <vector>
+#include <stack>
 
 struct HuffmanNode {
   HuffmanNode* left;
@@ -14,8 +13,6 @@ struct HuffmanNode {
   int freq;
 };
 
-
-
 class HuffmanTree {
   HuffmanNode* root;
   std::vector<std::string> encodingTable;
@@ -23,15 +20,16 @@ class HuffmanTree {
  public:
   explicit HuffmanTree(std::string str = "");
   void CreateEncodingTable();
-  void CreateEncodingTable(HuffmanNode* node, std::string code,
-    std::string direct);
-  void SortQueue(std::vector<HuffmanNode*> *queue,
-    const std::vector<int> & hist);
   std::string getSimbolCode(char val);
-  std::vector <std::string> Encode(std::string str);
+  std::vector<std::string> Encode(std::string str);
   std::vector<int> CreateHistogram(std::string str);
-
   ~HuffmanTree();
+ 
+ private:
+   void CreateEncodingTable(HuffmanNode* node, std::string code,
+     std::string direct);
+   void SortQueue(std::vector<HuffmanNode*> *queue,
+     const std::vector<int> & hist);
 };
 
 

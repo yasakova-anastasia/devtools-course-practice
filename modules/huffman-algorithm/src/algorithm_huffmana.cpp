@@ -1,7 +1,6 @@
 // Copyright 2020 Poletueva Anastasia
 
 #include "include/algorithm_huffmana.h"
-#include <string>
 #include <vector>
 #include <stack>
 
@@ -38,19 +37,19 @@ HuffmanTree::HuffmanTree(std::string str) {
 
 void HuffmanTree::SortQueue(std::vector<HuffmanNode*>* queue,
   const std::vector<int> & hist) {
-for (int j = 0; j < 255; j++) {
-  int f = 0;
-  for (int i = 0; i < 255 - j; i++) {
-    if (hist[(*queue)[i]->value] < hist[(*queue)[i + 1]->value]) {
-      HuffmanNode* buff = (*queue)[i];
-      (*queue)[i] = (*queue)[i + 1];
-      (*queue)[i + 1] = buff;
-      f = 1;
+  for (int j = 0; j < 255; j++) {
+    int f = 0;
+    for (int i = 0; i < 255 - j; i++) {
+      if (hist[(*queue)[i]->value] < hist[(*queue)[i + 1]->value]) {
+        HuffmanNode* buff = (*queue)[i];
+        (*queue)[i] = (*queue)[i + 1];
+        (*queue)[i + 1] = buff;
+        f = 1;
+      }
     }
+    if (f == 0)
+      break;
   }
-  if (f == 0)
-    break;
-}
 }
 
 std::vector <std::string> HuffmanTree::Encode(std::string str) {

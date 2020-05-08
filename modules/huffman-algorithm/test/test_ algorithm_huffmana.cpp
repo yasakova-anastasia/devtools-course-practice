@@ -1,7 +1,6 @@
 // Copyright 2020 Poletueva Anastasia
 
 #include <gtest/gtest.h>
-#include <string>
 #include <vector>
 #include "include/algorithm_huffmana.h"
 
@@ -25,7 +24,6 @@ TEST(AlgorithmHuffmanaTest, Can_Create_Histoghram_2) {
 
   // Act
   std::vector<int> v = HuffmanTree().CreateHistogram(text);
-  HuffmanTree a(text);
 
   // Assert
   EXPECT_EQ(5, v['A']);
