@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include <string>
+#include <iostream>
 
 #include "include/rb_tree_application.h"
 
@@ -46,4 +47,12 @@ TEST_F(RBTreeAppTest, Detects_Wrong_Args) {
     Act(args);
 
     Assert("Bad arguments!");
+}
+
+TEST_F(RBTreeAppTest, Can_Add_And_Find) {
+    std::vector<std::string> args = {"insert", "1", "find", "1"};
+
+    Act(args);
+
+    Assert("\\(1 is found\\)");
 }

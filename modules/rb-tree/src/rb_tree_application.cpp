@@ -1,26 +1,29 @@
 // Copyright 2020 Isaev Ilya
 
+#include <cstring>
 #include <stdexcept>
+#include <sstream>
 #include <iostream>
 #include "include/rb_tree_application.h"
 
 std::string RBTreeApp::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
-        return _message;
+        return _sstream.str();
     }
     try {
-        for (int i = 1; i < argc; ++i) {
-            parseOperation(argv+i);
+        int offset;
+        for (int i = 1; i < argc;) {
+            offset = parseOperation(argv+i);
+            i += offset;
         }
+        return _sstream.str();
     } catch(std::exception& exc) {
         return exc.what();
     }
-
-    return _message;
 }
 
-void RBTreeApp::help(const char* appname, const char* message) {
-    _message = std::string(message) + "This is a Red-black tree application.\n\n"+
+std::string RBTreeApp::help(const char* appname, const char* message) {
+    return std::string(message) + "This is a Red-black tree application.\n\n"+
         "Please provide arguments in the following format:\n\n"+
         "  $ " + appname + "<actions> \n\n" +
         "Where <actions> are: \n\n" + 
@@ -32,13 +35,41 @@ void RBTreeApp::help(const char* appname, const char* message) {
 
 bool RBTreeApp::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
-        help(argv[0]);
+        _sstream << help(argv[0]);
         return false;
     }
     return true;
 }
 
+int RBTreeApp::parseToValue(const char* strval) {
+    auto n = static_cast<int>(std::strlen(strval));
+
+    if ((strval[0] != '-' && !std::isdigit(strval[0])) || (strval[0] == '-' && n == 1))
+        throw std::invalid_argument("Invalid value: " + std::string(strval));
+
+    for (int i = 1; i < n; i++) {
+        if (!std::isdigit(strval[i]))
+            throw std::invalid_argument("Invalid value: " + std::string(strval));
+    }
+    return std::atoi(strval);
+}
+
 int RBTreeApp::parseOperation(const char** ops) {
+    if (std::strcmp(ops[0], "insert") == 0) {
+        _rb.insert(new Node{parseToValue(ops[1])});
+
+        return 2;
+    }
+    if (std::strcmp(ops[0], "find") == 0) {
+        auto value = parseToValue(ops[1]);
+        auto found = _rb.find(value);
+        if (found) {
+            _sstream << "(" << value << " is found) ";  
+        } else {
+            _sstream << "(" << value << " is not found) ";
+        }
+        return 2;
+    }
     throw std::invalid_argument("Bad arguments!");
     return 0;
 }
