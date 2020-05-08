@@ -24,11 +24,11 @@ class HuffmanTree {
   std::vector<std::string> Encode(std::string str);
   std::vector<int> CreateHistogram(std::string str);
   ~HuffmanTree();
- 
+
  private:
-   void CreateEncodingTable(HuffmanNode* node, std::string code,
+  void CreateEncodingTable(HuffmanNode* node, std::string code,
      std::string direct);
-   void SortQueue(std::vector<HuffmanNode*> *queue,
+  void SortQueue(std::vector<HuffmanNode*> *queue,
      const std::vector<int> & hist);
 };
 
