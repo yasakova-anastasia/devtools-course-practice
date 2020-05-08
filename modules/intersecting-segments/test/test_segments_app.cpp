@@ -39,41 +39,56 @@ class Segment_app_test : public ::testing::Test {
 };
 
 TEST_F(Segment_app_test, Do_Print_Help_Without_Arguments) {
+  // Arrange
   vector<string> args = {};
 
+  // Act
   Act(args);
 
+  // Assert
   Assert("This is an intersecting segments application\\..*");
 }
 
 TEST_F(Segment_app_test, Is_Checking_Number_Of_Arguments) {
+  // Arrange
   vector<string> args = { "1", "2" };
-
+  
+  // Act
   Act(args);
 
+  // Assert
   Assert("ERROR: Should be 8 arguments\\..*");
 }
 
 TEST_F(Segment_app_test, Can_Detect_Wrong_Number_Format) {
+  // Arrange
   vector<string> args = { "1", "pi", "2", "4", "+", "3", "7", "5" };
 
+  // Act
   Act(args);
 
+  // Assert
   Assert("Wrong number format!.*");
 }
 
 TEST_F(Segment_app_test, Intersection_True) {
+  // Arrange
   vector<string> args = { "1", "1", "1", "5", "0", "3", "2", "4" };
 
+  // Act
   Act(args);
 
+  // Assert
   Assert("Segments do intersect");
 }
 
 TEST_F(Segment_app_test, Intersection_False) {
+  // Arrange
   vector<string> args = { "1", "1", "1", "5", "2", "3", "2", "4" };
 
+  // Act
   Act(args);
 
+  // Assert
   Assert("Segments do not intersect");
 }
