@@ -79,6 +79,6 @@ add_test(
     COMMAND ${APPLICATION} getRoot
 )
 
-set_tests_properties (${prefix}_can_Get_Root PROPERTIES
+set_tests_properties (${prefix}_cant_Get_Root_Of_Empty_Tree PROPERTIES
     PASS_REGULAR_EXPRESSION "(Tree is empty)"
     LABELS "${MODULE}")
