@@ -126,7 +126,7 @@ std::string TriangleParamCalculator::calculate(int argc, const char** argv) {
         }
 
         if (requests[i] == (std::string)"LengthAB") {
-            answer += (std::to_string(t.side(t.getTopB(), t.getTopC())) + "\n");
+            answer += (std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
         }
 
         if (requests[i] == (std::string)"LengthBC") {
