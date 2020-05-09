@@ -72,7 +72,11 @@ int RBTreeApp::parseOperation(const char** ops) {
         return 2;
     }
     if (std::strcmp(ops[0], "remove") == 0) {
-        _rb.remove(parseToValue(ops[1]));
+        try {
+            _rb.remove(parseToValue(ops[1]));
+        } catch(const char* ex) {
+            _sstream << "(" << ex << ")";
+        }
 
         return 2;
     }

@@ -66,6 +66,15 @@ set_tests_properties (${prefix}_can_Remove_Element PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_cant_Remove_Not_Existing_Elem
+    COMMAND ${APPLICATION} remove 1
+)
+
+set_tests_properties (${prefix}_can_Remove_Element PROPERTIES
+    PASS_REGULAR_EXPRESSION "(No that data in tree)"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_Get_Root
     COMMAND ${APPLICATION} insert 1 insert 2 insert 3 getRoot
 )
