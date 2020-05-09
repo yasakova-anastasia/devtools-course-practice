@@ -15,7 +15,7 @@ class SegmentTreeApp {
      void help(const char* appname, const char* message = "");
      bool validateNumberOfArguments(int argc, const char** argv);
      std::string message_;
-     struct Arguments {
+     using Arguments = struct {
         int count_of_elements;
         std::vector<int> elements;
         int count_of_queries;

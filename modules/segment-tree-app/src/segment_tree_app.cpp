@@ -92,7 +92,7 @@ std::string SegmentTreeApp::operator()(int argc, const char** argv) {
             args.right_borders[i] = parseInt(argv[k++]);
         }
         args.operation = parseOperation(argv[args.count_of_elements
-        + 2 * args.count_of_queries + 3]);
+            + 2 * args.count_of_queries + 3]);
     }
     catch(std::string& str) {
         return str;

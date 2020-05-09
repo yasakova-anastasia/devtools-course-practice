@@ -15,7 +15,7 @@ SegmentTree::SegmentTree(int size) {
     }
 }
 
-SegmentTree::SegmentTree(const std::vector <int>& input,
+SegmentTree::SegmentTree(const std::vector<int>& input,
                          std::string operation) {
     int size = static_cast<int>(input.size());
     if (size <= 0) {
@@ -28,7 +28,7 @@ SegmentTree::SegmentTree(const std::vector <int>& input,
     }
 }
 
-int SegmentTree::gcd(int x, int y) {
+int SegmentTree::gcd(int x, int y) const {
     while (x > 0 && y > 0) {
         if (x >= y) {
             x %= y;
@@ -39,7 +39,7 @@ int SegmentTree::gcd(int x, int y) {
     return x + y;
 }
 
-int SegmentTree::op(int x, int y) {
+int SegmentTree::op(int x, int y) const {
     if (_operation == "+") {
         return x + y;
     } else if (_operation == "max") {
@@ -53,7 +53,7 @@ int SegmentTree::op(int x, int y) {
     }
 }
 
-void SegmentTree::build(const std::vector <int>& arr, int index,
+void SegmentTree::build(const std::vector<int>& arr, int index,
                         int left, int right) {
     if (left == right) {
         tree[index] = arr[left];
@@ -65,11 +65,11 @@ void SegmentTree::build(const std::vector <int>& arr, int index,
     }
 }
 
-std::vector <int> SegmentTree::Get() {
+std::vector<int> SegmentTree::Get() const {
     return tree;
 }
 
-int SegmentTree::query(int index, int l, int r, int left, int right) {
+int SegmentTree::query(int index, int l, int r, int left, int right) const {
     if (left > right) {
         return (_operation == "min" ? INT_MAX : 0);
     } else if (left == l && right == r) {
@@ -81,7 +81,7 @@ int SegmentTree::query(int index, int l, int r, int left, int right) {
     }
 }
 
-int SegmentTree::query(int left, int right) {
+int SegmentTree::query(int left, int right) const {
     if (left < 0 || right < 0) {
         throw std::string("left or right interval cannot be negative");
     }
