@@ -13,7 +13,7 @@ class DepositCalc {
      DepositCalc(int _depositAmount, int _period, int _rate);
      void calc();
      void setDepositAmount(const int& depositAmount);
-     void setPeriod(const unsigned int& period);
+     void setPeriod(unsigned const int& period);
      void setRate(const int& rate);
      int getDepositAmount() const;
      int getPeriod() const;

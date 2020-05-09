@@ -32,7 +32,7 @@ void DepositCalc::setDepositAmount(const int& depositAmount) {
     this->depositAmount = depositAmount;
 }
 
-void DepositCalc::setPeriod(const unsigned int& period) {
+void DepositCalc::setPeriod(unsigned const int& period) {
     if (period < 0)
         throw "PeriodisNegative";
     if (period == 0)
