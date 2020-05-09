@@ -2,7 +2,7 @@
 
 #include "include/modify_stack.h"
 
-Stack::Stack(int size = 50) {
+Stack::Stack(int size) {
     if (size <= 0) {
         throw "Size must be above zero";
     } else {
