@@ -3,10 +3,6 @@
 #include "include/segment_tree.h"
 #include "include/segment_tree_app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <string>
 #include <sstream>
 
@@ -28,10 +24,11 @@ void SegmentTreeApp::help(const char* appname, const char* message) {
 }
 
 int parseInt(const char* arg) {
-    char* end;
-    int value = static_cast<int>(strtol(arg, &end, 10));
-
-    if (end[0]) {
+    int value;
+    try {
+        value = std::stoi(arg);
+    }
+    catch(...) {
         throw std::string("Wrong number format!");
     }
 
@@ -39,14 +36,14 @@ int parseInt(const char* arg) {
 }
 
 std::string parseOperation(const char* arg) {
-    std::string op;
-    if (strcmp(arg, "+") == 0) {
+    std::string op(arg);
+    if (op == "+") {
         op = "+";
-    } else if (strcmp(arg, "max") == 0) {
+    } else if (op == "max") {
         op = "max";
-    } else if (strcmp(arg, "min") == 0) {
+    } else if (op == "min") {
         op = "min";
-    } else if (strcmp(arg, "gcd") == 0) {
+    } else if (op == "gcd") {
         op = "gcd";
     } else {
         throw std::string("Wrong operation format!");

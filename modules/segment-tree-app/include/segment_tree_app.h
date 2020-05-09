@@ -15,14 +15,14 @@ class SegmentTreeApp {
      void help(const char* appname, const char* message = "");
      bool validateNumberOfArguments(int argc, const char** argv);
      std::string message_;
-     typedef struct {
+     struct Arguments {
         int count_of_elements;
         std::vector<int> elements;
         int count_of_queries;
         std::vector<int> left_borders;
         std::vector<int> right_borders;
         std::string operation;
-    } Arguments;
+     };
 };
 
 #endif  // MODULES_SEGMENT_TREE_APP_INCLUDE_SEGMENT_TREE_APP_H_
