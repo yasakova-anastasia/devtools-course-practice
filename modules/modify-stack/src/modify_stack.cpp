@@ -71,11 +71,11 @@ double Stack::pop() {
     return src[top];
 }
 
-double Stack::getUpper() {
+double Stack::getUpper() const {
     return src[top-1];
 }
 
-double Stack::getMin() {
+double Stack::getMin() const {
     return min_items[top-1];
 }
 
