@@ -40,7 +40,7 @@ set_tests_properties (${prefix}_can_Check_Possibility_To_Create_Triangle PROPERT
 
 add_test(
     NAME ${prefix}_can_Check_Number_Type
-    COMMAND ${APPLICATION} A 0double 0 B 1 0 C 0 1
+    COMMAND ${APPLICATION} A double 0 B 1 0 C 0 1
 )
 
 set_tests_properties (${prefix}_can_Check_Number_Type PROPERTIES
@@ -79,7 +79,7 @@ add_test(
     COMMAND ${APPLICATION} A 0 0 B 1 0 C 0 1 LengthBC
 )
 
-set_tests_properties (${prefix}_can_Get_LengthAB PROPERTIES
+set_tests_properties (${prefix}_can_Get_LengthBC PROPERTIES
     PASS_REGULAR_EXPRESSION "Requested calculations:\n1. LengthBC = 1.414214"
     LABELS "${MODULE}")
     
