@@ -8,10 +8,13 @@
 #include "../include/triangle_param.h"
 
 class TriangleParamCalculator {
-private:
-    Triangle parseTriangleData(int argc, const char** argv);  // Return triangle, created from user string data.
-    std::vector<std::string> parseRequests(int argc, const char** argv);  // Return array of user's requests.
-public:        
+ private:
+    // Return triangle, created from user string data.
+    Triangle parseTriangleData(int argc, const char** argv);
+
+    // Return array of user's requests.
+    std::vector<std::string> parseRequests(int argc, const char** argv);
+ public:
     std::string calculate(int argc, const char** argv);
     std::string help();
 };

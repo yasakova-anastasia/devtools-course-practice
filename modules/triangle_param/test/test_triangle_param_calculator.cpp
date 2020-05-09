@@ -48,91 +48,104 @@ TEST_F(TriangleParamCalculatorTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(TriangleParamCalculatorTest, Wrong_Top_Name) {
-    vector<string> args = {"a","0","0","b","1", "0", "c","0","1"};
+    vector<string> args = {"a", "0", "0", "b", "1", "0",
+        "c", "0", "1"};
     Act(args);
 
     Assert("Wrong top names arguments. Please, follow the syntax.\n");
 }
 
 TEST_F(TriangleParamCalculatorTest, All_Points_Are_In_The_Same_Line) {
-    vector<string> args = {"A","0","0","B","1", "1", "C","2","2"};
+    vector<string> args = {"A", "0", "0", "B", "1", "1",
+        "C", "2", "2"};
     Act(args);
 
     Assert("Three of your points are in the same line\n.");
 }
 
 TEST_F(TriangleParamCalculatorTest, Wrong_Numbers_Type) {
-    vector<string> args = {"A","a","c","B","0", "1", "C","0","2"};
+    vector<string> args = {"A", "a", "c", "B", "0", "1",
+        "C", "0", "2"};
     Act(args);
 
     Assert("Wrong number type arguments. Please, follow the syntax.\n");
 }
 
 TEST_F(TriangleParamCalculatorTest, Can_Work_With_No_Requests) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0"};
     Act(args);
 
     Assert("Requested calculations:\n");
 }
 
 TEST_F(TriangleParamCalculatorTest, Wrong_Requests) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","asddasd"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "asddasd"};
     Act(args);
 
     Assert("Wrong requests arguments. Please, follow the syntax.\n");
 }
 
 TEST_F(TriangleParamCalculatorTest, LengthAB_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","LengthAB"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "LengthAB"};
     Act(args);
 
     Assert("Requested calculations:\n1. LengthAB = 1");
 }
 
 TEST_F(TriangleParamCalculatorTest, LengthBC_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","LengthBC"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "LengthBC"};
     Act(args);
 
     Assert("Requested calculations:\n1. LengthBC = 1.414214");
 }
 
 TEST_F(TriangleParamCalculatorTest, LengthAC_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","LengthAC"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "LengthAC"};
     Act(args);
 
     Assert("Requested calculations:\n1. LengthAC = 1");
 }
 
 TEST_F(TriangleParamCalculatorTest, CornerA_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","CornerA"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "CornerA"};
     Act(args);
 
     Assert("Requested calculations:\n1. CornerA = 1.570796");
 }
 
 TEST_F(TriangleParamCalculatorTest, CornerB_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","CornerB"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "CornerB"};
     Act(args);
 
     Assert("Requested calculations:\n1. CornerB = 0.785398");
 }
 
 TEST_F(TriangleParamCalculatorTest, CornerC_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","CornerC"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "CornerC"};
     Act(args);
 
     Assert("Requested calculations:\n1. CornerC = 0.785398");
 }
 
 TEST_F(TriangleParamCalculatorTest, Perimeter_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","Perimeter"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "Perimeter"};
     Act(args);
 
     Assert("Requested calculations:\n1. Perimeter = 3.414214");
 }
 
 TEST_F(TriangleParamCalculatorTest, Square_Req) {
-    vector<string> args = {"A","0","0","B","0", "1", "C","1","0","Square"};
+    vector<string> args = {"A", "0", "0", "B", "0", "1",
+        "C", "1", "0", "Square"};
     Act(args);
 
     Assert("Requested calculations:\n1. Square = 0.5");
