@@ -7,9 +7,11 @@
 #include <utility>
 #include <vector>
 
-using dd = std::pair<double, double>;
+using pair = std::pair<double, double>;
 
 class Segment_app {
+  using Arguments = struct { std::vector<pair> coord; };
+
  public:
   Segment_app();
   std::string operator()(int argc, const char** argv);
@@ -18,12 +20,11 @@ class Segment_app {
   void help(const char* appname, const char* message = "");
   bool validateNumberOfArguments(int argc, const char** argv);
 
-  void calculateTriangleArea();
-  void relationPoint();
-  void segmentIntersection();
+  std::string calculateTriangleArea(const Arguments args) const;
+  std::string relationPoint(const Arguments args) const;
+  std::string segmentIntersection(const Arguments args) const;
 
   std::string message;
-  std::vector<dd> coord;
 };
 
 #endif  // MODULES_INTERSECTING_SEGMENTS_INCLUDE_SEGMENTS_APP_H_

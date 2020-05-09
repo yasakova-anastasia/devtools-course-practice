@@ -10,7 +10,7 @@ Segment::Segment(double _x1, double _y1, double _x2, double _y2) {
   y2 = _y2;
 }
 
-Segment::Segment(dd coord_1, dd coord_2) {
+Segment::Segment(pair coord_1, pair coord_2) {
   x1 = coord_1.first;
   y1 = coord_1.second;
 
@@ -18,11 +18,11 @@ Segment::Segment(dd coord_1, dd coord_2) {
   y2 = coord_2.second;
 }
 
-double Segment::area(double x, double y) {
+double Segment::area(double x, double y) const {
   return ((x2 - x1) * (y - y1) - (y2 - y1) * (x - x1)) / 2.0;
 }
 
-bool Segment::isIntersect(Segment A) {
+bool Segment::isIntersect(const Segment& A) const {
   double s1, s2, s3, s4;
   s1 = A.area(x1, y1);
   s2 = A.area(x2, y2);

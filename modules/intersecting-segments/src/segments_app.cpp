@@ -31,14 +31,23 @@ bool Segment_app::validateNumberOfArguments(int argc, const char** argv) {
   }
 
   bool validate = false;
-  int operation = std::stoi(argv[1]);
-  if (operation == 1 || operation == 2) {
-    validate = (argc == 8);
-  } else if (operation == 3) {
-    validate = (argc == 10);
-  } else {
-    message = "ERROR: Number operation must be 1 or 2 or 3.";
-    return false;
+  switch (std::stoi(argv[1])) {
+    case 1: {
+      validate = argc == 8;
+      break;
+    }
+    case 2: {
+      validate = argc == 8;
+      break;
+    }
+    case 3: {
+      validate = argc == 10;
+      break;
+    }
+    default: {
+      message = "ERROR: Number operation must be 1 or 2 or 3.";
+      return false;
+    }
   }
 
   if (!validate) message = "ERROR: Incurrect number arguments.";
@@ -50,65 +59,67 @@ std::string Segment_app::operator()(int argc, const char** argv) {
     return message;
   }
 
+  Arguments args;
+
   try {
-    dd temp_pair;
+    pair temp_pair;
     for (int i = 2; i < argc; i += 2) {
       temp_pair = std::make_pair(std::stod(argv[i]), std::stod(argv[i + 1]));
-      coord.push_back(temp_pair);
+      args.coord.push_back(temp_pair);
     }
   } catch (std::string& str) {
     return str;
   }
 
-  std::ostringstream stream;  //////////////////
+  std::ostringstream stream;
 
   switch (std::stoi(argv[1])) {
     case 1: {
-      calculateTriangleArea();
+      message = calculateTriangleArea(args);
       break;
     }
     case 2: {
-      relationPoint();
+      message = relationPoint(args);
       break;
     }
     case 3: {
-      segmentIntersection();
+      message = segmentIntersection(args);
       break;
     }
   }
 
-  stream << message;  /////////////////////////
+  stream << message;
   return message;
 }
 
-void Segment_app::calculateTriangleArea() {
-  double x = coord[0].first;
-  double y = coord[0].second;
-  Segment line(coord[1], coord[2]);
+std::string Segment_app::calculateTriangleArea(const Arguments args) const {
+  double x = args.coord[0].first;
+  double y = args.coord[0].second;
+  Segment line(args.coord[1], args.coord[2]);
 
-  message = "Triangle area = " + std::to_string(std::abs(line.area(x, y)));
+  return "Triangle area = " + std::to_string(std::abs(line.area(x, y)));
 }
 
-void Segment_app::relationPoint() {
-  double x = coord[0].first;
-  double y = coord[0].second;
-  Segment line(coord[1], coord[2]);
+std::string Segment_app::relationPoint(const Arguments args) const {
+  double x = args.coord[0].first;
+  double y = args.coord[0].second;
+  Segment line(args.coord[1], args.coord[2]);
 
   double area = line.area(x, y);
   if (area < 0)
-    message = "Point to the right of the vector.";
+    return "Point to the right of the vector.";
   else if (area > 0)
-    message = "Point to the left of the vector.";
+    return "Point to the left of the vector.";
   else
-    message = "Point on the vector.";
+    return "Point on the vector.";
 }
 
-void Segment_app::segmentIntersection() {
-  Segment line_1(coord[0], coord[1]);
-  Segment line_2(coord[2], coord[3]);
+std::string Segment_app::segmentIntersection(const Arguments args) const {
+  Segment line_1(args.coord[0], args.coord[1]);
+  Segment line_2(args.coord[2], args.coord[3]);
 
   if (line_1.isIntersect(line_2))
-    message = "Segments do intersect";
+    return "Segments do intersect";
   else
-    message = "Segments do not intersect";
+    return "Segments do not intersect";
 }

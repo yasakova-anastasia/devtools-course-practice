@@ -5,15 +5,15 @@
 
 #include <utility>
 
-using dd = std::pair<double, double>;
-
 class Segment {
+  using pair = std::pair<double, double>;
+
  public:
   Segment(double _x1, double _y1, double _x2, double _y2);
-  Segment(dd coord_1, dd coord_2);
+  Segment(pair coord_1, pair coord_2);
 
-  double area(double x, double y);  // double oriented triangle area
-  bool isIntersect(Segment A);
+  double area(double x, double y) const;
+  bool isIntersect(const Segment& A) const;
 
  private:
   double x1;
