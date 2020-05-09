@@ -82,7 +82,7 @@ TEST_F(RBTreeAppTest, Can_Remove_Element) {
 
 TEST_F(RBTreeAppTest, Cant_Remove_Not_Existing_Elem) {
     std::vector<std::string> args = {"remove", "1"};
-    
+
     Act(args);
 
     Assert("\\(No that data in tree\\)");
