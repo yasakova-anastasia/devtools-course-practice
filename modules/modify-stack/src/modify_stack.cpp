@@ -5,8 +5,9 @@
 Stack::Stack(int size = 50) {
     if (size <= 0) {
         throw "Size must be above zero";
-    } else
+    } else {
         this->size = size;
+    }
     src = new double[this->size];
     min_items = new double[this->size];
     top = 0;
@@ -91,8 +92,9 @@ void Stack::operator = (const Stack& stack) {
         if (this->size != stack.size) {
             delete[] this->src;
             delete[] this->min_items;
-        } else
+        } else {
             equal = true;
+        }
         init(stack, equal);
     }
 }

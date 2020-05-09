@@ -87,6 +87,24 @@ TEST(Stack, Can_Assign) {
     EXPECT_TRUE(s1 == s2);
 }
 
+TEST(Stack, Can_Assign_with_different_size) {
+    // Arrange
+    int size1 = 10;
+    int size2 = 11;
+    double value = 0;
+    Stack s1(size1);
+    Stack s2(size2);
+
+    // Act
+    for (int i = 0; i < size1; i++) {
+        s1.put(static_cast<double>(value++));
+    }
+    s2 = s1;
+
+    // Assert
+    EXPECT_TRUE(s1 == s2);
+}
+
 TEST(Stack, Do_Get_Min) {
     // Arrange
     int size = 10;
