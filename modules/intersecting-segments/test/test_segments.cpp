@@ -12,7 +12,7 @@ TEST(Segment, can_create_segment) {
 }
 
 TEST(Segment, can_create_segment_used_pair) {
-  // Arrange 
+  // Arrange
   std::pair<double, double> coord_1 = std::make_pair(1, 2);
   std::pair<double, double> coord_2 = std::make_pair(3, 4);
 
