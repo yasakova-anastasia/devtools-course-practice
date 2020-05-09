@@ -124,35 +124,35 @@ std::string TriangleParamCalculator::calculate(int argc, const char** argv) {
             answer += (std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
         }
 
-        if (requests[i] == (std::string)"LengthBC") {
+        if (requests[i] == std::string("LengthBC")) {
             answer += (std::to_string(t.side(t.getTopB(), t.getTopC())) + "\n");
         }
 
-        if (requests[i] == (std::string)"LengthAC") {
+        if (requests[i] == std::string("LengthAC")) {
             answer += (std::to_string(t.side(t.getTopA(), t.getTopC())) + "\n");
         }
 
-        if (requests[i] == (std::string)"CornerA") {
+        if (requests[i] == std::string("CornerA")) {
             answer += (std::to_string(t.cornA()) + "\n");
         }
 
-        if (requests[i] == (std::string)"CornerB") {
+        if (requests[i] == std::string("CornerB")) {
             answer += (std::to_string(t.cornB()) + "\n");
         }
 
-        if (requests[i] == (std::string)"CornerC") {
+        if (requests[i] == std::string("CornerC")) {
             answer += (std::to_string(t.cornC()) + "\n");
         }
 
-        if (requests[i] == (std::string)"Perimeter") {
+        if (requests[i] == std::string("Perimeter")) {
             answer += (std::to_string(t.perimetr()) + "\n");
         }
 
-        if (requests[i] == (std::string)"Square") {
+        if (requests[i] == std::string("Square")) {
             answer += (std::to_string(t.square()) + "\n");
         }
 
-        if (requests[i] == (std::string)"All") {
+        if (requests[i] == std::string("All")) {
             answer += ("LengthAB = "
                 + std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
             answer += ("LengthBC = "
