@@ -62,7 +62,7 @@ std::string Segment_app::operator()(int argc, const char** argv) {
   Arguments args;
 
   try {
-    pair temp_pair;
+    std::pair<double, double> temp_pair;
     for (int i = 2; i < argc; i += 2) {
       temp_pair = std::make_pair(std::stod(argv[i]), std::stod(argv[i + 1]));
       args.coord.push_back(temp_pair);

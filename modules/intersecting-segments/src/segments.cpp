@@ -1,7 +1,8 @@
 // Copyright 2020 Kukushkina Ksenia & Maximova Irina
 
-#include <cmath>
 #include "include/segments.h"
+
+#include <cmath>
 
 Segment::Segment(double _x1, double _y1, double _x2, double _y2) {
   x1 = _x1;
@@ -31,16 +32,12 @@ bool Segment::isIntersect(const Segment& A) const {
 
   if (s1 == 0 && s3 == 0) {
     double l1 = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-    double l2 = sqrt((A.x1 - A.x2) * (A.x1 - A.x2)
-      + (A.y1 - A.y2) * (A.y1 - A.y2));
-    double l13 = sqrt((x1 - A.x1) * (x1 - A.x1)
-      + (y1 - A.y1) * (y1 - A.y1));
-    double l14 = sqrt((x1 - A.x2) * (x1 - A.x2)
-      + (y1 - A.y2) * (y1 - A.y2));
-    double l23 = sqrt((x2 - A.x1) * (x2 - A.x1)
-      + (y2 - A.y1) * (y2 - A.y1));
-    double l24 = sqrt((x2 - A.x2) * (x2 - A.x2)
-      + (y2 - A.y2) * (y2 - A.y2));
+    double l2 =
+        sqrt((A.x1 - A.x2) * (A.x1 - A.x2) + (A.y1 - A.y2) * (A.y1 - A.y2));
+    double l13 = sqrt((x1 - A.x1) * (x1 - A.x1) + (y1 - A.y1) * (y1 - A.y1));
+    double l14 = sqrt((x1 - A.x2) * (x1 - A.x2) + (y1 - A.y2) * (y1 - A.y2));
+    double l23 = sqrt((x2 - A.x1) * (x2 - A.x1) + (y2 - A.y1) * (y2 - A.y1));
+    double l24 = sqrt((x2 - A.x2) * (x2 - A.x2) + (y2 - A.y2) * (y2 - A.y2));
     return l13 + l14 + l23 + l24 < 4 * (l1 + l2);
     // summary length >= most remote points distance
   }
