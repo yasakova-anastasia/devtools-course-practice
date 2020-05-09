@@ -44,8 +44,8 @@ std::vector<std::string> TriangleParamCalculator::
             strcmp(argv[10 + i], "Perimeter") != 0 &&
             strcmp(argv[10 + i], "Square") != 0 &&
             strcmp(argv[10 + i], "All") != 0) {
-                throw(std::string)
-                    "Wrong requests arguments. Please, follow the syntax.\n";
+                throw std::string
+                    ("Wrong requests arguments. Please, follow the syntax.\n");
             } else {
                 res[i] = argv[10 + i];
             }
@@ -61,8 +61,8 @@ Triangle TriangleParamCalculator::
     if (strcmp(argv[1], "A") != 0 &&
         strcmp(argv[4], "B") != 0 &&
         strcmp(argv[7], "C") != 0) {
-        throw(std::string)
-            "Wrong top names arguments. Please, follow the syntax.\n";
+        throw std::string
+            ("Wrong top names arguments. Please, follow the syntax.\n");
     }
     try {
         // A set
@@ -88,11 +88,11 @@ Triangle TriangleParamCalculator::
 
         return Triangle(a, b, c);
     } catch(const int e) {
-        throw(std::string)
-            "Three of your points are in the same line\n.";
+        throw std::string
+            ("Three of your points are in the same line\n.");
     } catch (...) {
-        throw(std::string)
-            "Wrong number type arguments. Please, follow the syntax.\n";
+        throw std::string
+            ("Wrong number type arguments. Please, follow the syntax.\n");
     }
 }
 
@@ -107,11 +107,6 @@ std::string TriangleParamCalculator::calculate(int argc, const char** argv) {
 
     try {
         t = parseTriangleData(argc, argv);
-    } catch (std::string &err) {
-        return err;
-    }
-
-    try {
         requests = parseRequests(argc, argv);
     } catch (std::string &err) {
         return err;
@@ -119,13 +114,13 @@ std::string TriangleParamCalculator::calculate(int argc, const char** argv) {
 
     answer += "Requested calculations:\n";
     for (unsigned int i = 0; i < requests.size(); ++i) {
-        if (requests[i] != (std::string)"All") {
+        if (requests[i] != std::string("All")) {
             answer += (std::to_string(i + 1) + ". " + requests[i] + " = ");
         } else {
             answer += (std::to_string(i + 1) + ". " + requests[i] + "\n");
         }
 
-        if (requests[i] == (std::string)"LengthAB") {
+        if (requests[i] == std::string("LengthAB")) {
             answer += (std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
         }
 
