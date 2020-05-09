@@ -31,11 +31,14 @@ void DepositCalc::setDepositAmount(const int& depositAmount) {
 }
 
 void DepositCalc::setPeriod(const int& period) {
+    if (period < 0)
+        throw "PeriodisNegative"
     if (period == 0)
         throw "PeriodIsZero";
-    if (period > 1826)
+    if (period > max_period_days)
         throw "PeriodMoreThan1826";
     this->period = period;
+
 }
 
 void DepositCalc::setRate(const int& rate) {
@@ -47,3 +50,5 @@ void DepositCalc::calc() {
         / (366 * 100));
     interestCharges = depositWithRate - depositAmount;
 }
+
+const unsigned int max_period_days = 1826;

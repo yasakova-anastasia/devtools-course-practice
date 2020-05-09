@@ -11,7 +11,7 @@ TEST(DepositCalculatorTest, Can_Set_DepositAmount) {
     DepositCalc dep(0, 1, 0);
     dep.setDepositAmount(var);
     // Assert
-    EXPECT_EQ(dep.getDepositAmount(), var);
+    EXPECT_EQ(var, dep.getDepositAmount());
 }
 
 TEST(DepositCalculatorTest, Can_Set_Rate) {
@@ -21,21 +21,21 @@ TEST(DepositCalculatorTest, Can_Set_Rate) {
     DepositCalc dep(0, 1, 0);
     dep.setRate(var);
     // Assert
-    EXPECT_EQ(dep.getRate(), var);
+    EXPECT_EQ(var, dep.getRate());
 }
 
 TEST(DepositCalculatorTest, Can_Set_Period) {
+    //Arrange 
     int var = 1000;
     // Act
     DepositCalc dep(0, 1, 0);
     dep.setPeriod(var);
     // Assert
-    EXPECT_EQ(dep.getPeriod(), var);
+    EXPECT_EQ(var, dep.getPeriod());
 }
 
 TEST(DepositCalculatorTest, Can_Work_With_Zero_Parameters) {
-    // Arrange
-    // Act
+    // Arrange & Act
     DepositCalc dep(0, 1, 0);
     dep.calc();
     // Assert
@@ -50,7 +50,7 @@ TEST(DepositCalculatorTest, Is_Deposit_Rate_Calculation_Right) {
     DepositCalc dep(700000, 30, 15);
     dep.calc();
     // Assert
-    EXPECT_EQ(dep.getDepositWithRate(), _depositWithRate);
+    EXPECT_EQ(_depositWithRate, dep.getDepositWithRate());
 }
 
 TEST(DepositCalculatorTest, Is_Interest_Charges_Calculation_Right) {
@@ -60,20 +60,18 @@ TEST(DepositCalculatorTest, Is_Interest_Charges_Calculation_Right) {
     DepositCalc dep(700000, 30, 15);
     dep.calc();
     // Assert
-    EXPECT_EQ(dep.getInterestCharges(), _interestCharges);
+    EXPECT_EQ(_interestCh, dep.getInterestCharges());
 }
 
 TEST(DepositCalculatorTest, Can_Throw_Exception_If_Zero_Period) {
-    // Arrange
-    // Act
+    // Arrange & Act
     DepositCalc dep(0, 0, 0);
     // Assert
     ASSERT_ANY_THROW(dep.setPeriod(0));
 }
 
 TEST(DepositCalculatorTest, Can_Throw_Exception_If_Period_More_Than_1826) {
-    // Arrange
-    // Act
+    // Arrange & Act
     DepositCalc dep(0, 0, 0);
     // Assert
     ASSERT_ANY_THROW(dep.setPeriod(1827));
