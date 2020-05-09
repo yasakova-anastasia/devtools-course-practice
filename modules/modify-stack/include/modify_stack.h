@@ -10,6 +10,7 @@ class Stack {
     double* min_items;
     int size;
     int top;
+    void init(const Stack&, bool equal);
  public:
     explicit Stack(int size = 50);
     Stack(const Stack& stack);
@@ -19,11 +20,9 @@ class Stack {
     bool isEmpty() const;
     bool isFull() const;
     void put(const double value);
-    double getUpper();
+    double getUpper() const;
     double pop();
-    double getMin();
-    void init(const Stack&, bool equal);
-
+    double getMin() const;
     void operator = (const Stack& stack);
     bool operator == (const Stack& stack) const;
     bool operator != (const Stack& stack) const;

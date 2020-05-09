@@ -27,14 +27,7 @@ void Stack::init(const Stack& stack, bool equal) {
 }
 
 Stack::Stack(const Stack& stack) {
-    this->size = stack.size;
-    this->src = new double[this->size];
-    this->min_items = new double[this->size];
-    this->top = stack.top;
-    for (int i = 0; i < top; i++) {
-        this->src[i] = stack.src[i];
-        this->min_items[i] = stack.min_items[i];
-    }
+    init(stack, false);
 }
 
 Stack::~Stack() {
