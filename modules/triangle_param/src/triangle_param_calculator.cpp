@@ -1,6 +1,7 @@
 // Copyright 2020 Kudryashov Nikita
 
 #include <string>
+#include <cstring>
 #include <vector>
 #include <utility>
 #include "../include/triangle_param.h"
