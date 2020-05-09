@@ -107,13 +107,13 @@ std::string TriangleParamCalculator::calculate(int argc, const char** argv) {
 
     try {
         t = parseTriangleData(argc, argv);
-    } catch (std::string err) {
+    } catch (std::string &err) {
         return err;
     }
 
     try {
         requests = parseRequests(argc, argv);
-    } catch (std::string err) {
+    } catch (std::string &err) {
         return err;
     }
 
