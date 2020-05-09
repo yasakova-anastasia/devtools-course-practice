@@ -3,6 +3,8 @@
 #include "include/DepositCalc.h"
 #include <iostream>
 
+const unsigned int max_period_days = 1826;
+
 DepositCalc::DepositCalc(int _depositAmount, int _period, int _rate)
     :depositAmount(_depositAmount), period(_period), rate(_rate) {}
 
@@ -50,5 +52,3 @@ void DepositCalc::calc() {
         / (366 * 100));
     interestCharges = depositWithRate - depositAmount;
 }
-
-const unsigned int max_period_days = 1826;
