@@ -15,18 +15,6 @@ TEST(Stack, Can_Create_With_Positive_Size) {
     EXPECT_EQ(size, s.getSize());
 }
 
-TEST(Stack, Can_Create_With_Zero) {
-    // Arrange
-    int size = 0;
-    int ex_size = 50;
-
-    // Act
-    Stack s(size);
-
-    // Assert
-    EXPECT_EQ(ex_size, s.getSize());
-}
-
 TEST(Stack, Can_Create_With_No_Size) {
     // Arrange
     int ex_size = 50;

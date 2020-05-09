@@ -22,6 +22,7 @@ class Stack {
     double getUpper();
     double pop();
     double getMin();
+    void init(const Stack&, bool equal);
 
     void operator = (const Stack& stack);
     bool operator == (const Stack& stack) const;

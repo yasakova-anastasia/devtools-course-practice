@@ -1,21 +1,28 @@
 // Copyright 2020 Tanskii Yurii
 
 #include "include/modify_stack.h"
-#include <algorithm>
 
-Stack::Stack(int size) {
-    if (size < 0) {
-        throw "Size cannot be below zero";
-    } else {
-        if (size == 0) {
-            this->size = 50;
-        } else {
-            this->size = size;
-        }
-    }
+Stack::Stack(int size = 50) {
+    if (size <= 0) {
+        throw "Size must be above zero";
+    } else
+        this->size = size;
     src = new double[this->size];
     min_items = new double[this->size];
     top = 0;
+}
+
+void Stack::init(const Stack& stack, bool equal) {
+    this->size = stack.size;
+    if (!equal) {
+        this->src = new double[size];
+        this->min_items = new double[size];
+    }
+    this->top = stack.top;
+    for (int i = 0; i < top; i++) {
+        this->src[i] = stack.src[i];
+        this->min_items[i] = stack.min_items[i];
+    }
 }
 
 Stack::Stack(const Stack& stack) {
@@ -79,13 +86,14 @@ double Stack::getMin() {
 }
 
 void Stack::operator = (const Stack& stack) {
-    this->size = stack.size;
-    this->src = new double[size];
-    this->min_items = new double[size];
-    this->top = stack.top;
-    for (int i = 0; i < top; i++) {
-        this->src[i] = stack.src[i];
-        this->min_items[i] = stack.min_items[i];
+    if (*this != stack) {
+        bool equal = false;
+        if (this->size != stack.size) {
+            delete[] this->src;
+            delete[] this->min_items;
+        } else
+            equal = true;
+        init(stack, equal);
     }
 }
 
