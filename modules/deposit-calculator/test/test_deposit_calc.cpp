@@ -60,7 +60,7 @@ TEST(DepositCalculatorTest, Is_Interest_Charges_Calculation_Right) {
     DepositCalc dep(700000, 30, 15);
     dep.calc();
     // Assert
-    EXPECT_EQ( _interestCharges, dep.getInterestCharges());
+    EXPECT_EQ(_interestCharges, dep.getInterestCharges());
 }
 
 TEST(DepositCalculatorTest, Can_Throw_Exception_If_Zero_Period) {

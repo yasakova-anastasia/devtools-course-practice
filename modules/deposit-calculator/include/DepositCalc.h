@@ -2,10 +2,10 @@
 
 #ifndef MODULES_DEPOSIT_CALCULATOR_INCLUDE_DEPOSITCALC_H_
 #define MODULES_DEPOSIT_CALCULATOR_INCLUDE_DEPOSITCALC_H_
-
+extern const unsigned int max_period_days;
 class DepositCalc {
     int depositAmount;
-    int period;
+    unsigned int period;
     int rate;
     int depositWithRate;
     int interestCharges;
