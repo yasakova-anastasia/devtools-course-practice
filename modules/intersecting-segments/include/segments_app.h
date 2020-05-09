@@ -4,6 +4,10 @@
 #define MODULES_INTERSECTING_SEGMENTS_INCLUDE_SEGMENTS_APP_H_
 
 #include <string>
+#include <utility>
+#include <vector>
+
+using dd = std::pair<double, double>;
 
 class Segment_app {
  public:
@@ -12,18 +16,14 @@ class Segment_app {
 
  private:
   void help(const char* appname, const char* message = "");
-  std::string message_;
   bool validateNumberOfArguments(int argc, const char** argv);
-  typedef struct {
-    double x11;
-    double y11;
-    double x12;
-    double y12;
-    double x21;
-    double y21;
-    double x22;
-    double y22;
-  } Arguments;
+
+  void calculateTriangleArea();
+  void relationPoint();
+  void segmentIntersection();
+
+  std::string message;
+  std::vector<dd> coord;
 };
 
 #endif  // MODULES_INTERSECTING_SEGMENTS_INCLUDE_SEGMENTS_APP_H_

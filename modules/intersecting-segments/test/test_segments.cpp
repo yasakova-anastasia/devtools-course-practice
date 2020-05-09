@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 
+#include <utility>
+
 #include "include/segments.h"
 
 TEST(Segment, can_create_segment) {
@@ -9,12 +11,21 @@ TEST(Segment, can_create_segment) {
   ASSERT_NO_THROW(Segment(1, 2, 3, 4));
 }
 
+TEST(Segment, can_create_segment_used_pair) {
+  // Arrange 
+  std::pair<double, double> coord_1 = std::make_pair(1, 2);
+  std::pair<double, double> coord_2 = std::make_pair(3, 4);
+
+  // Act & Assert
+  ASSERT_NO_THROW(Segment(coord_1, coord_2));
+}
+
 TEST(Segment, area_correctness) {
   // Arrange
   Segment A(2, 7, 10, 3);
 
   // Act & Assert
-  ASSERT_EQ(24, abs(A.area(8, 7)));
+  ASSERT_EQ(12, abs(A.area(8, 7)));
 }
 
 TEST(Segment, area_sign) {
@@ -40,7 +51,7 @@ TEST(Segment, intersection_true) {
   Segment B(8, 7, 5, 2);
 
   // Act & Assert
-  ASSERT_EQ(1, A.isIntersect(&B));
+  ASSERT_EQ(1, A.isIntersect(B));
 }
 
 TEST(Segment, intersection_false) {
@@ -49,7 +60,7 @@ TEST(Segment, intersection_false) {
   Segment B(8, 7, 10, 3);
 
   // Act & Assert
-  ASSERT_EQ(0, A.isIntersect(&B));
+  ASSERT_EQ(0, A.isIntersect(B));
 }
 
 TEST(Segment, same_line_intersection_true) {
@@ -58,7 +69,7 @@ TEST(Segment, same_line_intersection_true) {
   Segment B(3, 7, 2, 4);
 
   // Act & Assert
-  ASSERT_EQ(1, A.isIntersect(&B));
+  ASSERT_EQ(1, A.isIntersect(B));
 }
 
 TEST(Segment, same_line_intersection_false) {
@@ -67,7 +78,7 @@ TEST(Segment, same_line_intersection_false) {
   Segment B(3, 7, 4, 10);
 
   // Act & Assert
-  ASSERT_EQ(0, A.isIntersect(&B));
+  ASSERT_EQ(0, A.isIntersect(B));
 }
 
 TEST(Segment, commutativity) {
@@ -76,5 +87,5 @@ TEST(Segment, commutativity) {
   Segment B(3, 9, 1, 1);
 
   // Act & Assert
-  ASSERT_EQ(A.isIntersect(&B), B.isIntersect(&A));
+  ASSERT_EQ(A.isIntersect(B), B.isIntersect(A));
 }
