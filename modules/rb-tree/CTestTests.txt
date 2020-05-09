@@ -70,7 +70,7 @@ add_test(
     COMMAND ${APPLICATION} remove 1
 )
 
-set_tests_properties (${prefix}_can_Remove_Element PROPERTIES
+set_tests_properties (${prefix}_cant_Remove_Not_Existing_Elem PROPERTIES
     PASS_REGULAR_EXPRESSION "(No that data in tree)"
     LABELS "${MODULE}")
 
