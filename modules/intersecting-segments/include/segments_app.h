@@ -8,7 +8,7 @@
 #include <vector>
 
 class Segment_app {
-  using Arguments = struct { std::vector<std::pair<double, double>> coord; };
+  using vector = std::vector<std::pair<double, double>>;
 
  public:
   Segment_app();
@@ -18,9 +18,9 @@ class Segment_app {
   void help(const char* appname, const char* message = "");
   bool validateNumberOfArguments(int argc, const char** argv);
 
-  std::string calculateTriangleArea(const Arguments args) const;
-  std::string relationPoint(const Arguments args) const;
-  std::string segmentIntersection(const Arguments args) const;
+  std::string calculateTriangleArea(const vector args) const;
+  std::string relationPoint(const vector args) const;
+  std::string segmentIntersection(const vector args) const;
 
   std::string message;
 };

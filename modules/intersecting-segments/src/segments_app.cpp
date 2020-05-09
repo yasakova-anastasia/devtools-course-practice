@@ -60,13 +60,13 @@ std::string Segment_app::operator()(int argc, const char** argv) {
     return message;
   }
 
-  Arguments args;
+  vector args;
 
   try {
     std::pair<double, double> temp_pair;
     for (int i = 2; i < argc; i += 2) {
       temp_pair = std::make_pair(std::stod(argv[i]), std::stod(argv[i + 1]));
-      args.coord.push_back(temp_pair);
+      args.push_back(temp_pair);
     }
   } catch (std::string& str) {
     return str;
@@ -93,18 +93,18 @@ std::string Segment_app::operator()(int argc, const char** argv) {
   return message;
 }
 
-std::string Segment_app::calculateTriangleArea(const Arguments args) const {
-  double x = args.coord[0].first;
-  double y = args.coord[0].second;
-  Segment line(args.coord[1], args.coord[2]);
+std::string Segment_app::calculateTriangleArea(const vector args) const {
+  double x = args[0].first;
+  double y = args[0].second;
+  Segment line(args[1], args[2]);
 
   return "Triangle area = " + std::to_string(std::abs(line.area(x, y)));
 }
 
-std::string Segment_app::relationPoint(const Arguments args) const {
-  double x = args.coord[0].first;
-  double y = args.coord[0].second;
-  Segment line(args.coord[1], args.coord[2]);
+std::string Segment_app::relationPoint(const vector args) const {
+  double x = args[0].first;
+  double y = args[0].second;
+  Segment line(args[1], args[2]);
 
   double area = line.area(x, y);
   if (area < 0)
@@ -115,9 +115,9 @@ std::string Segment_app::relationPoint(const Arguments args) const {
     return "Point on the vector.";
 }
 
-std::string Segment_app::segmentIntersection(const Arguments args) const {
-  Segment line_1(args.coord[0], args.coord[1]);
-  Segment line_2(args.coord[2], args.coord[3]);
+std::string Segment_app::segmentIntersection(const vector args) const {
+  Segment line_1(args[0], args[1]);
+  Segment line_2(args[2], args[3]);
 
   if (line_1.isIntersect(line_2))
     return "Segments do intersect";
