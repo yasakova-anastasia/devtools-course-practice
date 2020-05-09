@@ -7,10 +7,8 @@
 #include <utility>
 #include <vector>
 
-using pair = std::pair<double, double>;
-
 class Segment_app {
-  using Arguments = struct { std::vector<pair> coord; };
+  using Arguments = struct { std::vector<std::pair<double, double>> coord; };
 
  public:
   Segment_app();
