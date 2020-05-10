@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <string>
-#include "../include/triangle_param.h"
 #include "../include/triangle_param_calculator.h"
 
 int main(int argc, const char** argv) {

@@ -1,7 +1,6 @@
 // Copyright 2020 Kudryashov Nikita
 
 #include <string>
-#include <cstring>
 #include <vector>
 #include <utility>
 #include "../include/triangle_param.h"
@@ -30,142 +29,206 @@ std::string TriangleParamCalculator::help() {
     syntax += "LengthAB CornerA";
     return syntax;
 }
+
 std::vector<std::string> TriangleParamCalculator::
-        parseRequests(int argc, const char** argv) {
-    unsigned int size = argc - 10;
+        parseData(int argc, const char** argv) {
+    unsigned int size = argc - 1;
     std::vector<std::string> res(size);
     for (unsigned int i = 0; i < res.size(); ++i) {
-        if (strcmp(argv[10 + i], "LengthAB") != 0 &&
-            strcmp(argv[10 + i], "LengthBC") != 0 &&
-            strcmp(argv[10 + i], "LengthAC") != 0 &&
-            strcmp(argv[10 + i], "CornerA") != 0 &&
-            strcmp(argv[10 + i], "CornerB") != 0 &&
-            strcmp(argv[10 + i], "CornerC") != 0 &&
-            strcmp(argv[10 + i], "Perimeter") != 0 &&
-            strcmp(argv[10 + i], "Square") != 0 &&
-            strcmp(argv[10 + i], "All") != 0) {
-                throw std::string
-                    ("Wrong requests arguments. Please, follow the syntax.\n");
-            } else {
-                res[i] = argv[10 + i];
-            }
+        res[i] = argv[i + 1];
     }
 
     return res;
 }
 
-Triangle TriangleParamCalculator::
-        parseTriangleData(int argc, const char** argv) {
-    std::string temp;
+bool TriangleParamCalculator::
+        isTopNamesValid(const std::vector<std::string> &data) {
+    return (data[0] == "A" && data[3] == "B" && data[6] == "C");
+}
+
+bool TriangleParamCalculator::
+        isNumberTypeRight(const std::vector<std::string> &data) {
     std::pair<double, double> a, b, c;
-    if (strcmp(argv[1], "A") != 0 &&
-        strcmp(argv[4], "B") != 0 &&
-        strcmp(argv[7], "C") != 0) {
-        throw std::string
-            ("Wrong top names arguments. Please, follow the syntax.\n");
-    }
     try {
-        // A set
-        temp = argv[2];
-        a.first = stod(temp);
+        // A point.
+        a.first = std::stod(data[1]);
+        a.second = std::stod(data[2]);
 
-        temp = argv[3];
-        a.second = stod(temp);
+        // B point.
+        b.first = std::stod(data[4]);
+        b.second = std::stod(data[5]);
 
-        // B set
-        temp = argv[5];
-        b.first = stod(temp);
+        // C point.
+        c.first = std::stod(data[7]);
+        c.second = std::stod(data[8]);
+    } catch(...) {
+        return false;
+    }
 
-        temp = argv[6];
-        b.second = stod(temp);
+    return true;
+}
 
-        // C set
-        temp = argv[8];
-        c.first = stod(temp);
+bool TriangleParamCalculator::
+        isRequestsValid(const std::vector<std::string> &data) {
+    for (unsigned int i = 9; i < data.size(); ++i) {
+        if (data[i] != "LengthAB" &&
+            data[i] != "LengthBC" &&
+            data[i] != "LengthAC" &&
+            data[i] != "CornerA" &&
+            data[i] != "CornerB" &&
+            data[i] != "CornerC" &&
+            data[i] != "Perimeter" &&
+            data[i] != "Square" &&
+            data[i] != "All") {
+                return false;
+        }
+    }
 
-        temp = argv[9];
-        c.second = stod(temp);
+    return true;
+}
 
-        return Triangle(a, b, c);
-    } catch(const int e) {
-        throw std::string
-            ("Three of your points are in the same line\n.");
-    } catch (...) {
-        throw std::string
-            ("Wrong number type arguments. Please, follow the syntax.\n");
+bool TriangleParamCalculator::
+        canCreateTriangle(const std::vector<std::string> &data) {
+    std::pair<double, double> a, b, c;
+    // A point.
+    a.first = std::stod(data[1]);
+    a.second = std::stod(data[2]);
+
+    // B point.
+    b.first = std::stod(data[4]);
+    b.second = std::stod(data[5]);
+
+    // C point.
+    c.first = std::stod(data[7]);
+    c.second = std::stod(data[8]);
+
+    try {
+        Triangle tr(a, b, c);
+    } catch (const int e) {
+        return false;
+    }
+
+    return true;
+}
+
+std::string TriangleParamCalculator::
+        isDataValid(const std::vector<std::string> &data) {
+    if (!isTopNamesValid(data)) {
+        return
+            "Wrong top names arguments. Please, follow the syntax.\n";
+    }
+
+    if (!isNumberTypeRight(data)) {
+        return
+            "Wrong number type arguments. Please, follow the syntax.\n";
+    }
+
+    if (!canCreateTriangle(data)) {
+        return
+           "Three of your points are in the same line\n.";
+    }
+
+    if (!isRequestsValid(data)) {
+       return
+           "Wrong requests arguments. Please, follow the syntax.\n";
+    }
+
+    return "Correct.";
+}
+
+std::string TriangleParamCalculator::
+        doRequest(Triangle t, std::string req) {
+    if (req == "LengthAB") {
+        return (std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
+    }
+
+    if (req == "LengthBC") {
+        return(std::to_string(t.side(t.getTopB(), t.getTopC())) + "\n");
+    }
+
+    if (req == "LengthAC") {
+        return (std::to_string(t.side(t.getTopA(), t.getTopC())) + "\n");
+    }
+
+    if (req == "CornerA") {
+        return (std::to_string(t.cornA()) + "\n");
+    }
+
+    if (req == "CornerB") {
+        return (std::to_string(t.cornB()) + "\n");
+    }
+
+    if (req == "CornerC") {
+        return (std::to_string(t.cornC()) + "\n");
+    }
+
+    if (req == "Perimeter") {
+        return (std::to_string(t.perimetr()) + "\n");
+    }
+
+    if (req == "Square") {
+        return (std::to_string(t.square()) + "\n");
+    }
+
+    if (req == "All") {
+        std::string allAns;
+        allAns += ("LengthAB = "
+            + std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
+        allAns += ("LengthBC = "
+            + std::to_string(t.side(t.getTopB(), t.getTopC())) + "\n");
+        allAns += ("LengthAC = "
+            + std::to_string(t.side(t.getTopA(), t.getTopC())) + "\n");
+        allAns += ("CornerA = " + std::to_string(t.cornA()) + "\n");
+        allAns += ("CornerB = " + std::to_string(t.cornB()) + "\n");
+        allAns += ("CornerC = " + std::to_string(t.cornC()) + "\n");
+        allAns += ("Perimeter = " + std::to_string(t.perimetr()) + "\n");
+        allAns += ("Square = " + std::to_string(t.square()) + "\n");
+        return allAns;
     }
 }
 
-std::string TriangleParamCalculator::calculate(int argc, const char** argv) {
-    Triangle t;
-    std::vector<std::string> requests;
-    std::string answer;
+std::string TriangleParamCalculator::
+        calculate(int argc, const char** argv) {
+    std::string answer, valid;
+    std::vector<std::string> data;
 
     if (argc < 9) {
         return help();
     }
 
-    try {
-        t = parseTriangleData(argc, argv);
-        requests = parseRequests(argc, argv);
-    } catch (std::string &err) {
-        return err;
+    data = parseData(argc, argv);
+
+    valid  = isDataValid(data);
+    if (valid != "Correct.") {
+        return valid;
+    } else {
+        std::pair<double, double> a, b , c;
+        // Create triangle.
+
+        // A point.
+        a.first = std::stod(data[1]);
+        a.second = std::stod(data[2]);
+
+        // B point.
+        b.first = std::stod(data[4]);
+        b.second = std::stod(data[5]);
+
+        // C point.
+        c.first = std::stod(data[7]);
+        c.second = std::stod(data[8]);
+
+        Triangle t(a, b, c);
+        answer += "Requested calculations:\n";
+        for (unsigned int i = 9; i < data.size(); ++i) {
+            if (data[i] != "All") {
+                answer += (std::to_string(i - 8) + ". " + data[i] + " = ");
+            } else {
+                answer += (std::to_string(i - 8) + ". " + data[i] + "\n");
+            }
+
+            answer += doRequest(t, data[i]);
+        }
+
+        return answer;
     }
-
-    answer += "Requested calculations:\n";
-    for (unsigned int i = 0; i < requests.size(); ++i) {
-        if (requests[i] != std::string("All")) {
-            answer += (std::to_string(i + 1) + ". " + requests[i] + " = ");
-        } else {
-            answer += (std::to_string(i + 1) + ". " + requests[i] + "\n");
-        }
-
-        if (requests[i] == std::string("LengthAB")) {
-            answer += (std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
-        }
-
-        if (requests[i] == std::string("LengthBC")) {
-            answer += (std::to_string(t.side(t.getTopB(), t.getTopC())) + "\n");
-        }
-
-        if (requests[i] == std::string("LengthAC")) {
-            answer += (std::to_string(t.side(t.getTopA(), t.getTopC())) + "\n");
-        }
-
-        if (requests[i] == std::string("CornerA")) {
-            answer += (std::to_string(t.cornA()) + "\n");
-        }
-
-        if (requests[i] == std::string("CornerB")) {
-            answer += (std::to_string(t.cornB()) + "\n");
-        }
-
-        if (requests[i] == std::string("CornerC")) {
-            answer += (std::to_string(t.cornC()) + "\n");
-        }
-
-        if (requests[i] == std::string("Perimeter")) {
-            answer += (std::to_string(t.perimetr()) + "\n");
-        }
-
-        if (requests[i] == std::string("Square")) {
-            answer += (std::to_string(t.square()) + "\n");
-        }
-
-        if (requests[i] == std::string("All")) {
-            answer += ("LengthAB = "
-                + std::to_string(t.side(t.getTopA(), t.getTopB())) + "\n");
-            answer += ("LengthBC = "
-                + std::to_string(t.side(t.getTopB(), t.getTopC())) + "\n");
-            answer += ("LengthAC = "
-                + std::to_string(t.side(t.getTopA(), t.getTopC())) + "\n");
-            answer += ("CornerA = " + std::to_string(t.cornA()) + "\n");
-            answer += ("CornerB = " + std::to_string(t.cornB()) + "\n");
-            answer += ("CornerC = " + std::to_string(t.cornC()) + "\n");
-            answer += ("Perimeter = " + std::to_string(t.perimetr()) + "\n");
-            answer += ("Square = " + std::to_string(t.square()) + "\n");
-        }
-    }
-
-    return answer;
 }
