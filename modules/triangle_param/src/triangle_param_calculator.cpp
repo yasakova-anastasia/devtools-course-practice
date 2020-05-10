@@ -185,6 +185,8 @@ std::string TriangleParamCalculator::
         allAns += ("Square = " + std::to_string(t.square()) + "\n");
         return allAns;
     }
+
+    return "Non existing request.";
 }
 
 std::string TriangleParamCalculator::
