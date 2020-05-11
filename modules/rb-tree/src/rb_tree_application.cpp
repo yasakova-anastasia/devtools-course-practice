@@ -1,6 +1,5 @@
 // Copyright 2020 Isaev Ilya
 
-#include <cstring>
 #include <stdexcept>
 #include <vector>
 #include <string>
