@@ -5,6 +5,7 @@
 #include <string>
 #include <sstream>
 #include "include/rb_tree_application.h"
+#include "include/rb_operation.h"
 
 std::string RBTreeApp::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
@@ -12,8 +13,13 @@ std::string RBTreeApp::operator()(int argc, const char** argv) {
     }
     try {
         for (int i = 1; i < argc;) {
-            int offset = parseOperation(argv+i);
-            i += offset;
+            RBOperation* op = RBOperation::makeOperation(*(argv+i));
+            std::vector<int> args;
+            for (int j = 1; j < op->getArgc(); ++j)
+                args.push_back(parseToValue(*(argv+i+1)));
+            _sstream << op->operator()(_rb, args);
+            i += op->getArgc();
+            delete op;
         }
         return _sstream.str();
     } catch(std::exception& exc) {
@@ -40,59 +46,22 @@ bool RBTreeApp::validateNumberOfArguments(int argc, const char** argv) {
     return true;
 }
 
-int RBTreeApp::parseToValue(const char* strval) {
-    auto n = static_cast<int>(std::strlen(strval));
+int RBTreeApp::parseToValue(std::string strval) {
+    // auto n = static_cast<int>(std::strlen(strval));
 
-    if ((strval[0] != '-' && !std::isdigit(strval[0])) ||
-        (strval[0] == '-' && n == 1))
-        throw std::invalid_argument("Invalid value: " + std::string(strval));
+    // if ((strval[0] != '-' && !std::isdigit(strval[0])) ||
+    //     (strval[0] == '-' && n == 1))
+    //     throw std::invalid_argument("Invalid value: " + std::string(strval));
 
-    for (int i = 1; i < n; i++) {
+    for (size_t i = 1; i < strval.size(); ++i) {
         if (!std::isdigit(strval[i]))
             throw
                 std::invalid_argument("Invalid value: " + std::string(strval));
     }
-    return std::atoi(strval);
-}
-
-int RBTreeApp::parseOperation(const char** ops) {
-    if (std::strcmp(ops[0], "insert") == 0) {
-        _rb.insert(new Node{parseToValue(ops[1])});
-
-        return 2;
+    try {
+        auto value = std::stoi(strval);
+        return value;
+    } catch(...) {
+        throw std::invalid_argument("Invalid value: " + strval);
     }
-    if (std::strcmp(ops[0], "find") == 0) {
-        auto value = parseToValue(ops[1]);
-        auto found = _rb.find(value);
-        if (!isNIL(found)) {
-            _sstream << "(" << value << " is found) ";
-        } else {
-            _sstream << "(" << value << " is not found) ";
-        }
-        return 2;
-    }
-    if (std::strcmp(ops[0], "remove") == 0) {
-        try {
-            _rb.remove(parseToValue(ops[1]));
-        } catch(const char* ex) {
-            _sstream << "(" << ex << ")";
-        }
-
-        return 2;
-    }
-    if (std::strcmp(ops[0], "getRoot") == 0) {
-        auto root = _rb.getRoot();
-        if (!isNIL(root))
-            _sstream << "(Root value: " << root->data << ")";
-        else
-            _sstream << "(Tree is empty)";
-        return 1;
-    }
-    throw std::invalid_argument("Bad arguments!");
-    return 0;
-}
-
-int RBTreeApp::isNIL(Node* node) {
-    return node->color == Color::black &&
-        node->right == nullptr && node->left == nullptr;
 }
