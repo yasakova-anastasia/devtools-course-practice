@@ -3,7 +3,6 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include <string>
-#include <iostream>
 
 #include "include/rb_tree_application.h"
 
