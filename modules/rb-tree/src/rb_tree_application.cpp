@@ -2,6 +2,7 @@
 
 #include <cstring>
 #include <stdexcept>
+#include <vector>
 #include <string>
 #include <sstream>
 #include "include/rb_tree_application.h"
