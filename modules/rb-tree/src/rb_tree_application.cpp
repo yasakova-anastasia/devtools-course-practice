@@ -17,7 +17,7 @@ std::string RBTreeApp::operator()(int argc, const char** argv) {
             std::vector<int> args;
             for (int j = 1; j < op->getArgc(); ++j)
                 args.push_back(parseToValue(*(argv+i+1)));
-            _sstream << op->operator()(_rb, args);
+            _sstream << op->operator()(&_rb, args);
             i += op->getArgc();
             delete op;
         }
