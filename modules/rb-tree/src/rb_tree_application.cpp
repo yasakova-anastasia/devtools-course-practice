@@ -47,12 +47,6 @@ bool RBTreeApp::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 int RBTreeApp::parseToValue(std::string strval) {
-    // auto n = static_cast<int>(std::strlen(strval));
-
-    // if ((strval[0] != '-' && !std::isdigit(strval[0])) ||
-    //     (strval[0] == '-' && n == 1))
-    //     throw std::invalid_argument("Invalid value: " + std::string(strval));
-
     for (size_t i = 1; i < strval.size(); ++i) {
         if (!std::isdigit(strval[i]))
             throw
