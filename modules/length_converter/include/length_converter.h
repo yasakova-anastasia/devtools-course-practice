@@ -8,7 +8,8 @@ class LengthConverter {
     bool side;
  public:
     LengthConverter() : curr(0), side(false) {}
-    LengthConverter(double currency, bool amount) : curr(currency), side(amount) {}
+    LengthConverter(double currency, bool amount) 
+        : curr(currency), side(amount) {}
     double m_kmeter(const double& curr, bool side);
     double m_smeter(const double& curr, bool side);
     double m_mile(const double& curr, bool side);
