@@ -5,10 +5,18 @@
 
 #include <string>
 #include <vector>
+#include <utility>
 #include "../include/triangle_param.h"
+
+struct Arguments {
+        std::vector<std::string> names_top;
+        std::vector<std::string> operations;
+        std::vector<std::pair<double, double>> tops;
+};
 
 class TriangleParamCalculator {
  private:
+    Arguments arg;
     // Return user's data.
     std::vector<std::string> parseData(int argc, const char** argv);
 
@@ -25,7 +33,7 @@ class TriangleParamCalculator {
     bool canCreateTriangle(const std::vector<std::string> &data);
 
     // Return message whether user's data is valid or not.
-    std::string isDataValid(const std::vector<std::string> &data);
+    void isDataValid(const std::vector<std::string> &data);
 
     // Return the answer to user's request.
     std::string doRequest(Triangle t, std::string req);

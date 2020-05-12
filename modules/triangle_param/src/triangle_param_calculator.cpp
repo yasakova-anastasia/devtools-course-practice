@@ -43,7 +43,15 @@ std::vector<std::string> TriangleParamCalculator::
 
 bool TriangleParamCalculator::
         isTopNamesValid(const std::vector<std::string> &data) {
-    return (data[0] == "A" && data[3] == "B" && data[6] == "C");
+    if (data[0] == "A" && data[3] == "B" && data[6] == "C") {
+        arg.names_top.push_back("A");
+        arg.names_top.push_back("B");
+        arg.names_top.push_back("C");
+
+        return true;
+    } else {
+        return false;
+    }
 }
 
 bool TriangleParamCalculator::
@@ -61,6 +69,10 @@ bool TriangleParamCalculator::
         // C point.
         c.first = std::stod(data[7]);
         c.second = std::stod(data[8]);
+
+        arg.tops.push_back(a);
+        arg.tops.push_back(b);
+        arg.tops.push_back(c);
     } catch(...) {
         return false;
     }
@@ -81,6 +93,8 @@ bool TriangleParamCalculator::
             data[i] != "Square" &&
             data[i] != "All") {
                 return false;
+        } else {
+            arg.operations.push_back(data[i]);
         }
     }
 
@@ -89,21 +103,8 @@ bool TriangleParamCalculator::
 
 bool TriangleParamCalculator::
         canCreateTriangle(const std::vector<std::string> &data) {
-    std::pair<double, double> a, b, c;
-    // A point.
-    a.first = std::stod(data[1]);
-    a.second = std::stod(data[2]);
-
-    // B point.
-    b.first = std::stod(data[4]);
-    b.second = std::stod(data[5]);
-
-    // C point.
-    c.first = std::stod(data[7]);
-    c.second = std::stod(data[8]);
-
     try {
-        Triangle tr(a, b, c);
+        Triangle tr(arg.tops[0], arg.tops[1], arg.tops[2]);
     } catch (const int e) {
         return false;
     }
@@ -111,29 +112,27 @@ bool TriangleParamCalculator::
     return true;
 }
 
-std::string TriangleParamCalculator::
+void TriangleParamCalculator::
         isDataValid(const std::vector<std::string> &data) {
     if (!isTopNamesValid(data)) {
-        return
-            "Wrong top names arguments. Please, follow the syntax.\n";
+        throw std::string
+            ("Wrong top names arguments. Please, follow the syntax.\n");
     }
 
     if (!isNumberTypeRight(data)) {
-        return
-            "Wrong number type arguments. Please, follow the syntax.\n";
+        throw std::string
+            ("Wrong number type arguments. Please, follow the syntax.\n");
     }
 
     if (!canCreateTriangle(data)) {
-        return
-           "Three of your points are in the same line\n.";
+        throw std::string
+            ("Three of your points are in the same line\n.");
     }
 
     if (!isRequestsValid(data)) {
-       return
-           "Wrong requests arguments. Please, follow the syntax.\n";
+       throw std::string
+            ("Wrong requests arguments. Please, follow the syntax.\n");
     }
-
-    return "Correct.";
 }
 
 std::string TriangleParamCalculator::
@@ -200,37 +199,24 @@ std::string TriangleParamCalculator::
 
     data = parseData(argc, argv);
 
-    valid  = isDataValid(data);
-    if (valid != "Correct.") {
-        return valid;
-    } else {
-        std::pair<double, double> a, b , c;
-        // Create triangle.
+    try {
+        isDataValid(data);
+    } catch(std::string &err) {
+        return err;
+    }
 
-        // A point.
-        a.first = std::stod(data[1]);
-        a.second = std::stod(data[2]);
-
-        // B point.
-        b.first = std::stod(data[4]);
-        b.second = std::stod(data[5]);
-
-        // C point.
-        c.first = std::stod(data[7]);
-        c.second = std::stod(data[8]);
-
-        Triangle t(a, b, c);
-        answer += "Requested calculations:\n";
-        for (unsigned int i = 9; i < data.size(); ++i) {
-            if (data[i] != "All") {
-                answer += (std::to_string(i - 8) + ". " + data[i] + " = ");
-            } else {
-                answer += (std::to_string(i - 8) + ". " + data[i] + "\n");
-            }
-
-            answer += doRequest(t, data[i]);
+    Triangle t(arg.tops[0], arg.tops[1], arg.tops[2]);
+    answer += "Requested calculations:\n";
+    for (unsigned int i = 9; i < data.size(); ++i) {
+        if (data[i] != "All") {
+            answer += (std::to_string(i - 8) + ". " + data[i] + " = ");
+        } else {
+            answer += (std::to_string(i - 8) + ". " + data[i] + "\n");
         }
 
-        return answer;
+        answer += doRequest(t, data[i]);
     }
+
+    return answer;
 }
+
