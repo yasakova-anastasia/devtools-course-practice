@@ -190,7 +190,7 @@ std::string TriangleParamCalculator::
 
 std::string TriangleParamCalculator::
         calculate(int argc, const char** argv) {
-    std::string answer, valid;
+    std::string answer;
     std::vector<std::string> data;
 
     if (argc < 9) {
