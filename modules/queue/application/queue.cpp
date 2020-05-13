@@ -1,7 +1,8 @@
 // Copyright 2020 Yasakova Anastasia
 
-#include "include/queue_application.h"
 #include <iostream>
+#include <string>
+#include "include/queue_application.h"
 
 int main(int argc, const char** argv) {
     QueueApp app;

@@ -20,7 +20,7 @@ std::string QueueApp::operator()(int argc, const char** argv) {
             }
             if (op == "topElement") {
                 check = 2;
-			    _sstream << "TopElem = " << queue.TopElem() << ", ";
+                _sstream << "TopElem = " << queue.TopElem() << ", ";
             }
             if (op == "putElement") {
                 check = 3;
@@ -49,7 +49,7 @@ std::string QueueApp::help(const char* appname, const char* message) {
         "  $ " + appname + " <actions> \n\n" +
         "Where <actions> are: \n\n" +
         "getElement - get front element from queue\n" +
-     	"topElement - access to front element from queue\n" +
+        "topElement - access to front element from queue\n" +
         "putElement <data> - insert element into queue\n" +
         "getCount - get number of elements in queue\n ";
 }

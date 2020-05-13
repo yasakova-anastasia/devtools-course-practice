@@ -1,5 +1,6 @@
 // Copyright 2020 Sinitsina Maria
 
+#include <string>
 #include "include/queue.h"
 
 Queue::Queue(int s) {
