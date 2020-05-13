@@ -37,7 +37,7 @@ std::string QueueApp::operator()(int argc, const char** argv) {
                 ++i;
         }
         return _sstream.str();
-    } catch(std::string str) {
+    } catch(std::string& str) {
         return str;
     }
 }
