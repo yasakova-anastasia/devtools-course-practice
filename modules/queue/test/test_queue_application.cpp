@@ -92,7 +92,7 @@ TEST_F(QueueAppTest, Get_Count) {
 
 TEST_F(QueueAppTest, Get_Elem) {
     std::vector<std::string> args = { "putElement", "1",
-        "putElement", "2", "putElement", "3","getElement", "getCount"};
+        "putElement", "2", "putElement", "3", "getElement", "getCount"};
 
     Act(args);
 
