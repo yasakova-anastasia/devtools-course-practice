@@ -63,7 +63,7 @@ bool QueueApp::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 int QueueApp::ParseValue(std::string data) {
-    int j = 0;
+    int unsigned j = 0;
     int sign = 1;
     int number = 0;
     while (j != data.size()) {
