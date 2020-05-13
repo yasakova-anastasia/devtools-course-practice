@@ -21,8 +21,20 @@ Queue::Queue(const Queue &q) {
     pq_ = q.pq_;
 }
 
-void Queue::Put(int val) {
+bool Queue::IsEmpty() const {
+    if (count_ == 0)
+        return true;
+    return false;
+}
+
+bool Queue::IsFull() const {
     if (count_ == size_)
+        return true;
+    return false;
+}
+
+void Queue::Put(int val) {
+    if (IsFull())
         throw std::string("No space");
     tail_ = GetNextIndex(tail_);
     pq_.at(tail_) = val;
@@ -30,7 +42,7 @@ void Queue::Put(int val) {
 }
 
 int Queue::Get() {
-    if (count_ == 0)
+    if (IsEmpty())
         throw std::string("Queue is empty");
     head_ = GetNextIndex(head_);
     count_--;

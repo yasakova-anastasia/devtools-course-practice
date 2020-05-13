@@ -20,6 +20,8 @@ class Queue {
     explicit Queue(int s = 10);
     Queue(const Queue &q);
 
+    bool IsEmpty() const;
+    bool IsFull() const;
     void Put(int val);
     int Get();
     int TopElem() const;
