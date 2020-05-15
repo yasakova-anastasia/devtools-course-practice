@@ -60,8 +60,6 @@ bool QueueApp::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 int QueueApp::ParseValue(const std::string& data) {
-    int unsigned j = 0;
-    int sign = 1;
     int number = 0;
     try {
         number = std::stoi(data);
