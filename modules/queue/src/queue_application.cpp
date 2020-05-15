@@ -17,24 +17,21 @@ std::string QueueApp::operator()(int argc, const char** argv) {
             if (op == "getElement") {
                 check = 1;
                 _sstream << "GetElem = " << queue.Get() << ", ";
-            }
-            if (op == "topElement") {
+            } else if (op == "topElement") {
                 check = 2;
                 _sstream << "TopElem = " << queue.TopElem() << ", ";
-            }
-            if (op == "putElement") {
+            } else if (op == "putElement") {
                 check = 3;
                 queue.Put(ParseValue(*(argv + i + 1)));
-            }
-            if (op == "getCount") {
+            } else if (op == "getCount") {
                 check = 4;
                 _sstream << "Number of Elements = " << queue.GetCount();
             }
             if (check == 0)
                 throw std::string("Bad arguments!");
-            ++i;
-            if (check == 3)
+            else if (check == 3)
                 ++i;
+            ++i;
         }
         return _sstream.str();
     } catch(std::string& str) {
@@ -62,19 +59,14 @@ bool QueueApp::validateNumberOfArguments(int argc, const char** argv) {
     return true;
 }
 
-int QueueApp::ParseValue(std::string data) {
+int QueueApp::ParseValue(const std::string& data) {
     int unsigned j = 0;
     int sign = 1;
     int number = 0;
-    while (j != data.size()) {
-        if (!std::isdigit(data[j]) && data[j] != '-')
-            throw std::string("Invalid value: " + std::string(data));
-        if (j == 0 && data[j] == '-')
-            sign = -1;
-        else
-            number = number * 10 + data[j] - 48;
-        ++j;
+    try {
+        number = std::stoi(data);
+    } catch (const std::exception & e) {
+        throw std::string("Invalid value: " + std::string(data));
     }
-    number *= sign;
     return number;
 }

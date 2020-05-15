@@ -58,15 +58,6 @@ set_tests_properties (${prefix}_add_Wrong_Elem PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_add_Wrong_Elem2
-    COMMAND ${APPLICATION} putElement -12ghk
-)
-
-set_tests_properties (${prefix}_add_Wrong_Elem2 PROPERTIES
-    PASS_REGULAR_EXPRESSION "Invalid value: -12ghk"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_get_Count
     COMMAND ${APPLICATION} putElement 1 putElement 2 putElement 3 putElement 4 putElement 5 getCount
 )
@@ -101,4 +92,13 @@ add_test(
 
 set_tests_properties (${prefix}_top_Not_Existing_Elem PROPERTIES
     PASS_REGULAR_EXPRESSION "Queue is empty"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_put_Into_Full_Queue
+    COMMAND ${APPLICATION} putElement 1 putElement 2 putElement 3 putElement 4 putElement 5 putElement 6 putElement 7 putElement 8 putElement 9 putElement 10 putElement 11 
+)
+
+set_tests_properties (${prefix}_put_Into_Full_Queue PROPERTIES
+    PASS_REGULAR_EXPRESSION "No space"
     LABELS "${MODULE}")

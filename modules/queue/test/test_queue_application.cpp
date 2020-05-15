@@ -72,14 +72,6 @@ TEST_F(QueueAppTest, Add_Wrong_Elem) {
     Assert("Invalid value: k");
 }
 
-TEST_F(QueueAppTest, Add_Wrong_Elem2) {
-    std::vector<std::string> args = { "putElement", "-12ghk" };
-
-    Act(args);
-
-    Assert("Invalid value: -12ghk");
-}
-
 TEST_F(QueueAppTest, Get_Count) {
     std::vector<std::string> args = { "putElement", "1",
         "putElement", "2", "putElement", "3",
@@ -113,4 +105,15 @@ TEST_F(QueueAppTest, Top_Not_Existing_Elem) {
     Act(args);
 
     Assert("Queue is empty");
+}
+
+TEST_F(QueueAppTest, Put_Into_Full_Queue) {
+    std::vector<std::string> args = { "putElement", "1",  "putElement", "2",
+        "putElement", "3", "putElement", "4", "putElement", "5",
+        "putElement", "6", "putElement", "7", "putElement", "8",
+        "putElement", "9", "putElement", "10", "putElement", "11" };
+
+    Act(args);
+
+    Assert("No");
 }

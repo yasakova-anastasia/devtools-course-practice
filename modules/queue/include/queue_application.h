@@ -14,7 +14,7 @@ class QueueApp {
  private:
     std::string help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
-    int ParseValue(std::string data);
+    int ParseValue(const std::string& data);
     Queue queue;
     std::stringstream _sstream;
 };
