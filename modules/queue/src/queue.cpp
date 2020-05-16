@@ -1,4 +1,4 @@
-// Copyright 2020 Sinitsina Maria
+// Copyright 2020 Sinitsina Maria & Yasakova Anastasia
 
 #include <string>
 #include "include/queue.h"

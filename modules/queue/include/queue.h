@@ -1,4 +1,4 @@
-// Copyright 2020 Sinitsina Maria
+// Copyright 2020 Sinitsina Maria & Yasakova Anastasia
 
 #ifndef MODULES_QUEUE_INCLUDE_QUEUE_H_
 #define MODULES_QUEUE_INCLUDE_QUEUE_H_
